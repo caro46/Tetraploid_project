@@ -5,8 +5,8 @@
 
 ####To untar .tar files
 
-Firstly we have to untar .tar files that are not recognized by fastqc
-For example, within `Sample_BenEvansBJE3652_180bp_Library_untar`:
+<li>Firstly we have to untar .tar files that are not recognized by fastqc.</li>
+<li>For example, within `Sample_BenEvansBJE3652_180bp_Library_untar`:</li>
 
 ```
 tar -xvf /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_BenEvansBJE3652_180bp_Library.tar
