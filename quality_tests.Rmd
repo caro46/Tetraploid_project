@@ -1,0 +1,197 @@
+<span style="background-color:#eee">Tetraploid project: *Xenopus mellotropicalis*</span>
+---------------------
+
+### Testing the quality of the sequences before and after trimming
+
+####To untar .tar files
+
+Firstly we have to untar .tar files that are not recognized by fastqc
+For example, within `Sample_BenEvansBJE3652_180bp_Library_untar`:
+
+```
+tar -xvf /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_BenEvansBJE3652_180bp_Library.tar
+```
+
+####To run Fastqc
+
+For the data from the first lane:
+General command: `fastqc -o name_of_the_output_directory name_of_the_input_files` (on info, fastqc is in the $PATH command, if it is not the case specify the location of fastqc)
+
+```
+fastqc -o /home/evanslab/tetra_project/6kbfatqc /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/BJE3652_6KB_Data_first_lane_untar/Volumes/Promise\ Pegasus/2014_BJE3652_gDNA_seqs/BJE3652_6KB_Data_first_lane/*.fastq.gz*
+
+fastqc -o /home/evanslab/tetra_project/180bpfastqc /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_BenEvansBJE3652_180bp_Library_untar/Sample_BenEvansBJE3652_180bp_Library/*.fastq.gz
+
+fastqc -o /home/evanslab/tetra_project/400bpfastqc /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_BenEvansBJE3652_400bp_Library_untar/Sample_BenEvansBJE3652_400bp_Library/*.fastq.gz
+
+fastqc -o /home/evanslab/tetra_project/6kbfatqc_2ndSeqRun /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_6kb_2nd_Sequencing_Run_untar/Sample_Ben_Evans_BJE3652_6kb_2nd_Sequencing_Run/*.fastq.gz
+```
+
+####To run trimmomatic on all the fastq files
+
+Perl script (to run: `./Run_trimmomatic_on_info.pl`, after making it executable with `chmod +x script_name`in a screen window using `screen -S name_of_the_job`):
+
+```perl
+
+#!/usr/bin/perl                                                                                                                                                                                                                                   
+use warnings;
+use strict;
+
+# This script will read in the *fastq.gz file names in a directory, and          # run trimmomatic on each one.                                                   
+
+my $trimmomatic_path = "/home/evanslab/Trimmomatic-0.32/"
+my $data_path = my $data_path = "/net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/BJE3652_6KB_Data_first_lane_untar/BJE3652_6KB_Data_first_lane/";
+my $status;
+my @files;
+my $commandline;
+my @temp;
+my @pairsR1;
+my @pairsR2;
+my @unique;
+
+@filesR1 = glob($data_path."*R1*fastq.gz");
+@filesR2 = glob($data_path."*R2*fastq.gz");
+
+foreach(@filesR1){
+    @temp=split(".fastq.gz",$_);
+    push(@pairsR1,$temp[0]);
+}
+
+foreach(@filesR2){
+    @temp=split(".fastq.gz",$_);
+    push(@pairsR2,$temp[0]);
+}
+
+# make sure the names are in the same order
+
+@filesR1 = sort @filesR1;
+@filesR2 = sort @filesR2;
+
+my $x;
+my @replace;
+my $on_off_switch=1; # this is a switch to tell trimmomatic to work (1 = on, 0 = off)
+
+if($#filesR1 ne $#filesR2){
+    print "There is a different number of forward and reverse reads\n";
+}
+else{
+    for($x =0; $x <= $#pairsR1; $x ++){
+        ($replace[$x] = $pairsR1[$x]) =~ s/R1/R2/;
+        if($replace[$x] ne $pairsR2[$x]){
+            print "Problem with filenames\n";
+            $on_off_switch = 0;
+        }
+    }
+}
+
+#if the name are the same (compare $pairsR1[$x] and $pairsR2[$x]){           
+
+if($on_off_switch == 1){
+    for($x =0; $x <= $#pairsR1; $x ++){                                          
+        print $pairsR1[$x]," ",$pairsR2[$x],"\n";
+        $commandline = "java -Xmx1G -jar ~/Trimmomatic-0.32/trimmomatic-0.32.jar PE -trimlog ";
+        $commandline = $commandline.$_."_log.txt ".$pairsR1[$x].".fastq.gz ".$pairsR2[$x].".fastq.gz ".$pairsR1[$x]."_trim_paired.fastq.gz ".$pairsR1[$x]."_trim_single.fastq.gz ".$pairsR2[$x]."_trim_paired.fastq.gz ".$pairsR2[$x]."_trim_single.fastq.gz ";
+        $commandline = $commandline."ILLUMINACLIP:~/Trimmomatic-0.32/adapters/trimmomatic_adapters.fa:2:30:10 SLIDINGWINDOW:4:15 MINLEN:36";
+        print $commandline, "\n"
+        $status = system($commandline);
+    }
+}
+```
+
+We test again the quality of the sequences after trimming. Globally, we have good qualities sequences. For the library `Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015` (R2 sequences), we have a strange pattern concerning the quality score of fastqc: good quality at the beginning, decrease in the middle (position in reads~48-49 bp) and increase again after (same quality as the beginning). For most sequences, we have a warning for the kmers section. We decided to test for nucleotide sequencing error using [Quake software](http://www.cbcb.umd.edu/software/quake/index.html). 
+
+### Correcting substitution sequencing error: Quake
+
+Our data are too large to use directly Quake, we need to count the k-mers using an other software: [jellyfish](http://www.cbcb.umd.edu/software/jellyfish/).
+
+#### Jellyfish
+
+##### 1- Local installation
+
+```
+./configure --prefix=$HOME
+touch configure.ac aclocal.m4 configure Makefile.am Makefile.in
+make
+```
+
+##### 2- Count k-mers
+
+```
+zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_untar/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015/*trim_paired.fastq.gz | jellyfish count /dev/fd/0 -m 21 -s 100M -t 16 -C
+
+```
+> With:
+> - m : k-mer size
+> - s : hash size
+> - t : number of threads
+> - C : canonical (the k-mer or its reverse complement)
+
+> Additional comments: we need to use zcat command in order not to unzip the files. By default, outpufile name = mer_counts.jf (to change, use -o)
+
+##### 2- Merge the files (needed only for big datasets when we obtain multiple files)
+
+In the directory where we have the outputfiles of the `count command`:
+
+```
+jellyfish merge mer_counts*
+
+```
+##### 2- Convert into a "human"" readable files
+
+```
+jellyfish dump mer_counts_merged.jf > mer_counts_merged_dump_180.jf
+
+```
+##### Next steps
+```
+jellyfish histo mer_counts_merged.jf 
+```
+- Coverage cutoff:
+After with quake (counted k-mers rather than q-mers -> --int): building a histogram of the k-mer counts to find the coverage at which we will differentiate true and error k-mers.
+
+```
+cov_model.py  --int
+```
+
+- To correct reads:
+
+```
+correct -f [fastq list file] -k [k-mer size] -c [cutoff] -m [counts file] -p [number of threads]
+```
+
+- To have the fastq list file (paired reads = 2 files per line), we will use the following perl script:
+
+```perl
+#!/usr/bin/perl
+
+    use strict;
+    use warnings;
+    my @files;
+    my @files_R1;
+    my @files_R2;
+    my $path_to_data;
+    my $output = "filenames_quake_180_2ndSeq.txt";
+
+# Use the open() function to create the file.
+unless(open FILE, '>'.$output) {
+    # Die with error message 
+    # if we can't open it.
+    die "\nUnable to create $output\n";
+}
+
+    $path_to_data = "/net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_untar/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015/";
+    @files_R1 = glob($path_to_data."*R1*trim_paired.fastq.gz");
+    @files_R2 = glob($path_to_data."*R2*trim_paired.fastq.gz");
+#    $files[0] = @files_R1;
+#    $files[1] = @files_R2;
+my $y;
+    for ($y=0, $y<=$#files_R1, $y ++) {
+        print FILE $files_R1[$y]," ",$files_R2[$y],"\n";
+    }
+
+# close the file.
+close FILE;
+    exit 0;
+
+
+```
