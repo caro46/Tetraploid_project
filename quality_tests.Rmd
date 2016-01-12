@@ -136,10 +136,10 @@ In the directory where we have the outputfiles of the `count command`:
 jellyfish merge mer_counts*
 
 ```
-##### 2- Convert into a "human"" readable files
+##### 2- Convert into a "human" readable files
 
 ```
-jellyfish dump mer_counts_merged.jf > mer_counts_merged_dump_180.jf
+jellyfish dump mer_counts_merged.jf > mer_counts_merged_dump_180.fa
 
 ```
 ##### Next steps
