@@ -142,6 +142,8 @@ jellyfish merge mer_counts*
 jellyfish dump mer_counts_merged.jf > mer_counts_merged_dump_180.fa
 
 ```
+We merge all the "merged" files of the different libraries using 'jellyfish merge' and follow by 'jellyfish dump -t -o allmerge_dump allmerge'.
+
 ##### Next steps
 ```
 jellyfish histo mer_counts_merged.jf 
