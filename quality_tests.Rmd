@@ -168,7 +168,7 @@ dev.off()
 - To correct reads:
 
 ```
-correct -f [fastq list file] -k [k-mer size] -c [cutoff] -m [counts file] -p [number of threads]
+correct -f [fastq list file] -k [k-mer size] -c [cutoff] -m [counts file] -p [number of threads] -z[--to gzip outputfiles]
 /home/evanslab/tetra_project/Quake/src/correct -f /home/evanslab/tetra_project/filenames_quake/filenames_quake_1000bp_Library.txt -z -k 21 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/all_dump_corr -p 4
 ```
 Try also with `-p 16`, but still `terminate called after throwing an instance of 'std::bad_alloc'`...
