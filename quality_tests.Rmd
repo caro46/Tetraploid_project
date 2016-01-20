@@ -169,6 +169,12 @@ dev.off()
 
 ```
 correct -f [fastq list file] -k [k-mer size] -c [cutoff] -m [counts file] -p [number of threads]
+/home/evanslab/tetra_project/Quake/src/correct -f /home/evanslab/tetra_project/filenames_quake/filenames_quake_1000bp_Library.txt -z -k 21 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/all_dump_corr -p 4
+```
+Try also with `-p 16`, but still `terminate called after throwing an instance of 'std::bad_alloc'`...
+Try with only the file of kmer for 1000bp... still same error...
+```
+/home/evanslab/tetra_project/Quake/src/correct -f /home/evanslab/tetra_project/filenames_quake/filenames_quake_1000bp_Library.txt -z -k 21 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/jellyfish_count_1000bp_kmer21/mer_counts_merged_dump_corr_1000bp -p 16
 ```
 
 - To have the fastq list file (paired reads = 2 files per line), we will use the following perl script:
