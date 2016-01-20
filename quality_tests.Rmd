@@ -155,6 +155,15 @@ After with quake (counted k-mers rather than q-mers -> --int): building a histog
 cov_model.py  --int
 ```
 We `obtain Cutoff: 2`.
+We also obtained a `kmers.hist` which shows 3 noticeable bumps (~25x - divergence between the 2 genomes, 50x - similarity between the 2 subgenomes, ~110x - TE?)...
+
+To plot `kmers.hist` with R on info:
+```R
+histo=read.table("kmers.hist",sep="\t")
+pdf('21mers_distribution_quake_tetraploid_5_200.pdf')
+plot(histo[5:200,],type="l",ylab="count",xlab="coverage",main="21-mers distribution")
+dev.off()
+```
 
 - To correct reads:
 
