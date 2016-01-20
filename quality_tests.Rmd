@@ -197,7 +197,7 @@ unless(open FILE, '>'.$output) {
 #    $files[0] = @files_R1;
 #    $files[1] = @files_R2;
 my $y;
-    for ($y=0, $y<=$#files_R1, $y ++) {
+    for ($y=0; $y<=$#files_R1; $y ++) {
         print FILE $files_R1[$y]," ",$files_R2[$y],"\n";
     }
 
