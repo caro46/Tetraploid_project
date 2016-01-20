@@ -142,7 +142,7 @@ jellyfish merge mer_counts*
 jellyfish dump mer_counts_merged.jf > mer_counts_merged_dump_180.fa
 
 ```
-We merge all the "merged" files of the different libraries using `jellyfish merge` and follow by `jellyfish dump -t -o allmerge_dump allmerge`.
+We merge all the "merged" files of the different libraries using `jellyfish merge` and follow by `jellyfish dump -t -o allmerge_dump allmerge`. We use `-c` and `-t` options for `dump` command to have the good format for quake `[kmer seq] \t [count]`.
 
 ##### Next steps
 ```
@@ -154,6 +154,7 @@ After with quake (counted k-mers rather than q-mers -> --int): building a histog
 ```
 cov_model.py  --int
 ```
+We `obtain Cutoff: 2`.
 
 - To correct reads:
 
