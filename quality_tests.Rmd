@@ -183,7 +183,7 @@ zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben
 
 zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_BenEvansBJE3652_1000bp_Library_untar/Sample_BenEvansBJE3652_1000bp_Library/BenEvansBJE3652_1000bp_Library_GTTTCG_L003_R2_001_trim_paired.fastq.gz | awk 'NR >= 0 && NR <= 500000 { print }' > BenEvansBJE3652_1000bp_Library_GTTTCG_L003_R2_001_trim_paired_subset.fastq.gz
 ```
-Still not working -> need to redo the BOOST compilation.
+Still not working -> need to redo the BOOST compilation. Compile with `g++ -lboost_system-mt -pthread` ?
 
 - To have the fastq list file (paired reads = 2 files per line), we will use the following perl script:
 
