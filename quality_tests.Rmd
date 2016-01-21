@@ -144,6 +144,7 @@ jellyfish dump mer_counts_merged.jf > mer_counts_merged_dump_180.fa
 
 ```
 We merge all the "merged" files of the different libraries using `jellyfish merge` and follow by `jellyfish dump -t -o allmerge_dump allmerge`. We use `-c` and `-t` options for `dump` command to have the good format for quake `[kmer seq] \t [count]`.
+Using `jellyfish merge */*merged.jf -o allmerge` to merge files that are in different directories.
 
 ##### Next steps
 ```
