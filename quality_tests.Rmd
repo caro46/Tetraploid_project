@@ -113,6 +113,7 @@ Our data are too large to use directly Quake, we need to count the k-mers using 
 touch configure.ac aclocal.m4 configure Makefile.am Makefile.in
 make
 ```
+We used the version available on info: `jellyfish 1.1.11`.
 
 ##### 2- Count k-mers
 
