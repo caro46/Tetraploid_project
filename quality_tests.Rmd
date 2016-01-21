@@ -15,7 +15,7 @@ tar -xvf /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample
 ####To run Fastqc
 
 For the data from the first lane:
-General command: `fastqc -o name_of_the_output_directory name_of_the_input_files` (on info, fastqc is in the $PATH command, if it is not the case specify the location of fastqc)
+General command: `fastqc -o name_of_the_output_directory name_of_the_input_files` (on info, fastqc `FastQC v0.11.3` is in the `$PATH` command, if it is not the case specify the location of fastqc)
 
 ```
 fastqc -o /home/evanslab/tetra_project/6kbfatqc /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/BJE3652_6KB_Data_first_lane_untar/Volumes/Promise\ Pegasus/2014_BJE3652_gDNA_seqs/BJE3652_6KB_Data_first_lane/*.fastq.gz*
@@ -27,7 +27,7 @@ fastqc -o /home/evanslab/tetra_project/400bpfastqc /net/infofile2/2/scratch/evan
 fastqc -o /home/evanslab/tetra_project/6kbfatqc_2ndSeqRun /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_6kb_2nd_Sequencing_Run_untar/Sample_Ben_Evans_BJE3652_6kb_2nd_Sequencing_Run/*.fastq.gz
 ```
 
-####To run trimmomatic on all the fastq files
+####To run trimmomatic (Trimmomatic-0.32) on all the fastq files
 
 Perl script (to run: `./Run_trimmomatic_on_info.pl`, after making it executable with `chmod +x script_name`in a screen window using `screen -S name_of_the_job`):
 
@@ -165,6 +165,8 @@ pdf('21mers_distribution_quake_tetraploid_5_200.pdf')
 plot(histo[5:200,],type="l",ylab="count",xlab="coverage",main="21-mers distribution")
 dev.off()
 ```
+- [Estimation of genome size](https://github.com/caro46/Hymenochirus/blob/master/Starting.Rmd):
+G = (N × (L – K + 1) – B)/D = (N × (L – 21 + 1) - 2.1e+09) / 50
 
 - To correct reads:
 
