@@ -153,7 +153,7 @@ jellyfish histo mer_counts_merged.jf
 After with quake (counted k-mers rather than q-mers -> --int): building a histogram of the k-mer counts to find the coverage at which we will differentiate true and error k-mers.
 
 ```
-cov_model.py  --int
+/home/evanslab/tetra_project/Quake/bin/cov_model.py  --int
 ```
 We `obtain Cutoff: 2`.
 We also obtained a `kmers.hist` which shows 3 noticeable bumps (~25x - divergence between the 2 genomes, 50x - similarity between the 2 subgenomes, ~110x - TE?)...
@@ -177,6 +177,13 @@ Try with only the file of kmer for 1000bp... still same error...
 ```
 /home/evanslab/tetra_project/Quake/src/correct -f /home/evanslab/tetra_project/filenames_quake/filenames_quake_1000bp_Library.txt -z -k 21 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/jellyfish_count_1000bp_kmer21/mer_counts_merged_dump_corr_1000bp -p 16
 ```
+Try with a subset to see if it's a problem of memory or compilation...
+```
+zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_BenEvansBJE3652_1000bp_Library_untar/Sample_BenEvansBJE3652_1000bp_Library/BenEvansBJE3652_1000bp_Library_GTTTCG_L003_R1_001_trim_paired.fastq.gz | awk 'NR >= 0 && NR <= 500000 { print }' > BenEvansBJE3652_1000bp_Library_GTTTCG_L003_R1_001_trim_paired_subset.fastq.gz
+
+zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_BenEvansBJE3652_1000bp_Library_untar/Sample_BenEvansBJE3652_1000bp_Library/BenEvansBJE3652_1000bp_Library_GTTTCG_L003_R2_001_trim_paired.fastq.gz | awk 'NR >= 0 && NR <= 500000 { print }' > BenEvansBJE3652_1000bp_Library_GTTTCG_L003_R2_001_trim_paired_subset.fastq.gz
+```
+Still not working -> need to redo the BOOST compilation.
 
 - To have the fastq list file (paired reads = 2 files per line), we will use the following perl script:
 
