@@ -189,6 +189,11 @@ zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben
 ```
 Still not working -> need to redo the BOOST compilation. Compile with `g++ -lboost_system-mt -pthread` ?
 
+Using a kmer size of 21 seems to require to much memory, so we will try again with k=19 (used for human genomes), and using `jellyfish-2.2.4` in order not to merge indermediate files: 
+
+```
+zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/*/././*/*_trim_paired.fastq.gz | /home/evanslab/tetra_project/jellyfish-2.2.4/bin/jellyfish count /dev/fd/0 -m 19 -s 100M -t 16 -C -o jelly_count_all_19mers
+```
 - To have the fastq list file (paired reads = 2 files per line), we will use the following perl script:
 
 ```perl
