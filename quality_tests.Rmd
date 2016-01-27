@@ -193,11 +193,24 @@ zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben
 ```
 Still not working -> need to redo the BOOST compilation. Compile with `g++ -lboost_system-mt -pthread` ?
 
-Using a kmer size of 21 seems to require to much memory, so we will try again with k=19 (used for human genomes), and using `jellyfish-2.2.4` in order not to merge indermediate files: 
+Using a kmer size of 21 seems to require to much memory, so we will try again with k=19 (used for human genomes), and using `jellyfish-2.2.4` in order not to merge indermediate files (need to do directly the count on all the files of all the libraries at the same time because of the problem of different hash sizes of the different "merged files" of the different libraries, and `merge` of jellifish.2 doesn't deal with this problem): 
 
 ```
 zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/*/././*/*_trim_paired.fastq.gz | /home/evanslab/tetra_project/jellyfish-2.2.4/bin/jellyfish count /dev/fd/0 -m 19 -s 100M -t 16 -C -o jelly_count_all_19mers
 ```
+Dump command used for 19mers:
+```
+/home/evanslab/tetra_project/jellyfish-2.2.4/bin/jellyfish dump -c -t jelly_count_all_19mers -o jelly_dump_all_19mers
+```
+```
+/usr/local/quake/bin/cov_model.py  --int jelly_dump_all_19mers
+```
+
+Example of a command used for `correct` with a kmer of 19:
+```
+/usr/local/quake/bin/correct -f /home/evanslab/tetra_project/filenames_quake/filenames_quake_1000bp_Library.txt -z -k 19 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/19mers/jelly_dump_all_19mers -p 4
+```
+
 - To have the fastq list file (paired reads = 2 files per line), we will use the following perl script:
 
 ```perl
