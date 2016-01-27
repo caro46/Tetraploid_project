@@ -168,7 +168,11 @@ dev.off()
 ```
 - [Estimation of genome size](https://github.com/caro46/Hymenochirus/blob/master/Starting.Rmd):
 G = (N × (L – K + 1) – B)/D = (N × (L – 21 + 1) - 2.1e+09) / 50
+
+For L: we use the main of the size given by Fastqc (36-101):68.5
 To find N (number of reads): `grep -c '^@' */././*/*_trim_paired.fastq.gz` ?
+
+grep -c '^@' /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/*/././*/*_trim_paired.fastq.gz
 
 - To correct reads:
 
