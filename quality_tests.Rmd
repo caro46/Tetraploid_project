@@ -210,6 +210,11 @@ Example of a command used for `correct` with a kmer of 19:
 ```
 /usr/local/quake/bin/correct -f /home/evanslab/tetra_project/filenames_quake/filenames_quake_1000bp_Library.txt -z -k 19 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/19mers/jelly_dump_all_19mers -p 4
 ```
+To do after the correction:
+- check again the quality after the correction using Fastqc
+- Compare the size of the files and the number of reads before/after corrections
+    (particularly for 6kb)
+
 
 - To have the fastq list file (paired reads = 2 files per line), we will use the following perl script:
 
