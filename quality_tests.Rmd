@@ -214,7 +214,8 @@ To do after the correction:
 - check again the quality after the correction using Fastqc
 - Compare the size of the files and the number of reads before/after corrections
     (particularly for 6kb)
-    > for example for library 1000bp (good quality): before 294143898, after 293085911
+    > - for example for library 1000bp (good quality): before 294143898, after 293085911
+    > - 10kb: before 235422917, after 223007738
 
 
 - To have the fastq list file (paired reads = 2 files per line), we will use the following perl script:
