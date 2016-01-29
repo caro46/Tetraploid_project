@@ -171,9 +171,9 @@ G = (N × (L – K + 1) – B)/D = (N × (L – 21 + 1) - 2.1e+09) / 50
 
 For L: we use the main of the size given by Fastqc (36-101):68.5
 To find N (number of reads): `grep -c '^@' */././*/*_trim_paired.fastq.gz` ?
-
+```
 grep -c '^@' /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/*/././*/*_trim_paired.fastq.gz
-
+```
 - To correct reads:
 
 ```
@@ -214,6 +214,7 @@ To do after the correction:
 - check again the quality after the correction using Fastqc
 - Compare the size of the files and the number of reads before/after corrections
     (particularly for 6kb)
+    > for example for library 1000bp (good quality): before 294143898, after 293085911
 
 
 - To have the fastq list file (paired reads = 2 files per line), we will use the following perl script:
