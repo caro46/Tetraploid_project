@@ -222,6 +222,14 @@ To do after the correction:
     > - for example for library 1000bp (good quality): before 294143898, after 293085911
     > - 10kb: before 235422917, after 223007738
 
+```
+fastqc -o /home/evanslab/tetra_project/fastqc_results/1000bpfastqc/after_quake /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_BenEvansBJE3652_1000bp_Library_untar/Sample_BenEvansBJE3652_1000bp_Library/*_trim_paired.cor.fastq.gz
+
+fastqc -o /home/evanslab/tetra_project/fastqc_results/10kb_Mate_Pairfastqc/after_quake /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_10kb_Mate_Pair_Library_untar/Sample_Ben_Evans_BJE3652_10kb_Mate_Pair_Library/*_trim_paired.cor.fastq.gz
+
+fastqc -o /home/evanslab/tetra_project/fastqc_results/180bpfastqc/after_quake /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_BenEvansBJE3652_180bp_Library_untar/Sample_BenEvansBJE3652_180bp_Library/*_trim_paired.cor.fastq.gz
+```
+
 ##### Supplements 
 - To have the fastq list file (paired reads = 2 files per line), we used the following perl script:
 
