@@ -104,6 +104,8 @@ We test again the quality of the sequences after trimming. Globally, we have goo
 
 Our data are too large to use directly Quake, we need to count the k-mers using an other software: [jellyfish](http://www.cbcb.umd.edu/software/jellyfish/).
 
+### K-mer size = 21
+
 #### Jellyfish
 
 ##### 1- Local installation
@@ -146,11 +148,11 @@ jellyfish dump mer_counts_merged.jf > mer_counts_merged_dump_180.fa
 We merge all the "merged" files of the different libraries using `jellyfish merge` and follow by `jellyfish dump -t -o allmerge_dump allmerge`. We use `-c` and `-t` options for `dump` command to have the good format for quake `[kmer seq] \t [count]`.
 Using `jellyfish merge */*merged.jf -o allmerge` to merge files that are in different directories.
 
-##### Next steps
+##### 3- Histogram
 ```
 jellyfish histo mer_counts_merged.jf 
 ```
-- Coverage cutoff:
+##### 4- Coverage cutoff
 After with quake (counted k-mers rather than q-mers -> --int): building a histogram of the k-mer counts to find the coverage at which we will differentiate true and error k-mers.
 
 ```
@@ -159,6 +161,7 @@ After with quake (counted k-mers rather than q-mers -> --int): building a histog
 We `obtain Cutoff: 2`.
 We also obtained a `kmers.hist` which shows 3 noticeable bumps (~25x - divergence between the 2 genomes, 50x - similarity between the 2 subgenomes, ~110x - TE?)...
 
+##### 5- Plot of the kmers count according to the coverage
 To plot `kmers.hist` with R on info:
 ```R
 histo=read.table("kmers.hist",sep="\t")
@@ -166,7 +169,7 @@ pdf('21mers_distribution_quake_tetraploid_5_200.pdf')
 plot(histo[5:200,],type="l",ylab="count",xlab="coverage",main="21-mers distribution")
 dev.off()
 ```
-- [Estimation of genome size](https://github.com/caro46/Hymenochirus/blob/master/Starting.Rmd):
+##### 6- [Estimation of genome size](https://github.com/caro46/Hymenochirus/blob/master/Starting.Rmd):
 G = (N × (L – K + 1) – B)/D = (N × (L – 21 + 1) - 2.1e+09) / 50
 
 For L: we use the main of the size given by Fastqc (36-101):68.5
@@ -174,7 +177,7 @@ To find N (number of reads): `grep -c '^@' */././*/*_trim_paired.fastq.gz` ?
 ```
 grep -c '^@' /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/*/././*/*_trim_paired.fastq.gz
 ```
-- To correct reads:
+##### 7- To correct reads:
 
 ```
 correct -f [fastq list file] -k [k-mer size] -c [cutoff] -m [counts file] -p [number of threads] -z[--to gzip outputfiles]
@@ -192,6 +195,8 @@ zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben
 zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_BenEvansBJE3652_1000bp_Library_untar/Sample_BenEvansBJE3652_1000bp_Library/BenEvansBJE3652_1000bp_Library_GTTTCG_L003_R2_001_trim_paired.fastq.gz | awk 'NR >= 0 && NR <= 500000 { print }' > BenEvansBJE3652_1000bp_Library_GTTTCG_L003_R2_001_trim_paired_subset.fastq.gz
 ```
 Still not working -> need to redo the BOOST compilation. Compile with `g++ -lboost_system-mt -pthread` ?
+
+### K-mer size = 19
 
 Using a kmer size of 21 seems to require to much memory, so we will try again with k=19 (used for human genomes), and using `jellyfish-2.2.4` in order not to merge indermediate files (need to do directly the count on all the files of all the libraries at the same time because of the problem of different hash sizes of the different "merged files" of the different libraries, and `merge` of jellifish.2 doesn't deal with this problem): 
 
@@ -217,8 +222,8 @@ To do after the correction:
     > - for example for library 1000bp (good quality): before 294143898, after 293085911
     > - 10kb: before 235422917, after 223007738
 
-
-- To have the fastq list file (paired reads = 2 files per line), we will use the following perl script:
+##### Supplements 
+- To have the fastq list file (paired reads = 2 files per line), we used the following perl script:
 
 ```perl
 #!/usr/bin/perl
