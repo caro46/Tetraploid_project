@@ -217,6 +217,9 @@ Example of a command used for `correct` with a kmer of 19:
 ```
 To do after the correction:
 - check again the quality after the correction using Fastqc
+```
+fastqc -o /home/evanslab/tetra_project/fastqc_results/6kbfatqc_2ndSeqRun/after_quake/ /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_6kb_2nd_Sequencing_Run_untar/Sample_Ben_Evans_BJE3652_6kb_2nd_Sequencing_Run/*_trim_paired.cor.fastq.gz
+```
 - Compare the size of the files and the number of reads before/after corrections
     (particularly for 6kb)
     > - for example for library 1000bp (good quality): before 294143898, after 293085911
