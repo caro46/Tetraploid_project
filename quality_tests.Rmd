@@ -150,7 +150,7 @@ Using `jellyfish merge */*merged.jf -o allmerge` to merge files that are in diff
 
 ##### 3- Histogram
 ```
-jellyfish histo mer_counts_merged.jf 
+jellyfish histo mer_counts_merged.jf -o histo_180bp_2ndSeq_k21
 ```
 ##### 4- Coverage cutoff
 After with quake (counted k-mers rather than q-mers -> --int): building a histogram of the k-mer counts to find the coverage at which we will differentiate true and error k-mers.
