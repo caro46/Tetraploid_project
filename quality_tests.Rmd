@@ -215,8 +215,14 @@ Example of a command used for `correct` with a kmer of 19:
 ```
 /usr/local/quake/bin/correct -f /home/evanslab/tetra_project/filenames_quake/filenames_quake_1000bp_Library.txt -z -k 19 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/19mers/jelly_dump_all_19mers -p 4
 ```
-We obtain `segmentation fault` when we run `correct` on the `180bp_2ndSequencing` library. Pb of memory? We try on only L006 lane.
+We obtain `segmentation fault` when we run `correct` on the `180bp_2ndSequencing` library. Pb of memory? We try on only L006 lane. -> still same error even with only one file specified using the `-r` option (the file is smaller than some files from for example the `180bp_library` (1st sequencing)) -> just to be sure it is not a problem of memory we will try with a subset of 1 file using :
+```
+/usr/local/quake/bin/correct -f /home/evanslab/tetra_project/filenames_quake/filenames_quake_180_2ndSeq_L006_NEW.txt -z -k 19 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/19mers/jelly_dump_all_19mers -p 4
 
+/usr/local/quake/bin/correct -r /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_untar/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015/Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L006_R1_001_trim_paired.fastq.gz -z -k 19 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/19mers/jelly_dump_all_19mers -p 4
+
+zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_untar/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015/Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L006_R1_001_trim_paired.fastq.gz | awk 'NR >= 0 && NR <= 500000 { print }' > Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L006_R1_001_trim_paired_subset.fastq.gz
+```
 To do after the correction:
 - check again the quality after the correction using Fastqc
 ```
