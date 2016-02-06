@@ -222,6 +222,8 @@ We obtain `segmentation fault` when we run `correct` on the `180bp_2ndSequencing
 /usr/local/quake/bin/correct -r /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_untar/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015/Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L006_R1_001_trim_paired.fastq.gz -z -k 19 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/19mers/jelly_dump_all_19mers -p 4
 
 zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_untar/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015/Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L006_R1_001_trim_paired.fastq.gz | awk 'NR >= 0 && NR <= 500000 { print }' > Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L006_R1_001_trim_paired_subset.fastq.gz
+
+/usr/local/quake/bin/correct -r /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_untar/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015/Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L006_R1_001_trim_paired_subset.fastq.gz -z -k 19 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/19mers/jelly_dump_all_19mers -p 4
 ```
 To do after the correction:
 - check again the quality after the correction using Fastqc
