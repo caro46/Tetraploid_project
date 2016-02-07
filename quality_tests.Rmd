@@ -215,7 +215,7 @@ Example of a command used for `correct` with a kmer of 19:
 ```
 /usr/local/quake/bin/correct -f /home/evanslab/tetra_project/filenames_quake/filenames_quake_1000bp_Library.txt -z -k 19 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/19mers/jelly_dump_all_19mers -p 4
 ```
-We obtain `segmentation fault` when we run `correct` on the `180bp_2ndSequencing` library. Pb of memory? We try on only L006 lane. -> still same error even with only one file specified using the `-r` option (the file is smaller than some files from for example the `180bp_library` (1st sequencing)) -> just to be sure it is not a problem of memory we will try with a subset of 1 file using :
+We obtain `segmentation fault` when we run `correct` on the `180bp_2ndSequencing` library. Pb of memory? We try on only L006 lane. -> still same error even with only one file specified using the `-r` option (the file is smaller than some files from for example the `180bp_library` (1st sequencing)) -> just to be sure it is not a problem of memory we will try with a subset of 1 file using the `awk`command. -> We still have the `Segmentation fault` error... Something wrong with the program...
 ```
 /usr/local/quake/bin/correct -f /home/evanslab/tetra_project/filenames_quake/filenames_quake_180_2ndSeq_L006_NEW.txt -z -k 19 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/19mers/jelly_dump_all_19mers -p 4
 
