@@ -196,6 +196,39 @@ zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben
 ```
 Still not working -> need to redo the BOOST compilation. Compile with `g++ -lboost_system-mt -pthread` ?
 
+Work with when unzip and zip back
+We unzip and zip back everybody and then:
+```bash
+#!/bin/bash
+ 
+# Configuration stuff
+ 
+Myfiles=/net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_untar/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015/temp3/*_trim_paired.fastq.gz
+
+# Work out lines per file.
+ 
+number_lines=$(zcat <${Myfiles} | wc -l)
+echo $number_lines
+((number_lines_new_files=(number_lines)/2))
+echo $number_lines_new_files
+((start_sec_half=(number_lines_new_files)+1))
+echo $start_sec_half 
+
+for filename in $Myfiles
+do
+
+# Split the actual file, maintaining lines.
+
+zcat ${Myfiles} | awk -v x=$number_lines_new_files 'NR >= 0 && NR <= x { print }'|gzip > ${filename%%.*}_first_half.fastq.gz
+zcat ${Myfiles} | awk -v y=$start_sec_half -v z=$number_lines 'NR >= y && NR <= z { print }'|gzip > ${filename%%.*}_second_half.fastq.gz
+ 
+# Check the results
+ 
+echo "Number lines per files = ${number_lines_new_files}">number_lines_new_files.txt 
+echo " Number lines per files before spliting = ${number_lines}">number_lines_previous_files.txt 
+
+done
+```
 ### K-mer size = 19
 
 Using a kmer size of 21 seems to require to much memory, so we will try again with k=19 (used for human genomes), and using `jellyfish-2.2.4` in order not to merge indermediate files (need to do directly the count on all the files of all the libraries at the same time because of the problem of different hash sizes of the different "merged files" of the different libraries, and `merge` of jellifish.2 doesn't deal with this problem): 
