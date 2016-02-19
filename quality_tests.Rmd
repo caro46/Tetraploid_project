@@ -196,8 +196,42 @@ zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben
 ```
 Still not working -> need to redo the BOOST compilation. Compile with `g++ -lboost_system-mt -pthread` ?
 
-Work with when unzip and zip back
-We unzip and zip back everybody and then:
+
+### K-mer size = 19
+
+Using a kmer size of 21 seems to require to much memory, so we will try again with k=19 (used for human genomes), and using `jellyfish-2.2.4` in order not to merge indermediate files (need to do directly the count on all the files of all the libraries at the same time because of the problem of different hash sizes of the different "merged files" of the different libraries, and `merge` of jellifish.2 doesn't deal with this problem): 
+
+```
+zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/*/././*/*_trim_paired.fastq.gz | /home/evanslab/tetra_project/jellyfish-2.2.4/bin/jellyfish count /dev/fd/0 -m 19 -s 100M -t 16 -C -o jelly_count_all_19mers
+```
+Dump command used for 19mers:
+```
+/home/evanslab/tetra_project/jellyfish-2.2.4/bin/jellyfish dump -c -t jelly_count_all_19mers -o jelly_dump_all_19mers
+```
+```
+/usr/local/quake/bin/cov_model.py  --int jelly_dump_all_19mers
+```
+
+Example of a command used for `correct` with a kmer of 19:
+```
+/usr/local/quake/bin/correct -f /home/evanslab/tetra_project/filenames_quake/filenames_quake_1000bp_Library.txt -z -k 19 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/19mers/jelly_dump_all_19mers -p 4
+```
+We obtain `segmentation fault` when we run `correct` on the `180bp_2ndSequencing` library. Pb of memory? We try on only L006 lane. -> still same error even with only one file specified using the `-r` option (the file is smaller than some files from for example the `180bp_library` (1st sequencing)) -> just to be sure it is not a problem of memory we will try with a subset of 1 file using the `awk`command. -> We still have the `Segmentation fault` error... Something wrong with the program...
+```
+/usr/local/quake/bin/correct -f /home/evanslab/tetra_project/filenames_quake/filenames_quake_180_2ndSeq_L006_NEW.txt -z -k 19 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/19mers/jelly_dump_all_19mers -p 4
+
+/usr/local/quake/bin/correct -r /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_untar/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015/Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L006_R1_001_trim_paired.fastq.gz -z -k 19 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/19mers/jelly_dump_all_19mers -p 4
+
+zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_untar/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015/Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L006_R1_001_trim_paired.fastq.gz | awk 'NR >= 0 && NR <= 500000 { print }' > Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L006_R1_001_trim_paired_subset.fastq.gz
+
+/usr/local/quake/bin/correct -r /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_untar/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015/Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L006_R1_001_trim_paired_subset.fastq.gz -z -k 19 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/19mers/jelly_dump_all_19mers -p 4
+
+ 
+
+```
+Work with when unzip and zip back.
+
+We unzip `gunzip *_trim_paired.fastq.gz` and zip `gzip *_trim_paired.fastq.gz` back everybody and then:
 ```bash
 #!/bin/bash
  
@@ -229,38 +263,7 @@ echo " Number lines per files before spliting = ${number_lines}">number_lines_pr
 
 done
 ```
-### K-mer size = 19
 
-Using a kmer size of 21 seems to require to much memory, so we will try again with k=19 (used for human genomes), and using `jellyfish-2.2.4` in order not to merge indermediate files (need to do directly the count on all the files of all the libraries at the same time because of the problem of different hash sizes of the different "merged files" of the different libraries, and `merge` of jellifish.2 doesn't deal with this problem): 
-
-```
-zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/*/././*/*_trim_paired.fastq.gz | /home/evanslab/tetra_project/jellyfish-2.2.4/bin/jellyfish count /dev/fd/0 -m 19 -s 100M -t 16 -C -o jelly_count_all_19mers
-```
-Dump command used for 19mers:
-```
-/home/evanslab/tetra_project/jellyfish-2.2.4/bin/jellyfish dump -c -t jelly_count_all_19mers -o jelly_dump_all_19mers
-```
-```
-/usr/local/quake/bin/cov_model.py  --int jelly_dump_all_19mers
-```
-
-Example of a command used for `correct` with a kmer of 19:
-```
-/usr/local/quake/bin/correct -f /home/evanslab/tetra_project/filenames_quake/filenames_quake_1000bp_Library.txt -z -k 19 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/19mers/jelly_dump_all_19mers -p 4
-```
-We obtain `segmentation fault` when we run `correct` on the `180bp_2ndSequencing` library. Pb of memory? We try on only L006 lane. -> still same error even with only one file specified using the `-r` option (the file is smaller than some files from for example the `180bp_library` (1st sequencing)) -> just to be sure it is not a problem of memory we will try with a subset of 1 file using the `awk`command. -> We still have the `Segmentation fault` error... Something wrong with the program...
-```
-/usr/local/quake/bin/correct -f /home/evanslab/tetra_project/filenames_quake/filenames_quake_180_2ndSeq_L006_NEW.txt -z -k 19 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/19mers/jelly_dump_all_19mers -p 4
-
-/usr/local/quake/bin/correct -r /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_untar/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015/Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L006_R1_001_trim_paired.fastq.gz -z -k 19 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/19mers/jelly_dump_all_19mers -p 4
-
-zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_untar/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015/Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L006_R1_001_trim_paired.fastq.gz | awk 'NR >= 0 && NR <= 500000 { print }' > Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L006_R1_001_trim_paired_subset.fastq.gz
-
-/usr/local/quake/bin/correct -r /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_untar/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015/Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L006_R1_001_trim_paired_subset.fastq.gz -z -k 19 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/19mers/jelly_dump_all_19mers -p 4
-
-gunzip 
-gzip
-```
 To do after the correction:
 - check again the quality after the correction using Fastqc
 ```
