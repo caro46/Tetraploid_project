@@ -131,12 +131,24 @@ zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben
 
 > Additional comments: we need to use zcat command in order not to unzip the files. By default, outpufile name = mer_counts.jf (to change, use -o)
 
+(Also try with `-q` option for quake in `qmer` directory:
+```
+zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_untar/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015/*trim_paired.fastq.gz | jellyfish count /dev/fd/0 -m 21 -s 100M -t 16 -C -q
+```
+But after
+```
+ jellyfish qmerge -m 21 -s 100000000 -o merge_qmer_180_2seq.jf mer_counts*
+terminate called after throwing an instance of 'jellyfish::hash<unsigned long, jellyfish::Float, jellyfish::aligned_values::array<unsigned long, jellyfish::Float, atomic::gcc, allocators::mmap>, atomic::gcc>::TableFull'
+  what():  No dumper defined
+```)
+
 ##### 2- Merge the files (needed only for big datasets when we obtain multiple files)
 
 In the directory where we have the outputfiles of the `count command`:
 
 ```
 jellyfish merge mer_counts*
+jellyfish merge */mer_counts_merged* -o allmerge_6kb_corr
 
 ```
 ##### 2- Convert into a "human" readable files
@@ -145,7 +157,7 @@ jellyfish merge mer_counts*
 jellyfish dump mer_counts_merged.jf > mer_counts_merged_dump_180.fa
 
 ```
-We merge all the "merged" files of the different libraries using `jellyfish merge` and follow by `jellyfish dump -t -o allmerge_dump allmerge`. We use `-c` and `-t` options for `dump` command to have the good format for quake `[kmer seq] \t [count]`.
+We merge all the "merged" files of the different libraries using `jellyfish merge` and follow by `jellyfish dump -c -t -o allmerge_dump allmerge`. We use `-c` and `-t` options for `dump` command to have the good format for quake `[kmer seq] \t [count]`.
 Using `jellyfish merge */*merged.jf -o allmerge` to merge files that are in different directories.
 
 ##### 3- Histogram
@@ -199,7 +211,7 @@ Still not working -> need to redo the BOOST compilation. Compile with `g++ -lboo
 
 ### K-mer size = 19
 
-Using a kmer size of 21 seems to require to much memory, so we will try again with k=19 (used for human genomes), and using `jellyfish-2.2.4` in order not to merge indermediate files (need to do directly the count on all the files of all the libraries at the same time because of the problem of different hash sizes of the different "merged files" of the different libraries, and `merge` of jellifish.2 doesn't deal with this problem): 
+Using a kmer size of 21 seems to require to much memory, so we will try again with k=19 (used for human genomes), and using `jellyfish-2.2.4` in order not to merge indermediate files (need to do directly the count on all the files of all the libraries at the same time because of the problem of different hash sizes of the different "merged files" of the different libraries, and `merge` of jellifish.2 doesn't deal with this problem: `Can't merge hash with different size (536870912, 2147483648)` when running `/home/evanslab/tetra_project/jellyfish-2.2.4/bin/jellyfish merge /home/evanslab/tetra_project/jellyfish_results/19mers/*`): 
 
 ```
 zcat /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/*/././*/*_trim_paired.fastq.gz | /home/evanslab/tetra_project/jellyfish-2.2.4/bin/jellyfish count /dev/fd/0 -m 19 -s 100M -t 16 -C -o jelly_count_all_19mers
