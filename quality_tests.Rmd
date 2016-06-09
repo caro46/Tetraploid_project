@@ -275,7 +275,9 @@ echo " Number lines per files before spliting = ${number_lines}">number_lines_pr
 
 done
 ```
-
+```
+/usr/local/quake/bin/correct -f /home/evanslab/tetra_project/filenames_quake/filenames_quake_180_2ndSeq_divided_corr.txt -z -k 19 -c 2 -m /home/evanslab/tetra_project/jellyfish_results/19mers/jelly_dump_all_19mers -p 4
+```
 To do after the correction:
 - check again the quality after the correction using Fastqc
 ```
