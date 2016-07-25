@@ -1,6 +1,6 @@
 ##SOAP
 ```
-/home/evanslab/tetra_project/Assembly/SOAP/SOAPdenovo2-src-r240/SOAPdenovo-127mer all -s /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Mellotropicalis.conf -K 64 -R -n 3400000000 -p 5 -V -o SOAP_Mellotropicalis_BJE3652_genome 1>ass.log 2>ass.err
+/home/evanslab/tetra_project/Assembly/SOAP/SOAPdenovo2-src-r240/SOAPdenovo-127mer all -s /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Mellotropicalis.conf -K 65 -R -N 3400000000 -p 5 -V -o /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/SOAP_Mellotropicalis_BJE3652_genome
 ```
 Genome size:
 
