@@ -1,6 +1,14 @@
 ##SOAP
 ```
 /home/evanslab/tetra_project/Assembly/SOAP/SOAPdenovo2-src-r240/SOAPdenovo-127mer all -s /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Mellotropicalis.conf -K 65 -R -N 3400000000 -p 10 -V -o /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/SOAP_Mellotropicalis_BJE3652_genome
+
+- Error: Segmentation fault when trying to import Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L008_R2_014_trim_paired.fastq.gz
+
+/home/evanslab/tetra_project/Assembly/SOAP/SOAPdenovo2-src-r240/SOAPdenovo-127mer all -s Mellotropicalis.conf -K 65 -R -N 3400000000 -p 10 -V -o SOAP_Mellotropicalis_BJE3652_genome 1>ass.log 2>ass.err
+
+- Error: Ambiguous output redirect
+
+SOAPdenovo-127mer all -s Mellotropicalis_without_180_2ndSeq.conf -K 65 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome
 ```
 Genome size:
 
