@@ -9,6 +9,9 @@
 - Error: Ambiguous output redirect
 
 SOAPdenovo-127mer all -s Mellotropicalis_without_180_2ndSeq.conf -K 65 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome
+
+After try increasing Kmer size
+SOAPdenovo-127mer all -s Mellotropicalis_without_180_2ndSeq.conf -K 80 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome
 ```
 Genome size:
 
