@@ -20,6 +20,10 @@ Working without 180_2ndSeq but results not that good (small scaffolds): try with
 ```
 SOAPdenovo-127mer all -s Mellotropicalis_without_180_2ndSeq_125mers.conf -K 125 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome_125
 ```
+Multi k-mer approach
+```
+SOAPdenovo-127mer all -s Mellotropicalis_without_180_2ndSeq_125mers.conf -K 65 -m 125 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome65_to_125
+```
 Genome size:
 
 *[X. tropicalis](http://www.xenbase.org/anatomy/intro.do)*: 1.7 x 10^9 bp x 2 (duplicated genome) = 3.4 x 10^9
