@@ -16,6 +16,10 @@ SOAPdenovo-127mer all -s Mellotropicalis.conf -K 80 -R -N 3500000000 -V -p 10 -o
 After: try decreasing Kmer size  
 SOAPdenovo-63mer all -s Mellotropicalis.conf -K 63 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome
 ```
+Working without 180_2ndSeq but results not that good (small scaffolds): try with bigger kmer size (possible because we have a lot of data)
+```
+SOAPdenovo-127mer all -s Mellotropicalis_without_180_2ndSeq_125mers.conf -K 125 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome_125
+```
 Genome size:
 
 *[X. tropicalis](http://www.xenbase.org/anatomy/intro.do)*: 1.7 x 10^9 bp x 2 (duplicated genome) = 3.4 x 10^9
