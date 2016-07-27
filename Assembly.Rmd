@@ -24,6 +24,10 @@ Multi k-mer approach
 ```
 SOAPdenovo-127mer all -s Mellotropicalis_without_180_2ndSeq_125mers.conf -K 65 -m 125 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome65_to_125
 ```
+Only with 180 library
+```
+SOAPdenovo-127mer all -s Mellotropicalis_180_only.conf -K 65 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome_180_only_65mers
+```
 Genome size:
 
 *[X. tropicalis](http://www.xenbase.org/anatomy/intro.do)*: 1.7 x 10^9 bp x 2 (duplicated genome) = 3.4 x 10^9
