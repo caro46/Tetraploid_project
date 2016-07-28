@@ -30,6 +30,11 @@ SOAPdenovo-127mer all -s Mellotropicalis_without_180_2ndSeq_125mers.conf -K 65 -
 Only with 180 library
 ```
 SOAPdenovo-127mer all -s Mellotropicalis_180_only.conf -K 65 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome_180_only_65mers
+Import reads from file:
+ /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_untar/Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015/only_trim_paired_AND_Half/Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L006_R2_041_trim_paired.fastq.gz
+Segmentation fault
+
+SOAPdenovo-63mer all -s Mellotropicalis_180_L006_only.conf -K 61 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome_180_L006_only_61mers
 ```
 Genome size:
 
