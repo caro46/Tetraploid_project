@@ -45,3 +45,4 @@ If we obtain an OK assembly, we can try some "diploid" assembly program to try i
 - [ScaffoldScaffolder](http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-16-S7-S5) seems promissing for dealing with diploid assembly using bubbles to identify heterozygous homologous. Should be good for sites when each subgenome is homozygous but how to deal with heteroz. sites in both/one of the sub-genomes?  
 - Haplotype assembly using *X. tropicalis* as the ref genome?
  - SDhaP  
+ - http://www.ncbi.nlm.nih.gov/pubmed/16077012
