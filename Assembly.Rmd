@@ -46,3 +46,6 @@ If we obtain an OK assembly, we can try some "diploid" assembly program to try i
 - Haplotype assembly using *X. tropicalis* as the ref genome?
  - SDhaP  
  - http://www.ncbi.nlm.nih.gov/pubmed/16077012
+
+
+- Try [Platanus](http://platanus.bio.titech.ac.jp/platanus/?page_id=14) that pretends to deal with highly heterozygous? genomes
