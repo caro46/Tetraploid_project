@@ -26,6 +26,8 @@ SOAPdenovo-127mer all -s Mellotropicalis_without_180_2ndSeq_125mers.conf -K 65 -
 (killed)
 
 SOAPdenovo-127mer all -s Mellotropicalis_without_180_2ndSeq_125mers.conf -K 65 -m 95 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome_65_to_95
+
+SOAPdenovo-63mer all -s Mellotropicalis_without_180_2ndSeq_125mers.conf -K 43 -m 63 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome_43_to_63
 ```
 Only with 180 library
 ```
