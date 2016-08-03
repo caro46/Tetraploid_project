@@ -21,6 +21,7 @@ Working without 180_2ndSeq but results not that good (small scaffolds): try with
 SOAPdenovo-127mer all -s Mellotropicalis_without_180_2ndSeq_125mers.conf -K 125 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome_125
 
 SOAPdenovo-127mer all -s Mellotropicalis_without_180_2ndSeq_125mers.conf -K 80 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome_80
+Segmentation fault
 ```
 Multi k-mer approach
 ```
