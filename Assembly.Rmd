@@ -23,6 +23,10 @@ SOAPdenovo-127mer all -s Mellotropicalis_without_180_2ndSeq_125mers.conf -K 125 
 SOAPdenovo-127mer all -s Mellotropicalis_without_180_2ndSeq_125mers.conf -K 80 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome_80
 Segmentation fault
 ```
+On iqaluk
+```
+/work/ben/2016_Hymenochirus/SOAPdenovo2-src-r240/SOAPdenovo-63mer all -s Mellotropicalis_all_libraries.conf -K 43 -m 63 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome_all_libraries_43_to_63
+```
 Multi k-mer approach
 ```
 SOAPdenovo-127mer all -s Mellotropicalis_without_180_2ndSeq_125mers.conf -K 65 -m 125 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome65_to_125
