@@ -70,6 +70,8 @@ Segmentation fault
 On iqaluk
 ```
 /work/ben/2016_Hymenochirus/SOAPdenovo2-src-r240/SOAPdenovo-63mer all -s Mellotropicalis_all_libraries.conf -K 43 -m 63 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome_all_libraries_43_to_63
+Stuck forever in one step 
+/work/ben/2016_Hymenochirus/SOAPdenovo2-src-r240/SOAPdenovo-125mer all -s Mellotropicalis_all_libraries.conf -K 67 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome_all_libraries_67
 ```
 Multi k-mer approach
 ```
