@@ -73,7 +73,9 @@ On iqaluk
 Stuck forever in one step 
 
 /work/ben/2016_Hymenochirus/SOAPdenovo2-src-r240/SOAPdenovo-127mer all -s Mellotropicalis_all_libraries.conf -K 65 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome_all_libraries_65
+Bus error
 /work/ben/2016_Hymenochirus/SOAPdenovo2-src-r240/SOAPdenovo-127mer all -s Mellotropicalis_all_libraries.conf -K 67 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome_all_libraries_67
+/work/ben/2016_Hymenochirus/SOAPdenovo2-src-r240/SOAPdenovo-63mer all -s Mellotropicalis_all_libraries.conf -K 63 -R -N 3500000000 -V -p 10 -o SOAP_Mellotropicalis_BJE3652_genome_all_libraries_63
 ```
 **Note 09/08:** 
 - Multi kmer approach use too much time & memory for big dataset. Will use the kmer size with which we have obtained the best results when we didn't consider the 2nd sequencing of 180bp library `-K 65`. And also `-K 67` (considering read length is around 100bp, `2/3 * 10 ~ 66.667` so should obtain best assembly with kmer size around that value in theory. Trying smaller value `43-63` and bigger `65-95` didn't improve the assembly (when considering the data without 2nd Sequencing og 180bp library). 
