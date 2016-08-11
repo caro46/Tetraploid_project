@@ -82,11 +82,20 @@ Bus error
 ```
 SOAPdenovo-63mer all -s Mellotropicalis_KBlib_scaff_only.conf -K 63 -R -F -N 3500000000 -V -p 15 -o /net/infofile2/2/scratch/evanslab_backups/Mellotropicalis_2016/SOAP/63mers_KBlib_scaff_only/SOAP_Mellotropicalis_BJE3652_genome_63
 ```
+```
+SOAPdenovo-63mer all -s Mellotropicalis_KBlib_scaff_only.conf -K 43 -m 63 -R -F -N 3500000000 -V -p 15 -o /net/infofile2/2/scratch/evanslab_backups/Mellotropicalis_2016/SOAP/63mers_KBlib_scaff_only/SOAP_Mellotropicalis_BJE3652_genome_43_63
+```
 **Note 09/08:** 
 - Multi kmer approach use too much time & memory for big dataset. Will use the kmer size with which we have obtained the best results when we didn't consider the 2nd sequencing of 180bp library `-K 65`. And also `-K 67` (considering read length is around 100bp, `2/3 * 10 ~ 66.667` so should obtain best assembly with kmer size around that value in theory. Trying smaller value `43-63` and bigger `65-95` didn't improve the assembly (when considering the data without 2nd Sequencing og 180bp library). 
 - Should use [velvet](https://github.com/dzerbino/velvet/blob/master/doc/manual_src/Manual.tex) and merge multiple assemblies obtained with different kmer size (65 & 67 at least) to compare the result. [Allpaths](http://software.broadinstitute.org/allpaths-lg/blog/?page_id=12) seems to be a good alternative option too for our dataset (but not for *Hymenochirus*):
 
 ***ALLPATHS‐LG requires high sequence coverage of the genome in order to compensate for the shortness of the reads. The precise coverage required depends on the length and quality of the paired reads, but typically is of the order 100x or above.***
+
+**Note 11/08:** 
+- Need to try again multi-kmer approach:
+ * small size better for heterozygous genome
+ * big size if high proportion of repeats
+-> Our genome is tetraploid (+info from jellyfish k-mer distribution): highly heteroz + repetitive
 
 Multi k-mer approach
 ```
