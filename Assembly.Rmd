@@ -81,6 +81,10 @@ Segmentation fault
 killed even when used the option for memory assumption -a 128
 
 /work/ben/2016_Hymenochirus/SOAPdenovo2-src-r240/SOAPdenovo-63mer all -s Mellotropicalis_all_libraries_big_library_scaffoldonly.conf -K 63 -R -F -N 3500000000 -a 128 -V -p 15 -o /work/ben/Mellotropicalis_corrected_data/SOAP_assembly/2nd_try/SOAP_Mellotropicalis_BJE3652_genome_63
+killed
+
+Without -F
+/work/ben/2016_Hymenochirus/SOAPdenovo2-src-r240/SOAPdenovo-63mer all -s Mellotropicalis_all_libraries_big_library_scaffoldonly.conf -K 63 -R -N 3500000000 -V -p 15 -o /work/ben/Mellotropicalis_corrected_data/SOAP_assembly/2nd_try/SOAP_Mellotropicalis_BJE3652_genome_63
 ```
 
 **Also need to try including big library (>1kb) for only scaffolding**
