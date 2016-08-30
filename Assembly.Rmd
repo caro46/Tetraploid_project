@@ -130,6 +130,10 @@ N90	164	3291678
 NG50	257805	1
 N50_scaffold-NG50_scaffold_length_difference	247169
 ```
+K-mer 37
+```
+work/ben/2016_Hymenochirus/SOAPdenovo2-src-r240/SOAPdenovo-63mer all -s Mellotropicalis_all_libraries_big_library_scaffoldonly.conf -K 37 -R -N 3500000000 -V -p 15 -o /work/ben/Mellotropicalis_corrected_data/SOAP_assembly/37mers_KBlib_scaff_only/SOAP_Mellotropicalis_BJE3652_genome_37
+```
 **Also need to try including big library (>1kb) for only scaffolding**
 ```
 SOAPdenovo-63mer all -s Mellotropicalis_KBlib_scaff_only.conf -K 63 -R -F -N 3500000000 -V -p 15 -o /net/infofile2/2/scratch/evanslab_backups/Mellotropicalis_2016/SOAP/63mers_KBlib_scaff_only/SOAP_Mellotropicalis_BJE3652_genome_63
