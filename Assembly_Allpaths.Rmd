@@ -1,0 +1,34 @@
+## Reference
+Structure: `REFERENCE/DATA/RUN/ASSEMBLIES/SUBDIR`.
+
+In the ALLPATHS it is advice to use a reference genome if one is available to help building the genome: using *X.tropicalis*.
+DATA directories = sets of reads to assemble.
+Arguments to give 
+
+> PRE – the root directory in which the ALLPATHS pipeline directory will be created. (= '/work/ben/Mellotropicalis_corrected_data')
+
+> REFERENCE_NAME – the REFERENCE (organism) directory name 
+
+> DATA_SUBDIR – the DATA (project) directory name
+
+> RUN – the RUN (assembly pre ‐ processing) directory name (='allpaths')
+
+> SUBDIR – the SUBDIR (assembly) directory name
+
+#### Preparing the data
+```
+PrepareAllPathsInputs.pl DATA_DIR=/work/ben/Mellotropicalis_corrected_data/
+```
+The `DATA_DIR` needs to contain the `in_groups.csv` & `in_libs.csv` files.
+The reference genome must be supplied as two files: genome.fasta and genome.fastb. (Run `Fasta2Fastb`)
+```
+RunAllPathsLG
+PRE=/work/ben
+DATA_SUBDIR=Mellotropicalis_corrected_data
+RUN=allpaths
+REFERENCE_NAME=
+TARGETS=standard
+EVALUATION=standard
+THREADS=4
+```
+!!!! Differences with Abyss & SOAPdenovo: no need of specify a k-mer size (default `K=96`). No direct linked between k-mer size and read length. Allpaths uses multiple values when building the assembly. 
