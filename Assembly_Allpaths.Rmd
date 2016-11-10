@@ -17,8 +17,9 @@ Arguments to give
 
 #### Preparing the data
 ```
-PrepareAllPathsInputs.pl DATA_DIR=/work/ben/Mellotropicalis_corrected_data/
+PrepareAllPathsInputs.pl DATA_DIR=/work/ben/Mellotropicalis_corrected_data/ PLOIDY=1
 ```
+`PLOIDY` only 0 (haploid) or 1 (diploid) no other ploidy level tested.
 The `DATA_DIR` needs to contain the `in_groups.csv` & `in_libs.csv` files.
 The reference genome must be supplied as two files: genome.fasta and genome.fastb. (Run `Fasta2Fastb`)
 ```
