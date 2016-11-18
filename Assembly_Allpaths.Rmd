@@ -33,3 +33,11 @@ EVALUATION=standard
 THREADS=4
 ```
 !!!! Differences with Abyss & SOAPdenovo: no need of specify a k-mer size (default `K=96`). No direct linked between k-mer size and read length. Allpaths uses multiple values when building the assembly. 
+
+##On test data
+```
+module load allpathslg
+PrepareAllPathsInputs.pl DATA_DIR=/scratch/ben/allpath_assembly/ALLPATHS-LG.test_genome/seq IN_GROUPS_CSV=/scratch/ben/allpath_assembly/ALLPATHS-LG.test_genome/seq/in_groups.csv IN_LIBS_CSV=/scratch/ben/allpath_assembly/ALLPATHS-LG.test_genome/seq/in_libs.csv
+RunAllPathsLG PRE=/scratch/ben/allpath_assembly/ REFERENCE_NAME=ALLPATHS-LG.test_genome DATA_SUBDIR=seq RUN=myrun TARGETS=standard 
+```
+(`myrun` is created while running, needs a `ploidy` file in the DATA directory)
