@@ -16,6 +16,7 @@ Arguments to give
 > SUBDIR – the SUBDIR (assembly) directory name
 
 #### Preparing the data
+We have paired-end libraries. We need to rename the files `Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L008_R1_011_trim_paired.fastq.gz` needs to become `Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L008_R1_011_trim_paired.A.fastq.gz` .
 ```
 (on scratch)
 module load allpathslg
