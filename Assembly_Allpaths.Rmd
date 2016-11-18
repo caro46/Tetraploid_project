@@ -25,6 +25,29 @@ PrepareAllPathsInputs.pl DATA_DIR=/scratch/ben/allpath_assembly/X_mellotropicali
 `PLOIDY` only 0 (haploid) or 1 (diploid) no other ploidy level tested.
 The `DATA_DIR` needs to contain the `in_groups.csv` & `in_libs.csv` files.
 The reference genome must be supplied as two files: genome.fasta and genome.fastb. (Run `Fasta2Fastb`) - 1st we will do it without any ref. seq (`Run1`).
+
+`in_groups.csv`
+```
+group_name,library_name,file_name
+6kb,Illumina_6kb,/scratch/ben/allpath_assembly/X_mellotropicalis/data/Ben-Evans-BJE3652-6kb_NoIndex_*.fastq.gz
+1kb,Illumina_1kb,/scratch/ben/allpath_assembly/X_mellotropicalis/data/BenEvansBJE3652_1000bp_Library*.fastq.gz
+10kb,Illumina_10kb,/scratch/ben/allpath_assembly/X_mellotropicalis/data/Ben_Evans_BJE3652_10kb_Mate_Pair_Library*.fastq.gz
+180bp_2,Illumina_180bp_2,/scratch/ben/allpath_assembly/X_mellotropicalis/data/Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence*.fastq.gz
+180bp_1,Illumina_180bp,/scratch/ben/allpath_assembly/X_mellotropicalis/data/BenEvansBJE3652_180bp_Library_GTTTCG*.fastq.gz
+400bp,Illumina_400bp,/scratch/ben/allpath_assembly/X_mellotropicalis/data/BenEvansBJE3652_400bp*.fastq.gz
+6kb_2,Illumina_6kb_2,/scratch/ben/allpath_assembly/X_mellotropicalis/data/Ben_Evans_BJE3652_6kb_2nd_Sequencing*.fastq.gz
+```
+`in_libs.csv`
+```
+library_name,project_name,organism_name,type,paired,frag_size,frag_stddev,insert_size,insert_stddev,read_orientation,genomic_start,genomic_end
+Illumina_6kb,Mellotropicalis_poject,Xenopus_mellotropicalis,jumping,1,,,6000,500,inward,0,0
+Illumina_1kb,Mellotropicalis_poject,Xenopus_mellotropicalis,fragment,1,90,60,,,inward,0,0
+Illumina_10kb,Mellotropicalis_poject,Xenopus_mellotropicalis,jumping,1,,,10000,500,inward,0,0
+Illumina_180bp,Mellotropicalis_poject,Xenopus_mellotropicalis,fragment,1,90,60,,,inward,0,0
+Illumina_180bp_2,Mellotropicalis_poject,Xenopus_mellotropicalis,fragment,1,90,60,,,inward,0,0
+Illumina_400bp,Mellotropicalis_poject,Xenopus_mellotropicalis,fragment,1,90,60,,,inward,0,0
+Illumina_6kb_2,Mellotropicalis_poject,Xenopus_mellotropicalis,jumping,1,,,6000,500,inward,0,0
+```
 ```
 RunAllPathsLG
 PRE=/scratch/ben/allpath_assembly
