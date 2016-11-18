@@ -20,7 +20,7 @@ We have paired-end libraries. We need to rename the files `Ben_Evans_BJE3652_180
 ```
 (on scratch)
 module load allpathslg
-PrepareAllPathsInputs.pl DATA_DIR=/scratch/ben/allpath_assembly/X_mellotropicalis/data PLOIDY=1 IN_GROUPS_CSV=/scratch/ben/allpath_assembly/X_mellotropicalis/in_groups.csv IN_LIBS_CSV=/scratch/ben/allpath_assembly/X_mellotropicalis/in_libs.csv PHRED_64=1
+PrepareAllPathsInputs.pl DATA_DIR=/scratch/ben/allpath_assembly/X_mellotropicalis/data PLOIDY=1 IN_GROUPS_CSV=/scratch/ben/allpath_assembly/X_mellotropicalis/in_groups.csv IN_LIBS_CSV=/scratch/ben/allpath_assembly/X_mellotropicalis/in_libs.csv 
 ```
 `PLOIDY` only 0 (haploid) or 1 (diploid) no other ploidy level tested.
 The `DATA_DIR` needs to contain the `in_groups.csv` & `in_libs.csv` files.
