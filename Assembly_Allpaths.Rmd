@@ -56,6 +56,105 @@ group_name,library_name,file_name
 400bp,Illumina_400bp,/scratch/ben/allpath_assembly/X_mellotropicalis/data/BenEvansBJE3652_400bp*.fastq.gz
 6kb_2,Illumina_6kb_2,/scratch/ben/allpath_assembly/X_mellotropicalis/data/Ben_Evans_BJE3652_6kb_2nd_Sequencing*.fastq.gz
 ```
+We need to have a separate group for each pair of reads:
+```perl
+#!/usr/bin/perl
+
+# This script is to produce the input file
+# for allpaths: "in_groups.csv" 
+
+use strict;
+use warnings;
+my @files;
+my @files_R1_180_1;
+my @files_R1_180_2;
+my @files_R1_400;
+my @files_R1_1000;
+my @files_R1_6000_1;
+my @files_R1_6000_2;
+my @files_R1_10000;
+my $path_to_data;
+my $output = "in_groups.csv";
+
+# Use the open() function to create the file.
+unless(open FILE, '>'.$output) {
+    # Die with error message 
+    # if we can't open it.
+    die "\nUnable to create $output\n";
+}
+
+$path_to_data = "/scratch/ben/allpath_assembly/X_mellotropicalis/data/";
+print FILE "group_name,library_name,file_name","\n";
+
+##1st library
+#180bp_1,Illumina_180bp,/scratch/ben/allpath_assembly/X_mellotropicalis/data/BenEvansBJE3652_180bp_Library_GTTTCG*.fastq.gz
+
+@files_R1_180_1 = glob($path_to_data."BenEvansBJE3652_180bp_Library_GTTTCG*A.fastq.gz");
+my $y;
+for ($y=0; $y<=$#files_R1_180_1; $y ++) {
+    print FILE "180bp_1_",$y,",Illumina_180bp,", $files_R1_180_1[$y],"\n";
+}
+
+##2nd library
+#180bp_2,Illumina_180bp_2,/scratch/ben/allpath_assembly/X_mellotropicalis/data/Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence*.fastq.gz
+
+@files_R1_180_2 = glob($path_to_data."Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence*A.fastq.gz");
+for ($y=0; $y<=$#files_R1_180_2; $y ++) {
+    print FILE "180bp_2_",$y,",Illumina_180bp_2,", $files_R1_180_2[$y],"\n";
+}
+
+##3rd library
+#400bp,Illumina_400bp,/scratch/ben/allpath_assembly/X_mellotropicalis/data/BenEvansBJE3652_400bp*.fastq.gz
+
+@files_R1_400 = glob($path_to_data."BenEvansBJE3652_400bp*A.fastq.gz");
+for ($y=0; $y<=$#files_R1_400; $y ++) {
+    print FILE "400bp_",$y,",Illumina_400bp,", $files_R1_400[$y],"\n";
+}
+
+##4th library
+#1kb,Illumina_1kb,/scratch/ben/allpath_assembly/X_mellotropicalis/data/BenEvansBJE3652_1000bp_Library*.fastq.gz
+
+@files_R1_1000 = glob($path_to_data."BenEvansBJE3652_1000bp_Library*A.fastq.gz");
+for ($y=0; $y<=$#files_R1_1000; $y ++) {
+    print FILE "1kb_",$y,",Illumina_1kb,", $files_R1_1000[$y],"\n";
+}
+
+##5th library
+#6kb,Illumina_6kb,/scratch/ben/allpath_assembly/X_mellotropicalis/data/Ben-Evans-BJE3652-6kb_NoIndex_*.fastq.gz
+
+@files_R1_6000_1 = glob($path_to_data."Ben-Evans-BJE3652-6kb_NoIndex_*A.fastq.gz");
+for ($y=0; $y<=$#files_R1_6000_1; $y ++) {
+    print FILE "6kb_1",$y,",Illumina_6kb,", $files_R1_6000_1[$y],"\n";
+}
+
+##6th library
+#6kb_2,Illumina_6kb_2,/scratch/ben/allpath_assembly/X_mellotropicalis/data/Ben_Evans_BJE3652_6kb_2nd_Sequencing*.fastq.gz
+
+@files_R1_6000_2 = glob($path_to_data."Ben_Evans_BJE3652_6kb_2nd_Sequencing*A.fastq.gz");
+for ($y=0; $y<=$#files_R1_6000_2; $y ++) {
+    print FILE "6kb_2_",$y,",Illumina_6kb_2,", $files_R1_6000_2[$y],"\n";
+}
+
+##7th library
+#10kb,Illumina_10kb,/scratch/ben/allpath_assembly/X_mellotropicalis/data/Ben_Evans_BJE3652_10kb_Mate_Pair_Library*.fastq.gz
+@files_R1_10000 = glob($path_to_data."Ben_Evans_BJE3652_10kb_Mate_Pair_Library*A.fastq.gz");
+for ($y=0; $y<=$#files_R1_10000; $y ++) {
+    print FILE "10kb_",$y,",Illumina_10kb,", $files_R1_10000[$y],"\n";
+}
+
+#Change the "A" into "*"
+# close the file.
+close FILE;
+
+my $commandline;
+my $status;
+$commandline = "sed -i -e s/A.fastq.gz/\*.fastq.gz/g ".$output;
+print $commandline;
+$status=system($commandline);
+
+exit 0;
+```
+
 `in_libs.csv`
 ```
 library_name,project_name,organism_name,type,paired,frag_size,frag_stddev,insert_size,insert_stddev,read_orientation,genomic_start,genomic_end
