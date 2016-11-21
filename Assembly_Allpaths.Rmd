@@ -1,4 +1,4 @@
-## [Allpaths](ftp://ftp.broadinstitute.org/pub/crd/ALLPATHS/Release-LG/AllPaths-LG_Manual.pdf), de novo assembly (possibility of adding a Reference)
+## [Allpaths](http://software.broadinstitute.org/allpaths-lg/blog/), de novo assembly (possibility of adding a Reference)
 STUCTURE: `REFERENCE/DATA/RUN/ASSEMBLIES/SUBDIR`.
 
 INPUTS: sequenced reads, their quality scores and information concerning their pairing (obtained with `PrepareAllPathsInputs.pl`) + ploidy files (only `0=haploid`, `1=diploid`).
