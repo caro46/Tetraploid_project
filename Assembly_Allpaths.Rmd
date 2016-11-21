@@ -166,6 +166,19 @@ Illumina_180bp_2,Mellotropicalis_poject,Xenopus_mellotropicalis,fragment,1,90,60
 Illumina_400bp,Mellotropicalis_poject,Xenopus_mellotropicalis,fragment,1,90,60,,,inward,0,0
 Illumina_6kb_2,Mellotropicalis_poject,Xenopus_mellotropicalis,jumping,1,,,6000,500,inward,0,0
 ```
+Some issues with the memory. Try again with deleting all the intermediate files from previous attempts (in case some of them weren't overwritten). If still issues see what we can do with some options that don't appear in the Manual:
+```
+Nov 21 08:35:17 2016 run on localhost (pid=25439), last modified Nov 17 15:29:25 2016
+/opt/sharcnet/allpathslg/52488/bin/ConvertToFastbQualb.pl                      \
+    PICARD_TOOLS_DIR=                                                          \
+    TMP_DIR=/scratch/ben/allpath_assembly/X_mellotropicalis/data/read_cache/picard_tmp \
+    DATA_FILE=/scratch/ben/allpath_assembly/X_mellotropicalis/data/BenEvansBJE3652_180bp_Library_GTTTCG_L001_004_trim_paired.cor.*.fastq.gz \
+    PAIRED=1                                                                   \
+    OUT_HEAD=/scratch/ben/allpath_assembly/X_mellotropicalis/data/read_cache/180bp_1_3 \
+    REVERSE_READS=False TRIM_START=0 TRIM_END=0 INCLUDE_NON_PF_READS=1         \
+    PHRED_64=0 FORCE_PHRED=0 REVERT_SAM=0 OVERWRITE=0 SAVE_COMPRESSED_FASTQ=0  \
+    SAVE_INTERMEDIATES=0 JAVA_MEM_GB=8 DRY_RUN=0 VERBOSE=1
+```
 ```
 RunAllPathsLG
 PRE=/scratch/ben/allpath_assembly
