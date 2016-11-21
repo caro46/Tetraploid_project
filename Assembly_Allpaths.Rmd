@@ -1,7 +1,7 @@
 ## [Allpaths](http://software.broadinstitute.org/allpaths-lg/blog/), de novo assembly (possibility of adding a Reference)
 STUCTURE: `REFERENCE/DATA/RUN/ASSEMBLIES/SUBDIR`.
 
-INPUTS: sequenced reads, their quality scores and information concerning their pairing (obtained with `PrepareAllPathsInputs.pl`) + ploidy files (only `0=haploid`, `1=diploid`).
+INPUTS: sequenced reads, their quality scores and information concerning their pairing (`.fastb` + `.qualb` obtained with `PrepareAllPathsInputs.pl`) + ploidy files (only `0=haploid`, `1=diploid`).
 
 In the ALLPATHS it is advice to use a **reference genome** if one is available to help building the genome: using *X.tropicalis*.
 DATA directories = sets of reads to assemble.
