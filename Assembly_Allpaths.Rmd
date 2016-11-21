@@ -212,7 +212,7 @@ From the [Allpaths website](http://software.broadinstitute.org/allpaths-lg/blog/
 
 *Peak usage is roughly 1.7 bytes per read base, at least for mammalian-size genomes. If you find that memory usage is much higher than this, we will try to help.  There are many places in the algorithm where memory usage could be reduced.*
 
-Potential memory issues considering the number of intermediate and "final" files produced even when just running the assembly on the test data -> a looooot of files will be created in new directories also created by the program. No information if they are necessary for running or just for recovery, if memmory issues, try moving intermediate files produced by the 1st command to freezer and then run the assembly.
+Potential memory issues considering the number of intermediate and "final" files produced even when just running the assembly on the test data -> a looooot of files will be created in new directories also created by the program. No information if they are necessary for running or just for recovery, if memory issues, try moving intermediate files produced by the 1st command to freezer and then run the assembly.
 #### Running the assembly
 ```
 RunAllPathsLG
