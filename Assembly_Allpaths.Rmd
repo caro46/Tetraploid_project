@@ -1,5 +1,7 @@
 ## Reference
-Structure: `REFERENCE/DATA/RUN/ASSEMBLIES/SUBDIR`.
+STUCTURE: `REFERENCE/DATA/RUN/ASSEMBLIES/SUBDIR`.
+
+INPUTS: sequenced reads, their quality scores and information concerning their pairing (obtained with `PrepareAllPathsInputs.pl`) + ploidy files (only `0=haploid`, `1=diploid`).
 
 In the ALLPATHS it is advice to use a reference genome if one is available to help building the genome: using *X.tropicalis*.
 DATA directories = sets of reads to assemble.
@@ -166,7 +168,32 @@ Illumina_6kb,Mellotropicalis_poject,Xenopus_mellotropicalis,jumping,1,,,6000,500
 Illumina_6kb_2,Mellotropicalis_poject,Xenopus_mellotropicalis,jumping,1,,,6000,500,outward,0,0
 Illumina_10kb,Mellotropicalis_poject,Xenopus_mellotropicalis,jumping,1,,,10000,500,outward,0,0
 ```
-Some issues with the memory. Try again with deleting all the intermediate files from previous attempts (in case some of them weren't overwritten). If still issues see what we can do with some options that don't appear in the Manual:
+Some issues with the memory. 
+
+From one of the `.log` file:
+```
+Sun Nov 20 13:16:05 2016 (MPF): Merging.
+
+Fatal error (pid=19712) at Sun Nov 20 13:24:38 2016:
+Attempt to write 16384 bytes to /scratch/ben/allpath_assembly/X_mellotropicalis/data/read_cache/180b
+p_1_0.tmp/all.qualb failed after writing 0 bytes: No space left on device [errno=28].
+
+
+Sun Nov 20 13:24:38 2016.  Abort.  Stopping.
+
+Generating a backtrace...
+
+Dump of stack:
+
+0. CRD::exit(int), in ??:0
+1. FileWriter::write(void const*, unsigned long) const, in FileWriter.cc:53
+2. writeBuf, in BinaryStream.h:158
+3. writeArray<long unsigned int>, in BinaryStream.h:135
+4. write<long unsigned int>, in BinaryStream.h:84
+5. FeudalFileWriter::close(), in FeudalFileWriter.cc:78
+```
+
+Try again with deleting all the intermediate files from previous attempts (in case some of them weren't overwritten). If still issues see what we can do with some options that don't appear in the Manual:
 ```
 Nov 21 08:35:17 2016 run on localhost (pid=25439), last modified Nov 17 15:29:25 2016
 /opt/sharcnet/allpathslg/52488/bin/ConvertToFastbQualb.pl                      \
@@ -179,6 +206,7 @@ Nov 21 08:35:17 2016 run on localhost (pid=25439), last modified Nov 17 15:29:25
     PHRED_64=0 FORCE_PHRED=0 REVERT_SAM=0 OVERWRITE=0 SAVE_COMPRESSED_FASTQ=0  \
     SAVE_INTERMEDIATES=0 JAVA_MEM_GB=8 DRY_RUN=0 VERBOSE=1
 ```
+#### Running the assembly
 ```
 RunAllPathsLG
 PRE=/scratch/ben/allpath_assembly
@@ -190,6 +218,7 @@ EVALUATION=standard
 THREADS=4
 ```
 !!!! Differences with Abyss & SOAPdenovo: no need of specify a k-mer size (default `K=96`). No direct linked between k-mer size and read length. Allpaths uses multiple values when building the assembly. 
+
 
 ##On test data
 ```
