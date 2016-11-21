@@ -158,13 +158,13 @@ exit 0;
 `in_libs.csv`
 ```
 library_name,project_name,organism_name,type,paired,frag_size,frag_stddev,insert_size,insert_stddev,read_orientation,genomic_start,genomic_end
-Illumina_6kb,Mellotropicalis_poject,Xenopus_mellotropicalis,jumping,1,,,6000,500,inward,0,0
-Illumina_1kb,Mellotropicalis_poject,Xenopus_mellotropicalis,fragment,1,90,60,,,inward,0,0
-Illumina_10kb,Mellotropicalis_poject,Xenopus_mellotropicalis,jumping,1,,,10000,500,inward,0,0
 Illumina_180bp,Mellotropicalis_poject,Xenopus_mellotropicalis,fragment,1,90,60,,,inward,0,0
 Illumina_180bp_2,Mellotropicalis_poject,Xenopus_mellotropicalis,fragment,1,90,60,,,inward,0,0
 Illumina_400bp,Mellotropicalis_poject,Xenopus_mellotropicalis,fragment,1,90,60,,,inward,0,0
-Illumina_6kb_2,Mellotropicalis_poject,Xenopus_mellotropicalis,jumping,1,,,6000,500,inward,0,0
+Illumina_1kb,Mellotropicalis_poject,Xenopus_mellotropicalis,fragment,1,90,60,,,inward,0,0
+Illumina_6kb,Mellotropicalis_poject,Xenopus_mellotropicalis,jumping,1,,,6000,500,outward,0,0
+Illumina_6kb_2,Mellotropicalis_poject,Xenopus_mellotropicalis,jumping,1,,,6000,500,outward,0,0
+Illumina_10kb,Mellotropicalis_poject,Xenopus_mellotropicalis,jumping,1,,,10000,500,outward,0,0
 ```
 Some issues with the memory. Try again with deleting all the intermediate files from previous attempts (in case some of them weren't overwritten). If still issues see what we can do with some options that don't appear in the Manual:
 ```
