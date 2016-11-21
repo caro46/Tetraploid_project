@@ -1,4 +1,4 @@
-## Allpaths, de novo assembly (possibility of adding a Reference)
+## [Allpaths](ftp://ftp.broadinstitute.org/pub/crd/ALLPATHS/Release-LG/AllPaths-LG_Manual.pdf), de novo assembly (possibility of adding a Reference)
 STUCTURE: `REFERENCE/DATA/RUN/ASSEMBLIES/SUBDIR`.
 
 INPUTS: sequenced reads, their quality scores and information concerning their pairing (obtained with `PrepareAllPathsInputs.pl`) + ploidy files (only `0=haploid`, `1=diploid`).
@@ -206,6 +206,12 @@ Nov 21 08:35:17 2016 run on localhost (pid=25439), last modified Nov 17 15:29:25
     PHRED_64=0 FORCE_PHRED=0 REVERT_SAM=0 OVERWRITE=0 SAVE_COMPRESSED_FASTQ=0  \
     SAVE_INTERMEDIATES=0 JAVA_MEM_GB=8 DRY_RUN=0 VERBOSE=1
 ```
+From the [Allpaths website](http://software.broadinstitute.org/allpaths-lg/blog/?page_id=215):
+
+*C2. How much memory does ALLPATHS-LG require?*
+
+*Peak usage is roughly 1.7 bytes per read base, at least for mammalian-size genomes. If you find that memory usage is much higher than this, we will try to help.  There are many places in the algorithm where memory usage could be reduced.*
+
 #### Running the assembly
 ```
 RunAllPathsLG
