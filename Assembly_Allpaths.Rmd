@@ -236,6 +236,7 @@ Try the permanent cache?
     HOSTS=’2,3.host2,4.host3’ 
     ACTION=Add 
 ```
+Try what the crocodile guy suggested:
 ```
 PrepareAllPathsInputs.pl DATA_DIR=/scratch/ben/allpath_assembly/X_mellotropicalis/data PLOIDY=2 IN_GROUPS_CSV=/scratch/ben/allpath_assembly/X_mellotropicalis/in_groups.csv IN_LIBS_CSV=/scratch/ben/allpath_assembly/X_mellotropicalis/in_libs.csv HOSTS=8 MAX_MEM_GB=400 
 ```
