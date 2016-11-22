@@ -236,12 +236,18 @@ Try the permanent cache?
     HOSTS=’2,3.host2,4.host3’ 
     ACTION=Add 
 ```
-Try what the crocodile guy suggested:
+Try what the crocodile guy tried (even if it wasn't workin, maybe since then it has been fixed):
 ```
 PrepareAllPathsInputs.pl DATA_DIR=/scratch/ben/allpath_assembly/X_mellotropicalis/data PLOIDY=2 IN_GROUPS_CSV=/scratch/ben/allpath_assembly/X_mellotropicalis/in_groups.csv IN_LIBS_CSV=/scratch/ben/allpath_assembly/X_mellotropicalis/in_libs.csv HOSTS=8 MAX_MEM_GB=400 
 ```
 Looking on the internet, a lot of memory issues for people using this software for big genome:
-[Here](http://seqanswers.com/forums/showthread.php?t=45543) - problem for a mouse genome running on a server -> ask sharcnet which node to select, only run on this one and alocating a lot (>500Gb) of memory? (no multi-threads?)  
+[Here](http://seqanswers.com/forums/showthread.php?t=45543) - problem for a mouse genome running on a server -> ask sharcnet which node to select, only run on this one and alocating a lot (>500Gb) of memory? (no multi-threads?) 
+
+Another one [here](http://seqanswers.com/forums/showthread.php?t=25729):
+*After some profiling by using the collectl, I found that the last program running before my allpaths-lg job terminated is FindErrors. And the reason was FindErrors tried to allocate more memory than it is available on the machine for loading some files. So I reran my job on another machine that has 2TB memory and it worked. Hope this will help.*
+
+Sounds like we will need help from Mark (sharcnet) and/or Brian... Interesting software that asks you to have a lot of data to have a lot of coverage with different insert size (minimum being one small and one big >2kb) but requires too much memory. Not sure how much we will need for this tetraploid genome and all the data we have (needed to try to solve the main issues of tetraploid genome: high heterozigosity & repeat elements)... And for the moment it is the 1st step, preparing the data.
+We will probably needs the help from the software team who was very helpful for the crocodile genome. 
 #### Running the assembly
 ```
 RunAllPathsLG
