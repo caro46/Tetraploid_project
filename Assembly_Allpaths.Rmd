@@ -268,4 +268,6 @@ module load allpathslg
 PrepareAllPathsInputs.pl DATA_DIR=/scratch/ben/allpath_assembly/ALLPATHS-LG.test_genome/seq IN_GROUPS_CSV=/scratch/ben/allpath_assembly/ALLPATHS-LG.test_genome/seq/in_groups.csv IN_LIBS_CSV=/scratch/ben/allpath_assembly/ALLPATHS-LG.test_genome/seq/in_libs.csv
 RunAllPathsLG PRE=/scratch/ben/allpath_assembly/ REFERENCE_NAME=ALLPATHS-LG.test_genome DATA_SUBDIR=seq RUN=myrun TARGETS=standard 
 ```
+Checked with test files if really no overwritting of the files that were successfully produced (`.qualb` `.fastb`) in `read_cache`: no but produced new final files in the `seq` directory. -> so try to run multiple times for our data and see if we can produce the needed files for the ones that we previously couldn't. (no `overwrite` information of this step in the manual).
+
 (`myrun` is created while running, needs a `ploidy` file in the DATA directory)
