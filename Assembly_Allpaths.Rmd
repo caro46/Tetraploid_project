@@ -247,7 +247,7 @@ Another one [here](http://seqanswers.com/forums/showthread.php?t=25729):
 *After some profiling by using the collectl, I found that the last program running before my allpaths-lg job terminated is FindErrors. And the reason was FindErrors tried to allocate more memory than it is available on the machine for loading some files. So I reran my job on another machine that has 2TB memory and it worked. Hope this will help.*
 
 Sounds like we will need help from Mark (sharcnet) and/or Brian... Interesting software that asks you to have a lot of data to have a lot of coverage with different insert size (minimum being one small and one big >2kb) but requires too much memory. Not sure how much we will need for this tetraploid genome and all the data we have (needed to try to solve the main issues of tetraploid genome: high heterozigosity & repeat elements)... And for the moment it is the 1st step, preparing the data.
-We will probably needs the help from the software team who was very helpful for the crocodile genome. 
+We will probably needs the help from the software team who was very helpful for the crocodile genome. Memory issues were also reported [there](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4173024/) when they tried to incorporate PacBio sequences.
 #### Running the assembly
 ```
 RunAllPathsLG
