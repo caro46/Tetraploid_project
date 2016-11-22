@@ -1,7 +1,7 @@
 ## [Allpaths](http://software.broadinstitute.org/allpaths-lg/blog/), de novo assembly (possibility of adding a Reference)
 STUCTURE: `REFERENCE/DATA/RUN/ASSEMBLIES/SUBDIR`.
 
-INPUTS: sequenced reads, their quality scores and information concerning their pairing (`.fastb` + `.qualb` obtained with `PrepareAllPathsInputs.pl`) + ploidy files (only `0=haploid`, `1=diploid`).
+INPUTS: sequenced reads, their quality scores and information concerning their pairing (`.fastb` + `.qualb` obtained with `PrepareAllPathsInputs.pl`) + ploidy files (only `1=haploid`, `2=diploid`).
 
 In the ALLPATHS it is advice to use a **reference genome** if one is available to help building the genome: using *X.tropicalis*.
 DATA directories = sets of reads to assemble.
@@ -41,9 +41,9 @@ done
 ```
 (on scratch)
 module load allpathslg
-PrepareAllPathsInputs.pl DATA_DIR=/scratch/ben/allpath_assembly/X_mellotropicalis/data PLOIDY=1 IN_GROUPS_CSV=/scratch/ben/allpath_assembly/X_mellotropicalis/in_groups.csv IN_LIBS_CSV=/scratch/ben/allpath_assembly/X_mellotropicalis/in_libs.csv 
+PrepareAllPathsInputs.pl DATA_DIR=/scratch/ben/allpath_assembly/X_mellotropicalis/data PLOIDY=2 IN_GROUPS_CSV=/scratch/ben/allpath_assembly/X_mellotropicalis/in_groups.csv IN_LIBS_CSV=/scratch/ben/allpath_assembly/X_mellotropicalis/in_libs.csv 
 ```
-`PLOIDY` only 0 (haploid) or 1 (diploid) no other ploidy level tested.
+`PLOIDY` only 1 (haploid) or 2 (diploid) no other ploidy level tested.
 The `DATA_DIR` needs to contain the `in_groups.csv` & `in_libs.csv` files.
 The reference genome must be supplied as two files: genome.fasta and genome.fastb. (Run `Fasta2Fastb`) - 1st we will do it without any ref. seq (`Run1`).
 
@@ -221,6 +221,24 @@ On a [discussion website](https://www.biostars.org/p/8973/), John St John (croco
 *I used Allpaths LG to generate the preliminary assemblies in the Crocodilian genome announcement paper last year http://genomebiology.com/content/13/1/415. Using a combination overlap library, and a reasonable coverage 2kb insert library using a custom protocol that Nader Pourmand at UCSC developed, we were able to achieve a scaffold N50 of 106Kb, and a contig N50 of 28Kb. I have not been involved with the project recently, so I am not sure what the current state of the assemblies are, but Allpaths-LG did do a good job on that genome with the data we had available at the time.* 
 
 It was ~5years ago but it seems to still be the case.
+
+Try the permanent cache?
+```
+  CacheLibs.pl 
+    CACHE_DIR=<CACHE_DIR> 
+    IN_LIBS_CSV=in_libs.csv  
+    ACTION=Add 
+  CacheGroups.pl 
+    CACHE_DIR=<CACHE_DIR> 
+    PICARD_TOOLS_DIR=/opt/picard/bin  
+    IN_GROUPS_CSV=in_groups.csv  
+    TMP_DIR=/large-tmp 
+    HOSTS=’2,3.host2,4.host3’ 
+    ACTION=Add 
+```
+```
+PrepareAllPathsInputs.pl DATA_DIR=/scratch/ben/allpath_assembly/X_mellotropicalis/data PLOIDY=2 IN_GROUPS_CSV=/scratch/ben/allpath_assembly/X_mellotropicalis/in_groups.csv IN_LIBS_CSV=/scratch/ben/allpath_assembly/X_mellotropicalis/in_libs.csv HOSTS=8 MAX_MEM_GB=400 
+```
 #### Running the assembly
 ```
 RunAllPathsLG
