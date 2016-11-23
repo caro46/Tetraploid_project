@@ -240,6 +240,8 @@ Try what the crocodile guy tried (even if it wasn't workin, maybe since then it 
 ```
 PrepareAllPathsInputs.pl DATA_DIR=/scratch/ben/allpath_assembly/X_mellotropicalis/data PLOIDY=2 IN_GROUPS_CSV=/scratch/ben/allpath_assembly/X_mellotropicalis/in_groups.csv IN_LIBS_CSV=/scratch/ben/allpath_assembly/X_mellotropicalis/in_libs.csv HOSTS=8 MAX_MEM_GB=400 
 ```
+By specifying `MAX_MEM_GB=500` when re-running (no overwrite): new files (that previously failed) were created (ex. `6kb_2_2.fastb`).
+
 Looking on the internet, a lot of memory issues for people using this software for big genome:
 [Here](http://seqanswers.com/forums/showthread.php?t=45543) - problem for a mouse genome running on a server -> ask sharcnet which node to select, only run on this one and alocating a lot (>500Gb) of memory? (no multi-threads?) 
 
