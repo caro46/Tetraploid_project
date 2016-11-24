@@ -256,6 +256,7 @@ We previously wanted to use `/scratch` since there is no limit of space but almo
 ```
 PrepareAllPathsInputs.pl DATA_DIR=/work/ben/Mellotropicalis_corrected_data/allpaths/data PLOIDY=2 IN_GROUPS_CSV=/work/ben/Mellotropicalis_corrected_data/allpaths/in_groups.csv IN_LIBS_CSV=/work/ben/Mellotropicalis_corrected_data/allpaths/in_libs.csv HOSTS=8 MAX_MEM_GB=400
 ```
+Other issues: fragment files not created because `GROUP_READ_SIZES (vec<double>)` not specified. No explanation what it is in the manual. Because at the beginning we only need to give 2 files, the issue should come from one of them. Some people have noticed a bad conversion with excel to `.csv` with blank not having single space. When we run again still same error. So delete the previous files and run again.
 
 #### Running the assembly
 ```
