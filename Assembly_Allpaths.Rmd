@@ -250,16 +250,23 @@ Another one [here](http://seqanswers.com/forums/showthread.php?t=25729):
 
 Sounds like we will need help from Mark (sharcnet) and/or Brian... Interesting software that asks you to have a lot of data to have a lot of coverage with different insert size (minimum being one small and one big >2kb) but requires too much memory. Not sure how much we will need for this tetraploid genome and all the data we have (needed to try to solve the main issues of tetraploid genome: high heterozigosity & repeat elements)... And for the moment it is the 1st step, preparing the data.
 We will probably needs the help from the software team who was very helpful for the crocodile genome. Memory issues were also reported [there](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4173024/) when they tried to incorporate PacBio sequences.
+
+#### Solution
+We previously wanted to use `/scratch` since there is no limit of space but almost full.... So come back on `/work` but need to check regularly if we are overquota. Need to either delete directly the apparently not necessary outputs of the 1st step or `mv` them to freezer until the complete assembly is done (max 1 month?) just in case. Run on `wobbie` (`wob101`) to have enough RAM. Not too many threats to not have competition for memory.
+```
+PrepareAllPathsInputs.pl DATA_DIR=/work/ben/Mellotropicalis_corrected_data/allpaths/data PLOIDY=2 IN_GROUPS_CSV=/work/ben/Mellotropicalis_corrected_data/allpaths/in_groups.csv IN_LIBS_CSV=/work/ben/Mellotropicalis_corrected_data/allpaths/in_libs.csv HOSTS=8 MAX_MEM_GB=400
+```
+
 #### Running the assembly
 ```
 RunAllPathsLG
-PRE=/scratch/ben/allpath_assembly
-REFERENCE_NAME=X_mellotropicalis
+PRE=/work/ben/Mellotropicalis_corrected_data
+REFERENCE_NAME=allpaths
 DATA_SUBDIR=data
 RUN=Run1
 TARGETS=standard
 EVALUATION=standard
-THREADS=4
+THREADS=10
 ```
 !!!! Differences with Abyss & SOAPdenovo: no need of specify a k-mer size (default `K=96`). No direct linked between k-mer size and read length. Allpaths uses multiple values when building the assembly. 
 
