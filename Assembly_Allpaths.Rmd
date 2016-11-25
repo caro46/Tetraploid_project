@@ -265,7 +265,7 @@ Other issues: fragment files not created because `GROUP_READ_SIZES (vec<double>)
 - Everything + 1/3 the 2nd sequencing of 180pb: not working
 - Everything + 1/4 the 2nd sequencing of 180pb: not working
 - Everything + 1/5 the 2nd sequencing of 180pb: not working
-- Everything + 1/10 the 2nd sequencing of 180pb: not working
+- Everything + 1/10 the 2nd sequencing of 180pb: not working (try without parallelization, and allowing more memeory `500G` still not working even when don't specify the memory limit)
 - Everything + 2 couples of the 2nd sequencing of 180pb: worked
 
 Ok so it is definitely a memory issue. Let's go whithout the 180pb-2nd sequencing libraries and try the 2nd step (the assembly) to see if we will have a memory issue after.
