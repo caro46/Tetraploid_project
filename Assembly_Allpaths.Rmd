@@ -278,7 +278,7 @@ REFERENCE_NAME=allpaths
 DATA_SUBDIR=data
 RUN=Run1
 TARGETS=standard
-EVALUATION=standard
+#EVALUATION=standard #not for Run1 (don't use X. tropicalis as a reference)
 THREADS=10
 ```
 !!!! Differences with Abyss & SOAPdenovo: no need of specify a k-mer size (default `K=96`). No direct linked between k-mer size and read length. Allpaths uses multiple values when building the assembly. 
