@@ -258,7 +258,7 @@ PrepareAllPathsInputs.pl DATA_DIR=/work/ben/Mellotropicalis_corrected_data/allpa
 ```
 Other issues: fragment files not created because `GROUP_READ_SIZES (vec<double>)` not specified. No explanation what it is in the manual. Because at the beginning we only need to give 2 files, the issue should come from one of them. Some people have noticed a bad conversion with excel to `.csv` with blank not having single space. When we run again still same error. So delete the previous files and run again. Only issue with the fragment part, no problem with the jumping libraries.
 
-##### Try subsetting
+##### Try subsetting (see if memory issue)
 - When runnning on only 1 couple of files (1 R1, 1 R2) for each library:`PrepareAllPathsInputs.pl` runs perfectly.
 - When running on everything except the 2nd sequencing of 180pb:
 
