@@ -269,6 +269,10 @@ Other issues: fragment files not created because `GROUP_READ_SIZES (vec<double>)
 - Everything + 2 couples of the 2nd sequencing of 180pb: worked
 
 Ok so it is definitely a memory issue. Let's go whithout the 180pb-2nd sequencing libraries and try the 2nd step (the assembly) to see if we will have a memory issue after.
+```
+PrepareAllPathsInputs.pl DATA_DIR=/work/ben/Mellotropicalis_corrected_data/allpaths/data PLOIDY=2 IN_GROUPS_CSV=/work/ben/Mellotropicalis_corrected_data/allpaths/in_groups_test_no_180_2.csv IN_LIBS_CSV=/work/ben/Mellotropicalis_corrected_data/allpaths/in_libs.csv HOSTS=8 MAX_MEM_GB=400
+RunAllPathsLG PRE=/work/ben/Mellotropicalis_corrected_data REFERENCE_NAME=allpaths DATA_SUBDIR=data RUN=Run1_no_180_2 TARGETS=standard THREADS=8 
+```
 
 #### Running the assembly
 ```
