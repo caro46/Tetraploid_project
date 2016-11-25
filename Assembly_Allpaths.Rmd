@@ -214,7 +214,7 @@ From the [Allpaths website](http://software.broadinstitute.org/allpaths-lg/blog/
 
 Potential memory issues considering the number of intermediate and "final" files produced even when just running the assembly on the test data -> a looooot of files will be created in new directories also created by the program. No information if they are necessary for running or just for recovery, if memory issues, try moving intermediate files produced by the 1st command to freezer and then run the assembly.
 
-On a [discussion website](https://www.biostars.org/p/8973/), John St John (crocodalian assembly):
+On a [discussion website](https://www.biostars.org/p/8973/), John St John (crocodilian assembly):
 
 *The broad talks about some genomes >500MB it assembled posted on its allpaths-lg blog. I personally haven't had luck with it yet b/c not all of the modules respect the MAX_MEM_GB (or something similar) argument. I have a 1TB system to work on, but it is shared, so it crashes at one of the modules that looks at how much memory is available and tries to use it all. If you are on your own dedicated system with enough ram then you should be ok. They claim to be fixing that particular issue now so people on shared systems can use the program.*
 
