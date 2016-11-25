@@ -260,7 +260,13 @@ Other issues: fragment files not created because `GROUP_READ_SIZES (vec<double>)
 
 ##### Try subsetting (see if memory issue)
 - When runnning on only 1 couple of files (1 R1, 1 R2) for each library:`PrepareAllPathsInputs.pl` runs perfectly.
-- When running on everything except the 2nd sequencing of 180pb:
+- When running on everything except the 2nd sequencing of 180pb: worked!
+- Everything + half the 2nd sequencing of 180pb: not working
+- Everything + 1/3 the 2nd sequencing of 180pb: not working
+- Everything + 1/4 the 2nd sequencing of 180pb: not working
+- Everything + 1/5 the 2nd sequencing of 180pb: not working
+- Everything + 1/10 the 2nd sequencing of 180pb: not working
+- Everything + 2 couples of the 2nd sequencing of 180pb: 
 
 #### Running the assembly
 ```
