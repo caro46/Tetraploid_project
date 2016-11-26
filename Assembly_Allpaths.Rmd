@@ -273,6 +273,13 @@ Ok so it is definitely a memory issue. Let's go whithout the 180pb-2nd sequencin
 PrepareAllPathsInputs.pl DATA_DIR=/work/ben/Mellotropicalis_corrected_data/allpaths/data PLOIDY=2 IN_GROUPS_CSV=/work/ben/Mellotropicalis_corrected_data/allpaths/in_groups_test_no_180_2.csv IN_LIBS_CSV=/work/ben/Mellotropicalis_corrected_data/allpaths/in_libs.csv HOSTS=8 MAX_MEM_GB=400
 RunAllPathsLG PRE=/work/ben/Mellotropicalis_corrected_data REFERENCE_NAME=allpaths DATA_SUBDIR=data RUN=Run1_no_180_2 TARGETS=standard THREADS=8 
 ```
+```
+Giving up.  Here are some possible solutions:
+- Run without other competing processes (if that's the problem).
+- Run on a server having more memory, or reduce your input data amount.
+- Consider using the MAX_MEM_GB or MEMORY_CHECK options (if available).
+```
+`You should not have specified a value for MAX_MEM_GB` for any value tried. Try with no limit, no threat.
 
 #### Running the assembly
 ```
