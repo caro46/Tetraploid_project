@@ -280,7 +280,65 @@ Giving up.  Here are some possible solutions:
 - Consider using the MAX_MEM_GB or MEMORY_CHECK options (if available).
 ```
 `You should not have specified a value for MAX_MEM_GB` for any value tried. Try with no limit, no threat.
+```
+Dang dang dang, we've got a problem.
+Attempt to allocate memory failed, memory usage before call = 24.73 GB.
+--------------------------------------------------------------------------------
+Top memory processes on this server now:
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
+ 8302 ben       20   0 29.6g  24g 1628 S  0.0 78.5   6:27.87 RemoveDodgyRead
+ 8202 ben       20   0  118m 6724 1880 S  0.0  0.0   0:00.11 exe
+ 8305 ben       20   0 23092 5912 1440 S  0.0  0.0   0:02.14 MemMonitor
+ 2483 nobody    20   0  183m 4512 2012 S  0.0  0.0  51:06.55 gmond
+ 2225 nslcd     20   0  433m 3516 1116 S  0.0  0.0   0:00.41 nslcd
+--------------------------------------------------------------------------------
+Stack trace (sometimes informative):
+0. our_new_handler(), in RunTime.cc:586
+1. OuterVec<SerfVec<unsigned char>, MempoolOwner<unsigned char>, allocator<SerfVec<unsigned char> > >::realloc(...), in new_allocator.h:104
+2. reserve, in OuterVec.h:219
+3. resize, in OuterVec.h:196
+4. appendFromFeudal, in MasterVec.h:307
+--------------------------------------------------------------------------------
+Giving up.  Here are some possible solutions:
+- Run without other competing processes (if that's the problem).
+- Run on a server having more memory, or reduce your input data amount.
+- Consider using the MAX_MEM_GB or MEMORY_CHECK options (if available).
 
+make: *** [/work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/frag_reads_filt.fastb] Error 1
+
+Sat Nov 26 17:00:39 2016 : make process finished.
+
+Sat Nov 26 17:00:40 2016: Computing runtime statistics.
+
+ e_time(sec)  u_time(sec)  vmrss(MB)  vmsize(MB)   module name 
+--------------------------------------------------------------------------------
+       41720          101      15845       17716   ValidateAllPathsInputs
+       10697          286      26561       32008   RemoveDodgyReads
+--------------------------------------------------------------------------------
+       52418          388      26561       32008   Total/Peak 2 modules
+
+Sat Nov 26 17:00:41 2016: Compiling assembly report.
+
+------------------ Memory and CPU usage
+
+             32    available cpus
+           31.5    GB of total available memory
+       144845.5    GB of available disk space
+          12.43    hours of total elapsed time
+          14.56    hours of total per-module elapsed time
+           0.11    hours of total per-module user time
+           0.01    effective parallelization factor
+          25.94    GB memory usage peak
+
+
+
+Sat Nov 26 17:00:42 2016 : ALLPATHS-LG Pipeline Finished.
+
+Run directory: /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2
+Log directory: /work/ben/Mellotropicalis_corrected_data/allpaths/make_log/data/Run1_no_180_2/test/2016-11-26T14:02:17
+
+ *** Make encountered an error, see above for error messages. ***
+```
 #### Running the assembly
 ```
 RunAllPathsLG
