@@ -339,6 +339,7 @@ Log directory: /work/ben/Mellotropicalis_corrected_data/allpaths/make_log/data/R
 
  *** Make encountered an error, see above for error messages. ***
 ```
+Ben's suggestion of increasing the number of threats (`THREADS=20`) also failed with the same error message about the memory.
 #### Running the assembly
 ```
 RunAllPathsLG
