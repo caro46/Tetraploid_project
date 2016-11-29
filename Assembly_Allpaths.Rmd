@@ -353,6 +353,49 @@ THREADS=10
 ```
 !!!! Differences with Abyss & SOAPdenovo: no need of specify a k-mer size (default `K=96`). No direct linked between k-mer size and read length. Allpaths uses multiple values when building the assembly. 
 
+On iqaluk
+```
+Tue Nov 29 13:37:13 2016 (FE): Analysing kmer spectrum.
+Tue Nov 29 13:37:13 2016 (KS): Writing kmer spectrum to '/work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/frag_reads_filt.25mer.kspec'.
+Tue Nov 29 13:37:14 2016 (KSC): Estimating genome size.
+Tue Nov 29 13:37:15 2016 (KSC): ------------------- Kmer Spectrum Analysis -------------------
+Tue Nov 29 13:37:15 2016 (KSC): Genome size estimate        =  2,769,508,532 bases
+Tue Nov 29 13:37:15 2016 (KSC): Genome size estimate CN = 1 =  1,415,582,158 bases (  51.1 % )
+Tue Nov 29 13:37:15 2016 (KSC): Genome size estimate CN > 1 =  1,353,926,374 bases (  48.9 % )
+Tue Nov 29 13:37:15 2016 (KSC): Coverage estimate           =             16 x
+Tue Nov 29 13:37:15 2016 (KSC): Bias stddev at scale > K    =           0.18
+Tue Nov 29 13:37:15 2016 (KSC): Base error rate estimate    =         0.0001 (Q = 41.5)
+Tue Nov 29 13:37:15 2016 (KSC): SNP rate: always verify with kmer spectrum plot.
+Tue Nov 29 13:37:15 2016 (KSC): Ploidy                      =              2
+Tue Nov 29 13:37:15 2016 (KSC): SNP rate                   ~=          1/211
+Tue Nov 29 13:37:15 2016 (KSC): SNPs closer than K         ~=             21 %
+Tue Nov 29 13:37:15 2016 (KSC): --------------------------------------------------------------
+PERFSTAT: estimated genome size in bases [genome_size_est] = 2769508532
+PERFSTAT: % genome estimated to be repetitive (at K=25 scale) [genome_repetitiveness_est] = 48.0
+PERFSTAT: estimated genome coverage by fragment reads [genome_cov_est] = 16
+PERFSTAT: estimated standard deviation of sequencing bias (at K=25 scale) [bias_stddev_est] = 0.18
+Tue Nov 29 13:37:15 2016 (FE): Reading quals as nibble from '/work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/frag_reads_filt.qualb'.
+Tue Nov 29 13:52:25 2016 (FEC): cycle = 0/2
+Tue Nov 29 13:52:25 2016 (FEC): Renormalizing quality scores.
+Tue Nov 29 13:55:25 2016 (FEC): Duplicating 'bases' into 'bases_new'.
+Tue Nov 29 13:56:25 2016 (FEC): Mimicking 'bases' into 'base_locked'.
+Tue Nov 29 13:57:09 2016 (FEC): Gathering list of base-locations to correct.
+Tue Nov 29 13:57:15 2016 (NK): Starting kmerization.
+Tue Nov 29 13:57:30 2016 (NK):   n_threads     =                  8
+Tue Nov 29 13:57:30 2016 (NK):   K             =                 24
+Tue Nov 29 13:57:30 2016 (NK):   sizeof_krec   =                 16
+Tue Nov 29 13:57:30 2016 (NK):   n_bv          =        626,938,038
+Tue Nov 29 13:57:30 2016 (NK):   n_kmers       =     47,334,454,754
+Tue Nov 29 13:57:30 2016 (NK):   mem_total     =  1,084,165,799,936
+Tue Nov 29 13:57:30 2016 (NK):   mem_used      =    111,151,308,800
+Tue Nov 29 13:57:30 2016 (NK):   mem_avail     =    973,014,491,136
+Tue Nov 29 13:57:30 2016 (NK):   mem_mean      =    243,253,622,784
+Tue Nov 29 13:57:30 2016 (NK):   mem_mean_user =                  0
+Tue Nov 29 13:57:30 2016 (NK):   mem_needed    =  1,514,702,552,128
+Tue Nov 29 13:57:30 2016 (NK):   mem_to_use    =    151,470,255,212
+Tue Nov 29 13:57:30 2016 (NK):   n_parcels     =                 80
+Tue Nov 29 13:57:30 2016 (NK):   n_passes      =                 10
+```
 
 ##On test data
 ```
