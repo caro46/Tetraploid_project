@@ -396,6 +396,7 @@ Tue Nov 29 13:57:30 2016 (NK):   mem_to_use    =    151,470,255,212
 Tue Nov 29 13:57:30 2016 (NK):   n_parcels     =                 80
 Tue Nov 29 13:57:30 2016 (NK):   n_passes      =                 10
 ```
+Estimated genome size slightly smaller (~2.8 x 10^9) than X. laevis (3.1 x 10^9 bp), and less than 2 times the genome of X. tropicalis (1.7 x 10^9 bp). The repetitive portion of the genome seems to be high (48%) but makes sense (repeat sequences + duplicated genome).
 ```
 Wed Nov 30 15:59:06 2016 (CCR): Loading pairing info from '/work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/frag_reads_edit.pairs'.
 Wed Nov 30 16:00:45 2016 (CCR): Loaded 313469019 pairs.
@@ -420,6 +421,8 @@ PERFSTAT: % of reads removed because of low frequency kmers [frac_reads_removed]
 Wed Nov 30 16:01:17 2016 (CCR): Writing output files.
 Wed Nov 30 16:01:17 2016 (CCR): Writing bases to '/work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/frag_reads_corr.fastb'.
 ```
+Cool only ~1% of reads (previously corrected by Trimmomatic + Quake) considered as bad and removed by the assembler.
+
 ##On test data
 ```
 module load allpathslg
