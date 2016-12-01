@@ -422,7 +422,17 @@ Wed Nov 30 16:01:17 2016 (CCR): Writing output files.
 Wed Nov 30 16:01:17 2016 (CCR): Writing bases to '/work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/frag_reads_corr.fastb'.
 ```
 Cool only ~1% of reads (previously corrected by Trimmomatic + Quake) considered as bad and removed by the assembler.
+```
+Thu Dec 01 13:34:25 2016 Filled 45.8873% of 306471955 pairs.
+lib_name        lib_ID  sep  dev  n_reads
+--------        ------  ---  ---  -------
+Illumina_180bp       0   11   20  298587636
+Illumina_1kb         1  751  100  9070418
+Illumina_400bp       2  174   40  305285856
+Unpaired             -    -    -  6806201
 
+PERFSTAT: % of fragment pairs that were filled [frac_filled_pairs] = 45.9
+```
 ##On test data
 ```
 module load allpathslg
