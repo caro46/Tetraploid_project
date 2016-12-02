@@ -433,6 +433,21 @@ Unpaired             -    -    -  6806201
 
 PERFSTAT: % of fragment pairs that were filled [frac_filled_pairs] = 45.9
 ```
+```
+Fri Dec 02 09:49:32 2016: Original Stats:
+lib_name        lib_ID  sep  dev  n_reads
+--------        ------  ---  ---  -------
+Illumina_180bp       0  -16   20  305447912
+Illumina_1kb         1  806  100  9306348
+Illumina_400bp       2  204   40  312183778
+
+Fri Dec 02 09:49:32 2016: Replacement Stats:
+lib_name        lib_ID  sep  dev  n_reads
+--------        ------  ---  ---  -------
+Illumina_180bp       0   11   20  305447912
+Illumina_1kb         1  751  100  9306348
+Illumina_400bp       2  174   40  312183778
+```
 ##On test data
 ```
 module load allpathslg
