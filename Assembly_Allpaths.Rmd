@@ -448,6 +448,9 @@ Illumina_180bp       0   11   20  305447912
 Illumina_1kb         1  751  100  9306348
 Illumina_400bp       2  174   40  312183778
 ```
+#### Comments
+Thanks to Mark (sharcnet), the assembly is running well. It uses a lot of memory (RAM, virtual and outputs), it was needed to increase the memory that we can use on Iqaluk (peak of memory usage > 550 Gb). When the assembly, which for the moment uses all the data except the library `180pb-2nd sequencing`, is done, we will try to run it again using all the data (if the statistics are better than the SOAPdenovo assembly). Before running again, keep `.fa` and the stats files in a safe place.
+
 ##On test data
 ```
 module load allpathslg
