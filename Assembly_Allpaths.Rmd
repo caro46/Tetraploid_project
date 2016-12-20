@@ -460,3 +460,12 @@ RunAllPathsLG PRE=/scratch/ben/allpath_assembly/ REFERENCE_NAME=ALLPATHS-LG.test
 Checked with test files if really no overwritting of the files that were successfully produced (`.qualb` `.fastb`) in `read_cache`: no but produced new final files in the `seq` directory. -> so try to run multiple times for our data and see if we can produce the needed files for the ones that we previously couldn't. (no `overwrite` information of this step in the manual).
 
 (`myrun` is created while running, needs a `ploidy` file in the DATA directory)
+
+## Hybrid assembly
+
+We should have also in the future some PacBio sequences. The advantage of Pacbio is that it is long reads but with a lot of errors. They can be use to improve a draft assembly previously made using Illumina libraries (see for example [Olsen et al. 2015](https://gigascience.biomedcentral.com/articles/10.1186/s13742-015-0094-1)). [DBG2OLC](http://www.nature.com/articles/srep31900) seems to be an interesting option since it was tested on big genomes such as human.
+From the [github page](https://github.com/yechengxi/DBG2OLC/):
+
+*Step1. Use an accurate DBG-assembler to construct short but accurate contigs. Please make sure they are the raw DBG contigs without using repeat resolving techniques such as gap closing or scaffolding. Otherwise you may have poor final results due to the errors introduced by the heuristics used in short read assembly pipelines.*
+
+We are using `allpaths-LG` for assembling Illumina reads that seems to give the best result today. Other examples of hybrid and non-hybrid strategies [here](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Large-Genome-Assembly-with-PacBio-Long-Reads). 
