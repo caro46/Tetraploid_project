@@ -451,6 +451,49 @@ Illumina_400bp       2  174   40  312183778
 #### Comments
 Thanks to Mark (sharcnet), the assembly is running well. It uses a lot of memory (RAM, virtual and outputs), it was needed to increase the memory that we can use on Iqaluk (peak of memory usage > 550 Gb). When the assembly, which for the moment uses all the data except the library `180pb-2nd sequencing`, is done, we will try to run it again using all the data (if the statistics are better than the SOAPdenovo assembly). Before running again, keep `.fa` and the stats files in a safe place.
 
+#### Results
+```
+less /4/evanslab/Mellotropicalis_2016/assembly_stats.report
+
+
+--------------------------------------------------------------------------------
+Tue Jan 31 11:49:09 2017 run on iqaluk, pid=13814 [Nov 15 2016 19:39:43 R52488 ]
+AllPathsReport PRE=/work/ben/Mellotropicalis_corrected_data                    \
+               DATA=allpaths/data RUN=Run1_no_180_2 SUBDIR=test                \
+               ASSEMBLY=final MM=True _MM_INTERVAL=10 _MM_SUMMARY=False        \
+               _MM_OUT=/work/ben/Mellotropicalis_corrected_data/allpaths/data/ \
+               Run1_no_180_2/ASSEMBLIES/test/makeinfo/assembly_stats.report.mm \
+               .AllPathsReport
+--------------------------------------------------------------------------------
+
+
+Redirecting standard output to the following files:
+/work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/assembly_stats.report
+/work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/makeinfo/assembly_stats.report.out.AllPathsReport
+/work/ben/Mellotropicalis_corrected_data/allpaths/make_log/data/Run1_no_180_2/test/2017-01-09T15:56:13/AllPathsReport.out
+
+PERFSTAT: contig minimum size for reporting [ap_report_min_contig] = 1000
+PERFSTAT: number of contigs [n_contigs] = 335094
+PERFSTAT: number of contigs per Mb [contigs_per_Mb] = 591.1
+PERFSTAT: number of scaffolds [n_scaffolds] = 320227
+PERFSTAT: total contig length [contig_length] = 530543843
+PERFSTAT: total scaffold length, with gaps [scaff_length_gap] = 566922312
+PERFSTAT: N50 contig size in kb [N50_contig] = 1.6
+PERFSTAT: N50 scaffold size in kb [N50_scaffold] = 2
+PERFSTAT: N50 scaffold size in kb, with gaps [N50_scaff_gap] = 2
+PERFSTAT: number of scaffolds per Mb [scaff_per_Mb] = 564.85
+PERFSTAT: median size of gaps in scaffolds [median_gap] = -754
+PERFSTAT: median dev of gaps in scaffolds [median_gap_dev] = 331
+PERFSTAT: % of bases in captured gaps [frac_captured_gaps] = 6.94
+PERFSTAT: % of bases in negative gaps (after 5 devs) [frac_negative_gaps] = 3.45
+PERFSTAT: %% of ambiguous bases [amb_base_frac] = 202.94
+PERFSTAT: ambiguities per 10,000 bases [ambiguity_frac] = 14.49
+```
+Globally doesn't seem to be better than the previous SOAPdenovo assembly.
+### Assembly reconciliation?
+Each assembler has has their own advantages and desavantages producing different types of errors in the assembly. The idea will be to use the 2 assemblies produced by SOAPdenovo and Allpaths using the data except the library `180bp_2nd_sequencing`.
+[GAM-NGS](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-14-S7-S6) might be interesting to look at but requires to map the reads back against to each assembly (SAM files)...
+
 ##On test data
 ```
 module load allpathslg
