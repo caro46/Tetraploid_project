@@ -223,6 +223,13 @@ Genome size:
 
 *[X. tropicalis](http://www.xenbase.org/anatomy/intro.do)*: 1.7 x 10^9 bp x 2 (duplicated genome) = 3.4 x 10^9
 
+### Try to run with all the data
+
+Mark from Sharcnet increased the memory we can use because of allpaths. Let's try again
+```
+/work/ben/2016_Hymenochirus/SOAPdenovo2-src-r240/SOAPdenovo-127mer all -s Mellotropicalis_all_libraries_memory.conf -K 65 -R -F -N 3500000000 -V -p 15 -o /work/ben/Mellotropicalis_corrected_data/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_65_memory
+```
+
 ###Try to improve
 If we obtain an OK assembly, we can try some "diploid" assembly program to try improving it.
 - [ScaffoldScaffolder](http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-16-S7-S5) seems promissing for dealing with diploid assembly using bubbles to identify heterozygous homologous. Should be good for sites when each subgenome is homozygous but how to deal with heteroz. sites in both/one of the sub-genomes?  
