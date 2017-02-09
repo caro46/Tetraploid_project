@@ -228,6 +228,14 @@ Genome size:
 Mark from Sharcnet increased the memory we can use because of allpaths. Let's try again
 ```
 /work/ben/2016_Hymenochirus/SOAPdenovo2-src-r240/SOAPdenovo-127mer all -s Mellotropicalis_all_libraries_memory.conf -K 65 -R -F -N 3500000000 -V -p 15 -o /work/ben/Mellotropicalis_corrected_data/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_65_memory
+
+/work/ben/2016_Hymenochirus/SOAPdenovo2-src-r240/SOAPdenovo-63mer all -s Mellotropicalis_all_libraries_memory_separate_lane_180_2.conf -K 63 -R -N 3500000000 -V -p 5 -o /work/ben/Mellotropicalis_corrected_data/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_63_memory
+
+[ben@iqaluk:/work/ben/Mellotropicalis_corrected_data/SOAP_assembly] /work/ben/2016_Hymenochirus/SOAPdenovo2-src-r240/SOAPdenovo-63mer all -s Mellotropicalis_all_libraries_memory_separate_lane_180_2.conf -K 33 -V -p 5 -o /work/ben/Mellotropicalis_corrected_data/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory
+
+ /work/ben/Mellotropicalis_corrected_data/allpaths/data/Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015_NoIndex_L006_R2_071_trim_paired.fastq.gz
+Segmentation fault
+
 ```
 
 ###Try to improve
