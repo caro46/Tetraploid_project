@@ -241,6 +241,11 @@ Recording memory usage
 ```
 top -b -p 55018 -d 1800 >>top.out # "-b": in bash, "-p": PID number, "-d": delay in seconds 
 ```
+```
+/work/ben/2016_Hymenochirus/SOAPdenovo2-src-r240/SOAPdenovo-63mer all -s Mellotropicalis_all_libraries_memory_separate_lane_180_2.conf -K 33 -V -p 5 -o /work/ben/Mellotropicalis_corrected_data/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory >SOAP_check_memory.out
+```
+For some reason the last command didn't fail at loading the data... Perhaps the fact of redirecting the results (however, we weren't able at 1st tor use `1>ass.log 2>ass.err` as suggested on the SOAP webpage).
+
 ###Try to improve
 If we obtain an OK assembly, we can try some "diploid" assembly program to try improving it.
 - [ScaffoldScaffolder](http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-16-S7-S5) seems promissing for dealing with diploid assembly using bubbles to identify heterozygous homologous. Should be good for sites when each subgenome is homozygous but how to deal with heteroz. sites in both/one of the sub-genomes?  
