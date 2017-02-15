@@ -245,7 +245,52 @@ top -b -p 55018 -d 1800 >>top.out # "-b": in bash, "-p": PID number, "-d": delay
 /work/ben/2016_Hymenochirus/SOAPdenovo2-src-r240/SOAPdenovo-63mer all -s Mellotropicalis_all_libraries_memory_separate_lane_180_2.conf -K 33 -V -p 5 -o /work/ben/Mellotropicalis_corrected_data/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory >SOAP_check_memory.out
 ```
 For some reason the last command didn't fail at loading the data... Perhaps the fact of redirecting the results (however, we weren't able at 1st tor use `1>ass.log 2>ass.err` as suggested on the SOAP webpage).
+```
+less SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafStatistics
 
+<-- Information for assembly Scaffold '/work/ben/Mellotropicalis_corrected_data/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq'.(cut_off_length < 100bp) -->
+
+Size_includeN   5073922146
+Size_withoutN   1671195048
+Scaffold_Num    2654558
+Mean_Size       1911
+Median_Size     206
+Longest_Seq     172751
+Shortest_Seq    100
+Singleton_Num   1515787
+Average_length_of_break(N)_in_scaffold  1281
+
+Known_genome_size       NaN
+Total_scaffold_length_as_percentage_of_known_genome_size        NaN
+
+scaffolds>100   2605266 98.14%
+scaffolds>500   848053  31.95%
+scaffolds>1K    541593  20.40%
+scaffolds>10K   246073  9.27%
+scaffolds>100K  14      0.00%
+scaffolds>1M    0       0.00%
+
+Nucleotide_A    510513933       10.06%
+Nucleotide_C    328184859       6.47%
+Nucleotide_G    326721233       6.44%
+Nucleotide_T    505775023       9.97%
+GapContent_N    3402727098      67.06%
+Non_ACGTN       0       0.00%
+GC_Content      39.19%          (G+C)/(A+C+G+T)
+
+N10     32148   12151
+N20     22929   30575
+N30     20451   54201
+N40     13674   83219
+N50     11603   124323
+N60     10815   169738
+N70     10267   217953
+N80     4952    275765
+N90     908     579958
+
+NG50    NaN     NaN
+N50_scaffold-NG50_scaffold_length_difference    NaN
+```
 ###Try to improve
 If we obtain an OK assembly, we can try some "diploid" assembly program to try improving it.
 - [ScaffoldScaffolder](http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-16-S7-S5) seems promissing for dealing with diploid assembly using bubbles to identify heterozygous homologous. Should be good for sites when each subgenome is homozygous but how to deal with heteroz. sites in both/one of the sub-genomes?  
