@@ -301,6 +301,31 @@ Being optimistic
 ```
 /work/ben/2016_Hymenochirus/SOAPdenovo2-src-r240/SOAPdenovo-63mer all -s Mellotropicalis_all_libraries_memory.conf -K 33 -V -p 5 -R -F -o /work/ben/Mellotropicalis_corrected_data/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory_180together >SOAP_check_memory_all180together.out
 ```
+Filling part crashed with `Aborted` but able to get the statistics from the console (`ctrl+A esc`) 
+```
+Time spent on constructing scaffolds: 11471s.
+
+The final rank
+
+*******************************
+ Scaffold number                  1142790
+ In-scaffold contig number        9881182
+ Total scaffold length            4775108587
+ Average scaffold length          4178
+ Filled gap number                7717266
+ Longest scaffold                 112002
+ Scaffold and singleton number    3357171
+ Scaffold and singleton length    5065714323
+ Average length                   1508
+ N50                              11399
+ N90                              764
+ Weak points                      75
+
+*******************************
+```
+```
+/work/ben/2016_Hymenochirus/SOAPdenovo2-src-r240/SOAPdenovo-63mer all -s Mellotropicalis_all_libraries_memory.conf -K 63 -V -p 5 -R -o /work/ben/Mellotropicalis_corrected_data/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_63_memory_180together >SOAP_check_memory_63_all180together.out
+```
 ###Try to improve
 If we obtain an OK assembly, we can try some "diploid" assembly program to try improving it.
 - [ScaffoldScaffolder](http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-16-S7-S5) seems promissing for dealing with diploid assembly using bubbles to identify heterozygous homologous. Should be good for sites when each subgenome is homozygous but how to deal with heteroz. sites in both/one of the sub-genomes?  
