@@ -520,4 +520,6 @@ We are using `allpaths-LG` for assembling Illumina reads that seems to give the 
 
 [PBJelly](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0047768) can also be an interesting solution using as input a draft geneome and uses Pacbio to fill-in gaps.
 
-AHA and SSPACE-LongRead are known as hybrid assemblies and use PacBio data to scaffold contigs produced by Illumina reads but were designed for small genomes (bacteria).
+AHA and SSPACE-LongRead are known as hybrid assemblies and use PacBio data to scaffold contigs produced by Illumina reads but were designed for small genomes (bacteria). 
+
+From 2 recent papers about assemblies of [apple](https://gigascience.biomedcentral.com/articles/10.1186/s13742-016-0139-0) and an herbal [plant](https://gigascience.biomedcentral.com/articles/10.1186/s13742-015-0104-3), using 1st a draft assembly from NGS reads and then use PacBio for scaffolding seems an ok strategy. DBG2OLC seems to be OK. 
