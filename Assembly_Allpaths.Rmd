@@ -516,10 +516,12 @@ From the [github page](https://github.com/yechengxi/DBG2OLC/):
 
 *Step1. Use an accurate DBG-assembler to construct short but accurate contigs. Please make sure they are the raw DBG contigs without using repeat resolving techniques such as gap closing or scaffolding. Otherwise you may have poor final results due to the errors introduced by the heuristics used in short read assembly pipelines.*
 
-We are using `allpaths-LG` for assembling Illumina reads that seems to give the best result today. Other examples of hybrid and non-hybrid strategies [here](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Large-Genome-Assembly-with-PacBio-Long-Reads). 
+We are using `allpaths-LG` for assembling Illumina reads that seems to give the best result today. Other examples of hybrid and non-hybrid strategies [here](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Large-Genome-Assembly-with-PacBio-Long-Reads). However after looking again at the different softwares, looks like most of them are for small genomes. 
 
 [PBJelly](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0047768) can also be an interesting solution using as input a draft geneome and uses Pacbio to fill-in gaps.
 
 AHA and SSPACE-LongRead are known as hybrid assemblies and use PacBio data to scaffold contigs produced by Illumina reads but were designed for small genomes (bacteria). 
 
-From 2 recent papers about assemblies of [apple](https://gigascience.biomedcentral.com/articles/10.1186/s13742-016-0139-0) and an herbal [plant](https://gigascience.biomedcentral.com/articles/10.1186/s13742-015-0104-3), using 1st a draft assembly from NGS reads and then use PacBio for scaffolding seems an ok strategy. DBG2OLC seems to be OK. 
+From 2 recent papers about assemblies of [apple](https://gigascience.biomedcentral.com/articles/10.1186/s13742-016-0139-0) and an herbal [plant](https://gigascience.biomedcentral.com/articles/10.1186/s13742-015-0104-3), using 1st a draft assembly from NGS reads and then use PacBio for scaffolding seems an ok strategy. DBG2OLC seems to be OK.
+
+ALLPATHS-LG can also be run with pacbio but considering all the memory issue, it is not a good idea and also was only tested for small bacteria genomes (as SSPACE
