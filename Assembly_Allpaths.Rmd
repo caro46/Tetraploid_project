@@ -524,4 +524,4 @@ AHA and SSPACE-LongRead are known as hybrid assemblies and use PacBio data to sc
 
 From 2 recent papers about assemblies of [apple](https://gigascience.biomedcentral.com/articles/10.1186/s13742-016-0139-0) and an herbal [plant](https://gigascience.biomedcentral.com/articles/10.1186/s13742-015-0104-3), using 1st a draft assembly from NGS reads and then use PacBio for scaffolding seems an ok strategy. DBG2OLC seems to be OK.
 
-ALLPATHS-LG can also be run with pacbio but considering all the memory issue, it is not a good idea and also was only tested for small bacteria genomes (as SSPACE
+ALLPATHS-LG can also be run with pacbio but considering all the memory issue, it is not a good idea and also was only tested for small bacteria genomes (as SSPACE for ex.).
