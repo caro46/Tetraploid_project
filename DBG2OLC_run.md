@@ -25,3 +25,15 @@ bamtools filter -length ">1000" -tag "rq:>0.85" -in BJE3652.all.subreads.bam | b
 ```
 ./DBG2OLC k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.01 RemoveChimera 1 Contigs /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta f BJE3652.all.subreads.filterRQ.fastq >DBG2OLC_LOG.txt
 ```
+For more details see [DBG2OLC github page](https://github.com/yechengxi/DBG2OLC)
+```
+There are three major parameters that affect the assembly quality:
+
+M = matched k-mers between a contig and a long read.
+
+AdaptiveTh: adaptive k-mer matching threshold. If M < AdaptiveTh* Contig_Length, this contig cannot be used as an anchor to the long read.
+
+KmerCovTh: fixed k-mer matching threshold. If M < KmerCovTh, this contig cannot be used as an anchor to the long read.
+
+MinOverlap: minimum overlap score between a pair of long reads. For each pair of long reads, an overlap score is calculated by aligning the compressed reads and score with the matching k-mers.
+```
