@@ -20,6 +20,7 @@ bamtools merge -list subreadBamFiles.fofn -out subreads.bam
 ```
 $ bamtools filter -length ">1000" -tag "rq:>0.85" -in m.subreads.bam | bamtools convert -format fastq -out m.subreads.filterRQ.fastq
 ```
+### Run
 ```
 ./DBG2OLC k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.01 RemoveChimera 1 Contigs /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta f m.subreads.filterRQ.fastq >DBG2OLC_LOG.txt
 ```
