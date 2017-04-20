@@ -14,13 +14,14 @@ Looks like we need to use the `subread` from Pacbio, not `scraps`:
 
 ### Merge the bam files into 1
 ```
-bamtools merge -list subreadBamFiles.fofn -out subreads.bam
+bamtools merge BJE3652.all.subreads.bam Sequel.RunS005.*.BJE3652.subreads.bam
+
 ```
 ### Convert bam to fastq
 ```
-$ bamtools filter -length ">1000" -tag "rq:>0.85" -in m.subreads.bam | bamtools convert -format fastq -out m.subreads.filterRQ.fastq
+bamtools filter -length ">1000" -tag "rq:>0.85" -in BJE3652.all.subreads.bam | bamtools convert -format fastq -out BJE3652.all.subreads.filterRQ.fastq
 ```
 ### Run
 ```
-./DBG2OLC k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.01 RemoveChimera 1 Contigs /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta f m.subreads.filterRQ.fastq >DBG2OLC_LOG.txt
+./DBG2OLC k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.01 RemoveChimera 1 Contigs /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta f BJE3652.all.subreads.filterRQ.fastq >DBG2OLC_LOG.txt
 ```
