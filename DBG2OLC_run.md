@@ -36,4 +36,28 @@ AdaptiveTh: adaptive k-mer matching threshold. If M < AdaptiveTh* Contig_Length,
 KmerCovTh: fixed k-mer matching threshold. If M < KmerCovTh, this contig cannot be used as an anchor to the long read.
 
 MinOverlap: minimum overlap score between a pair of long reads. For each pair of long reads, an overlap score is calculated by aligning the compressed reads and score with the matching k-mers.
+
+Suggested tuning range is provided here:
+
+For 10x/20x PacBio data: KmerCovTh 2-5, MinOverlap 10-30, AdaptiveTh 0.001~0.01.
+
+For 50x-100x PacBio data: KmerCovTh 2-10, MinOverlap 50-150, AdaptiveTh 0.01-0.02.
+```
+Some other less flexible or less important parameters:
+```
+k: k-mer size, 17 works well.
+
+Contigs: the fasta contigs file from existing assembly.
+
+MinLen: minimum read length.
+
+RemoveChimera: remove chimeric reads in the dataset, suggest 1 if you have >10x coverage.
+
+For high coverage data (100x), there are two other parameters:
+
+ChimeraTh: default: 1, set to 2 if coverage is ~100x.
+
+ContigTh: default: 1, set to 2 if coverage is ~100x.
+
+These two are used in multiple alignment to remove problematic reads and false contig anchors. When we have high coverage, some more stringent conditions shall be applied as with the suggested parameters.
 ```
