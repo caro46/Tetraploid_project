@@ -18,8 +18,39 @@ bamtools merge BJE3652.all.subreads.bam Sequel.RunS005.*.BJE3652.subreads.bam
 
 ```
 ### Convert bam to fastq
+Suggestions from Ben: convert each bam into a fastq and then merge the fastq.
+```perl
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+# This script will transform bam files into fastq files  
+
+my $status;
+my $commandline;
+my @files;
+
+my $path = "/scratch/ben/mellotropicalis_bam_temp/";
+my $path_to_bamtools = "/work/ben/bamtools-master/bin/";
+@files = glob($path."*.bam");
+my $x;
+my @files_no_extension;
+my @temp;
+
+foreach(@files){
+    @temp=split(".bam",$_);
+    push(@files_no_extension,$temp[0]);
+}
+
+foreach(@files_no_extension){
+    
+$commandline = $path_to_bamtools."bamtools filter -length \">1000\" -tag \"rq:>0.85\" -in ".$path.$files_no_extension.".bam | ".$path_to_bamtools."bamtools convert -format fastq -out ".$path.$files_no_extension.".filterRQ.fastq ";
+$status = system($commandline);
+}
 ```
-bamtools filter -length ">1000" -tag "rq:>0.85" -in BJE3652.all.subreads.bam | bamtools convert -format fastq -out BJE3652.all.subreads.filterRQ.fastq
+```
+/work/ben/bamtools-master/bin/bamtools filter -length ">1000" -tag "rq:>0.85" -in BJE3652.all.subreads.bam | bamtools convert -format fastq -out BJE3652.all.subreads.filterRQ.fastq
 ```
 ### Run
 ```
