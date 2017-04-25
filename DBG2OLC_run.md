@@ -31,7 +31,7 @@ my $status;
 my $commandline;
 my @files;
 
-my $path = "/scratch/ben/mellotropicalis_bam_temp/";
+my $path = "/scratch/ben/mellotropicalis_pacbio_temp/";
 my $path_to_bamtools = "/work/ben/bamtools-master/bin/";
 @files = glob($path."*.bam");
 my $x;
@@ -39,15 +39,18 @@ my @files_no_extension;
 my @temp;
 
 foreach(@files){
+#       print $_,"\n";
     @temp=split(".bam",$_);
     push(@files_no_extension,$temp[0]);
 }
 
-foreach(@files_no_extension){
-    
-$commandline = $path_to_bamtools."bamtools filter -length \">1000\" -tag \"rq:>0.85\" -in ".$path.$files_no_extension.".bam | ".$path_to_bamtools."bamtools convert -format fastq -out ".$path.$files_no_extension.".filterRQ.fastq ";
+for($x =0; $x <= $#files_no_extension; $x ++){
+#print $files_no_extension[$x],"\n";    
+$commandline = $path_to_bamtools."bamtools filter -length \">1000\" -tag \"rq:>0.85\" -in ".$files_no_extension[$x].".bam | ".$path_to_bamtools."bamtools convert -format fastq -out ".$files_no_extension[$x].".filterRQ.fastq ";
 $status = system($commandline);
+
 }
+
 ```
 ```
 /work/ben/bamtools-master/bin/bamtools filter -length ">1000" -tag "rq:>0.85" -in BJE3652.all.subreads.bam | bamtools convert -format fastq -out BJE3652.all.subreads.filterRQ.fastq
