@@ -52,6 +52,10 @@ $status = system($commandline);
 }
 
 ```
+Concatenate fastq files
+```
+zcat /scratch/ben/mellotropicalis_pacbio_temp/*BJE3652.subreads.1000bpmin.fastq.gz | gzip >/scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.1000bpmin.fastq.gz
+```
 ```
 /work/ben/bamtools-master/bin/bamtools filter -length ">1000" -tag "rq:>0.85" -in BJE3652.all.subreads.bam | bamtools convert -format fastq -out BJE3652.all.subreads.filterRQ.fastq
 ```
