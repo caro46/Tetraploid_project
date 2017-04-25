@@ -93,3 +93,5 @@ L50                         76909           110537
 L75                         178611          218933                                               
 # N's per 100 kbp           6522.06         71236.08                
 ```
+## Conclusion
+Most of the statistics seem to say that SOAP assembly is better. However it has a lot of scaffolds. A concern is that maybe SOAP has a bunch of scaffolds because it does not know what to do with them so maybe they are not that accurate. So we will try the chimerical assembly (Illumina + Pacbio) with both draft assemblies.
