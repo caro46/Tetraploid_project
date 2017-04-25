@@ -16,7 +16,10 @@ I didn't specify the output location. So the results will be:
 ```
 /work/ben/quast-4.5/quast_results/results_2017_04_25_13_07_23
 ```
-
+On the contigs:
+```
+./quast.py /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta /work/ben/Mellotropicalis_corrected_data/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.contig -o /work/ben/quast-4.5/quast_results/contig_allpath_soap
+```
 ## Summary report
 Note:
 
@@ -52,7 +55,8 @@ L50 (L75, LG50, LG75) is the number of contigs equal to or longer than N50 (N75,
 In other words, L50, for example, is the minimal number of contigs that cover half the assembly.
 ```
 ## Results
-### Preliminary results from the screen:
+### Scaffolds
+#### Preliminary results from the screen:
 ```
 Running Basic statistics processor...
   Contig files:
@@ -65,7 +69,7 @@ Done.
 ```
 Wahoo this program is cool. OK so for now we have confirmation that the SOAP assembly is better (or not.. Need to speak with Ben boss to decide which one is the best).
 
-### report.txt
+#### report.txt
 ```
 All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
 Suggestion: all assemblies contain continuous fragments of N's of length >= 10 bp. You may consider rerunning QUAST using --scaffolds (-s) option!
@@ -92,6 +96,9 @@ N75                         1243            10258
 L50                         76909           110537                                               
 L75                         178611          218933                                               
 # N's per 100 kbp           6522.06         71236.08                
+```
+### Contigs
+```
 ```
 ## Conclusion
 Most of the statistics seem to say that SOAP assembly is better. However it has a lot of scaffolds. A concern is that maybe SOAP has a bunch of scaffolds because it does not know what to do with them so maybe they are not that accurate. So we will try the chimerical assembly (Illumina + Pacbio) with both draft assemblies.
