@@ -129,4 +129,4 @@ L75                         238067         74067
 ### Scaffolds
 Most of the statistics seem to say that SOAP assembly is better. However it has a lot of scaffolds. A concern is that maybe SOAP has a bunch of scaffolds because it does not know what to do with them so maybe they are not that accurate. So we will try the chimerical assembly (Illumina + Pacbio) with both draft assemblies.
 ### Contigs
-Allpaths seem better for the contigs.
+Allpaths seems better for the contigs.
