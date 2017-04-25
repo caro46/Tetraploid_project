@@ -99,6 +99,34 @@ L75                         178611          218933
 ```
 ### Contigs
 ```
+All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+Suggestion: assembly final.contigs contains continuous fragments of N's of length >= 10 bp. You may consider rerunning QUAST using --scaffolds (-s) option!
+
+Assembly                    final.contigs  SOAP_Mellotropicalis_BJE3652_genome_33_memory
+# contigs (>= 0 bp)         373937         84463003                                     
+# contigs (>= 1000 bp)      335094         6551                                         
+# contigs (>= 5000 bp)      1467           24                                           
+# contigs (>= 10000 bp)     19             4                                            
+# contigs (>= 25000 bp)     0              0                                            
+# contigs (>= 50000 bp)     0              0                                            
+Total length (>= 0 bp)      567751381      5161961770                                   
+Total length (>= 1000 bp)   530543843      8927010                                      
+Total length (>= 5000 bp)   8930438        189770                                       
+Total length (>= 10000 bp)  218409         56492                                        
+Total length (>= 25000 bp)  0              0                                            
+Total length (>= 50000 bp)  0              0                                            
+# contigs                   373931         108805                                       
+Largest contig              14519          21623                                        
+Total length                567748982      72788492                                     
+GC (%)                      38.79          40.76                                        
+N50                         1502           634                                          
+N75                         1170           553                                          
+L50                         130224         43154                                        
+L75                         238067         74067                                        
+# N's per 100 kbp           37.15          0.00     
 ```
 ## Conclusion
+### Scaffolds
 Most of the statistics seem to say that SOAP assembly is better. However it has a lot of scaffolds. A concern is that maybe SOAP has a bunch of scaffolds because it does not know what to do with them so maybe they are not that accurate. So we will try the chimerical assembly (Illumina + Pacbio) with both draft assemblies.
+### Contigs
+Allpaths seem better for the contigs.
