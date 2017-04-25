@@ -1,4 +1,4 @@
-# Quast
+# [Quast](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3624806/)
 
 ## [Install](http://quast.bioinf.spbau.ru/manual.html#sec1)
 ```
