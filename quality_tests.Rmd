@@ -100,7 +100,7 @@ if($on_off_switch == 1){
 
 We test again the quality of the sequences after trimming. Globally, we have good qualities sequences. For the library `Sample_Ben_Evans_BJE3652_180_BP_Library_2nd_Sequence_09082015` (R2 sequences), we have a strange pattern concerning the quality score of fastqc: good quality at the beginning, decrease in the middle (position in reads~48-49 bp) and increase again after (same quality as the beginning). For most sequences, we have a warning for the kmers section. We decided to test for nucleotide sequencing error using [Quake software](http://www.cbcb.umd.edu/software/quake/index.html). 
 
-### Correcting substitution sequencing error: Quake
+### Correcting substitution sequencing error: Quake (version 0.3)
 
 Our data are too large to use directly Quake, we need to count the k-mers using an other software: [jellyfish](http://www.cbcb.umd.edu/software/jellyfish/).
 
@@ -140,7 +140,7 @@ But after
  jellyfish qmerge -m 21 -s 100000000 -o merge_qmer_180_2seq.jf mer_counts*
 terminate called after throwing an instance of 'jellyfish::hash<unsigned long, jellyfish::Float, jellyfish::aligned_values::array<unsigned long, jellyfish::Float, atomic::gcc, allocators::mmap>, atomic::gcc>::TableFull'
   what():  No dumper defined
-```)
+```
 
 ##### 2- Merge the files (needed only for big datasets when we obtain multiple files)
 
