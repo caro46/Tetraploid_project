@@ -63,4 +63,4 @@ Running Basic statistics processor...
     2  SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq, N50 = 11981, L50 = 110537, Total length = 4749065556, GC % = 38.96, # N's per 100 kbp =  71236.08
 Done.
 ```
-Wahoo this program is cool. OK so for now we have confirmation that the SOAP assembly is better.
+Wahoo this program is cool. OK so for now we have confirmation that the SOAP assembly is better (or not.. Need to speak with Ben boss to decide which one is the best).
