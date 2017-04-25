@@ -51,3 +51,16 @@ N75 and NG75 are defined similarly to N50 but with 75 % instead of 50 %.
 L50 (L75, LG50, LG75) is the number of contigs equal to or longer than N50 (N75, NG50, NG75)
 In other words, L50, for example, is the minimal number of contigs that cover half the assembly.
 ```
+## Results
+Preliminary results from the screen:
+```
+Running Basic statistics processor...
+  Contig files:
+    1  final.assembly
+    2  SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq
+  Calculating N50 and L50...
+    1  final.assembly, N50 = 1920, L50 = 76909, Total length = 607138367, GC % = 38.79, # N's per 100 kbp =  6522.06
+    2  SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq, N50 = 11981, L50 = 110537, Total length = 4749065556, GC % = 38.96, # N's per 100 kbp =  71236.08
+Done.
+```
+Wahoo this program is cool. OK so for now we have confirmation that the SOAP assembly is better.
