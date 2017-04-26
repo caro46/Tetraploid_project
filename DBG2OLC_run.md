@@ -65,7 +65,10 @@ Ok so looks weird. We will try with
 ```
 /work/ben/samtools-1.2/samtools bam2fq /scratch/ben/mellotropicalis_pacbio_temp/Sequel.RunS005.001.BJE3652.subreads.bam > Sequel.RunS005.001.BJE3652.subreads.fastq 
 ```
-Obtained the same `!!!!` everywhere so should be normal I guess.
+Obtained the same `!!!!` everywhere so should be normal I guess. Someone else also had the [issue](http://seqanswers.com/forums/showthread.php?p=203328). According to someone who responded to this issue: `Sequel data does not have a per base QV value for raw reads`.
+
+DBG2OLC does not rely on the quality estimate but more on the overlapping of the reads so I think we are good for a first try. DBG2OLC warns about errors from correcting tools and suggest if we wnt to use correcting tools to compare the results with and without corrections on the pacbio reads.
+
 ### Run
 The program is located `/work/ben/Mellotropicalis_corrected_data/DBG2OLC-master`. Run from the program directory
 ```
