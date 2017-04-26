@@ -120,3 +120,4 @@ These two are used in multiple alignment to remove problematic reads and false c
 ### Maybe future 
 - [Falcon](http://www.nature.com/nmeth/journal/v13/n12/full/nmeth.4035.html) seems a promessing software to try... Uses long reads data to produce phased contigs.
 - the [pineapple](https://academic.oup.com/dnaresearch/article/23/5/427/2236148/The-draft-genome-of-MD-2-pineapple-using-hybrid) workflow sounds pretty interesting
+- The assembly of a [tree](http://www.g3journal.org/content/6/7/1835.full) also has an interesting workflow using Platanus software after transforming the Pacbio into illumina looks like reads (keeps the continuous advantage of the long reads).
