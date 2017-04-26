@@ -116,3 +116,6 @@ These two are used in multiple alignment to remove problematic reads and false c
 - [Quiver](https://github.com/PacificBiosciences/GenomicConsensus/blob/master/doc/FAQ.rst)
 - [HGAP](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP)
 - correction tool [LoRMA](https://academic.oup.com/bioinformatics/article/33/6/799/2525585/Accurate-self-correction-of-errors-in-long-reads)
+
+### Maybe future 
+- [Falcon](http://www.nature.com/nmeth/journal/v13/n12/full/nmeth.4035.html) seems a promessing software to try... Uses long reads data to produce phased contigs.
