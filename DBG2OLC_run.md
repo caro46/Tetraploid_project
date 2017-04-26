@@ -69,6 +69,7 @@ Obtained the same `!!!!` everywhere so should be normal I guess. Someone else al
 
 DBG2OLC does not rely on the quality estimate but more on the overlapping of the reads so I think we are good for a first try. DBG2OLC warns about errors from correcting tools and suggest if we want to use correcting tools to compare the results with and without corrections on the pacbio reads.
 
+Maybe should consider using [dextract](https://dazzlerblog.wordpress.com/) and use fasta format.
 ### Run
 The program is located `/work/ben/Mellotropicalis_corrected_data/DBG2OLC-master`. Run from the program directory
 ```
