@@ -52,6 +52,8 @@ $status = system($commandline);
 }
 
 ```
+The `-tag \"rq:>0.85\"` option filtered everything. Need to speak with Ben boss to see if we should apply another filter. 
+
 Concatenate fastq files
 ```
 zcat /scratch/ben/mellotropicalis_pacbio_temp/*BJE3652.subreads.1000bpmin.fastq.gz | gzip >/scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.1000bpmin.fastq.gz
@@ -59,6 +61,11 @@ zcat /scratch/ben/mellotropicalis_pacbio_temp/*BJE3652.subreads.1000bpmin.fastq.
 ```
 /work/ben/bamtools-master/bin/bamtools filter -length ">1000" -tag "rq:>0.85" -in BJE3652.all.subreads.bam | bamtools convert -format fastq -out BJE3652.all.subreads.filterRQ.fastq
 ```
+Ok so looks weird. We will try with 
+```
+/work/ben/samtools-1.2/samtools bam2fq /scratch/ben/mellotropicalis_pacbio_temp/Sequel.RunS005.001.BJE3652.subreads.bam > Sequel.RunS005.001.BJE3652.subreads.fastq 
+```
+Obtained the same `!!!!` everywhere so should be normal I guess.
 ### Run
 The program is located `/work/ben/Mellotropicalis_corrected_data/DBG2OLC-master`. Run from the program directory
 ```
