@@ -119,3 +119,4 @@ These two are used in multiple alignment to remove problematic reads and false c
 
 ### Maybe future 
 - [Falcon](http://www.nature.com/nmeth/journal/v13/n12/full/nmeth.4035.html) seems a promessing software to try... Uses long reads data to produce phased contigs.
+- the [pineapple](https://academic.oup.com/dnaresearch/article/23/5/427/2236148/The-draft-genome-of-MD-2-pineapple-using-hybrid) workflow sounds pretty interesting
