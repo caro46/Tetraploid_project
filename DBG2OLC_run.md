@@ -115,3 +115,4 @@ These two are used in multiple alignment to remove problematic reads and false c
 ### Maybe usefull sites
 - [Quiver](https://github.com/PacificBiosciences/GenomicConsensus/blob/master/doc/FAQ.rst)
 - [HGAP](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP)
+- correction tool [LoRMA](https://academic.oup.com/bioinformatics/article/33/6/799/2525585/Accurate-self-correction-of-errors-in-long-reads)
