@@ -60,8 +60,9 @@ zcat /scratch/ben/mellotropicalis_pacbio_temp/*BJE3652.subreads.1000bpmin.fastq.
 /work/ben/bamtools-master/bin/bamtools filter -length ">1000" -tag "rq:>0.85" -in BJE3652.all.subreads.bam | bamtools convert -format fastq -out BJE3652.all.subreads.filterRQ.fastq
 ```
 ### Run
+The program is located `/work/ben/Mellotropicalis_corrected_data/DBG2OLC-master`. Run from the program directory
 ```
-./DBG2OLC k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.01 RemoveChimera 1 Contigs /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta f BJE3652.all.subreads.filterRQ.fastq >DBG2OLC_LOG.txt
+./DBG2OLC k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.01 RemoveChimera 1 Contigs /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta f /scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.1000bpmin.fastq.gz >DBG2OLC_LOG_26April.txt
 ```
 For more details see [DBG2OLC github page](https://github.com/yechengxi/DBG2OLC)
 ```
