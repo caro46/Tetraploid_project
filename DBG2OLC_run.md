@@ -18,7 +18,7 @@ bamtools merge BJE3652.all.subreads.bam Sequel.RunS005.*.BJE3652.subreads.bam
 
 ```
 ### Convert bam to fastq
-Suggestions from Ben: convert each bam into a fastq and then merge the fastq.
+Suggestions from Ben: convert each bam into a fastq and then merge the fastq. To convert using bamtools as suggested [here](https://github.com/PacificBiosciences/PacBioFileFormats/wiki/BAM-recipes).
 ```perl
 #!/usr/bin/perl
 
