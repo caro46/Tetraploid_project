@@ -71,6 +71,8 @@ DBG2OLC does not rely on the quality estimate but more on the overlapping of the
 
 Maybe should consider using [dextract](https://dazzlerblog.wordpress.com/) and use fasta format. From [github](https://github.com/thegenemyers/DEXTRACTOR). See some explanation about some [updates](https://dazzlerblog.wordpress.com/2016/11/14/moving-to-the-sequel/).
 ### Run
+#### Using all the long reads (>1000bp)
+##### Run1
 The program is located `/work/ben/Mellotropicalis_corrected_data/DBG2OLC-master`. Run from the program directory
 ```
 ./DBG2OLC k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.01 RemoveChimera 1 Contigs /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta f /scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.1000bpmin.fastq.gz >DBG2OLC_LOG_26April.txt
@@ -111,7 +113,11 @@ ContigTh: default: 1, set to 2 if coverage is ~100x.
 
 These two are used in multiple alignment to remove problematic reads and false contig anchors. When we have high coverage, some more stringent conditions shall be applied as with the suggested parameters.
 ```
+##### Run2
+Probably need to do a 2nd run using `LD1` to improve the assembly.
 
+#### Only on the longest Pacbio reads
+We should try running with only longer reads to see if it improves the assembly (fewer errors?).
 ### Maybe usefull sites
 - [Quiver](https://github.com/PacificBiosciences/GenomicConsensus/blob/master/doc/FAQ.rst)
 - [HGAP](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP)
