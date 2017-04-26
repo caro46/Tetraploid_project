@@ -69,7 +69,7 @@ Obtained the same `!!!!` everywhere so should be normal I guess. Someone else al
 
 DBG2OLC does not rely on the quality estimate but more on the overlapping of the reads so I think we are good for a first try. DBG2OLC warns about errors from correcting tools and suggest if we want to use correcting tools to compare the results with and without corrections on the pacbio reads.
 
-Maybe should consider using [dextract](https://dazzlerblog.wordpress.com/) and use fasta format. From [github](https://github.com/thegenemyers/DEXTRACTOR).
+Maybe should consider using [dextract](https://dazzlerblog.wordpress.com/) and use fasta format. From [github](https://github.com/thegenemyers/DEXTRACTOR). See some explanation about some [updates](https://dazzlerblog.wordpress.com/2016/11/14/moving-to-the-sequel/).
 ### Run
 The program is located `/work/ben/Mellotropicalis_corrected_data/DBG2OLC-master`. Run from the program directory
 ```
@@ -111,3 +111,7 @@ ContigTh: default: 1, set to 2 if coverage is ~100x.
 
 These two are used in multiple alignment to remove problematic reads and false contig anchors. When we have high coverage, some more stringent conditions shall be applied as with the suggested parameters.
 ```
+
+### Maybe usefull sites
+- [Quiver](https://github.com/PacificBiosciences/GenomicConsensus/blob/master/doc/FAQ.rst)
+- [HGAP](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP)
