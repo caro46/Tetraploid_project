@@ -20,6 +20,11 @@ On the contigs:
 ```
 ./quast.py /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta /work/ben/Mellotropicalis_corrected_data/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.contig -o /work/ben/quast-4.5/quast_results/contig_allpath_soap
 ```
+Try using `--scaffolds` to see if change the results 
+```
+./quast.py --scaffolds /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.assembly.fasta /work/ben/Mellotropicalis_corrected_data/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq -o /work/ben/quast-4.5/quast_results/scaffolds_option_allpath_SOAP
+```
+
 ## Summary report
 Note:
 
