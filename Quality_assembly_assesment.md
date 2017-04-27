@@ -59,6 +59,11 @@ N75 and NG75 are defined similarly to N50 but with 75 % instead of 50 %.
 L50 (L75, LG50, LG75) is the number of contigs equal to or longer than N50 (N75, NG50, NG75)
 In other words, L50, for example, is the minimal number of contigs that cover half the assembly.
 ```
+About scaffolds
+```
+--scaffolds (or -s)
+The assemblies are scaffolds (rather than contigs). QUAST will add split versions of assemblies to the comparison (named <assembly_name>_broken). Assemblies are split by continuous fragments of N's of length ≥ 10. If broken version is equal to the original assembly (i.e. nothing was split) it is not included in the comparison. Scaffold gap size misassemblies are enabled in this case (see section 3.1.2 for details and --scaffold-gap-max-size for setting maximum gap length). 
+```
 ## Results
 ### Scaffolds
 #### Preliminary results from the screen:
