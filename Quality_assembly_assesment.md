@@ -74,6 +74,7 @@ If you have both contigs.fasta and scaffolds.fasta it is better to specify both 
 
 To sum up, you should use --scaffolds option if you don't have original file with contigs but want to compare your scaffolds with it. Also note, that --scaffolds option implies QUAST to search for scaffold gap size misassemblies. 
 ```
+If I understand correctly the goal of the broken scaffolds is to come back on a contig version. Comparing both (scaffold and broken) will help to see how efficient the scaffolding step was. But basically since we directly have the contigs, we do not actually beed the broken statistics.
 ## Results
 ### Scaffolds
 #### Preliminary results from the screen:
