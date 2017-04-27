@@ -102,6 +102,33 @@ L50                         76909           110537
 L75                         178611          218933                                               
 # N's per 100 kbp           6522.06         71236.08                
 ```
+#### Scaffold option (broken assembly)
+```
+All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+
+Assembly                    final.assembly  final.assembly_broken  SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq  SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq_broken
+# contigs (>= 0 bp)         320227          335910                 2654558                                                152163                                                      
+# contigs (>= 1000 bp)      286034          299944                 541958                                                 11345                                                       
+# contigs (>= 5000 bp)      19292           7640                   275558                                                 29                                                          
+# contigs (>= 10000 bp)     1887            384                    246283                                                 4                                                           
+# contigs (>= 25000 bp)     6               0                      25021                                                  0                                                           
+# contigs (>= 50000 bp)     0               0                      1980                                                   0                                                           
+Total length (>= 0 bp)      607138367       567787029              5073922146                                             104404063                                                   
+Total length (>= 1000 bp)   574372221       533328147              4530331488                                             15168652                                                    
+Total length (>= 5000 bp)   136492195       50674050               4058112063                                             221257                                                      
+Total length (>= 10000 bp)  23462309        4495845                3838894191                                             56492                                                       
+Total length (>= 25000 bp)  159305          0                      882707243                                              0                                                           
+Total length (>= 50000 bp)  0               0                      117897095                                              0                                                           
+# contigs                   320227          335910                 848955                                                 152163                                                      
+Largest contig              30521           20653                  172751                                                 21623                                                       
+Total length                607138367       567787029              4749065556                                             104404063                                                   
+GC (%)                      38.79           38.79                  38.96                                                  40.40                                                       
+N50                         1920            1653                   11981                                                  653                                                         
+N75                         1243            1198                   10258                                                  561                                                         
+L50                         76909           98862                  110537                                                 59351                                                       
+L75                         178611          201382                 218933                                                 102706                                                      
+# N's per 100 kbp           6522.06         43.86                  71236.08                                               698.01                                
+```
 ### Contigs
 ```
 All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
