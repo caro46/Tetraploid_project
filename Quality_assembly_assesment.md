@@ -64,6 +64,16 @@ About scaffolds
 --scaffolds (or -s)
 The assemblies are scaffolds (rather than contigs). QUAST will add split versions of assemblies to the comparison (named <assembly_name>_broken). Assemblies are split by continuous fragments of N's of length ≥ 10. If broken version is equal to the original assembly (i.e. nothing was split) it is not included in the comparison. Scaffold gap size misassemblies are enabled in this case (see section 3.1.2 for details and --scaffold-gap-max-size for setting maximum gap length). 
 ```
+From the FAQ of the [manual](http://quast.bioinf.spbau.ru/manual.html)
+```
+ Q6. What does "broken" version of an assembly refer to while assessing scaffolds' quality (--scaffolds option)?
+
+Actually, the difference between "broken" and original assembly (scaffolds) is very simple. QUAST splits input fasta by continuous fragments of N's of length ≥ 10 and call this a "_broken" assembly. By doing this we try to reconstruct "contigs" which were used for construction of the scaffolds. After that, user can compare results for real scaffolds and "reconstructed contigs" and find out whether scaffolding step was useful or not.
+
+If you have both contigs.fasta and scaffolds.fasta it is better to specify both files to QUAST and don't set --scaffolds option. The comparison of real contigs vs real scaffolds is more honest and informative than scaffolds vs scaffolds_broken.
+
+To sum up, you should use --scaffolds option if you don't have original file with contigs but want to compare your scaffolds with it. Also note, that --scaffolds option implies QUAST to search for scaffold gap size misassemblies. 
+```
 ## Results
 ### Scaffolds
 #### Preliminary results from the screen:
