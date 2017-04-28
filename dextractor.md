@@ -32,3 +32,6 @@ Needed to change the `-lz` into `-lsz`.
 make 
 make install
 ```
+### Cite
+Dextractor is part of the dazzler assembler project. See
+[Weitschek et al. 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4265526/) for an example of how to cite dazzler.
