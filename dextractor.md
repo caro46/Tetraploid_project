@@ -27,6 +27,7 @@ dextract: dextract.c sam.c bax.c expr.c expr.h bax.h DB.c DB.h QV.c QV.h
 dex2DB: dex2DB.c sam.c bax.c DB.c QV.c bax.h DB.h QV.h
         gcc $(CFLAGS) -I$(PATH_HDF5)/include  -L$(PATH_HDF5)/lib -I $(PATH_mpi)/include -L $(PATH_mpi)/lib -I $(PATH_zlib)/include -L $(PATH_zlib)/lib -o dex2DB dex2DB.c sam.c bax.c DB.c QV.c -lhdf5 -lsz
 ```
+Needed to change the `-lz` into `-lsz`. 
 ```
 make 
 make install
