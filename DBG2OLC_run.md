@@ -123,6 +123,7 @@ We should try running with only longer reads to see if it improves the assembly 
 - [HGAP](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP)
 - correction tool [LoRMA](https://academic.oup.com/bioinformatics/article/33/6/799/2525585/Accurate-self-correction-of-errors-in-long-reads)
 - [Guide](http://biorxiv.org/content/biorxiv/early/2015/10/16/029306.full.pdf) for de novo assembly using long reads (including chimerical assemblies)
+- [Dealing with the new bam format from Sequel](https://dazzlerblog.wordpress.com/2016/11/14/moving-to-the-sequel/). For Quiver in particular. 
 
 ### Maybe future 
 - [Falcon](http://www.nature.com/nmeth/journal/v13/n12/full/nmeth.4035.html) seems a promessing software to try... Uses long reads data to produce phased contigs.
