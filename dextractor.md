@@ -1,5 +1,5 @@
 ## Download
-The latest source code from [github](https://github.com/thegenemyers/DEXTRACTOR) on April 28th, 2017.
+The latest source code from [github](https://github.com/thegenemyers/DEXTRACTOR) on April 28th, 2017(V1.0).
 
 ## Installing on sharcnet
 It was kinda of difficult 
