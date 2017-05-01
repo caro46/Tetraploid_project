@@ -133,6 +133,10 @@ Program received signal SIGFPE, Arithmetic exception.
 #1  0x000000000043cbdb in main ()
 (gdb) q
 ```
+I compiled as suggested by the author (no error message) but just in case if the run dies again, I will try using the pre-compiled version:
+```
+./work/ben/Mellotropicalis_corrected_data/DBG2OLC-master/compiled/DBG2OLC k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.01 RemoveChimera 1 Contigs /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta f /scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.1000bpmin.fastq.gz >DBG2OLC_LOG_May.txt
+```
 ##### Parameters
 For more details see [DBG2OLC github page](https://github.com/yechengxi/DBG2OLC)
 ```
