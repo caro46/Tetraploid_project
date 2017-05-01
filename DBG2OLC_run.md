@@ -78,7 +78,15 @@ The program is located `/work/ben/Mellotropicalis_corrected_data/DBG2OLC-master`
 ./DBG2OLC k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.01 RemoveChimera 1 Contigs /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta f /scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.1000bpmin.fastq.gz >DBG2OLC_LOG_26April.txt
 ```
 Ended up with a `Bus error`.
-
+###### Bus error
+- Recording the memory usage 
+```
+top -b -p 43780 -d 1800 >>top_DBG2OLC.out
+```
+- Bug in the program?
+```
+gdb DBG2OLC
+```
 ##### Parameters
 For more details see [DBG2OLC github page](https://github.com/yechengxi/DBG2OLC)
 ```
