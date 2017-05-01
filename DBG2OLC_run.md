@@ -86,6 +86,52 @@ top -b -p 43780 -d 1800 >>top_DBG2OLC.out
 - Bug in the program?
 ```
 gdb DBG2OLC
+GNU gdb (GDB) Red Hat Enterprise Linux (7.2-90.el6)
+Copyright (C) 2010 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /work/ben/Mellotropicalis_corrected_data/DBG2OLC-master/DBG2OLC...(no debugging symbols found)...done.
+(gdb) run
+Starting program: /work/ben/Mellotropicalis_corrected_data/DBG2OLC-master/DBG2OLC 
+ Example command: 
+For third-gen sequencing: DBG2OLC LD1 0 Contigs contig.fa k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.005 f reads_file1.fq/fa f reads_file2.fq/fa
+For sec-gen sequencing: DBG2OLC LD1 0 Contigs contig.fa k 31 KmerCovTh 0 MinOverlap 50 PathCovTh 1 f reads_file1.fq/fa f reads_file2.fq/fa
+Parameters:
+MinLen: min read length for a read to be used.
+Contigs:  contig file to be used.
+k: k-mer size.
+LD: load compressed reads information. You can set to 1 if you have run the algorithm for one round and just want to fine tune the following parameters.
+PARAMETERS THAT ARE CRITICAL FOR THE PERFORMANCE:
+If you have high coverage, set large values to these parameters.
+KmerCovTh: k-mer matching threshold for each solid contig. (suggest 2-10)
+MinOverlap: min matching k-mers for each two reads. (suggest 10-150)
+AdaptiveTh: [Specific for third-gen sequencing] adaptive k-mer threshold for each solid contig. (suggest 0.001-0.02)
+PathCovTh: [Specific for Illumina sequencing] occurence threshold for a compressed read. (suggest 1-3)
+Author: Chengxi Ye cxy@umd.edu.
+last update: Jun 11, 2015.
+Loading contigs.
+0 k-mers in round 1.
+0 k-mers in round 2.
+Scoring method: 3
+Match method: 1
+Loading long read index
+0 selected reads.
+0 reads loaded.
+
+Program received signal SIGFPE, Arithmetic exception.
+0x0000000000434586 in LoadLongReadIndexWithMerging(std::vector<std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >, reads_info*, contigs_info*) ()
+(gdb) backtrace
+#0  0x0000000000434586 in LoadLongReadIndexWithMerging(std::vector<std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >, reads_info*, contigs_info*) ()
+#1  0x000000000043cbdb in main ()
+(gdb) where
+#0  0x0000000000434586 in LoadLongReadIndexWithMerging(std::vector<std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >, reads_info*, contigs_info*) ()
+#1  0x000000000043cbdb in main ()
+(gdb) q
 ```
 ##### Parameters
 For more details see [DBG2OLC github page](https://github.com/yechengxi/DBG2OLC)
