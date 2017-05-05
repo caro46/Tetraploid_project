@@ -23,6 +23,7 @@ Not enough memory on `wob101`.
 - *A well-behaved large genome, such as human or other mammals, can be assembled in 10,000 to 25,000 CPU hours, depending on coverage. A grid environment is strongly recommended, with at least 16GB available on each compute node, and one node with at least 64GB memory. You should plan on having 3TB free disk space, much more for highly repetitive genomes.* Don't think it is really possible...
 
 - Tried to install Falcon assembler 
+
 Trying loading this modules 1st
 ```
 module load intel/12.1.3
