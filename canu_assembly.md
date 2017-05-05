@@ -24,7 +24,7 @@ Not enough memory on `wob101`.
 
 - Tried to install Falcon assembler 
 
-Trying loading this modules 1st
+Trying loading this modules 1st (need recent Python version)
 ```
 module load intel/12.1.3
 module load python/intel/2.7.8
