@@ -47,3 +47,10 @@ make -j all
 make test
 ```
 Conclusion: need to see if it is the best solution and then ask Sharcnet for help to install the software.
+Also tried with
+```
+module load intel/12.1.3
+module load python/intel/3.4.2
+make -j all
+```
+And with the `make config-standard` (instead of `make config-edit-user`). Will need to install another version of `Python` or ask Sharcnet.
