@@ -179,6 +179,13 @@ Probably need to do a 2nd run using `LD1` to improve the assembly.
 
 #### Only on the longest Pacbio reads
 We should try running with only longer reads to see if it improves the assembly (fewer errors?).
+
+#### Other programs in DBG2OLC package
+From `/work/ben/Mellotropicalis_corrected_data/DBG2OLC-master/compiled`
+```
+./AssemblyStatistics contigs /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta
+```
+Produces 2 files in the assembly directory: `final.contigs.fastaStats_10k_5k_1k.txt` and `final.contigs.fastaStats.txt`
 ### Maybe usefull sites
 - [Quiver](https://github.com/PacificBiosciences/GenomicConsensus/blob/master/doc/FAQ.rst)
 - [HGAP](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP)
