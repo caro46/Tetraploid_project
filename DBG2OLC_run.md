@@ -139,7 +139,7 @@ I compiled as suggested by the author (no error message) but just in case if the
 ```
 Hum you are able to use fasta or fastq for the illumina data but sounds like only fasta for Pacbio. Using fasta files produced with [dextractor](https://github.com/caro46/Tetraploid_project/blob/master/dextractor.md). On wobbie (faster) and without redirecting the output (run forever)
 
-Potential issues: (Iqaluk a little bit slow), sounds like cannot read `gz` files, not clear if OK `fastq` for Pacbio (some people got issues with that on some discussion groups).
+Potential issues: (Iqaluk a little bit slow), sounds like cannot read `gz` files, not clear if OK `fastq` for Pacbio (some people got issues with that on some discussion groups), parameters too high?.
 ```
 gunzip -c /scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.fasta.gz | ./../DBG2OLC k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.01 RemoveChimera 1 Contigs /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta f -
 
