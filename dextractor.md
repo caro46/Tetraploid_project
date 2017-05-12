@@ -43,4 +43,6 @@ dextract -f /scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.1000bp
 ```
 ```
 gzip /scratch/ben/mellotropicalis_pacbio_temp/*.fasta
+
+cat /scratch/ben/mellotropicalis_pacbio_temp/*fasta.gz >/scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.fasta.gz
 ```
