@@ -149,7 +149,40 @@ The program does not load the file... Try do find a file `-`?!
 ```
 ./../DBG2OLC k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.01 RemoveChimera 1 Contigs /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta f <(zcat /scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.fasta.gz)
 ```
+```
+Example command:
+For third-gen sequencing: DBG2OLC LD1 0 Contigs contig.fa k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.005 f reads_file1.fq/fa f reads_file2.fq/fa
+For sec-gen sequencing: DBG2OLC LD1 0 Contigs contig.fa k 31 KmerCovTh 0 MinOverlap 50 PathCovTh 1 f reads_file1.fq/fa f reads_file2.fq/fa
+Parameters:
+MinLen: min read length for a read to be used.
+Contigs:  contig file to be used.
+k: k-mer size.
+LD: load compressed reads information. You can set to 1 if you have run the algorithm for one round and just want to fine tune the following parameters.
+PARAMETERS THAT ARE CRITICAL FOR THE PERFORMANCE:
+If you have high coverage, set large values to these parameters.
+KmerCovTh: k-mer matching threshold for each solid contig. (suggest 2-10)
+MinOverlap: min matching k-mers for each two reads. (suggest 10-150)
+AdaptiveTh: [Specific for third-gen sequencing] adaptive k-mer threshold for each solid contig. (suggest 0.001-0.02)
+PathCovTh: [Specific for Illumina sequencing] occurence threshold for a compressed read. (suggest 1-3)
+Author: Chengxi Ye cxy@umd.edu.
+last update: Jun 11, 2015.
+Loading contigs.
+306603019 k-mers in round 1.
+256223141 k-mers in round 2.
+Analyzing reads...
+File1: /dev/fd/63
+Long reads indexed.
+Total Kmers: 40565115140
+Matching Unique Kmers: 4263200439
+Compression time: 20598 secs.
+Scoring method: 3
+Match method: 2
+Loading long read index
+Loading file: ReadsInfoFrom_63
+0 reads loaded.
+Floating point exception
 
+```
 ##### Parameters
 For more details see [DBG2OLC github page](https://github.com/yechengxi/DBG2OLC)
 ```
