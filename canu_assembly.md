@@ -54,3 +54,13 @@ module load python/intel/3.4.2
 make -j all
 ```
 And with the `make config-standard` (instead of `make config-edit-user`). Will need to install another version of `Python` or ask Sharcnet. Tried also after installing locally `Python-2.7.9` and adding it to the `PATH`, still not working.
+```
+tar xvfz Python-2.7.9.tgz
+cd Python-2.7.9
+export PYTHON_TOP_DIR=/work/ben/Mellotropicalis_corrected_data/falcon/Python-2.7.9
+./configure --prefix=$PYTHON_TOP_DIR
+make
+make install
+export PATH=$PYTHON_TOP_DIR/bin:$PATH
+echo $PATH
+```
