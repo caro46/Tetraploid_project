@@ -53,4 +53,4 @@ module load intel/12.1.3
 module load python/intel/3.4.2
 make -j all
 ```
-And with the `make config-standard` (instead of `make config-edit-user`). Will need to install another version of `Python` or ask Sharcnet.
+And with the `make config-standard` (instead of `make config-edit-user`). Will need to install another version of `Python` or ask Sharcnet. Tried also after installing locally `Python-2.7.9` and adding it to the `PATH`, still not working.
