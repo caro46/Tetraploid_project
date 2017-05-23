@@ -183,6 +183,10 @@ Loading file: ReadsInfoFrom_63
 Floating point exception
 
 ```
+Using small `AdaptiveTh` value
+```
+./DBG2OLC k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.0001 RemoveChimera 1 Contigs /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta f <(zcat /scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.fasta.gz)
+```
 ##### Parameters
 For more details see [DBG2OLC github page](https://github.com/yechengxi/DBG2OLC)
 ```
