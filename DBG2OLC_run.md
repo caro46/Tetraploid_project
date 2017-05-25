@@ -198,6 +198,11 @@ terminate called after throwing an instance of 'std::bad_alloc'
 Aborted
 ```
 Seems a memory issue now. For large genomes in order to go faster, they advice to devide the pacbio into multiple batches, run with `LD 0` in the different batch directory and then put all the compressed reads in another directory and run with `LD 1`.
+
+While looking at the produced files, looks like most of the reads did not pass the criteria, let's try 1st without `RemoveChimera 1`
+```
+./DBG2OLC k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.0001 Contigs /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta f /scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.fasta LD 0
+```
 ##### Parameters
 For more details see [DBG2OLC github page](https://github.com/yechengxi/DBG2OLC)
 ```
