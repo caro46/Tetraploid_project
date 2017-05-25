@@ -192,6 +192,12 @@ Try on unzipped
 ./DBG2OLC k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.0001 RemoveChimera 1 Contigs /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta f /scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.fasta LD 0
 ```
 (previously tried `LD 0` and `LD1 0` when using zcat, it was not working either)
+```
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+Aborted
+```
+Seems a memory issue now
 ##### Parameters
 For more details see [DBG2OLC github page](https://github.com/yechengxi/DBG2OLC)
 ```
