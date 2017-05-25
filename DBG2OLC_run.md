@@ -209,6 +209,8 @@ grep -c ">" /scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.fasta
 #4982901
 #4982901/2 = 2491450.5
 awk 'BEGIN {n_seq=0;} /^>/ {if(n_seq%2491450==0){file=sprintf("myseq%d.fa",n_seq);} print >> file; n_seq++; next;} { print >> file; }' < /scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.fasta
+cat /scratch/ben/mellotropicalis_pacbio_temp/myseq2491450.fa /scratch/ben/mellotropicalis_pacbio_temp/myseq4982900.fa > /scratch/ben/mellotropicalis_pacbio_temp/Pacbio_2nd_half.fa
+mv /scratch/ben/mellotropicalis_pacbio_temp/myseq0.fa /scratch/ben/mellotropicalis_pacbio_temp/Pacbio_1st_half.fa 
 ```
 ##### Parameters
 For more details see [DBG2OLC github page](https://github.com/yechengxi/DBG2OLC)
