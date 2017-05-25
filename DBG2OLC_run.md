@@ -203,6 +203,13 @@ While looking at the produced files, looks like most of the reads did not pass t
 ```
 ./DBG2OLC k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.0001 Contigs /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta f /scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.fasta LD 0
 ```
+Divid into 2 files
+```
+grep -c ">" /scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.fasta
+#4982901
+#4982901/2 = 2491450.5
+awk 'BEGIN {n_seq=0;} /^>/ {if(n_seq%2491450==0){file=sprintf("myseq%d.fa",n_seq);} print >> file; n_seq++; next;} { print >> file; }' < /scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.fasta
+```
 ##### Parameters
 For more details see [DBG2OLC github page](https://github.com/yechengxi/DBG2OLC)
 ```
