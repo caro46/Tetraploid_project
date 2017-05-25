@@ -197,7 +197,7 @@ terminate called after throwing an instance of 'std::bad_alloc'
   what():  std::bad_alloc
 Aborted
 ```
-Seems a memory issue now
+Seems a memory issue now. For large genomes in order to go faster, they advice to devide the pacbio into multiple batches, run with `LD 0` in the different batch directory and then put all the compressed reads in another directory and run with `LD 1`.
 ##### Parameters
 For more details see [DBG2OLC github page](https://github.com/yechengxi/DBG2OLC)
 ```
