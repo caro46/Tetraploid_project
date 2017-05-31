@@ -181,3 +181,31 @@ L75                         238067         74067
 Most of the statistics seem to say that SOAP assembly is better. However it has a lot of scaffolds. A concern is that maybe SOAP has a bunch of scaffolds because it does not know what to do with them so maybe they are not that accurate. So we will try the chimerical assembly (Illumina + Pacbio) with both draft assemblies.
 ### Contigs
 Allpaths seems better for the contigs.
+
+### DBG2OLC
+```
+All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+
+Assembly                    backbone_raw
+# contigs (>= 0 bp)         197362      
+# contigs (>= 1000 bp)      197309      
+# contigs (>= 5000 bp)      191606      
+# contigs (>= 10000 bp)     150797      
+# contigs (>= 25000 bp)     17016       
+# contigs (>= 50000 bp)     80          
+Total length (>= 0 bp)      2998370399  
+Total length (>= 1000 bp)   2998337103  
+Total length (>= 5000 bp)   2976186620  
+Total length (>= 10000 bp)  2654677125  
+Total length (>= 25000 bp)  507668773   
+Total length (>= 50000 bp)  4393666     
+# contigs                   197345      
+Largest contig              68950       
+Total length                2998364467  
+GC (%)                      42.63       
+N50                         17259       
+N75                         12914       
+L50                         65494       
+L75                         115454      
+# N's per 100 kbp           0.03  
+```
