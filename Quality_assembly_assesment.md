@@ -24,7 +24,10 @@ Try using `--scaffolds` to see if change the results
 ```
 ./quast.py --scaffolds /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.assembly.fasta /work/ben/Mellotropicalis_corrected_data/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq -o /work/ben/quast-4.5/quast_results/scaffolds_option_allpath_SOAP
 ```
-
+DBG2OLC - backbone
+```
+./quast.py --scaffolds /work/ben/Mellotropicalis_corrected_data/DBG2OLC-master/compiled/backbone_raw.fasta -o /work/ben/quast-4.5/quast_results/DBG2OLC
+```
 ## Summary report
 Note:
 
