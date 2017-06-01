@@ -294,3 +294,13 @@ make configure-submodule
 make build-submodule
 make blasr
 ```
+Not working whan tried the `make blasr`.
+
+[Try](https://github.com/PacificBiosciences/blasr/wiki/Blasr-Installation-Qs-&-As)
+```
+git clone git://github.com/PacificBiosciences/blasr.git && cd blasr
+git submodule update --init --remote
+mkdir build && cd build
+module load cmake/3.7.2
+cmake .. && make
+```
