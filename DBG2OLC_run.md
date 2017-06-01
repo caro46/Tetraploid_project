@@ -289,6 +289,7 @@ Produces 2 files in the assembly directory: `final.contigs.fastaStats_10k_5k_1k.
 Using [example](https://github.com/PacificBiosciences/blasr/wiki/Step-by-step-blasr-installation-example)
 ```
 module load gcc/7.1.0
+TOP=$(pwd)
 ./configure.py --shared --sub --no-pbbam HDF5_INC=${TOP}/blasr_install/hdf5/hdf5-1.8.16-linux-centos6-x86_64-gcc447-shared/include/ HDF5_LIB=${TOP}/blasr_install/hdf5/hdf5-1.8.16-linux-centos6-x86_64-gcc447-shared/lib/
 make configure-submodule
 make build-submodule
@@ -303,4 +304,21 @@ git submodule update --init --remote
 mkdir build && cd build
 module load cmake/3.7.2
 cmake .. && make
+
+TOP=/work/ben/Mellotropicalis_corrected_data
+cmake -DHDF5_LIBRARIES=${TOP}/blasr_install/hdf5/hdf5-1.8.16-linux-centos6-x86_64-gcc447-shared/lib/ -DHDF5_INCLUDE_DIRS=${TOP}/blasr_install/hdf5/hdf5-1.8.16-linux-centos6-x86_64-gcc447-shared/include/ .. && make
+
+```
+Still issue for compiling
+
+Try what suggested [here](https://github.com/PacificBiosciences/blasr/issues/330)
+```
+make -j
+make -j
+```
+Still not working. Try [pitchfork](https://github.com/PacificBiosciences/pitchfork/wiki)
+```
+git clone git://github.com/PacificBiosciences/pitchfork
+cd pitchfork
+make blasr 
 ```
