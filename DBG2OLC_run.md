@@ -284,3 +284,13 @@ Produces 2 files in the assembly directory: `final.contigs.fastaStats_10k_5k_1k.
 - The assembly of a [tree](http://www.g3journal.org/content/6/7/1835.full) also has an interesting workflow using Platanus software after transforming the Pacbio into illumina looks like reads (keeps the continuous advantage of the long reads).
 - Their [pipeline](http://biorxiv.org/content/early/2016/05/19/029306.full.pdf+html) seems pretty good and similar to our start. They merged a hybrid assembly obtain with `DBG2OLC` and an only Pacbio assembly (obtained from Celera assembler) and then correct the assembly using Quiver. The advantage is Pacbio is more continuous but hybrid is more accurate. They first try merging the 2 assemblies using `minimus2` but it failed. They used a custom C++ script available on [github](https://github.com/mahulchak/quickmerge).
 - People from Celera advice to use [Canu](http://canu.readthedocs.io/en/latest/quick-start.html) because Celera is not maintained anymore. Canu start by correcting the Pacbio reads.
+
+### Installing blasr for consensus step
+Using [example](https://github.com/PacificBiosciences/blasr/wiki/Step-by-step-blasr-installation-example)
+```
+module load gcc/7.1.0
+./configure.py --shared --sub --no-pbbam HDF5_INC=${TOP}/blasr_install/hdf5/hdf5-1.8.16-linux-centos6-x86_64-gcc447-shared/include/ HDF5_LIB=${TOP}/blasr_install/hdf5/hdf5-1.8.16-linux-centos6-x86_64-gcc447-shared/lib/
+make configure-submodule
+make build-submodule
+make blasr
+```
