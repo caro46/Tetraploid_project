@@ -321,4 +321,5 @@ Still not working. Try [pitchfork](https://github.com/PacificBiosciences/pitchfo
 git clone git://github.com/PacificBiosciences/pitchfork
 cd pitchfork
 make blasr 
+export LD_LIBRARY_PATH=$(pwd -P)/lib/:$(pwd -P)/include/
 ```
