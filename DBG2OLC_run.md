@@ -350,3 +350,20 @@ sh ./split_and_run_sparc.path.sh ../compiled/backbone_raw.fasta ../compiled/DBG2
 ```
 Change the number of processors used in the script, default 64, set to 20.
 Also needed to `chmod +x *.py` and `chmod -R 777 consensus_dir` and in the script `split_and_run_sparc.path.sh` need to add `./` to call the `python` script.
+
+### Checking chimera: blast
+```
+blastn -evalue 1e-80 -query /4/caroline/Xmellotropicalis/backbone_raw.fasta -db /4/caroline/tropicalis_genome/Xtropicalis_v9_repeatMasked_HARD_MASK_blastable -out /4/caroline/Xmellotropicalis/backbone_raw_xenTro9_hard_mask_e80 -outfmt 6 -max_target_seqs 2
+
+grep "\<Backbone_3\>" /4/caroline/Xmellotropicalis/backbone_raw_xenTro9_hard_mask_e80
+Backbone_3	Chr02	83.183	666	71	39	1745	2389	118306716	118307361	1.55e-159	571
+Backbone_3	Chr02	82.370	709	72	49	10092	10769	118307362	118306676	2.01e-158	568
+Backbone_3	Chr02	80.640	656	82	43	5877	6508	118306728	118307362	7.52e-128	466
+
+grep "\<Backbone_6\>" /4/caroline/Xmellotropicalis/backbone_raw_xenTro9_hard_mask_e80
+Backbone_6	Chr02	89.498	638	38	21	4316	4948	85935046	85934433	0.0	780
+Backbone_6	Chr02	90.134	598	27	29	1	582	85934465	85935046	0.0	749
+Backbone_6	Chr02	86.420	648	43	36	1476	2112	85935046	85934433	0.0	667
+Backbone_6	Chr05	84.683	679	46	41	7226	7865	6025441	6024782	1.12e-175	625
+Backbone_6	Chr05	86.863	373	20	27	12893	13250	6025441	6025083	4.45e-105	390
+```
