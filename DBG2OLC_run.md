@@ -343,5 +343,8 @@ cat /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBL
 
 //run the consensus scripts
 
-sh ./split_and_run_sparc.sh ../compiled/backbone_raw.fasta ../compiled/DBG2OLC_Consensus_info.txt /scratch/ben/mellotropicalis_pacbio_temp/ctg_pb.fasta ./consensus_dir 2 split_reads_by_backbone_version 3>cns_log.txt
+sh ./split_and_run_sparc.sh ../compiled/backbone_raw.fasta ../compiled/DBG2OLC_Consensus_info.txt /scratch/ben/mellotropicalis_pacbio_temp/ctg_pb.fasta ./consensus_dir 2 >cns_log.txt
+
+sh ./split_and_run_sparc.path.sh ../compiled/backbone_raw.fasta ../compiled/DBG2OLC_Consensus_info.txt /scratch/ben/mellotropicalis_pacbio_temp/ctg_pb.fasta ./consensus_dir 2 3>cns_log.txt
+
 ```
