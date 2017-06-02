@@ -348,3 +348,5 @@ sh ./split_and_run_sparc.sh ../compiled/backbone_raw.fasta ../compiled/DBG2OLC_C
 sh ./split_and_run_sparc.path.sh ../compiled/backbone_raw.fasta ../compiled/DBG2OLC_Consensus_info.txt /scratch/ben/mellotropicalis_pacbio_temp/ctg_pb.fasta ./consensus_dir 2 3>cns_log.txt
 
 ```
+Change the number of processors used in the script, default 64, set to 20.
+Also needed to `chmod +x *.py` and `chmod -R 777 consensus_dir` and in the script `split_and_run_sparc.path.sh` need to add `./` for the `python` script.
