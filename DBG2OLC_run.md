@@ -335,13 +335,13 @@ export PATH=/work/ben/Mellotropicalis_corrected_data/DBG2OLC-master/compiled:$PA
 ```
 #### RUN
 ```
-cat Contigs.txt pb_reads.fasta > ctg_pb.fasta
+cat /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta BJE3652.all.subreads.fasta > ctg_pb.fasta
 
 // we need to open a lot of files to distribute the above file into lots of smaller files
 
-ulimit -n unlimited
+#ulimit -n unlimited #does not work on Sharcnet -> need to use split_reads_by_backbone_version 3
 
 //run the consensus scripts
 
-sh ./split_and_run_sparc.sh backbone_raw.fasta DBG2OLC_Consensus_info.txt ctg_pb.fasta ./consensus_dir 2 >cns_log.txt
+sh ./split_and_run_sparc.sh ../compiled/backbone_raw.fasta ../compiled/DBG2OLC_Consensus_info.txt /scratch/ben/mellotropicalis_pacbio_temp/ctg_pb.fasta ./consensus_dir 2 split_reads_by_backbone_version 3>cns_log.txt
 ```
