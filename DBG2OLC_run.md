@@ -349,4 +349,4 @@ sh ./split_and_run_sparc.path.sh ../compiled/backbone_raw.fasta ../compiled/DBG2
 
 ```
 Change the number of processors used in the script, default 64, set to 20.
-Also needed to `chmod +x *.py` and `chmod -R 777 consensus_dir` and in the script `split_and_run_sparc.path.sh` need to add `./` for the `python` script.
+Also needed to `chmod +x *.py` and `chmod -R 777 consensus_dir` and in the script `split_and_run_sparc.path.sh` need to add `./` to call the `python` script.
