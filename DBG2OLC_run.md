@@ -321,11 +321,27 @@ Still not working. Try [pitchfork](https://github.com/PacificBiosciences/pitchfo
 git clone git://github.com/PacificBiosciences/pitchfork
 cd pitchfork
 make blasr 
+```
+```
+./blasr --version
+blasr	5.3.
+```
+#### Export PATHS (blasr and sparc)
+```
 #from `/work/cauretc/programs/blastr/pitchfork/deployment`
 export LD_LIBRARY_PATH=$(pwd -P)/lib/:$(pwd -P)/include/
 export PATH=/work/cauretc/programs/blastr/pitchfork/deployment/bin:$PATH
 export PATH=/work/ben/Mellotropicalis_corrected_data/DBG2OLC-master/compiled:$PATH
 ```
-#### Run
+#### RUN
 ```
+cat Contigs.txt pb_reads.fasta > ctg_pb.fasta
+
+// we need to open a lot of files to distribute the above file into lots of smaller files
+
+ulimit -n unlimited
+
+//run the consensus scripts
+
+sh ./split_and_run_sparc.sh backbone_raw.fasta DBG2OLC_Consensus_info.txt ctg_pb.fasta ./consensus_dir 2 >cns_log.txt
 ```
