@@ -323,4 +323,9 @@ cd pitchfork
 make blasr 
 #from `/work/cauretc/programs/blastr/pitchfork/deployment`
 export LD_LIBRARY_PATH=$(pwd -P)/lib/:$(pwd -P)/include/
+export PATH=/work/cauretc/programs/blastr/pitchfork/deployment/bin:$PATH
+export PATH=/work/ben/Mellotropicalis_corrected_data/DBG2OLC-master/compiled:$PATH
+```
+#### Run
+```
 ```
