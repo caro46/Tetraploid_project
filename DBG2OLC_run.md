@@ -208,8 +208,12 @@ Run done on `wobbie`.
 Extension warning.
 error: complement_strY
 ```
+This type of warning is due to the degenerated bases from the contigs. However the statistics are better than SOAP. Someone noticed a difference between the number of scaffolds from `backbone_raw.fasta` and `DBG2OLC_Consensus_info.txt` (see the [issue](https://github.com/yechengxi/DBG2OLC/issues/26)) that can be due to degenerated bases however it is not our case. We are running the consensus step to make sure we have an OK assembly.
 ```
 grep -c ">" backbone_raw.fasta
+197362
+
+grep -c ">" DBG2OLC_Consensus_info.txt
 197362
 ```
 
