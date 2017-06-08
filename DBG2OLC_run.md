@@ -217,7 +217,7 @@ grep -c ">" DBG2OLC_Consensus_info.txt
 197362
 ```
 
-Divide into 2 files
+Divide into 2 files, advice form the author to go faster since the first steps are not multi-threats. Then `LD1` on a new directory containing all the compressed reads. Should potentially be used if we re-run the assembly to go faster on wobbie.
 ```
 grep -c ">" /scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.fasta
 #4982901
