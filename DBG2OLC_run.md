@@ -355,7 +355,7 @@ sh ./split_and_run_sparc.path.sh ../compiled/backbone_raw.fasta ../compiled/DBG2
 Change the number of processors used in the script, default 64, set to 20.
 Also needed to `chmod +x *.py` and `chmod -R 777 consensus_dir` and in the script `split_and_run_sparc.path.sh` need to add `./` to call the `python` script.
 
-Some people seem to have issues with this step. For example [see](https://www.biostars.org/p/212727/) [or](https://github.com/yechengxi/DBG2OLC/issues/20) [or](https://github.com/yechengxi/DBG2OLC/issues/21). Maybe try Racon as suggested on the biostars issue. Or we might just want to use bwa and just call the consensus if it keeps taking forever... 
+Some people seem to have issues with this step. For example [see](https://www.biostars.org/p/212727/) [or](https://github.com/yechengxi/DBG2OLC/issues/20) [or](https://github.com/yechengxi/DBG2OLC/issues/21). Maybe try [Racon](https://github.com/isovic/racon) as suggested on the biostars issue. Or we might just want to use `bwa` and just call the consensus if it keeps taking forever... 
 ### Checking chimera: blast
 ```
 blastn -evalue 1e-80 -query /4/caroline/Xmellotropicalis/backbone_raw.fasta -db /4/caroline/tropicalis_genome/Xtropicalis_v9_repeatMasked_HARD_MASK_blastable -out /4/caroline/Xmellotropicalis/backbone_raw_xenTro9_hard_mask_e80 -outfmt 6 -max_target_seqs 2
