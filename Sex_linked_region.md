@@ -88,6 +88,19 @@ Only_sons_XY supercontig_15	142659233	A	C/C	./.	C/C	./.	./.	C/C	C/C	./.	C/C	C/C	
 ```
 blastn -evalue 1e-20 -query /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/Mellotrop_putative_sex_linked_polym1ratio0_HF.fa.masked -db /4/caroline/tropicalis_genome/Xtropicalis_v9_repeatMasked_HARD_MASK_blastable -out /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/Mellotrop_potential_sex_linked_MASKED_tropv9 -outfmt 6 -max_target_seqs 1
 ```
+```
+42068642-42068738:Backbone_91904:Chr08
+152338628-152338684:Backbone_151827:Chr01
+80956048-80956058:Backbone_30066:Chr02
+57177119-57177149:Backbone_41237:Chr08
+91084353-91084421:Backbone_188583:Chr08
+142658261-142659233:Backbone_191959:Chr02
+26845977:Backbone_103905:Chr05
+116058578:Backbone_19743:Chr05
+63387286-63387338:Backbone_54377:Chr08
+47875203:Backbone_66386:Chr06
+37245480:Backbone_78609:Chr08
 
+```
 **To do**:
 Need to improve the part 1 to find the sex-linked sites. Because of the 20% errors allowed, a lot of sites showing up, when are manually checked are most likely not sex-linked. If increase the threshold, nothing show up. The best sites that actually look sex-linked are the ones mentioned before (Heterozygous_sons_dad_XY matching agains trop 6)
