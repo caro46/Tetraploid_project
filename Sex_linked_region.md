@@ -31,3 +31,63 @@ awk -v seq="Backbone_64488" -v RS='>' '$1 == seq {print RS $0}' /4/caroline/Xmel
 ```
 blastn -evalue 1e-20 -query /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/Mellotrop_putative_sex_linked_Backbone_64488.fa -db /4/caroline/tropicalis_genome/Xtropicalis_v9_repeatMasked_HARD_MASK_blastable -out /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/Mellotrop_Backbone_64488_tropv9 -outfmt 6 -max_target_seqs 1
 ```
+```
+grep "95841414" /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/positions_HF.txt 
+8	95841414	Backbone_95410	3014
+grep "Backbone_95410" /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/Mellotrop_potential_sex_linked_MASKED_tropv9
+#Chr8 but very small alignments
+
+grep "111628748" /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/positions_HF.txt 
+13	111628748	Backbone_162619	3388
+grep "Backbone_162619" /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/Mellotrop_potential_sex_linked_MASKED_tropv9
+#Chr01, alignments~100-200bp
+
+grep "71824629" /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/positions_HF.txt 
+1	71824629	Backbone_4464	19269
+grep "Backbone_4464" /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/Mellotrop_potential_sex_linked_MASKED_tropv9
+#Chr08 - some large alignement
+```
+```
+#CHROM	POS	REF	3799_dad	3800_mom	3810_boy	4169_girl	4170_girl	4171_boy	4172_boy	4173_boy	4174_boy	4175_girl	4176_boy	4177_girl	4178_girl	4179_boy	4180_girl	4181_boy	4182_girl	4183_girl	4184_girl	4185_girl
+
+Only_sons_XY supercontig_2	116058578	G	A/A	./.	A/A	./.	./.	A/A	A/A	./.	A/A	A/A	A/A	./.	./.	A/A	./.	A/A	./.	./.	./.	./.
+Only_sons_XY supercontig_3	80956048	C	T/T	./.	T/T	./.	./.	T/T	T/T	./.	T/T	T/T	T/T	./.	./.	T/T	./.	T/T	./.	./.	./.	./.
+Only_sons_XY supercontig_3	80956052	T	G/G	./.	G/G	./.	./.	G/G	G/G	./.	G/G	G/G	G/G	./.	./.	G/G	./.	G/G	./.	./.	./.	./.
+Only_sons_XY supercontig_3	80956057	A	T/T	./.	T/T	./.	./.	T/T	T/T	./.	T/T	T/T	T/T	./.	./.	T/T	./.	T/T	./.	./.	./.	./.
+Only_sons_XY supercontig_3	80956058	A	G/G	./.	G/G	./.	./.	G/G	G/G	./.	G/G	G/G	G/G	./.	./.	G/G	./.	G/G	./.	./.	./.	./.
+Only_sons_XY supercontig_4	57177119	T	G/G	./.	G/G	./.	./.	G/G	G/G	./.	G/G	G/G	G/G	./.	./.	G/G	./.	G/G	./.	./.	./.	./.
+Only_sons_XY supercontig_4	57177124	T	A/A	./.	A/A	./.	./.	A/A	A/A	./.	A/A	A/A	A/A	./.	./.	A/A	./.	A/A	./.	./.	./.	./.
+Only_sons_XY supercontig_4	57177149	C	T/T	./.	T/T	./.	./.	T/T	T/T	./.	T/T	T/T	T/T	./.	./.	T/T	./.	T/T	./.	./.	./.	./.
+Only_sons_XY supercontig_5	63387286	GG	GGTG/GGTG	./.	GGTG/GGTG	./.	./.	GGTG/GGTG	GGTG/GGTG	./.	GGTG/GGTG	GGTG/GGTG	GGTG/GGTG	./.	./.	GGTG/GGTG	./.	GGTG/GGTG	./.	./.	./.	./.
+Only_sons_XY supercontig_5	63387338	GT	G/G	./.	G/G	./.	./.	G/G	G/G	./.	G/G	G/G	G/G	./.	./.	G/G	./.	G/G	./.	./.	./.	./.
+Only_sons_XY supercontig_6	47875203	AT	A/A	./.	A/A	./.	./.	A/A	A/A	./.	A/A	A/A	A/A	./.	./.	A/A	./.	A/A	./.	./.	./.	./.
+Only_sons_XY supercontig_7	37245480	C	CA/CA	./.	CA/CA	./.	./.	CA/CA	CA/CA	./.	CA/CA	CA/CA	CA/CA	./.	./.	CA/CA	./.	CA/CA	./.	./.	./.	./.
+Only_sons_XY supercontig_8	42068642	C	T/T	./.	T/T	./.	./.	T/T	T/T	./.	T/T	T/T	T/T	./.	./.	T/T	./.	T/T	./.	./.	./.	./.
+Only_sons_XY supercontig_8	42068680	T	C/C	./.	C/C	./.	./.	C/C	C/C	./.	C/C	C/C	C/C	./.	./.	C/C	./.	C/C	./.	./.	./.	./.
+Only_sons_XY supercontig_8	42068683	C	A/A	./.	A/A	./.	./.	A/A	A/A	./.	A/A	A/A	A/A	./.	./.	A/A	./.	A/A	./.	./.	./.	./.
+Only_sons_XY supercontig_8	42068684	C	T/T	./.	T/T	./.	./.	T/T	T/T	./.	T/T	T/T	T/T	./.	./.	T/T	./.	T/T	./.	./.	./.	./.
+Only_sons_XY supercontig_8	42068696	C	T/T	./.	T/T	./.	./.	T/T	T/T	./.	T/T	T/T	T/T	./.	./.	T/T	./.	T/T	./.	./.	./.	./.
+Only_sons_XY supercontig_8	42068703	G	A/A	./.	A/A	./.	./.	A/A	A/A	./.	A/A	A/A	A/A	./.	./.	A/A	./.	A/A	./.	./.	./.	./.
+Only_sons_XY supercontig_8	42068738	G	A/A	./.	A/A	./.	./.	A/A	A/A	./.	A/A	A/A	A/A	./.	./.	A/A	./.	A/A	./.	./.	./.	./.
+Only_sons_XY supercontig_9	26845977	CA	CAAA/CAAA	./.	CAAA/CAAA	./.	./.	CAAA/CAAA	CAAA/CAAA	./.	CAAA/CAAA	CAAA/CAAA	CAAA/CAAA	./.	./.	CAAA/CAAA	./.	CAAA/CAAA	./.	./.	./.	./.
+Only_sons_XY supercontig_12	152338628	C	A/A	./.	A/A	./.	./.	A/A	A/A	./.	A/A	A/A	A/A	./.	./.	A/A	./.	A/A	./.	./.	./.	./.
+Only_sons_XY supercontig_12	152338629	G	T/T	./.	T/T	./.	./.	T/T	T/T	./.	T/T	T/T	T/T	./.	./.	T/T	./.	T/T	./.	./.	./.	./.
+Only_sons_XY supercontig_12	152338635	A	T/T	./.	T/T	./.	./.	T/T	T/T	./.	T/T	T/T	T/T	./.	./.	T/T	./.	T/T	./.	./.	./.	./.
+Only_sons_XY supercontig_12	152338650	T	G/G	./.	G/G	./.	./.	G/G	G/G	./.	G/G	G/G	G/G	./.	./.	G/G	./.	G/G	./.	./.	./.	./.
+Only_sons_XY supercontig_12	152338683	G	A/A	./.	A/A	./.	./.	A/A	A/A	./.	A/A	A/A	A/A	./.	./.	A/A	./.	A/A	./.	./.	./.	./.
+Only_sons_XY supercontig_12	152338684	A	G/G	./.	G/G	./.	./.	G/G	G/G	./.	G/G	G/G	G/G	./.	./.	G/G	./.	G/G	./.	./.	./.	./.
+Only_sons_XY supercontig_15	91084353	A	C/C	./.	C/C	./.	./.	C/C	C/C	./.	C/C	C/C	C/C	./.	./.	C/C	./.	C/C	./.	./.	./.	./.
+Only_sons_XY supercontig_15	91084388	GTTT	GTTTT/GTTTT	./.	GTTTT/GTTTT	./.	./.	GTTTT/GTTTT	GTTTT/GTTTT	./.	GTTTT/GTTTT	GTTTT/GTTTT	GTTTT/GTTTT	./.	./.	GTTTT/GTTTT	./.	GTTTT/GTTTT	./.	./.	./.	./.
+Only_sons_XY supercontig_15	91084421	G	A/A	./.	A/A	./.	./.	A/A	A/A	./.	A/A	A/A	A/A	./.	./.	A/A	./.	A/A	./.	./.	./.	./.
+Only_sons_XY supercontig_15	142658261	A	C/C	./.	C/C	./.	./.	C/C	C/C	./.	C/C	C/C	C/C	./.	./.	C/C	./.	C/C	./.	./.	./.	./.
+Only_sons_XY supercontig_15	142659233	A	C/C	./.	C/C	./.	./.	C/C	C/C	./.	C/C	C/C	C/C	./.	./.	C/C	./.	C/C	./.	./.	./.	./.
+```
+```
+/usr/local/RepeatMasker/RepeatMasker -dir /4/caroline/Pipa_parva/Rad_seq/samtools_genotypes/Sex_linked/SOAP_chim_assembly/no_filtered/ -species "xenopus genus" -pa 4 -a /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/Mellotrop_putative_sex_linked_polym1ratio0_HF.fa
+```
+```
+blastn -evalue 1e-20 -query /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/Mellotrop_putative_sex_linked_polym1ratio0_HF.fa.masked -db /4/caroline/tropicalis_genome/Xtropicalis_v9_repeatMasked_HARD_MASK_blastable -out /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/Mellotrop_potential_sex_linked_MASKED_tropv9 -outfmt 6 -max_target_seqs 1
+```
+
+**To do**:
+Need to improve the part 1 to find the sex-linked sites. Because of the 20% errors allowed, a lot of sites showing up, when are manually checked are most likely not sex-linked. If increase the threshold, nothing show up. The best sites that actually look sex-linked are the ones mentioned before (Heterozygous_sons_dad_XY matching agains trop 6)
