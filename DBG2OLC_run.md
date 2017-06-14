@@ -372,3 +372,12 @@ Backbone_6	Chr02	86.420	648	43	36	1476	2112	85935046	85934433	0.0	667
 Backbone_6	Chr05	84.683	679	46	41	7226	7865	6025441	6024782	1.12e-175	625
 Backbone_6	Chr05	86.863	373	20	27	12893	13250	6025441	6025083	4.45e-105	390
 ```
+### Masking the repeats
+```
+tr '[:lower:]' '[:upper:]' </4/caroline/Xmellotropicalis/backbone_raw_supercontigs.fasta>/4/caroline/Xmellotropicalis/backbone_raw_supercontigs_upper_only.fasta
+```
+```
+/usr/local/RepeatMasker/RepeatMasker -dir /4/caroline/Xmellotropicalis/ -qq -species "xenopus genus" -pa 5 -a /4/caroline/Xmellotropicalis/backbone_raw_supercontigs_upper_only.fasta
+```
+
+
