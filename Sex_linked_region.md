@@ -11,8 +11,8 @@ In paticular, need to check for 4175_girl and 4173_boy. The girl has much less d
 
 Some of the most promissing sites.
 ```
-#CHROM	POS	REF	3799_dad	3800_mom	3810_boy	4169_girl	4170_girl	4171_boy	4172_boy	4173_boy	4174_boy	4175_girl	4176_boy	4177_girl	4178_girl	4179_boy	4180_girl	4181_boy	4182_girl	4183_girl	4184_girl	4185_girl
-
+  #CHROM	                            POS	      REF       3799    3800   3810     4169   4170    4171    4172    4173    4174    4175    4176    4177    4178     4179    4180    4181   4182    4183     4184    4185
+                                                                 dad    mom     boy     girl   girl    boy      boy    boy     boy      girl    boy     girl    girl     boy     girl    boy   girl     girl    girl     girl
 Heterozygous_sons_dad_XY supercontig_1	71824629	G	G/T	G/G	G/T	G/G	G/G	G/T	G/T	G/G	G/T	G/T	G/T	G/G	G/G	G/T	G/G	G/T	G/G	G/G	G/G	G/G
 Heterozygous_sons_dad_XY supercontig_6	18685228	C	C/T	C/C	C/T	C/C	C/C	C/T	C/T	C/C	C/T	C/T	C/T	C/C	C/C	C/T	C/C	C/T	C/C	C/C	C/C	C/C
 Heterozygous_sons_dad_XY supercontig_6	18685245	C	C/T	C/C	C/T	C/C	C/C	C/T	C/T	C/C	C/T	C/T	C/T	C/C	C/C	C/T	C/C	C/T	C/C	C/C	C/C	C/C
