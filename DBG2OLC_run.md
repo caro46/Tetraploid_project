@@ -379,5 +379,5 @@ tr '[:lower:]' '[:upper:]' </4/caroline/Xmellotropicalis/backbone_raw_superconti
 ```
 /usr/local/RepeatMasker/RepeatMasker -dir /4/caroline/Xmellotropicalis/ -qq -species "xenopus genus" -pa 5 -a /4/caroline/Xmellotropicalis/backbone_raw_supercontigs_upper_only.fasta
 ```
-
+**Note:** considering what is found on the internet, neither [bwa](https://www.biostars.org/p/3232/) neither [blast](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=BlastHelp) care about upper/lower cases (both in the reference).
 
