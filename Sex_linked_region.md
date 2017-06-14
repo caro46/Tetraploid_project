@@ -23,6 +23,8 @@ Heterozygous_sons_dad_XY supercontig_6	18685266	T	T/A	A/A	T/A	A/A	A/A	T/A	T/A	A/
 Heterozygous_sons_dad_XY supercontig_8	95841414	A	A/G	A/A	A/G	A/A	A/A	A/G	A/G	A/A	A/G	A/G	A/G	A/A	A/A	A/G	A/A	A/G	A/A	A/A	A/A	A/A
 Heterozygous_sons_dad_XY supercontig_13	111628748	G	G/A	A/A	G/A	A/A	A/A	G/A	G/A	A/A	G/A	G/A	G/A	A/A	A/A	G/A	A/A	G/A	A/A	A/A	A/A	A/A
 Heterozygous_sons_dad_XY supercontig_13	111628749	G	G/A	A/A	G/A	A/A	A/A	G/A	G/A	A/A	G/A	G/A	G/A	A/A	A/A	G/A	A/A	G/A	A/A	A/A	A/A	A/A
+Heterozygous_sons_dad_XY supercontig_14	165601016	A	A/G	G/G	A/G	G/G	G/G	A/G	A/G	G/G	A/G	A/G	A/G	G/G	G/G	A/G	G/G	A/G	G/G	G/G	G/G	G/G
+
 ```
 `Backbone_64488`(corresponds to the sites `18685228-18685266`) seems particularly interesting, let's blast it 1st.
 ```
