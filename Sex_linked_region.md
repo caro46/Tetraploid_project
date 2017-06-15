@@ -4,6 +4,13 @@ Using perl version `5.24.0` and specifying the necessary libraries
 ```
 Issues:
 - Not a lot of SNP. Changing parameters for GATK, samtools 
+
+GATK - default
+```
+INFO  07:05:08,702 MicroScheduler -   -> 279048 reads (60.50% of total) failing HCMappingQualityFilter
+```
+When used `-stand_call_conf 20 -stand_emit_conf 20 -mmq 10`, was ~30-40% failing HCMappingQualityFilter. 
+
 - `1st_part_mellotrop.pl`: not a lot of sites and XY and ZW because of the threshold used for the error rate and match to multiple chromosomes. If we increase the threshold, nothing left.
 - Need to see if it is because of undercall with GATK/samtools or a wrong identification of males/females? -> need to ask Ben if the sex was determined by surgery.
 In paticular, need to check for 4175_girl and 4173_boy. The girl has much less data than the other individual (fq file much smaller) but not the boy. Confirmed the sex with BenF. 
