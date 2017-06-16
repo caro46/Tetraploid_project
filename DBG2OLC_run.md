@@ -356,6 +356,37 @@ Change the number of processors used in the script, default 64, set to 20.
 Also needed to `chmod +x *.py` and `chmod -R 777 consensus_dir` and in the script `split_and_run_sparc.path.sh` need to add `./` to call the `python` script.
 
 Some people seem to have issues with this step. For example [see](https://www.biostars.org/p/212727/) [or](https://github.com/yechengxi/DBG2OLC/issues/20) [or](https://github.com/yechengxi/DBG2OLC/issues/21). Maybe try [Racon](https://github.com/isovic/racon) as suggested on the biostars issue. Or we might just want to use `bwa` and just call the consensus if it keeps taking forever... 
+
+### [scaffold_builder_v2.2](https://scfbm.biomedcentral.com/articles/10.1186/1751-0473-8-23)
+The consensus step is taking forever. It is still running on Iqaluk but not sure if it is stuck... An option can be using `scaffold_builder` that uses `nucmer` to align scaffolds to the reference and make scaffolds bassed on the mapping. If 2 scaffolds map well to the same region (expected with our tetraploid genome), the scaffolds are kept separated.
+```
+python scaffold_builder.py -q query_contigs.fna -r reference_genome.fna -p output_prefix [-t] [-i] [-a] [-b]
+```
+```
+python /work/cauretc/programs/scaffold_builder_v2.2/scaffold_builder.py -q /work/ben/Mellotropicalis_corrected_data/DBG2OLC-master/compiled/backbone_raw.fasta -r /work/ben/2016_Hymenochirus/xenTro9/Xtropicalis_v9_repeatMasked_HARD_MASK.fa -p Mellotropicalis_scaffold
+```
+```
+/work/cauretc/programs/MUMmer3.23/mummer: suffix tree construction failed: textlen=1441730478 larger than maximal textlen=536870908
+ERROR: mummer and/or mgaps returned non-zero
+```
+Needed to modified as suggested [here](http://seqanswers.com/wiki/Talk:MUMmer)
+```
+(This problem also can be solved by building a 64-bit version of mummer, making sure the #define SIXTYFOURBITS is set in types.h)
+
+(In other words, add a line to the src/kurtz/libbasedir/types.h file with this content
+
+#define SIXTYFOURBITS
+
+before the line that says
+
+#ifdef SIXTYFOURBITS
+
+and then run
+
+make install
+
+again) 
+```
 ### Checking chimera: blast
 ```
 blastn -evalue 1e-80 -query /4/caroline/Xmellotropicalis/backbone_raw.fasta -db /4/caroline/tropicalis_genome/Xtropicalis_v9_repeatMasked_HARD_MASK_blastable -out /4/caroline/Xmellotropicalis/backbone_raw_xenTro9_hard_mask_e80 -outfmt 6 -max_target_seqs 2
