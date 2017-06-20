@@ -387,6 +387,19 @@ make install
 
 again) 
 ```
+```
+export PATH=/work/cauretc/programs/MUMmer3.23/:$PATH
+python /work/cauretc/programs/scaffold_builder_v2.2/scaffold_builder.py -q /work/ben/Mellotropicalis_corrected_data/DBG2OLC-master/compiled/backbone_raw.fasta -r /work/ben/2016_Hymenochirus/xenTro9/Xtropicalis_v9_repeatMasked_HARD_MASK.fa -p Mellotropicalis_scaffold
+```
+#### 2nd Run
+When a region is identified as a duplicate region, the best one is assembled (=longest alignment), the 2nd one is kept separate and not assembled. We got the none assembled `backbones` and then run the program again. 
+```
+awk 'BEGIN {RS=">"} /Backbone/ {print ">"$0}' Mellotropicalis_scaffold_Scaffold.fasta >2nd_run/Mellotropicalis_backbones_scaffold_builder.fa
+```
+```
+export PATH=/work/cauretc/programs/MUMmer3.23/:$PATH
+python /work/cauretc/programs/scaffold_builder_v2.2/scaffold_builder.py -q /work/cauretc/2017_Mellotropicalis/2nd_run/Mellotropicalis_backbones_scaffold_builder.fa -r /work/ben/2016_Hymenochirus/xenTro9/Xtropicalis_v9_repeatMasked_HARD_MASK.fa -p Mellotropicalis_scaffold_2_
+```
 ### Checking chimera: blast
 ```
 blastn -evalue 1e-80 -query /4/caroline/Xmellotropicalis/backbone_raw.fasta -db /4/caroline/tropicalis_genome/Xtropicalis_v9_repeatMasked_HARD_MASK_blastable -out /4/caroline/Xmellotropicalis/backbone_raw_xenTro9_hard_mask_e80 -outfmt 6 -max_target_seqs 2
