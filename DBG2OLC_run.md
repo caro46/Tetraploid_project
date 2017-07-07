@@ -433,5 +433,7 @@ tr '[:lower:]' '[:upper:]' </4/caroline/Xmellotropicalis/backbone_raw_superconti
 ```
 /usr/local/RepeatMasker/RepeatMasker -dir /4/caroline/Xmellotropicalis/ -qq -species "xenopus genus" -pa 5 -a /4/caroline/Xmellotropicalis/backbone_raw_supercontigs_upper_only.fasta
 ```
+Seemed to be stuck at processing output - cycle 2. On the internet, tried run again using `-pa 8`. A suggestion on the internet to make the run faster is to divide the files and run each batch independently (for us not that grat since a lot of scaffolds anyways or supercontigs with a lot of missing data `N`). 
+
 **Note:** considering what is found on the internet, neither [bwa](https://www.biostars.org/p/3232/) neither [blast](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=BlastHelp) care about upper/lower cases (both in the reference).
 
