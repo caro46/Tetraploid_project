@@ -359,6 +359,8 @@ Some people seem to have issues with this step. For example [see](https://www.bi
 
 ### [scaffold_builder_v2.2](https://scfbm.biomedcentral.com/articles/10.1186/1751-0473-8-23)
 The consensus step is taking forever. It is still running on Iqaluk but not sure if it is stuck... An option can be using `scaffold_builder` that uses `nucmer` to align scaffolds to the reference and make scaffolds bassed on the mapping. If 2 scaffolds map well to the same region (expected with our tetraploid genome), the scaffolds are kept separated.
+
+**Any contig that aligns entirely within a region that already contains a longer contig is not scaffolded and reported separately (as a duplicate region).**
 ```
 python scaffold_builder.py -q query_contigs.fna -r reference_genome.fna -p output_prefix [-t] [-i] [-a] [-b]
 ```
@@ -399,6 +401,14 @@ awk 'BEGIN {RS=">"} /Backbone/ {print ">"$0}' Mellotropicalis_scaffold_Scaffold.
 ```
 export PATH=/work/cauretc/programs/MUMmer3.23/:$PATH
 python /work/cauretc/programs/scaffold_builder_v2.2/scaffold_builder.py -q /work/cauretc/2017_Mellotropicalis/2nd_run/Mellotropicalis_backbones_scaffold_builder.fa -r /work/ben/2016_Hymenochirus/xenTro9/Xtropicalis_v9_repeatMasked_HARD_MASK.fa -p Mellotropicalis_scaffold_2_
+```
+#### Blasting scaffold_builder results
+```
+awk 'BEGIN {RS=">"} /Scaffold/ {print ">"$0}' Mellotropicalis_scaffold_2__Scaffold.fasta >Mellotropicalis_scaffold_2_Scaffold_nobackbone.fasta
+
+module load blast/2.2.28+
+blastn -evalue 1e-60 -query /work/cauretc/2017_Mellotropicalis/Mellotropicalis_scaffold_Scaffold_nobackbone.fasta -db /work/ben/2016_Hymenochirus/xenTro9/xenTro9_genome_masked_blastable -out /work/cauretc/2017_Mellotropicalis/Mellotrop_nobackbone_xenTro9 -outfmt 6 -max_target_seqs 1
+blastn -evalue 1e-60 -query /work/cauretc/2017_Mellotropicalis/2nd_run/Mellotropicalis_scaffold_2_Scaffold_nobackbone.fasta -db /work/ben/2016_Hymenochirus/xenTro9/xenTro9_genome_masked_blastable -out /work/cauretc/2017_Mellotropicalis/2nd_run/Mellotrop_nobackbone_2_xenTro9 -outfmt 6 -max_target_seqs 1
 ```
 ### Checking chimera: blast
 ```
