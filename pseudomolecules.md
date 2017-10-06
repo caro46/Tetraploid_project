@@ -22,6 +22,9 @@ Commands to perform:
 /work/cauretc/programs/MUMmer3.23/nucmer -p Nucmer_mello_allpaths_xentrop9 /work/ben/2016_Hymenochirus/xenTro9/Xtropicalis_v9_repeatMasked_HARD_MASK.fa <(zcat /work/cauretc/2017_Mellotropicalis/pseudomolecules/final.assembly.fasta.gz) 
 /work/cauretc/programs/MUMmer3.23/show-coords -r -c -l Nucmer_mello_allpaths_xentrop9.delta > Nucmer_mello_allpaths_xentrop9.coords
 ```
+```
+/work/cauretc/programs/MUMmer3.23/nucmer -p Nucmer_mello_dbg2olc_xentrop9 /work/ben/2016_Hymenochirus/xenTro9/Xtropicalis_v9_repeatMasked_HARD_MASK.fa <(zcat /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw.fasta.gz)
+```
 Run started on `6/10` for `nucmer`.
 ## Separating the subgenomes
 
