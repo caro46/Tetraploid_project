@@ -1,6 +1,6 @@
 ## Aligning against *X. tropicalis*
 
-Using MUMMER. New version `mummer-4.0.0beta1.tar.gz`. Download new release from [here](https://github.com/mummer4/mummer/releases). Mummer on [github](https://github.com/mummer4/mummer)
+Using MUMMER. New version `mummer-4.0.0beta1.tar.gz`. Download new release from [here](https://github.com/mummer4/mummer/releases). Mummer on [github](https://github.com/mummer4/mummer). For some reason not able to install a new version on sharcnet so let's try with the older version we have `MUMmer3.23` (`/work/cauretc/programs/MUMmer3.23`)
 
 ```
 ./nucmer -p <prefix> ref.seq qry.seq
