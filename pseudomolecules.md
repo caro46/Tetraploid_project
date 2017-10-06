@@ -17,6 +17,11 @@ NUCMER
 ===============================================================================================================================
     5224    12174  |     6944        1  |     6951     6944  |    99.80  |   312600     6944  |     2.22   100.00  | B_anthracis_Mslice	138389
 ```
+Commands to perform:
+```
+/work/cauretc/programs/MUMmer3.23/nucmer -p Nucmer_mello_allpaths_xentrop9 /work/ben/2016_Hymenochirus/xenTro9/Xtropicalis_v9_repeatMasked_HARD_MASK.fa [path to allpaths assembly]
+/work/cauretc/programs/MUMmer3.23/show-coords -r -c -l Nucmer_mello_allpaths_xentrop9.delta > Nucmer_mello_allpaths_xentrop9.coords
+```
 ## Separating the subgenomes
 
 Using python script. We will keep scaffolds longer than `500bp`, than align on a region for at least 50% of the length of the scaffold. The subgenome *tropicalis* will be regions having the highest `%ID`. Will be creating multiple outputfiles: an index, a fasta file containing the name of the chromosome, the subgenome, the scaffold sequences separated by 80 "N". 
