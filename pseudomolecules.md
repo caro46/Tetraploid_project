@@ -48,7 +48,7 @@ python pseudomolecules.py Nucmer_mello_dbg2olc_xentrop9.coords 500 30 backbone_r
 
 python pseudomolecules.py Nucmer_mello_dbg2olc_xentrop9.coords 500 50 backbone_raw.fasta pseudomolecules_nucmer_dbg2olc_cov50.fasta pseudomolecules_nucmer_dbg2olc_cov50_index.txt >pseudomolecules_nucmer_dbg2olc_cov50.out
 ```
-Comments: some weird stuff: sometimes same scaffold assigned to different chr. or diff subgenome depending on the region... Try to add more details for the 2nd subgenome. Need to check what is different exactly between our file and the example for which the script was working fine
+Comments (run and tests on Oct.15): some weird stuff: sometimes same scaffold assigned to different chr. or diff subgenome depending on the region... Try to add more details for the 2nd subgenome. Need to check what is different exactly between our file and the example for which the script was working fine
 ```
 python pseudomolecules.py Nucmer_mello_dbg2olc_xentrop9_qfiler.coord 500 20 backbone_raw.fasta filter/pseudomolecules_nucmer_qfilter_dbg2olc.fasta filter/pseudomolecules_nucmer_qfilter_dbg2olc_index.txt >filter/pseudomolecules_nucmer_qfilter_dbg2olc.out
 
