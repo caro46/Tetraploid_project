@@ -51,9 +51,12 @@ python pseudomolecules.py Nucmer_mello_dbg2olc_xentrop9.coords 500 50 backbone_r
 Comments (run and tests on Oct.15): some weird stuff: sometimes same scaffold assigned to different chr. or diff subgenome depending on the region... Try to add more details for the 2nd subgenome. Need to check what is different exactly between our file and the example for which the script was working fine
 ```
 python pseudomolecules.py Nucmer_mello_dbg2olc_xentrop9_qfiler.coord 500 20 backbone_raw.fasta filter/pseudomolecules_nucmer_qfilter_dbg2olc.fasta filter/pseudomolecules_nucmer_qfilter_dbg2olc_index.txt >filter/pseudomolecules_nucmer_qfilter_dbg2olc.out
+```
+Seems like the issue came from a not exact match of a `in` (changed into `==`)(in the example used the scaffolds name only had numbers)
+```
+python3 pseudomolecules.py Nucmer_mello_dbg2olc_xentrop9_qfiler.coord 500 15 backbone_raw.fasta filter/pseudomolecules_nucmer_qfilter_dbg2olc.fasta filter/pseudomolecules_nucmer_qfilter_dbg2olc_index.txt >filter/pseudomolecules_nucmer_qfilter_dbg2olc.out
 
 ```
-
 ## Mapping back to the pseudomolecules
 
 We should map the HiSeq reqds and the contigs of the assemblies and call the consensus to polish the genome. Then run `quast`.
