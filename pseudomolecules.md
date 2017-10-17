@@ -1,5 +1,6 @@
 ## Aligning against *X. tropicalis*
 
+### Nucmer
 Using MUMMER. New version `mummer-4.0.0beta1.tar.gz`. Download new release from [here](https://github.com/mummer4/mummer/releases). Mummer on [github](https://github.com/mummer4/mummer). For some reason not able to install a new version on sharcnet so let's try with the older version we have `MUMmer3.23` (`/work/cauretc/programs/MUMmer3.23`)
 
 ```
@@ -41,6 +42,11 @@ Keeping only the best hit for each query `delta-filter -q`
 ### Soft masked
 ```
 /work/cauretc/programs/MUMmer3.23/nucmer -p Nucmer_mello_dbg2olc_xentrop9_soft /work/ben/2016_Hymenochirus/xenTro9/Xtropicalis_v9_repeatMasked.fa /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw.fasta
+```
+
+### Promer
+```
+/work/cauretc/programs/MUMmer3.23/promer -p Promer_mello_dbg2olc_xentrop9_soft /work/ben/2016_Hymenochirus/xenTro9/Xtropicalis_v9_repeatMasked.fa /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw.fasta
 ```
 ## Separating the subgenomes
 
