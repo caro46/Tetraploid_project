@@ -65,6 +65,9 @@ module load python/intel/3.4.2
 python3 pseudomolecules_scaffolds.py Nucmer_mello_dbg2olc_xentrop9_qfiler.coord 500 15 backbone_raw.fasta filter/pseudomolecules_scaff_nucmer_qfilter_dbg2olc.fasta filter/pseudomolecules_scaff_nucmer_qfilter_dbg2olc_index.txt >filter/pseudomolecules_scaff_nucmer_qfilter_dbg2olc.out
 ```
 
+### Comments
+We should consider using Promer to align the scaffolds onto *X. tropicalis* genome. The main issue seems to be the quality of the alignment (due to repeat elements?). On Oct. 17, started an alignment on the soft masked genome of *X. tropicalis*. We should also consider aligning the scaffolds that do not match onto *X. tropicalis* onto themselves and by comparing TEs maybe assign the scaffolds to the suspected subgenome.
+
 ## Mapping back to the pseudomolecules
 
 We should map the HiSeq reqds and the contigs of the assemblies and call the consensus to polish the genome. Then run `quast`.
