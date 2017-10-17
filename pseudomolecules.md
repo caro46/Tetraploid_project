@@ -38,7 +38,10 @@ Keeping only the best hit for each query `delta-filter -q`
 ../../programs/MUMmer3.23/show-coords -r -c -l Nucmer_mello_dbg2olc_xentrop9_qfiler.delta> Nucmer_mello_dbg2olc_xentrop9_qfiler.coord
 
 ```
-
+### Soft masked
+```
+/work/cauretc/programs/MUMmer3.23/nucmer -p Nucmer_mello_dbg2olc_xentrop9_soft /work/ben/2016_Hymenochirus/xenTro9/Xtropicalis_v9_repeatMasked.fa /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw.fasta
+```
 ## Separating the subgenomes
 
 Using python script. We will keep scaffolds longer than `500bp`, than align on a region for at least 50% of the length of the scaffold. The subgenome *tropicalis* will be regions having the highest `%ID`. Will be creating multiple outputfiles: an index, a fasta file containing the name of the chromosome, the subgenome, the scaffold sequences separated by 80 "N". 
@@ -55,8 +58,13 @@ python pseudomolecules.py Nucmer_mello_dbg2olc_xentrop9_qfiler.coord 500 20 back
 Seems like the issue came from a not exact match of a `in` (changed into `==`)(in the example used the scaffolds name only had numbers)
 ```
 python3 pseudomolecules.py Nucmer_mello_dbg2olc_xentrop9_qfiler.coord 500 15 backbone_raw.fasta filter/pseudomolecules_nucmer_qfilter_dbg2olc.fasta filter/pseudomolecules_nucmer_qfilter_dbg2olc_index.txt >filter/pseudomolecules_nucmer_qfilter_dbg2olc.out
-
 ```
+Adding some codes to keep the scaffolds that are not separated into the 2 subgenomes: if match to *X. tropicalis* with the min cov. but there is not overlap with another scaffold: unknown_subgenome but I still assemble the scaffolds into chromosome (~like as a 3rd subgenome); if there is no match (or too small) with *X. tropicalis*, scaffolds considered as only polyploid and are not assemble into pseudomolecules.
+```
+module load python/intel/3.4.2
+python3 pseudomolecules_scaffolds.py Nucmer_mello_dbg2olc_xentrop9_qfiler.coord 500 15 backbone_raw.fasta filter/pseudomolecules_scaff_nucmer_qfilter_dbg2olc.fasta filter/pseudomolecules_scaff_nucmer_qfilter_dbg2olc_index.txt >filter/pseudomolecules_scaff_nucmer_qfilter_dbg2olc.out
+```
+
 ## Mapping back to the pseudomolecules
 
 We should map the HiSeq reqds and the contigs of the assemblies and call the consensus to polish the genome. Then run `quast`.
