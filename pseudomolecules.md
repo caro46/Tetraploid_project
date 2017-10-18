@@ -42,6 +42,7 @@ Keeping only the best hit for each query `delta-filter -q`
 ### Soft masked
 ```
 /work/cauretc/programs/MUMmer3.23/nucmer -p Nucmer_mello_dbg2olc_xentrop9_soft /work/ben/2016_Hymenochirus/xenTro9/Xtropicalis_v9_repeatMasked.fa /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw.fasta
+#Oct 18
 /work/cauretc/programs/MUMmer3.23/delta-filter -q Nucmer_mello_dbg2olc_xentrop9_soft.delta >Nucmer_mello_dbg2olc_xentrop9_soft_qfiler.delta
 /work/cauretc/programs/MUMmer3.23/show-coords -r -c -l Nucmer_mello_dbg2olc_xentrop9_soft_qfiler.delta >Nucmer_mello_dbg2olc_xentrop9_soft_qfiler.coord
 ```
@@ -72,7 +73,16 @@ Adding some codes to keep the scaffolds that are not separated into the 2 subgen
 module load python/intel/3.4.2
 python3 pseudomolecules_scaffolds.py Nucmer_mello_dbg2olc_xentrop9_qfiler.coord 500 15 backbone_raw.fasta filter/pseudomolecules_scaff_nucmer_qfilter_dbg2olc.fasta filter/pseudomolecules_scaff_nucmer_qfilter_dbg2olc_index.txt >filter/pseudomolecules_scaff_nucmer_qfilter_dbg2olc.out
 ```
-
+Soft mask (Oct.18)
+```
+module load python/intel/3.4.2
+python3 ../pseudomolecules_scaffolds.py Nucmer_mello_dbg2olc_xentrop9_soft_qfiler.coord 500 15 backbone_raw.fasta pseudomolecules_scaff_nucmer_soft_qfilter_dbg2olc.fasta pseudomolecules_scaff_nucmer_soft_qfilter_dbg2olc_index.txt >pseudomolecules_scaff_nucmer_soft_qfilter_dbg2olc.out
+```
+Promer - to be run
+```
+module load python/intel/3.4.2
+python3 pseudomolecules_scaffolds.py Pomer_mello_dbg2olc_xentrop9_soft_qfiler.coord 500 15 backbone_raw.fasta pseudomolecules_scaff_promer_qfilter_dbg2olc.fasta filter/pseudomolecules_scaff_promer_qfilter_dbg2olc_index.txt >pseudomolecules_scaff_promer_qfilter_dbg2olc.out
+```
 ### Comments
 We should consider using Promer to align the scaffolds onto *X. tropicalis* genome. The main issue seems to be the quality of the alignment (due to repeat elements?). On Oct. 17, started an alignment on the soft masked genome of *X. tropicalis*. We should also consider aligning the scaffolds that do not match onto *X. tropicalis* onto themselves and by comparing TEs maybe assign the scaffolds to the suspected subgenome.
 
