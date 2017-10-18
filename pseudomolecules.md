@@ -76,7 +76,7 @@ python3 pseudomolecules_scaffolds.py Nucmer_mello_dbg2olc_xentrop9_qfiler.coord 
 Soft mask (Oct.18)
 ```
 module load python/intel/3.4.2
-python3 ../pseudomolecules_scaffolds.py Nucmer_mello_dbg2olc_xentrop9_soft_qfiler.coord 500 15 backbone_raw.fasta pseudomolecules_scaff_nucmer_soft_qfilter_dbg2olc.fasta pseudomolecules_scaff_nucmer_soft_qfilter_dbg2olc_index.txt >pseudomolecules_scaff_nucmer_soft_qfilter_dbg2olc.out
+python3 ../pseudomolecules_scaffolds.py Nucmer_mello_dbg2olc_xentrop9_soft_qfiler.coord 500 15 ../backbone_raw.fasta pseudomolecules_scaff_nucmer_soft_qfilter_dbg2olc.fasta pseudomolecules_scaff_nucmer_soft_qfilter_dbg2olc_index.txt >pseudomolecules_scaff_nucmer_soft_qfilter_dbg2olc.out
 ```
 Promer - to be run
 ```
