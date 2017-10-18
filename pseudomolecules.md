@@ -42,6 +42,8 @@ Keeping only the best hit for each query `delta-filter -q`
 ### Soft masked
 ```
 /work/cauretc/programs/MUMmer3.23/nucmer -p Nucmer_mello_dbg2olc_xentrop9_soft /work/ben/2016_Hymenochirus/xenTro9/Xtropicalis_v9_repeatMasked.fa /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw.fasta
+/work/cauretc/programs/MUMmer3.23/delta-filter -q Nucmer_mello_dbg2olc_xentrop9_soft.delta >Nucmer_mello_dbg2olc_xentrop9_soft_qfiler.delta
+/work/cauretc/programs/MUMmer3.23/show-coords -r -c -l Nucmer_mello_dbg2olc_xentrop9_soft_qfiler.delta >Nucmer_mello_dbg2olc_xentrop9_soft_qfiler.coord
 ```
 
 ### Promer
