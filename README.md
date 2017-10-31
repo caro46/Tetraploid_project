@@ -7,5 +7,6 @@
 - [SOAPdenovo](https://github.com/caro46/Tetraploid_project/blob/master/Assembly.Rmd)
 - [Allpaths](https://github.com/caro46/Tetraploid_project/blob/master/Assembly_Allpaths.Rmd)
 - [DBG2OLC](https://github.com/caro46/Tetraploid_project/blob/master/DBG2OLC_run.md)
+- [Canu and Falcon](https://github.com/caro46/Tetraploid_project/blob/master/canu_assembly.md): mostly notes for now (oct.31/17)
 
 3- Assembly quality assessment: [Quast](https://github.com/caro46/Tetraploid_project/blob/master/Quality_assembly_assesment.md)
