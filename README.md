@@ -15,6 +15,8 @@ In order to tackle the issue of assembling a tetraploid species (duplications, r
 
 Different methods exist: doing multiple assemblies and then try to merge them (idea being different assemblies will have different good regions), using the long reads to order a short reads contigs assembly without correcting the long reads (DBG2OLC), correcting the long reads using or not the short reads for the correction. Only short reads assemblies should be more accurate but more fragmented, whereas only long reads should be continuous but with (many) more errors, hybrid assemblers tries to use both qualities (accuracy + continuity) of the different data types. The work idea is to make various assemblies using the different datasets and then "combine" them, separate the 2 subgenomes, a last step would be to map the short reads back to the genome for a last correction steps.
 
+The Sequel Pacbio reads we have are in the new `.bam` format. Most of the available softwares for Pacbio reads were implemented before the change. Gene Meyers discussed how to convert the `.bam` raw file into a `.fastq` like files or `.fasta` files on his [blog](https://dazzlerblog.wordpress.com/command-guides/dextractor-command-guide/) to then be able to run the assemblers. See [here](https://github.com/caro46/Tetraploid_project/blob/master/dextractor.md) for the commands performed.
+
 ### Only short reads 
 
 - [SOAPdenovo](https://github.com/caro46/Tetraploid_project/blob/master/Assembly.Rmd)
