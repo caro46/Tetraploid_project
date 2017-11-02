@@ -7,7 +7,7 @@
  
 ## 2- Assembly:
 
-We have different types of data: short illumina reads from diverse insert size (total `.gz` files size ~28gb) and Pacbio reads. The 2 kinds of reads have different types of errors, from [Salmela et al. 2017](https://academic.oup.com/bioinformatics/article/33/6/799/2525585/Accurate-self-correction-of-errors-in-long-reads):
+We have different types of data: short illumina reads from diverse insert size (total `.gz` files size ~202G) and Pacbio reads. The 2 kinds of reads have different types of errors, from [Salmela et al. 2017](https://academic.oup.com/bioinformatics/article/33/6/799/2525585/Accurate-self-correction-of-errors-in-long-reads):
 
 *most research of short read error correction has concentrated on mismatches, the dominant error type in Illumina data, whereas in long reads indels are more common.*
 
