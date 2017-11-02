@@ -26,6 +26,8 @@ Not enough memory on `wob101`.
 # Falcon
 
 ## Some information
+The 1st step of Falcon is correcting the reads (can be turned of with `input_type = preads` if we used already corrected reads). See the ["Raw sub reads overlapping for error correction" paragraph of the manual](https://github.com/PacificBiosciences/FALCON/wiki/Manual#raw-sub-reads-overlapping-for-error-correction) for more details.
+
 From Falcon [manual](https://github.com/PacificBiosciences/FALCON/wiki/Manual)
 
 *Each of the steps is accomplished with different command line tools implementing different sets of algorithms to accomplish the work. Also, the computational requirements are quite different for each step. The manual assumes the user has a reasonable amount of computational resources. For example, to assemble a 100M size genome with a reasonable amount of time, one might need at least 32 core cpus and 128Gb RAM. The code is written with the assumption of a cluster computating environment. One needs a job queue for long last scripting job and cpu-rich computational job queues*
