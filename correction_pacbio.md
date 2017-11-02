@@ -19,3 +19,9 @@ Using 1 type of data. Sequencing biaised of Illumina (GC..).
 Uses LoRDEC. Bruijn graphs with increasing length of k-mers using only the pacbio reads then a step of polishing.
 
 Input: Pacbio fasta.
+
+## Jabba ([github](https://github.com/biointec/jabba), [paper Miclotte et al. 2016](https://almob.biomedcentral.com/articles/10.1186/s13015-016-0075-7))
+
+Keeping in mind for "big" genome: increasing the suffix array sparseness with `-e [value, default=`]`. See a discussion [here](https://github.com/biointec/jabba/issues/3).
+
+Input: Pacbio fasta or Fastq.
