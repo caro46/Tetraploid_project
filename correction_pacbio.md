@@ -2,6 +2,10 @@
 
 Pacbio reads are longer but have a higher error rates ([Koren et al., 2012](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3707490/)) than NGS reads. The type of errors is also different: indels vs SNP.
 
+From [Miller et al. 2017](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-017-3927-8):
+
+* Because most of the errors in PacBio sequencing are random, PacBio reads can be corrected by alignment to other PacBio reads, given sufficient coverage redundancy. *
+
 # Hybrid approach: 
 Main idea: 
 
@@ -25,3 +29,5 @@ Input: Pacbio fasta.
 Keeping in mind for "big" genome: increasing the suffix array sparseness with `-e [value, default=`]`. See a discussion [here](https://github.com/biointec/jabba/issues/3).
 
 Input: Pacbio fasta or Fastq.
+
+## Ectools ([github repository](https://github.com/jgurtowski/ectools)).

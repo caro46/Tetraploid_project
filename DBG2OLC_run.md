@@ -289,6 +289,8 @@ Produces 2 files in the assembly directory: `final.contigs.fastaStats_10k_5k_1k.
 - Their [pipeline](http://biorxiv.org/content/early/2016/05/19/029306.full.pdf+html) seems pretty good and similar to our start. They merged a hybrid assembly obtain with `DBG2OLC` and an only Pacbio assembly (obtained from Celera assembler) and then correct the assembly using Quiver. The advantage is Pacbio is more continuous but hybrid is more accurate. They first try merging the 2 assemblies using `minimus2` but it failed. They used a custom C++ script available on [github](https://github.com/mahulchak/quickmerge).
 - People from Celera advice to use [Canu](http://canu.readthedocs.io/en/latest/quick-start.html) because Celera is not maintained anymore. Canu start by correcting the Pacbio reads.
 - Cannot really use [SPADES](http://spades.bioinf.spbau.ru/release3.5.0/manual.html) because it has only been used on very small genomes. However can directly use Sequel `bam` fromat and does "haplotype assembly".
+- Alpaca ([Miller et al. 2017](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-017-3927-8)) 
+- MaSuRCA [Zimin et al. 2013](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3799473/).
 
 ### Installing blasr for consensus step
 Using [example](https://github.com/PacificBiosciences/blasr/wiki/Step-by-step-blasr-installation-example)
