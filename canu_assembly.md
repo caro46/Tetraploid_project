@@ -32,6 +32,8 @@ From Falcon [manual](https://github.com/PacificBiosciences/FALCON/wiki/Manual)
 
 *Each of the steps is accomplished with different command line tools implementing different sets of algorithms to accomplish the work. Also, the computational requirements are quite different for each step. The manual assumes the user has a reasonable amount of computational resources. For example, to assemble a 100M size genome with a reasonable amount of time, one might need at least 32 core cpus and 128Gb RAM. The code is written with the assumption of a cluster computating environment. One needs a job queue for long last scripting job and cpu-rich computational job queues*
 
+[FAQ](http://pb-falcon.readthedocs.io/en/latest/faq.html)
+
 ## Installation
 - Tried to install Falcon assembler 
 
