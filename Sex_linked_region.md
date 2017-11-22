@@ -121,3 +121,14 @@ blastn -evalue 1e-20 -query /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/
 ```
 **To do**:
 Need to improve the part 1 to find the sex-linked sites. Because of the 20% errors allowed, a lot of sites showing up, when are manually checked are most likely not sex-linked. If increase the threshold, nothing show up. The best sites that actually look sex-linked are the ones mentioned before (Heterozygous_sons_dad_XY matching against trop 6)
+
+**For discussion with BE on Nov. 22:**
+
+- Should not use the DBG2OLC assembly yet (need to run the last step of correction). Inter-chromosomal chimerical errors?
+
+- Should probably do it again using the Allpaths assembly to map the reads. + samtools
+
+- Maybe easier to have 1st a better assembly than trying to include *X. mellotropicalis* in the same paper as *Hymenochirus* and *Pipa*.
+
+- For now 2 chromosomes seem maybe interesting chr. 08 (XY) and chr. 07 (ZW)
+
