@@ -1,3 +1,5 @@
+## Using `backbone` assembly from DBG2OLC
+
 Using perl version `5.24.0` and specifying the necessary libraries
 ```
 /usr/local/perl5.24/perl-5.24.0/perl -I /usr/local/perl5.24/perl-5.24.0/lib -I /home/caroline/programs/lib_perl5/List-MoreUtils-master/lib -I /home/caroline/programs/lib_perl5/p5-exporter-tiny-master/lib 1st_part_mellotrop.pl
@@ -119,6 +121,8 @@ blastn -evalue 1e-20 -query /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/
 37245480:Backbone_78609:Chr08
 
 ```
+### Notes
+
 **To do**:
 Need to improve the part 1 to find the sex-linked sites. Because of the 20% errors allowed, a lot of sites showing up, when are manually checked are most likely not sex-linked. If increase the threshold, nothing show up. The best sites that actually look sex-linked are the ones mentioned before (Heterozygous_sons_dad_XY matching against trop 6)
 
@@ -131,4 +135,20 @@ Need to improve the part 1 to find the sex-linked sites. Because of the 20% erro
 - Maybe easier to have 1st a better assembly than trying to include *X. mellotropicalis* in the same paper as *Hymenochirus* and *Pipa*.
 
 - For now 2 chromosomes seem maybe interesting chr. 08 (XY) and chr. 07 (ZW)
+
+**Other notes**
+
+- Also run using the `.tab` produced by BE. Got similar results. 
+
+## Using the assembly from Allpaths
+### Why it can be better:
+
+*Compared to DBG2OLC assembly:*
+
+I am worried about the chimerical issues that our `DBG2OLC` assembly could have right now (in theory should be pretty low see computational methods of [Zimin et al. 2016](https://www.biorxiv.org/content/biorxiv/early/2016/07/26/066100.full.pdf)). And gap creating because of low quality of long reads. Using the `Allpaths` assembly should increase the confidence. The `Allpaths` assembly is more fragmented but in theory more accurate.
+
+*Compared to directly mapping the reads onto X. tropicalis*
+
+Considering we have a tetraploid, mapping the reads onto a diploid can caused various issues that should be reduced using the own assembly from the same species.
+
 
