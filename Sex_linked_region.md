@@ -183,5 +183,21 @@ Using the primers from Roco et al. 2015, locus 095F08: ACTGTCTGGCTTTTGATTGG/ACAC
 makeblastdb -in /4/caroline/Xmellotropicalis/Allpaths/final.assembly.fasta -dbtype nucl -title sexmarkerstrop -out /4/caroline/Xmellotropicalis/Allpaths/final.assembly_blastable
 
 blastn -evalue 1e-5 -query /4/caroline/Xmellotropicalis/primerstrop/095F08.fa -db /4/caroline/Xmellotropicalis/Allpaths/final.assembly_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_095F08trop_e5 -outfmt 6
+
+blastn -evalue 1e-1 -query /4/caroline/Xmellotropicalis/primerstrop/095F08.fa -db /4/caroline/Xmellotropicalis/Allpaths/final.assembly_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_095F08trop_e1 -outfmt 6
+blastn -evalue 1e-1 -query /4/caroline/Xmellotropicalis/primerstrop/genotypying_for.fa -db /4/caroline/Xmellotropicalis/Allpaths/final.assembly_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_genofortrop_e1 -outfmt 6
+blastn -evalue 1e-1 -query /4/caroline/Xmellotropicalis/primerstrop/genotypying_rev.fa -db /4/caroline/Xmellotropicalis/Allpaths/final.assembly_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_genorevtrop_e1 -outfmt 6
+blastn -evalue 1e-5 -query /4/caroline/Xmellotropicalis/primerstrop/095F08_fusion.fa -db /4/caroline/Xmellotropicalis/Allpaths/final.assembly_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_095F08fusiontrop_e5 -outfmt 6
+blastn -evalue 1e-1 -query /4/caroline/Xmellotropicalis/primerstrop/095F08_fusion.fa -db /4/caroline/Xmellotropicalis/Allpaths/final.assembly_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_095F08fusiontrop_e1 -outfmt 6
+blastn -evalue 1e-1 -query /4/caroline/Xmellotropicalis/primerstrop/Olmstead_primers.fa -db /4/caroline/Xmellotropicalis/Allpaths/final.assembly_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_Olmsteadprimers_e1 -outfmt 6
+
+gunzip -c /4/caroline/Xmellotropicalis/backbone_raw.fasta.gz | makeblastdb -in - -dbtype nucl -title sexmarkerstrop -out /4/caroline/Xmellotropicalis/backbone_raw_blastable
+blastn -evalue 1e-1 -query /4/caroline/Xmellotropicalis/primerstrop/095F08.fa -db /4/caroline/Xmellotropicalis/backbone_raw_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_dbg2olc_095F08trop_e1 -outfmt 6
+blastn -evalue 1e-1 -query /4/caroline/Xmellotropicalis/primerstrop/Olmstead_primers.fa -db /4/caroline/Xmellotropicalis/backbone_raw_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_dbg2olc_Olmsteadprimers_e1 -outfmt 6
+
+gunzip -c /4/caroline/Xmellotropicalis/backbone_raw_supercontigs_upper_only.fasta.gz | makeblastdb -in - -dbtype nucl -title sexmarkerstrop -out /4/caroline/Xmellotropicalis/backbone_raw_suppercontig_upper_blastable
+blastn -evalue 1e-1 -query /4/caroline/Xmellotropicalis/primerstrop/Olmstead_primers.fa -db /4/caroline/Xmellotropicalis/backbone_raw_suppercontig_upper_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_dbg2olc_suppercontig_upper_Olmsteadprimers_e1 -outfmt 6
 ```
-  
+Sooooooooo not working.  
+
+Maybe blasting the get the scaffolds from the mellotrop assembly that map to chr.07 then check if some SNPs that can be interesting...but should not really help... Hum sooooooooo need BE. 
