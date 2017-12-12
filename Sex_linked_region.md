@@ -156,6 +156,7 @@ Ok so it is not better. Obtained both incomplete "XY" and "ZW" sex-inherited sit
 
 BE expect chr. 07 to be the sex-chr. with a ZW system but right now I don't have more evidence for that than a potential sex-determination involving Chr. 08 and XY system... The other issue being the fact that I don't really trust the genotypes obtained with Samtools (even when I played with different flags with GATK, there was not enough SNP to be able to see any signal... so went with playing with Samtools...). 
 
+## Other options
 At that point there are some stuff that I would try (need to see with BE):
 
 - focusing on sites that are only present in 1 sex that might have more information, confirming the faint "signal"
@@ -172,5 +173,15 @@ Most interesting region from [Bewick et al. 2013](https://academic.oup.com/gbe/a
 
 - scaf2_150071042_f/scaf2_150071793_r: 1 female specific SNP 
 
-We should probably used the same sex-linked markers as [Roco et al. 2015](http://www.pnas.org/content/112/34/E4752.full) which were used in other studies.
+We should probably used the same sex-linked markers as [Roco et al. 2015](http://www.pnas.org/content/112/34/E4752.full) which were used in other studies: 5′-GCCCAAGCAATATAAGGGCTTGTT-3′ forward and 5′-TGTCCTGCCCTATTGCTCCCGTAA-3′reverse. See also [Olmstead et al. 2010](http://www.sciencedirect.com/science/article/pii/S0166445X1000024X), especially the [supplements](https://ars.els-cdn.com/content/image/1-s2.0-S0166445X1000024X-mmc1.pdf).
+
+To do:
+
+Using the primers from Roco et al. 2015, locus 095F08: ACTGTCTGGCTTTTGATTGG/ACACATTTTCTTGGTCCTGG. Need to blast them against Allpaths assembly. Find the scaffold(s) that contain both primers if possible, then map the scaffold against the Allpaths assembly. Then look if we have SNPs from GBS on this region.
+
+```
+makeblastdb -in /4/caroline/Xmellotropicalis/Allpaths/final.assembly.fasta -dbtype nucl -title sexmarkerstrop -out /4/caroline/Xmellotropicalis/Allpaths/final.assembly_blastable
+
+blastn -evalue 1e-5 -query /4/caroline/Xmellotropicalis/primerstrop/095F08.fa -db /4/caroline/Xmellotropicalis/Allpaths/final.assembly_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_095F08trop_e5 -outfmt 6
+```
   
