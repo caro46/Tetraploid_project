@@ -172,4 +172,5 @@ Most interesting region from [Bewick et al. 2013](https://academic.oup.com/gbe/a
 
 - scaf2_150071042_f/scaf2_150071793_r: 1 female specific SNP 
 
- 
+We should probably used the same sex-linked markers as [Roco et al. 2015](http://www.pnas.org/content/112/34/E4752.full) which were used in other studies.
+  
