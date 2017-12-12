@@ -151,4 +151,25 @@ I am worried about the chimerical issues that our `DBG2OLC` assembly could have 
 
 Considering we have a tetraploid, mapping the reads onto a diploid can caused various issues that should be reduced using the own assembly from the same species.
 
+### Results
+Ok so it is not better. Obtained both incomplete "XY" and "ZW" sex-inherited sites... Still the same individuals that show up different as the others from the same sex... Can be some sort of mix up, recombination on sex-chr. or autosomes...
 
+BE expect chr. 07 to be the sex-chr. with a ZW system but right now I don't have more evidence for that than a potential sex-determination involving Chr. 08 and XY system... The other issue being the fact that I don't really trust the genotypes obtained with Samtools (even when I played with different flags with GATK, there was not enough SNP to be able to see any signal... so went with playing with Samtools...). 
+
+At that point there are some stuff that I would try (need to see with BE):
+
+- focusing on sites that are only present in 1 sex that might have more information, confirming the faint "signal"
+
+- If it is actually a similar sex-determining system as *X. tropicalis* then maybe we should try amplyfing some regions that had SNPs displaying a sex inheritance pattern. in *X. tropicalis*. Problem if the region has a similar region on the other subgenome but can blast and see how many times it shows up using Allpaths or DBG2OLC genomes... If the sub-genomes are diverged enough we should be able to amplify specifically sites from 1 of the subgenome.
+
+Most interesting region from [Bewick et al. 2013](https://academic.oup.com/gbe/article/5/6/1087/616594#supplementary-data) from the supplements (names of the primers): 
+
+- sc7v7-10128301-f/sc7v7-10129920-r: highly polymorphic in females
+
+- scaf2_149790591_f/scaf2_149791341_r: female specific indels
+
+- scaf2_149954039_f/scaf2_149954800_r: 1 female specific SNP
+
+- scaf2_150071042_f/scaf2_150071793_r: 1 female specific SNP 
+
+ 
