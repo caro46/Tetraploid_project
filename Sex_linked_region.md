@@ -157,6 +157,7 @@ Ok so it is not better. Obtained both incomplete "XY" and "ZW" sex-inherited sit
 BE expect chr. 07 to be the sex-chr. with a ZW system but right now I don't have more evidence for that than a potential sex-determination involving Chr. 08 and XY system... The other issue being the fact that I don't really trust the genotypes obtained with Samtools (even when I played with different flags with GATK, there was not enough SNP to be able to see any signal... so went with playing with Samtools...). 
 
 ## Other options
+### Bewick's primers
 At that point there are some stuff that I would try (need to see with BE):
 
 - focusing on sites that are only present in 1 sex that might have more information, confirming the faint "signal"
@@ -173,12 +174,13 @@ Most interesting region from [Bewick et al. 2013](https://academic.oup.com/gbe/a
 
 - scaf2_150071042_f/scaf2_150071793_r: 1 female specific SNP 
 
+### Roco and Olmstead primers
 We should probably used the same sex-linked markers as [Roco et al. 2015](http://www.pnas.org/content/112/34/E4752.full) which were used in other studies: 5′-GCCCAAGCAATATAAGGGCTTGTT-3′ forward and 5′-TGTCCTGCCCTATTGCTCCCGTAA-3′reverse. See also [Olmstead et al. 2010](http://www.sciencedirect.com/science/article/pii/S0166445X1000024X), especially the [supplements](https://ars.els-cdn.com/content/image/1-s2.0-S0166445X1000024X-mmc1.pdf).
 
 To do:
 
 Using the primers from Roco et al. 2015, locus 095F08: ACTGTCTGGCTTTTGATTGG/ACACATTTTCTTGGTCCTGG. Need to blast them against Allpaths assembly. Find the scaffold(s) that contain both primers if possible, then map the scaffold against the Allpaths assembly. Then look if we have SNPs from GBS on this region.
-
+And primers focusing on amplifying regions near sex locus
 ```
 makeblastdb -in /4/caroline/Xmellotropicalis/Allpaths/final.assembly.fasta -dbtype nucl -title sexmarkerstrop -out /4/caroline/Xmellotropicalis/Allpaths/final.assembly_blastable
 
@@ -200,4 +202,145 @@ blastn -evalue 1e-1 -query /4/caroline/Xmellotropicalis/primerstrop/Olmstead_pri
 ```
 Sooooooooo not working.  
 
-Maybe blasting the get the scaffolds from the mellotrop assembly that map to chr.07 then check if some SNPs that can be interesting...but should not really help... Hum sooooooooo need BE. 
+OK so need to use `-task blastn-short`.
+```
+blastn -evalue 1e-1 -query /4/caroline/Xmellotropicalis/primerstrop/Olmstead_primers.fa -db /4/caroline/Xmellotropicalis/backbone_raw_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_dbg2olc_Olmsteadprimers_e1 -outfmt 6 -max_target_seqs 1 -task blastn-short
+blastn -evalue 1e-1 -query /4/caroline/Xmellotropicalis/primerstrop/Olmstead_primers.fa -db /4/caroline/Xmellotropicalis/backbone_raw_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_dbg2olc_Olmsteadprimers_e1_nomaxtarget -outfmt 6 -task blastn-short
+
+
+blastn -evalue 1e-1 -query /4/caroline/Xmellotropicalis/primerstrop/095F08.fa -db /4/caroline/Xmellotropicalis/backbone_raw_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_dbg2olc_095F08_e1 -outfmt 6 -max_target_seqs 1 -task blastn-short
+
+blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/010E04.fa -db /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw_blastable -out /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/010E04_backbone_e1_nomaxtarget -outfmt 6 -task blastn-short
+
+#Backbone_27162
+```
+The following was mainly because I thought the primers did not match which is not the case.
+
+Maybe blasting the get the scaffolds from the mellotrop assembly that map to chr.07 then check if some SNPs that can be interesting...but should not really help... Hum sooooooooo need BE.
+
+```
+awk 'BEGIN {RS=">"} /Chr07/ {print ">"$0}' pseudomolecules_nucmer_qfilter_dbg2olc.fasta >pseudomoleculesChr7.fa
+
+module load blast/2.2.28+
+blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/pseudomoleculesChr7.fa -db /work/ben/2016_Hymenochirus/xenTro9/xenTro9_genome_HARDmasked_blastable -out /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/pseudomoleculesChr7mello_trop.out -outfmt 6 -max_target_seqs 1
+blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/Olmstead_primers.fa -db /work/ben/2016_Hymenochirus/xenTro9/xenTro9_genome_HARDmasked_blastable -out /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/Olmstead_primers_trop.out -outfmt 6 -max_target_seqs 1 -task blastn-short
+```
+```
+grep "Chr07" /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/Olmstead_primers_trop.out
+For605:116800-117215	Chr07	100.00	24	0	0	1	24	2190623	2190646	3e-05	48.1
+Rev605:116800-117215	Chr07	100.00	24	0	0	1	24	2191038	2191015	3e-05	48.1
+For379:86947-87483	Chr07	100.00	22	0	0	1	22	61365097	61365076	4e-04	44.1
+Rev379:86947-87483	Chr07	100.00	24	0	0	1	24	61364561	61364584	3e-05	48.1
+For379:366617-367293	Chr07	100.00	27	0	0	1	27	61080524	61080498	8e-07	54.0
+Rev379:366617-367293	Chr07	100.00	24	0	0	1	24	61079848	61079871	3e-05	48.1
+For379:501771-502446	Chr07	100.00	24	0	0	1	24	60948763	60948740	3e-05	48.1
+Rev379:501771-502446	Chr07	100.00	25	0	0	1	25	60948088	60948112	1e-05	50.1
+For379:553147-553603	Chr07	100.00	26	0	0	1	26	60895922	60895897	3e-06	52.0
+Rev379:553147-553603	Chr07	100.00	24	0	0	1	24	60895466	60895489	3e-05	48.1
+For379:777598-777997	Chr07	100.00	25	0	0	1	25	60685369	60685345	1e-05	50.1
+```
+Should be the backbone scaffolds corresponding to Chr.07.
+```
+less /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_dbg2olc_Olmsteadprimers_e1
+
+For379:366617-367293    Backbone_56095  100.000 25      0       0       1       25      2130    2154    2.31e-05        50.1
+Rev379:366617-367293    Backbone_15364  100.000 24      0       0       1       24      16847   16870   7.10e-05        48.1
+Rev379:501771-502446    Backbone_118669 100.000 19      0       0       7       25      3952    3934    0.078   38.2
+Rev379:501771-502446    Backbone_118669 100.000 19      0       0       7       25      5056    5038    0.078   38.2
+Rev379:501771-502446    Backbone_118669 100.000 19      0       0       7       25      4232    4250    0.078   38.2
+Rev379:501771-502446    Backbone_118669 100.000 19      0       0       7       25      5333    5351    0.078   38.2
+For379:553147-553603    Backbone_32036  95.652  23      1       0       2       24      20762   20740   0.078   38.2
+For379:777598-777997    Backbone_73307  100.000 19      0       0       4       22      14156   14174   0.078   38.2
+``` 
+`+` region only have one match. Should get the corresponding backbone scaffolds and map against the assembly and get the 2 best hits and observe if there is any differences in the scaffolds
+```
+less /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_dbg2olc_Olmsteadprimers_e1_nomaxtarget
+
+For605:495419-496318    Backbone_174891 100.000 24      0       0       1       24      19891   19914   7.10e-05        48.1
+For605:495419-496318    Backbone_174891 100.000 21      0       0       4       24      16865   16885   0.004   42.1
+For605:495419-496318    Backbone_3197   100.000 24      0       0       1       24      11261   11238   7.10e-05        48.1
+For605:495419-496318    Backbone_3197   100.000 21      0       0       4       24      19656   19676   0.004   42.1
+For605:Multiple Backbone_155692 100.000 19      0       0       1       19      3854    3872    0.068   38.2
+Rev494:27541-27902      Backbone_140871 100.000 20      0       0       9       28      18458   18477   0.027   40.1
+For494:31633-32115      Backbone_33734  100.000 19      0       0       3       21      5643    5625    0.068   38.2
+Rev494:31633-32115      Backbone_48367  95.652  23      1       0       2       24      9002    8980    0.068   38.2
+Rev494:600198-600743    Backbone_196656 100.000 19      0       0       3       21      2347    2329    0.068   38.2
+Rev494:600198-600743    Backbone_194603 100.000 19      0       0       6       24      12266   12284   0.068   38.2
+Rev494:600198-600743    Backbone_107232 100.000 19      0       0       6       24      7025    7043    0.068   38.2
+Rev494:600198-600743    Backbone_97231  100.000 19      0       0       6       24      15384   15402   0.068   38.2
+Rev494:600198-600743    Backbone_14805  95.652  23      1       0       2       24      1744    1722    0.068   38.2
+For494:751791-752290    Backbone_26123  100.000 19      0       0       7       25      2777    2759    0.078   38.2
+For379:1050241-1050778  Backbone_184331 100.000 19      0       0       1       19      4787    4769    0.068   38.2
++ For379:366617-367293    Backbone_56095  100.000 25      0       0       1       25      2130    2154    2.31e-05        50.1
++ Rev379:366617-367293    Backbone_15364  100.000 24      0       0       1       24      16847   16870   7.10e-05        48.1
++ Rev379:501771-502446    Backbone_118669 100.000 19      0       0       7       25      3952    3934    0.078   38.2
++ Rev379:501771-502446    Backbone_118669 100.000 19      0       0       7       25      5056    5038    0.078   38.2
++ Rev379:501771-502446    Backbone_118669 100.000 19      0       0       7       25      4232    4250    0.078   38.2
++ Rev379:501771-502446    Backbone_118669 100.000 19      0       0       7       25      5333    5351    0.078   38.2
++ For379:553147-553603    Backbone_32036  95.652  23      1       0       2       24      20762   20740   0.078   38.2
++ For379:777598-777997    Backbone_73307  100.000 19      0       0       4       22      14156   14174   0.078   38.2
+Rev1151:25266-25765     Backbone_39627  100.000 19      0       0       4       22      11202   11220   0.068   38.2
+Rev810:46889-47640      Backbone_185320 100.000 20      0       0       3       22      4462    4443    0.017   40.1
+Rev810:46889-47640      Backbone_185320 100.000 20      0       0       3       22      8740    8721    0.017   40.1
+Rev810:46889-47640      Backbone_66388  95.652  23      1       0       1       23      12298   12320   0.068   38.2
+Rev810:46889-47640      Backbone_33362  95.652  23      1       0       1       23      326     304     0.068   38.2
+Rev810:46889-47640      Backbone_33362  95.652  23      1       0       1       23      8704    8682    0.068   38.2
+Rev810:46889-47640      Backbone_4277   95.652  23      1       0       1       23      13497   13475   0.068   38.2
+For810:52523-53007      Backbone_66637  100.000 19      0       0       5       23      13617   13635   0.068   38.2
+For810:261995-262744    Backbone_108910 100.000 22      0       0       1       22      9920    9899    0.001   44.1
+For810:261995-262744    Backbone_131420 100.000 20      0       0       5       24      15918   15937   0.017   40.1
+For810:261995-262744    Backbone_93603  100.000 20      0       0       5       24      11371   11390   0.017   40.1
+For810:261995-262744    Backbone_81421  100.000 20      0       0       5       24      1310    1329    0.017   40.1
+For810:261995-262744    Backbone_81421  100.000 20      0       0       5       24      2707    2726    0.017   40.1
+For810:261995-262744    Backbone_81421  100.000 20      0       0       5       24      3065    3084    0.017   40.1
+For810:261995-262744    Backbone_81421  100.000 20      0       0       5       24      2190    2171    0.017   40.1
+For810:261995-262744    Backbone_81421  100.000 20      0       0       5       24      6372    6353    0.017   40.1
+For810:261995-262744    Backbone_81421  100.000 19      0       0       6       24      616     634     0.068   38.2
+For810:261995-262744    Backbone_81421  100.000 19      0       0       5       23      1129    1111    0.068   38.2
+For810:261995-262744    Backbone_170074 100.000 20      0       0       5       24      129     110     0.017   40.1
+For810:261995-262744    Backbone_170074 100.000 20      0       0       5       24      4833    4814    0.017   40.1
+For810:261995-262744    Backbone_31165  100.000 20      0       0       5       24      10573   10554   0.017   40.1
+For810:261995-262744    Backbone_156401 100.000 19      0       0       3       21      4596    4614    0.068   38.2
+For1151:54144-54736     Backbone_24868  100.000 24      0       0       1       24      4860    4883    7.10e-05        48.1
+Rev158:2187705-2188478  Backbone_71099  100.000 19      0       0       3       21      13985   13967   0.068   38.2
+
+```
+
+Very early backbones assembly into Chr07_pseudoomolecules after filtering
+```
+#Reminder
+../../programs/MUMmer3.23/delta-filter -q Nucmer_mello_dbg2olc_xentrop9.delta >Nucmer_mello_dbg2olc_xentrop9_qfiler.delta
+
+../../programs/MUMmer3.23/show-coords -r -c -l Nucmer_mello_dbg2olc_xentrop9_qfiler.delta> Nucmer_mello_dbg2olc_xentrop9_qfiler.coord
+
+module load python/intel/3.4.2
+python3 pseudomolecules_scaffolds.py Nucmer_mello_dbg2olc_xentrop9_qfiler.coord 500 15 backbone_raw.fasta filter/pseudomolecules_scaff_nucmer_qfilter_dbg2olc.fasta filter/pseudomolecules_scaff_nucmer_qfilter_dbg2olc_index.txt >filter/pseudomolecules_scaff_nucmer_qfilter_dbg2olc.out
+
+#Matching Chr07
+grep "Chr07" ../pseudomolecules_scaff_nucmer_qfilter_dbg2olc_index.txt
+species1	Chr07	1	3511	Backbone_137426	3511
+species1	Chr07	3592	14689	Backbone_184827	11098
+species2	Chr07	1	8205	Backbone_167138	8205
+species2	Chr07	8286	15197	Backbone_170121	6912
+```
+
+```
+module load blast/2.2.28+
+makeblastdb -in /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw.fasta -dbtype nucl -title backbone_mello -out /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw_blastable 
+blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/potential_backbones_SC.fa -db /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw_blastable -out /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/potential_backbones_SC_DBG2OLC_e1_nomaxtarget -outfmt 6
+
+/usr/local/RepeatMasker/RepeatMasker -dir /4/caroline/Xmellotropicalis/primerstrop/ -species "xenopus genus" -pa 4 -a potential_backbones_SC.fa
+blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/potential_backbones_SC.fa.masked -db /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw_blastable -out /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/potential_backbones_SC_masked_DBG2OLC_e1_nomaxtarget -outfmt 6
+```
+`Backbone_118669` and `Backbone_32036` (in particular the 2nd) do not match especially well against another scaffold. When blasting on xenbase, chr.07 not best match.
+
+```
+blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/Backbone_27162.fa -db /work/ben/2016_Hymenochirus/xenTro9/xenTro9_genome_HARDmasked_blastable -out /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/Backbone_27162_trop_nomaxtarget.out -outfmt 6 
+blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/Backbone_27162.fa.masked -db /work/ben/2016_Hymenochirus/xenTro9/xenTro9_genome_HARDmasked_blastable -out /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/Backbone_27162_masked_trop_nomaxtarget.out -outfmt 6
+[cauretc@iqaluk blast_find_SDregion]$ less Backbone_27162_masked_trop_nomaxtarget.out
+#Chr04
+``` 
+#### Conclusion
+Didn't work. Makes some sense. Primers can map against different regions: not specific in our species (but did not blast everywhere), can be a translocated region to another chromosome, bad assembly with chimeras (probably yeah even if it is supposed to be rare), the real region of interest is not in the assembly (possible, considering also that repeat sequences tend to be higher on sex-chr. and so sex-chr. are harder to assemble), "bad" job of blast (possible too but using no max target should give hopefully the main maching regions and scaffolds repeatmasked to blast them against trop or back to the assembly).
+
+Mainly did not help at all but wanted to try to see how conserved the genomes seem to be. I am pretty sure I'll forget the DBG2OLC assembly considering how little I trust him (used it here because in theory has better statistics). Also to extract multiple sequences from fasta file, used script `perl_script_extracting_seq.pl` that I put in 
