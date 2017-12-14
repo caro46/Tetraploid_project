@@ -346,6 +346,8 @@ Didn't work. Makes some sense. Primers can map against different regions: not sp
 Mainly did not help at all but wanted to try to see how conserved the genomes seem to be. I am pretty sure I'll forget the DBG2OLC assembly considering how little I trust him (used it here because in theory has better statistics). Also to extract multiple sequences from fasta file, used script `perl_script_extracting_seq.pl` that I put [here](https://github.com/caro46/Tetraploid_project/blob/master/some_scripts/perl_script_extracting_seq.pl). 
 
 ### Olmstead sequences
+Main idea as previously with the primers. Try to get matching scaffolds then look for genotypes.
+
 ```
 module load blast/2.2.28+
 blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/Olmstead_seq.fa -db /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw_blastable -out /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/Olmstead_seq_DBG2OLC_e1_nomaxtarget -outfmt 6
@@ -362,3 +364,26 @@ blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/pseudomolecules/fi
 ```
 Also done without `-max_target_seqs`. Without it: `Backbone_177261` also matched against `Chr.07` and `scaffold_306` with high scores but pretty small length (~200bp).
 
+```
+zgrep "Backbone_116961" /4/caroline/Xmellotropicalis/backbone_raw_supercontig.index.gz
+#10	Backbone_116961	27052721	27062574
+zgrep "Backbone_105388" /4/caroline/Xmellotropicalis/backbone_raw_supercontig.index.gz
+#9	Backbone_105388	49207921	49229080
+zgrep "Backbone_169539" /4/caroline/Xmellotropicalis/backbone_raw_supercontig.index.gz
+#14	Backbone_169539	12997041	13012403
+zgrep "Backbone_177261" /4/caroline/Xmellotropicalis/backbone_raw_supercontig.index.gz
+#14	Backbone_177261	126053601	126063025
+
+vcftools --gzvcf Mellotrop_DBG2OLC_backbone_var.vcf.gz --chr "supercontig_10" --from-bp 27052721 --to-bp 27062574 --recode  --recode-INFO-all --out Mellotrop_Backbone_116961
+#No data left for analysis!
+
+vcftools --gzvcf Mellotrop_DBG2OLC_backbone_var.vcf.gz --chr "supercontig_9" --from-bp 49207921 --to-bp 49229080 --recode  --recode-INFO-all --out Mellotrop_Backbone_105388
+#No data left for analysis!
+
+vcftools --gzvcf Mellotrop_DBG2OLC_backbone_var.vcf.gz --chr "supercontig_14" --from-bp 12997041 --to-bp 13012403 --recode  --recode-INFO-all --out Mellotrop_Backbone_169539
+#No data left for analysis!
+
+vcftools --gzvcf Mellotrop_DBG2OLC_backbone_var.vcf.gz --chr "supercontig_14" --from-bp 126053601 --to-bp 126063025 --recode  --recode-INFO-all --out Mellotrop_Backbone_177261
+#No data left for analysis!
+```
+Also did with `Mellotrop_DBG2OLC_backbone_var_DP_AD.vcf.gz`. No data either.
