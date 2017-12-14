@@ -344,3 +344,21 @@ blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/pseudomolecules/fi
 Didn't work. Makes some sense. Primers can map against different regions: not specific in our species (but did not blast everywhere), can be a translocated region to another chromosome, bad assembly with chimeras (probably yeah even if it is supposed to be rare), the real region of interest is not in the assembly (possible, considering also that repeat sequences tend to be higher on sex-chr. and so sex-chr. are harder to assemble), "bad" job of blast (possible too but using no max target should give hopefully the main maching regions and scaffolds repeatmasked to blast them against trop or back to the assembly).
 
 Mainly did not help at all but wanted to try to see how conserved the genomes seem to be. I am pretty sure I'll forget the DBG2OLC assembly considering how little I trust him (used it here because in theory has better statistics). Also to extract multiple sequences from fasta file, used script `perl_script_extracting_seq.pl` that I put [here](https://github.com/caro46/Tetraploid_project/blob/master/some_scripts/perl_script_extracting_seq.pl). 
+
+### Olmstead sequences
+```
+module load blast/2.2.28+
+blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/Olmstead_seq.fa -db /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw_blastable -out /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/Olmstead_seq_DBG2OLC_e1_nomaxtarget -outfmt 6
+```
+Did also with `-max_target_seqs 1` and `-max_target_seqs 2` (`Olmstead_seq_DBG2OLC_e1_1maxtarget` and `Olmstead_seq_DBG2OLC_e1_2maxtarget`).
+```
+blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/backbones_Olmstead_seq.fa -db /work/ben/2016_Hymenochirus/xenTro9/xenTro9_genome_HARDmasked_blastable -out /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/Olmstead_seq_DBG2OLC_trop_e1_1maxtarget -outfmt 6 -max_target_seqs 1
+
+#Main results
+#Backbone_169539 Chr02
+#Backbone_177261 Chr04
+#Backbone_116961 Chr07
+#Backbone_105388 scaffold_150 
+```
+Also done without `-max_target_seqs`. Without it: `Backbone_177261` also matched against `Chr.07` and `scaffold_306` with high scores but pretty small length (~200bp).
+
