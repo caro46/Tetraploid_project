@@ -156,6 +156,14 @@ Ok so it is not better. Obtained both incomplete "XY" and "ZW" sex-inherited sit
 
 BE expect chr. 07 to be the sex-chr. with a ZW system but right now I don't have more evidence for that than a potential sex-determination involving Chr. 08 and XY system... The other issue being the fact that I don't really trust the genotypes obtained with Samtools (even when I played with different flags with GATK, there was not enough SNP to be able to see any signal... so went with playing with Samtools...). 
 
+## Summary table
+
+Need to make a table with as columns `scaffold_number \t sex_inheritance_pattern \t who_is_the_heterozygous_sex \t number_of_putative_sex_linked_SNPs \t number_of_other_genotypes* \t homologous_region_in_tropicalis`.
+
+`*`: `number_of_other_genotypes` - say if 1/2/3 offspring that don't have the same genotypes as the others of the same sex. For example, if a few females are heterozygous but the others + all the males are homozygous, can still be interesting because can be a problem of undercalled heterozygous due to the coverage.
+
+The `c++` script provides the main information except `number_of_other_genotypes` `homologous_region_in_tropicalis`. 
+
 ## Other options
 ### Bewick's primers
 At that point there are some stuff that I would try (need to see with BE):
