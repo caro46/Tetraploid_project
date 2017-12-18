@@ -209,7 +209,15 @@ blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/pseudomolecules/fi
 
 #scaf2_149954800_r       Backbone_196855 95.83   24      1       0       1       24      6097    6120    0.020   40.1
 #scaf2_149954800_r       Backbone_196855 100.00  19      0       0       8       26      9523    9505    0.078   38.2
+
+zgrep "Backbone_196855" /4/caroline/Xmellotropicalis/backbone_raw_supercontig.index.gz
+#16	Backbone_196855	14806001	14823452
+vcftools --gzvcf Mellotrop_DBG2OLC_backbone_var.vcf.gz --chr "supercontig_16" --from-bp 14806001 --to-bp 14823452 --recode  --recode-INFO-all --out Mellotrop_Backbone_196855
+#No data left for analysis!
+vcftools --gzvcf Mellotrop_DBG2OLC_backbone_var_DP_AD.vcf.gz --chr "supercontig_16" --from-bp 14806001 --to-bp 14823452 --recode  --recode-INFO-all --out Mellotrop_Backbone_196855
+#No data left for analysis!
 ```
+Maybe I should consider decreasing again the depth and quality (but tried with depth of 5...)...
 
 ### Roco and Olmstead primers
 We should probably used the same sex-linked markers as [Roco et al. 2015](http://www.pnas.org/content/112/34/E4752.full) which were used in other studies: 5′-GCCCAAGCAATATAAGGGCTTGTT-3′ forward and 5′-TGTCCTGCCCTATTGCTCCCGTAA-3′reverse. See also [Olmstead et al. 2010](http://www.sciencedirect.com/science/article/pii/S0166445X1000024X), especially the [supplements](https://ars.els-cdn.com/content/image/1-s2.0-S0166445X1000024X-mmc1.pdf).
