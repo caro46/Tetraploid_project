@@ -164,6 +164,35 @@ Need to make a table with as columns `scaffold_number \t sex_inheritance_pattern
 
 The `c++` script provides the main information except `number_of_other_genotypes` `homologous_region_in_tropicalis`. 
 
+###
+
+Best ZW site:
+```
+grep "#\|scaffold_260445\|scaffold_262360\|269737" /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/correctedID/Allpaths/Mellotrop_trop_sex_linked_sites_1st_part.txt 
+##CHROM	POS	REF	3799_dad	3800_mom	3810_boy	4169_girl	4170_girl	4171_boy	4172_boy	4173_boy	4174_boy	4175_girl	4176_boy	4177_girl	4178_girl	4179_boy	4180_girl	4181_boy	4182_girl	4183_girl	4184_girl	4185_girl
+#Heterozygous_daughters_mom_ZW scaffold_260445	69	A	A/A	A/G	A/A	A/A	A/A	A/A	A/A	A/A	A/A	A/A	A/A	A/A	A/A	A/A	A/A	A/A	A/A	A/A	A/G	A/A
+#Heterozygous_daughters_mom_ZW scaffold_262360	857	G	G/G	G/T	G/G	G/T	G/G	G/G	G/G	G/G	G/G	G/T	G/G	G/T	G/T	G/G	G/T	G/G	G/T	G/T	G/T	G/T
+#Heterozygous_daughters_mom_ZW scaffold_269737	1066	G	G/G	G/A	G/G	G/G	G/G	G/G	G/G	G/G	G/G	G/G	G/G	G/G	G/G	G/G	G/G	G/G	G/G	G/G	G/A	G/G
+
+awk -v seq="scaffold_262360" -v RS='>' '$1 == seq {print RS $0}' /4/caroline/Xmellotropicalis/Allpaths/final.assembly.fasta >/4/caroline/Xmellotropicalis/Allpaths/final.assembly_scaffold_262360.fasta
+awk -v seq="scaffold_260445" -v RS='>' '$1 == seq {print RS $0}' /4/caroline/Xmellotropicalis/Allpaths/final.assembly.fasta >>/4/caroline/Xmellotropicalis/Allpaths/final.assembly_scaffold_262360.fasta
+awk -v seq="scaffold_269737" -v RS='>' '$1 == seq {print RS $0}' /4/caroline/Xmellotropicalis/Allpaths/final.assembly.fasta >>/4/caroline/Xmellotropicalis/Allpaths/final.assembly_scaffold_262360.fasta
+mv /4/caroline/Xmellotropicalis/Allpaths/final.assembly_scaffold_262360.fasta /4/caroline/Xmellotropicalis/Allpaths/final.assembly_scaffolds_262360_260445_269737.fasta
+
+/usr/local/RepeatMasker/RepeatMasker -dir /4/caroline/Xmellotropicalis/Allpaths/ -species "xenopus genus" -pa 4 -a /4/caroline/Xmellotropicalis/Allpaths/final.assembly_scaffolds_262360_260445_269737.fasta
+
+blastn -evalue 1e-10 -query /4/caroline/Xmellotropicalis/Allpaths/final.assembly_scaffolds_262360_260445_269737.fasta.masked -db /4/caroline/Xmellotropicalis/backbone_raw_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_alpaths_scaffolds_262360_260445_269737_dbg2olc_e10_1maxtarget -outfmt 6 -max_target_seqs 1
+#no matching for scaffold_262360
+
+awk -v seq="scaffold_262360" -v RS='>' '$1 == seq {print RS $0}' /4/caroline/Xmellotropicalis/Allpaths/final.assembly_scaffolds_262360_260445_269737.fasta.masked >/4/caroline/Xmellotropicalis/Allpaths/final.assembly_scaffold262360.masked.fa
+blastn -evalue 1e-1 -query /4/caroline/Xmellotropicalis/Allpaths/final.assembly_scaffold262360.masked.fa -db /4/caroline/Xmellotropicalis/backbone_raw_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_alpaths_scaffolds_262360_dbg2olc_e1_nomaxtarget -outfmt 6
+#no match
+vcftools --gzvcf /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Allpaths/Mellotrop_allpaths_var_DP_AD.vcf.gz --chr "scaffold_262360" --recode  --recode-INFO-all --out /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Allpaths/Mellotrop_allpaths_var_DP_AD_scaffold262360
+#After filtering, kept 23 out of a possible 633743 Sites
+/usr/local/vcftools/src/perl/vcf-to-tab < /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Allpaths/Mellotrop_allpaths_var_DP_AD_scaffold262360.recode.vcf > /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Allpaths/Mellotrop_allpaths_var_DP_AD_scaffold262360.recode.tab
+```
+
+
 ## Other options
 ### Bewick's primers
 At that point there are some stuff that I would try (need to see with BE):
