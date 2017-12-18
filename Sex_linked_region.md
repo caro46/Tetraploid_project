@@ -65,7 +65,7 @@ grep "165601016" /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/
 14	165601016	Backbone_179970	7256
 grep "Backbone_179970" /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/Mellotrop_potential_sex_linked_MASKED_tropv9
 #	Chr03
-```N
+```
 ```
 #CHROM	POS	REF	3799_dad	3800_mom	3810_boy	4169_girl	4170_girl	4171_boy	4172_boy	4173_boy	4174_boy	4175_girl	4176_boy	4177_girl	4178_girl	4179_boy	4180_girl	4181_boy	4182_girl	4183_girl	4184_girl	4185_girl
 
