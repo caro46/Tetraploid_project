@@ -258,6 +258,11 @@ blastn -evalue 1e-1 -query /4/caroline/Xmellotropicalis/primerstrop/095F08.fa -d
 blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/010E04.fa -db /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw_blastable -out /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/010E04_backbone_e1_nomaxtarget -outfmt 6 -task blastn-short
 
 #Backbone_27162
+
+zgrep "Backbone_27162" /4/caroline/Xmellotropicalis/backbone_raw_supercontig.index.gz
+#3	Backbone_27162	34879281	34893422
+vcftools --gzvcf Mellotrop_DBG2OLC_backbone_var_DP_AD.vcf.gz --chr "supercontig_3" --from-bp 34879281 --to-bp 34893422 --recode  --recode-INFO-all --out Mellotrop_Backbone_27162
+
 ```
 The following was mainly because I thought the primers did not match which is not the case.
 
