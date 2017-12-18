@@ -65,7 +65,7 @@ grep "165601016" /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/
 14	165601016	Backbone_179970	7256
 grep "Backbone_179970" /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/Mellotrop_potential_sex_linked_MASKED_tropv9
 #	Chr03
-```
+```N
 ```
 #CHROM	POS	REF	3799_dad	3800_mom	3810_boy	4169_girl	4170_girl	4171_boy	4172_boy	4173_boy	4174_boy	4175_girl	4176_boy	4177_girl	4178_girl	4179_boy	4180_girl	4181_boy	4182_girl	4183_girl	4184_girl	4185_girl
 
@@ -174,13 +174,42 @@ At that point there are some stuff that I would try (need to see with BE):
 
 Most interesting region from [Bewick et al. 2013](https://academic.oup.com/gbe/article/5/6/1087/616594#supplementary-data) from the supplements (names of the primers): 
 
-- sc7v7-10128301-f/sc7v7-10129920-r: highly polymorphic in females
+- sc7v7-10128301-f/sc7v7-10129920-r (`GCAACTATGAGTTGGAACTT`/`CTCATTGCTCATTGTTTTGGTG`): highly polymorphic in females (=`Xenbase JBrowse tropicalis 9.0: Chr07:8909400-8909420`)
 
-- scaf2_149790591_f/scaf2_149791341_r: female specific indels
+- scaf2_149790591_f/scaf2_149791341_r (`GATCAGAACTCGTTGAATCTCTTT`/`CGGGGGATTCACTGGTTATT`): female specific indels (=`Xenbase JBrowse tropicalis 9.0: scaffold_492:88224-88247`)
 
-- scaf2_149954039_f/scaf2_149954800_r: 1 female specific SNP
+- scaf2_149954039_f/scaf2_149954800_r (`TGAAATTGGGCATCACAAAA`/`GCTGTACTCTTGAATTGTGTTACCAT`): 1 female specific SNP (=`Xenbase JBrowse tropicalis 9.0: scaffold_130:644037-644062`)
 
-- scaf2_150071042_f/scaf2_150071793_r: 1 female specific SNP 
+- scaf2_150071042_f/scaf2_150071793_r (`GATTGGTCCCCTTCCGTAAT`/`GGATTTCAGGCCAGCAGTTA`): 1 female specific SNP (=`Xenbase JBrowse tropicalis 9.0: scaffold_130:760304-760324`)
+
+#### Somme comments
+
+From Bewick et al. 2013
+
+*this is presumably because some scaffolds are chimerical (e.g., a portion of scaffold 2 in version 7.1 is probably actually derived from S. tropicalis chromosome 7)*.
+
+Confirmed if you do some blast on xenbase:
+
+- blasting the primers on xenbase (Xenbase JBrowse tropicalis 9.0/9.1): mapped to the end of scaffolds 492 and 130
+
+- genes on scaffold 130: `phc1`, `m6pr`, `ovos2`
+
+- genes on scaffold 492: `tbx15` 
+
+- looking for the previous genes as a research on xenbase to find where they are located on *X. laevis*
+
+- `phc1`: `chr.07` of *X. laevis* `v.9.1` and `scaffold_2` of *X. tropicalis* `v.7.1`, `m6pr`: `chr.07` of *X. laevis* `v.9.1` and `scaffold_159` of *X. tropicalis* `v.8.0`, `ovos2`: `chr.07L` of *X. laevis* `v.9.1` and `scaffold_130` of *X. tropicalis* `v.8.0`, `tbx15`: `chr.02` of *X. laevis* `v.9.1` and `scaffold_2` of *X. tropicalis* `v.7.1`.
+
+- `phc1` and `tbx15` are both on `scaffold_2` of *X. tropicalis* `v.7.1` but on different chromosomes of *X. laevis* `v.9.1` which can be due to misassembly.
+
+#### Blast agains DBG2OLC assembly
+```
+module load blast/2.2.28+
+blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/Bewick_primers.fa -db /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw_blastable -out /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/Bewick_primers_DBG2OLC_e1_nomaxtarget -outfmt 6 -task blastn-short
+
+#scaf2_149954800_r       Backbone_196855 95.83   24      1       0       1       24      6097    6120    0.020   40.1
+#scaf2_149954800_r       Backbone_196855 100.00  19      0       0       8       26      9523    9505    0.078   38.2
+```
 
 ### Roco and Olmstead primers
 We should probably used the same sex-linked markers as [Roco et al. 2015](http://www.pnas.org/content/112/34/E4752.full) which were used in other studies: 5′-GCCCAAGCAATATAAGGGCTTGTT-3′ forward and 5′-TGTCCTGCCCTATTGCTCCCGTAA-3′reverse. See also [Olmstead et al. 2010](http://www.sciencedirect.com/science/article/pii/S0166445X1000024X), especially the [supplements](https://ars.els-cdn.com/content/image/1-s2.0-S0166445X1000024X-mmc1.pdf).
