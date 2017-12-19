@@ -192,6 +192,7 @@ blastn -evalue 1e-1 -query /4/caroline/Xmellotropicalis/Allpaths/final.assembly_
 vcftools --gzvcf /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Allpaths/Mellotrop_allpaths_var_DP_AD.vcf.gz --chr "scaffold_262360" --recode  --recode-INFO-all --out /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Allpaths/Mellotrop_allpaths_var_DP_AD_scaffold262360
 #After filtering, kept 23 out of a possible 633743 Sites
 /usr/local/vcftools/src/perl/vcf-to-tab < /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Allpaths/Mellotrop_allpaths_var_DP_AD_scaffold262360.recode.vcf > /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Allpaths/Mellotrop_allpaths_var_DP_AD_scaffold262360.recode.tab
+
 ```
 I blasted `scaffold_262360` directly on xenbase using the default parameter on `XL9_2_GCF_JGInames.fa` and `XT9_1_GCF_JGInames.fa` (= more recent versions of the assemblies). The scaffold matched to `scaffold_622`. See below for some statistics of the best match.
 
@@ -207,6 +208,43 @@ On this scaffold we can find `LOC105945848` annotated as a gene. I used the `CDS
 
 The snp of interest (position `857` of `scaffold_262360`) was obtained using this filtering option `$commandline = "bcftools filter -O z ".$path_to_output."Mellotrop_allpaths_var_DP_AD.vcf.gz -e '%QUAL<10 || FORMAT/DP<10 || FORMAT/DP>500 ||FORMAT/GQ = \".\" ' \> ".$path_to_output."Mellotrop_allpaths_var.fltQual_DP10.vcf.gz";` and of course were still there when I played with the parameters with less stringent parameters or with default. I looked at other sites near it, previous to filtering: positions `739`, `744` and `750` show heterozygous sites in mom and only sons (respectively `T/A`, `T/C` and `T/A`) and homozygous in the dad and in the daughters when the latter has genotypes called (a lot of missing data for these 3 sites). The 1st snp could correspond to a snp on the W, whereas the others look like more as a potential snp on the mom Z.
 
+```
+module load blast/2.2.28+
+gunzip -c /work/cauretc/2017_Mellotropicalis/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq | makeblastdb -in - -dbtype nucl -title SOAPmellotrop_ref -out /work/cauretc/2017_Mellotropicalis/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory_scaf_blastable
+blastn -evalue 1e-10 -query /work/cauretc/2017_Mellotropicalis/SOAP_assembly/final.assembly_scaffold262360.masked.fa -db /work/cauretc/2017_Mellotropicalis/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory_scaf_blastable -out /work/cauretc/2017_Mellotropicalis/SOAP_assembly/final.assembly_scaffold262360_masked_SOAP_e10_1maxtarget -outfmt 6 -max_target_seqs 1
+#scaffold130294
+
+blastn -evalue 1e-10 -query /work/cauretc/2017_Mellotropicalis/SOAP_assembly/final.assembly_scaffold262360.masked.fa -db /work/cauretc/2017_Mellotropicalis/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory_scaf_blastable -out /work/cauretc/2017_Mellotropicalis/SOAP_assembly/final.assembly_scaffold262360_masked_SOAP_e10_nomaxtarget -outfmt 6
+#scaffold_262360 scaffold130294  97.68   475     3       2       86      552     24      498     0.0      815
+#scaffold_262360 scaffold130294  94.87   312     5       1       651     951     629     940     1e-134   486
+#scaffold_262360 scaffold130294  79.54   259     44      9       698     951     629     883     4e-41    176
+#scaffold_262360 scaffold130294  100.00  44      0       0       587     630     551     594     8e-13   82.4
+#scaffold_262360 C153519949      100.00  109     0       0       924     1032    1       109     6e-49    202
+#scaffold_262360 C153519949      83.64   110     14      4       878     984     1       109     2e-18    100
+#scaffold_262360 scaffold1000775 86.33   139     14      5       896     1032    10363   10498   3e-32    147
+gunzip -c /work/cauretc/2017_Mellotropicalis/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq.gz | awk -v seq="scaffold130294" -v RS='>' '$1 == seq {print RS $0}' -
+gunzip -c /work/cauretc/2017_Mellotropicalis/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq.gz | awk -v seq="C153519949" -v RS='>' '$1 == seq {print RS $0}' -
+gunzip -c /work/cauretc/2017_Mellotropicalis/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq.gz | awk -v seq="scaffold1000775" -v RS='>' '$1 == seq {print RS $0}' -
+#A lot of missing data!!!!
+#Aligned SOAP scaffold130294 and Allpaths scaffold_262360 with MAFFT (v7.372) and seems to align pretty well outside the missing data region of SOAP. There is no missing data withing the Allpaths scaffold. The Alpaths one matches perfectly against `scaffold_622` while `scaffold130294` has a better result for chr. 10.
+ 
+blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/SOAP_assembly/final.assembly_scaffold262360.masked.fa -db /work/cauretc/laevis_genome/Xla_v91_genome_HARDmasked_blastable -out /work/cauretc/2017_Mellotropicalis/SOAP_assembly/final.assembly_scaffold262360_masked_laevis91_e1_nomaxtarget -outfmt 6
+gunzip -c /work/cauretc/laevis_genome/Xla_v91_repeatMasked.fa.gz | makeblastdb -in - -dbtype nucl -title laevis91_soft -out /work/cauretc/laevis_genome/Xla_v91_repeatMasked_soft_blastable
+blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/SOAP_assembly/final.assembly_scaffold262360.masked.fa -db /work/cauretc/laevis_genome/Xla_v91_repeatMasked_soft_blastable -out /work/cauretc/2017_Mellotropicalis/SOAP_assembly/final.assembly_scaffold262360_masked_laevis91soft_e1_nomaxtarget -outfmt 6
+#no match
+
+gunzip -c /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta.gz | makeblastdb -in - -dbtype nucl -title allpths_ref -out /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly_blastable
+blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/SOAP_assembly/final.assembly_scaffold262360.masked.fa -db /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly_blastable -out /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly_scaffold262360_allpaths_e1_nomaxtarget -outfmt 6
+#only the same scaffold matches
+
+gunzip -c /work/cauretc/tropicalis_v9/Xtropicalis_v9_repeatMasked.fa.gz | makeblastdb -in - -dbtype nucl -title trop_soft -out /work/cauretc/tropicalis_v9/Xtropicalis_v9_repeatMasked_soft_blastable
+blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/SOAP_assembly/final.assembly_scaffold262360.masked.fa -db /work/cauretc/tropicalis_v9/Xtropicalis_v9_repeatMasked_soft_blastable -out /work/cauretc/2017_Mellotropicalis/SOAP_assembly/final.assembly_scaffold262360_masked_trop9soft_e1_nomaxtarget -outfmt 6
+#only scaffold_622 even using all the default values
+
+gunzip -c /work/cauretc/tropicalis_v9/Xtropicalis_v9_repeatMasked.fa.gz | awk -v seq="scaffold_622" -v RS='>' '$1 == seq {print RS $0}' - >/work/cauretc/tropicalis_v9/Xtropicalis_v9_repeatMasked_scaffold_622.fa
+blastn -evalue 1e-1 -query /work/cauretc/tropicalis_v9/Xtropicalis_v9_repeatMasked_scaffold_622.fa -db /work/cauretc/laevis_genome/Xla_v91_repeatMasked_soft_blastable -out /work/cauretc/tropicalis_v9/Xtropicalis_v9_repeatMasked_scaffold_622_Xlaev91_soft_e1_nomaxtarget -outfmt 6
+blastn -evalue 1e-1 -query /work/cauretc/tropicalis_v9/Xtropicalis_v9_repeatMasked_scaffold_622.fa -db /work/cauretc/laevis_genome/Xla_v91_genome_HARDmasked_blastable -out /work/cauretc/tropicalis_v9/Xtropicalis_v9_repeatMasked_scaffold_622_Xlaev91_hard_e1_nomaxtarget -outfmt 6
+```
 ## Other options
 ### Bewick's primers
 At that point there are some stuff that I would try (need to see with BE):
