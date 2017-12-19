@@ -164,9 +164,9 @@ Need to make a table with as columns `scaffold_number \t sex_inheritance_pattern
 
 The `c++` script provides the main information except `number_of_other_genotypes` `homologous_region_in_tropicalis`. 
 
-###
+### Exploring some interesting snps
 
-Best ZW site:
+Best ZW site: `scaffold_262360` from `Allpaths` assembly. The 2 other sites I also put below are sites with a few genotypes in heterozygous in 1 sex but most likely under called of heterozygous.
 ```
 grep "#\|scaffold_260445\|scaffold_262360\|269737" /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/correctedID/Allpaths/Mellotrop_trop_sex_linked_sites_1st_part.txt 
 ##CHROM	POS	REF	3799_dad	3800_mom	3810_boy	4169_girl	4170_girl	4171_boy	4172_boy	4173_boy	4174_boy	4175_girl	4176_boy	4177_girl	4178_girl	4179_boy	4180_girl	4181_boy	4182_girl	4183_girl	4184_girl	4185_girl
@@ -181,9 +181,11 @@ mv /4/caroline/Xmellotropicalis/Allpaths/final.assembly_scaffold_262360.fasta /4
 
 /usr/local/RepeatMasker/RepeatMasker -dir /4/caroline/Xmellotropicalis/Allpaths/ -species "xenopus genus" -pa 4 -a /4/caroline/Xmellotropicalis/Allpaths/final.assembly_scaffolds_262360_260445_269737.fasta
 
+blastn -evalue 1e-10 -query /4/caroline/Xmellotropicalis/Allpaths/final.assembly_scaffolds_262360_260445_269737.fasta -db /4/caroline/Xmellotropicalis/backbone_raw_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_alpaths_scaffolds_262360_260445_269737_dbg2olc_e10_1maxtarget -outfmt 6 -max_target_seqs 1
 blastn -evalue 1e-10 -query /4/caroline/Xmellotropicalis/Allpaths/final.assembly_scaffolds_262360_260445_269737.fasta.masked -db /4/caroline/Xmellotropicalis/backbone_raw_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_alpaths_scaffolds_262360_260445_269737_dbg2olc_e10_1maxtarget -outfmt 6 -max_target_seqs 1
 #no matching for scaffold_262360
-
+#also without max target
+ 
 awk -v seq="scaffold_262360" -v RS='>' '$1 == seq {print RS $0}' /4/caroline/Xmellotropicalis/Allpaths/final.assembly_scaffolds_262360_260445_269737.fasta.masked >/4/caroline/Xmellotropicalis/Allpaths/final.assembly_scaffold262360.masked.fa
 blastn -evalue 1e-1 -query /4/caroline/Xmellotropicalis/Allpaths/final.assembly_scaffold262360.masked.fa -db /4/caroline/Xmellotropicalis/backbone_raw_blastable -out /4/caroline/Xmellotropicalis/primerstrop/Mellotrop_alpaths_scaffolds_262360_dbg2olc_e1_nomaxtarget -outfmt 6
 #no match
@@ -191,7 +193,19 @@ vcftools --gzvcf /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Allpaths/Me
 #After filtering, kept 23 out of a possible 633743 Sites
 /usr/local/vcftools/src/perl/vcf-to-tab < /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Allpaths/Mellotrop_allpaths_var_DP_AD_scaffold262360.recode.vcf > /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Allpaths/Mellotrop_allpaths_var_DP_AD_scaffold262360.recode.tab
 ```
+I blasted `scaffold_262360` directly on xenbase using the default parameter on `XL9_2_GCF_JGInames.fa` and `XT9_1_GCF_JGInames.fa` (= more recent versions of the assemblies). The scaffold matched to `scaffold_622`. See below for some statistics of the best match.
 
+```
+[Xenbase JBrowse tropicalis 9.0: scaffold_622:38626-39157]
+
+High-scoring segment pair (HSP) group
+
+HSP Information
+Score = 426, E = 5e-117, Identities = 433/547 (79%), Length = 547, Query Strand = +, Hit Strand = +
+```
+On this scaffold we can find `LOC105945848` annotated as a gene. I used the `CDS` and also part of intron to blast against *X. laevis* genome. It matches to `chr. 07.L` short arm (not far away from `ephb6.L`, `prss1.L`). I blasted the `Allpaths` scaffolds onto the `DBG2OLC` assembly in order to try to obtain a longer scaffold and maybe get more genotypes data of a longer region. But for some reason no match of `scaffold_262360`. The easiest reason I am thinking about right now is that the region might have more repeat sequences (accumulation on sex-chromosomes?) and is harder to assemble and maybe caused chimerical sequences with Pacbio or some sort of conflict that might have caused a break of this region during `DBG2OLC` assembly... 
+
+The snp of interest (position `857` of `scaffold_262360`) was obtained using this filtering option `$commandline = "bcftools filter -O z ".$path_to_output."Mellotrop_allpaths_var_DP_AD.vcf.gz -e '%QUAL<10 || FORMAT/DP<10 || FORMAT/DP>500 ||FORMAT/GQ = \".\" ' \> ".$path_to_output."Mellotrop_allpaths_var.fltQual_DP10.vcf.gz";` and of course were still there when I played with the parameters with less stringent parameters or with default. I looked at other sites near it, previous to filtering: positions `739`, `744` and `750` show heterozygous sites in mom and only sons (respectively `T/A`, `T/C` and `T/A`) and homozygous in the dad and in the daughters when the latter has genotypes called (a lot of missing data for these 3 sites).
 
 ## Other options
 ### Bewick's primers
