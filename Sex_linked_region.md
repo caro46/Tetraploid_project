@@ -164,6 +164,17 @@ Need to make a table with as columns `scaffold_number \t sex_inheritance_pattern
 
 The `c++` script provides the main information except `number_of_other_genotypes` `homologous_region_in_tropicalis`. 
 
+
+| scaffold_number  | sex_inheritance_pattern | heterozygous_sex | number_of_putative_sex_linked_SNPs | number_of_other_genotypes | homologous_region_in_tropicalis|
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+|   |   | | | | |
+|   |   | | | | |
+|   |   | | | | |
+|   |   | | | | |
+|   |   | | | | |
+|   |   | | | | |
+
+ 
 ### Exploring some interesting snps
 
 Best ZW site: `scaffold_262360` from `Allpaths` assembly. The 2 other sites I also put below are sites with a few genotypes in heterozygous in 1 sex but most likely under called of heterozygous.
