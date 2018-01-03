@@ -167,14 +167,56 @@ The `c++` script provides the main information except `number_of_other_genotypes
 
 | scaffold_number  | sex_inheritance_pattern | heterozygous_sex | number_of_putative_sex_linked_SNPs | number_of_other_genotypes | homologous_region_in_tropicalis|
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-|   |   | | | | |
-|   |   | | | | |
-|   |   | | | | |
-|   |   | | | | |
-|   |   | | | | |
-|   |   | | | | |
-
+| scaffold_60  | XY  | dad daughters | 1 |4175_girl homoz 4173_boy heteroz = 2|Chr08 |
+| scaffold_1906  | XY  | dad sons | 2 | |Chr08 |
+| scaffold_3978  | XY  | dad daughters | 1 | |Chr08 |
+| scaffold_4210  | XY  | dad sons | 1 | | Chr08 |
+| scaffold_4751  | XY  | dad sons | 4 | | Chr08|
+| scaffold_7061  | XY  | dad daughters | 1 | | Chr08|
+| scaffold_9128  | XY  | dad daughters | 3 | | Chr08|
+| scaffold_13700  |   | | | | Chr05|
+| scaffold_27496  |   | | | | Chr08|
+| scaffold_28871  |   | | | | Chr08|
+| scaffold_32115  |   | | | | Chr08|
+| scaffold_32872  |   | | | | Chr08|
+| scaffold_42889  |   | | | | Chr08|
+| scaffold_46063  |   | | | | Chr08|
+| scaffold_56755  |   | | | | Chr08|
+| scaffold_59642  |   | | | | Chr08|
+| scaffold_60594  |   | | | | Chr08|
+| scaffold_64418  |   | | | | Chr08|
+| scaffold_70317  |   | | | | Chr08|
+| scaffold_72646  |   | | | | Chr08|
+| scaffold_79065  |   | | | | Chr08|
+| scaffold_88544  |   | | | | Chr08|
+| scaffold_88553  |   | | | | scaffold_22|
+| scaffold_88605  |   | | | | Chr08|
+| scaffold_110653  |   | | | | Chr08|
+| scaffold_119447  |   | | | | Chr08|
+| scaffold_121213  |   | | | | Chr06 - alignment ~200bp|
+| scaffold_140250  |   | | | | Chr08|
+| scaffold_157504  |   | |2 | | Chr08|
+| scaffold_157943  |   | |2 | | Chr10|
+| scaffold_159723  |   | | | | Chr08|
+| scaffold_162761  |   | | | | Chr02|
+| scaffold_173199  |   | | | | Chr07|
+| scaffold_173610  |   | | | | Chr08|
+| scaffold_191444  |   | | | | Chr02 - alignment ~200bp|
+| scaffold_195783  |   | | | | Chr08|
+| scaffold_213657  |   | | | | Chr05|
+| scaffold_224968  |   | | | | Chr08|
+| scaffold_232003  |   | | | | scaffold_4489|
+| scaffold_250846  |   | | | | Chr07|
+| scaffold_256524  |   | | | | scaffold_19|
+| scaffold_267469  |   | | | | Chr08|
+| scaffold_302760  |   | | | | small alignment|
+| scaffold_307179  |   | | | | Chr08|
+| scaffold_308711  |   | | | | Chr08|
  
+```
+module load blast/2.2.28+
+gunzip -c /work/cauretc/2017_Mellotropicalis/try_SL.fasta.gz | blastn -evalue 1e-1 -query - -db /work/ben/2016_Hymenochirus/xenTro9/xenTro9_genome_HARDmasked_blastable -out /work/cauretc/2017_Mellotropicalis/try_SL_trop_nomaxtarget.out -outfmt 6 
+```
 ### Exploring some interesting snps
 
 Best ZW site: `scaffold_262360` from `Allpaths` assembly. The 2 other sites I also put below are sites with a few genotypes in heterozygous in 1 sex but most likely under called of heterozygous.
