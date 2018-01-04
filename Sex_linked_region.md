@@ -206,7 +206,19 @@ The `c++` script provides the main information except `number_of_other_genotypes
 | scaffold_302760  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | small alignment|
 | scaffold_307179  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy impossible momoz - proba heteroz  = 2 | Chr08|
 | scaffold_308711  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
- 
+| scaffold_159590  | ZW  | mom daughters | 1 | 4810_boy heteroz 4170_girl homoz = 2 | Chr07 |
+| scaffold_262360  | ZW  | mom daughters | 1 | 4170_girl homoz = 1 | very small alignment |
+| scaffold_269737  | ZW  | mom daughters | 1 | everybody homoz except mom + 1 daughter | Chr03 |
+| scaffold_317137  | ZW  | mom daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08 |
+
+**Notes:** 
+
+- Need to use the script used for simulation of pipa and hymeno to make sure we have the good version of the script: some sites are wrongly identified as "incomplete sex-linked". On the table are the ones after manually checking. Issue can also be due to being less strangeant in every step because of poor coverage, not being able to use GATK as previously used, known issues with samtools -> but do not change the fact that various sites mapping to `Chr.08` have 1 individual/sex with an opposite genotype from the expectation (need to check the coverage but even when "playing" with parameters and a different assembly, same XY SNPs show up). Even if weird SNP showing up as potentially sex-linked but are not, the complete sex-linked if present in the data after filtering should have showed up anyways. 
+
+- To sum up the table: most of the "XY" sites mapped to `Chr.08` and all have 4175_girl and 4173_boy with the opposite expected genotypes. The "best" sites `scaffold_262360` mapped to Chr.07 using xenbase server or when repeat masked.
+
+- The blasting where made without previously repeat masking but except if specified the alignment is at least > 200-300bp.
+
 ```
 module load blast/2.2.28+
 gunzip -c /work/cauretc/2017_Mellotropicalis/try_SL.fasta.gz | blastn -evalue 1e-1 -query - -db /work/ben/2016_Hymenochirus/xenTro9/xenTro9_genome_HARDmasked_blastable -out /work/cauretc/2017_Mellotropicalis/try_SL_trop_nomaxtarget.out -outfmt 6 
