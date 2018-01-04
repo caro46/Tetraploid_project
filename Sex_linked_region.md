@@ -235,6 +235,8 @@ perl ~/scripts/Sex_linked_regions/scaffolds_SL_seq.pl /4/caroline/Xmellotropical
 
 - To sum up the table: most of the "XY" sites mapped to `Chr.08` and all have 4175_girl and 4173_boy with the opposite expected genotypes. The "best" sites `scaffold_262360` mapped to Chr.07 using xenbase server or when repeat masked.
 
+- ***Main idea: the sites identified as incomplete potentially sex linked that map to chr.07 are ZW and on 7p. We recovered the same idea, which is good using the different method, either using mapping directly against trop or a de novo method...*** I do think the de novo assembly right now is not good enough due to small scaffolds. Even if there is a signal on the `Chr.07 7p`, `ZW`, as expected, using the GBS data we get a greater signal towards `XY Chr.08` which can be either true but most likely due to data/coverage/undercalled heteroz ... Still need to talk to BE boss. 
+
 - The blasting where made without previously repeat masking but except if specified the alignment is at least > 200-300bp.
 
 ```
