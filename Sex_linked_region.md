@@ -168,50 +168,44 @@ The `c++` script provides the main information except `number_of_other_genotypes
 | scaffold_number  | sex_inheritance_pattern | heterozygous_sex | number_of_putative_sex_linked_SNPs | number_of_other_genotypes | homologous_region_in_tropicalis|
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | scaffold_60  | XY  | dad daughters | 1 |4175_girl homoz 4173_boy heteroz = 2|Chr08 |
-| scaffold_1906  | XY  | dad sons | 2 | |Chr08 |
-| scaffold_3978  | XY  | dad daughters | 1 | |Chr08 |
-| scaffold_4210  | XY  | dad sons | 1 | | Chr08 |
-| scaffold_4751  | XY  | dad sons | 4 | | Chr08|
-| scaffold_7061  | XY  | dad daughters | 1 | | Chr08|
-| scaffold_9128  | XY  | dad daughters | 3 | | Chr08|
-| scaffold_13700  |   | | | | Chr05|
-| scaffold_27496  |   | | | | Chr08|
-| scaffold_28871  |   | | | | Chr08|
-| scaffold_32115  |   | | | | Chr08|
-| scaffold_32872  |   | | | | Chr08|
-| scaffold_42889  |   | | | | Chr08|
-| scaffold_46063  |   | | | | Chr08|
-| scaffold_56755  |   | | | | Chr08|
-| scaffold_59642  |   | | | | Chr08|
-| scaffold_60594  |   | | | | Chr08|
-| scaffold_64418  |   | | | | Chr08|
-| scaffold_70317  |   | | | | Chr08|
-| scaffold_72646  |   | | | | Chr08|
-| scaffold_79065  |   | | | | Chr08|
-| scaffold_88544  |   | | | | Chr08|
-| scaffold_88553  |   | | | | scaffold_22|
-| scaffold_88605  |   | | | | Chr08|
-| scaffold_110653  |   | | | | Chr08|
-| scaffold_119447  |   | | | | Chr08|
-| scaffold_121213  |   | | | | Chr06 - alignment ~200bp|
-| scaffold_140250  |   | | | | Chr08|
-| scaffold_157504  |   | |2 | | Chr08|
-| scaffold_157943  |   | |2 | | Chr10|
-| scaffold_159723  |   | | | | Chr08|
-| scaffold_162761  |   | | | | Chr02|
-| scaffold_173199  |   | | | | Chr07|
-| scaffold_173610  |   | | | | Chr08|
-| scaffold_191444  |   | | | | Chr02 - alignment ~200bp|
-| scaffold_195783  |   | | | | Chr08|
-| scaffold_213657  |   | | | | Chr05|
-| scaffold_224968  |   | | | | Chr08|
-| scaffold_232003  |   | | | | scaffold_4489|
-| scaffold_250846  |   | | | | Chr07|
-| scaffold_256524  |   | | | | scaffold_19|
-| scaffold_267469  |   | | | | Chr08|
-| scaffold_302760  |   | | | | small alignment|
-| scaffold_307179  |   | | | | Chr08|
-| scaffold_308711  |   | | | | Chr08|
+| scaffold_1906  | XY  | dad sons | 2 | 3810_boy impossible genotype-proba undercalled heteroz 4173_boy homoz 4175_girl heteroz = 3 |Chr08 |
+| scaffold_3978  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 |Chr08 |
+| scaffold_4210  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08 |
+| scaffold_4751  | XY  | dad sons | 4 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
+| scaffold_7061  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
+| scaffold_9128  | XY  | dad daughters | 3 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
+| scaffold_13700  | XY | dad daughter | 1 | everybody homoz except dad+1daughter  | Chr05|
+| scaffold_27496  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
+| scaffold_28871  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
+| scaffold_32115  | XY  | dad sons | 1 | 3810_boy impossible genotype-proba undercalled heteroz 4173_boy homoz 4175_girl heteroz = 3 | Chr08|
+| scaffold_32872  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
+| scaffold_42889  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
+| scaffold_46063  | XY  | dad sons | 1 | 3810_boy impossible genotype-proba undercalled heteroz 4173_boy homoz 4175_girl heteroz = 3 | Chr08|
+| scaffold_56755  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
+| scaffold_59642  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
+| scaffold_60594  | XY  | dad sons | 3 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
+| scaffold_64418  | XY  | dad daughters | 1 | 3810_boy impossible genotype-proba undercalled heteroz 4175_girl homoz 4173_boy heteroz = 3 | Chr08|
+| scaffold_70317  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
+| scaffold_72646  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
+| scaffold_79065  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
+| scaffold_88544  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
+| scaffold_88553  | XY  | dad sons | 1 | 3810_boy impossible genotype-proba undercalled heteroz 4173_boy homoz 4175_girl heteroz = 3 | scaffold_22|
+| scaffold_110653  | XY  | dad sons | 2 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
+| scaffold_119447  | XY  | dad daughters | 2 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
+| scaffold_140250  | XY  | dad sons | 1 | | Chr08|
+| scaffold_157504  | XY  | dad daughters | 2 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
+| scaffold_157943  | XY  | dad daughters | 2 | everybody homoz except dad+1daughter | Chr10|
+| scaffold_159723  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
+| scaffold_173610  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
+| scaffold_195783  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
+| scaffold_213657  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr05|
+| scaffold_224968  | XY  | dad sons | 1 | 3810_boy impossible genotype-proba undercalled heteroz 4173_boy homoz 4175_girl heteroz = 3 | Chr08|
+| scaffold_232003  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | scaffold_4489|
+| scaffold_256524  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | scaffold_19|
+| scaffold_267469  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
+| scaffold_302760  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | small alignment|
+| scaffold_307179  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy impossible momoz - proba heteroz  = 2 | Chr08|
+| scaffold_308711  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
  
 ```
 module load blast/2.2.28+
