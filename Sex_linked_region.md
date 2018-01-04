@@ -140,6 +140,21 @@ Need to improve the part 1 to find the sex-linked sites. Because of the 20% erro
 
 - Also run using the `.tab` produced by BE. Got similar results. 
 
+Using the file from BE, sites that map to `Chr.07`
+```
+grep "#\|Chr07" /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/correctedID/Mellotrop_trop_sex_linked_sites_1st_part.txt
+#CHROM	POS	REF	3799_dad.fq	3800_mom.fq.fq	3810_boy.fq.fq	4169_girl.fq.fq	4170_girl.fq.fq	4171_boy.fq.fq	4172_boy.fq.fq	4173_boy.fq.fq	4174_boy.fq.fq	4175_girl.fq.fq	4176_boy.fq.fq	4177_girl.fq.fq	4178_girl.fq.fq	4179_boy.fq.fq	4180_girl.fq.fq	4181_boy.fq.fq	4182_girl.fq.fq	4183_girl.fq.fq	4184_girl.fq.fq	4185_girl.fq.fq
+Heterozygous_daughters_mom_ZW Chr07	3650093	C	C/C	C/T	C/T	C/T	C/C	C/C	C/C	C/C	C/C	C/T	C/C	C/T	C/T	C/C	C/T	C/C	C/T	C/T	C/T	C/T
+Heterozygous_sons_mom_ZW Chr07	4786712	G	G/G	G/A	G/G	G/G	G/A	G/A	G/A	G/A	G/A	G/G	G/A	G/G	G/G	G/A	G/G	G/A	G/G	G/G	G/G	G/G
+Heterozygous_sons_mom_ZW Chr07	4786722	T	T/T	T/C	T/T	T/T	T/C	T/C	T/C	T/C	T/C	T/T	T/C	T/T	T/T	T/C	T/T	T/C	T/T	T/T	T/T	T/T
+Heterozygous_sons_mom_ZW Chr07	4786729	T	T/T	T/G	T/T	T/T	T/G	T/G	T/G	T/G	T/G	T/T	T/G	T/T	T/T	T/G	T/T	T/G	T/T	T/T	T/T	T/T
+Heterozygous_sons_mom_ZW Chr07	4786731	C	C/C	C/T	C/C	C/C	C/T	C/T	C/T	C/T	C/T	C/C	C/T	C/C	C/C	C/T	C/C	C/T	C/C	C/C	C/C	C/C
+Heterozygous_sons_mom_ZW Chr07	4786759	G	G/G	G/A	G/G	G/G	G/A	G/A	G/A	G/A	G/A	G/G	G/A	G/G	G/G	G/A	G/G	G/A	G/G	G/G	G/G	G/G
+Heterozygous_sons_mom_ZW Chr07	4786768	T	T/T	T/A	T/T	T/T	T/A	T/A	T/A	T/A	T/A	T/T	T/A	T/T	T/T	T/A	T/T	T/A	T/T	T/T	T/T	T/T
+Heterozygous_sons_mom_ZW Chr07	4786785	T	C/C	T/C	C/C	C/C	T/C	T/C	T/C	T/C	T/C	C/C	T/C	C/C	C/C	T/C	C/C	T/C	C/C	C/C	C/C	C/C
+```
+`3810_boy` homoz and `4170_girl` heteroz for `4786712-4786785` that are different from expectations. (but more "XY" SNPs identified on Chr.08)
+
 ## Using the assembly from Allpaths
 ### Why it can be better:
 
@@ -206,11 +221,14 @@ The `c++` script provides the main information except `number_of_other_genotypes
 | scaffold_302760  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | small alignment|
 | scaffold_307179  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy impossible momoz - proba heteroz  = 2 | Chr08|
 | scaffold_308711  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
-| scaffold_159590  | ZW  | mom daughters | 1 | 4810_boy heteroz 4170_girl homoz = 2 | Chr07 |
+| scaffold_159590  | ZW  | mom daughters | 1 | 3810_boy heteroz 4170_girl homoz = 2 | Chr07 |
 | scaffold_262360  | ZW  | mom daughters | 1 | 4170_girl homoz = 1 | very small alignment |
 | scaffold_269737  | ZW  | mom daughters | 1 | everybody homoz except mom + 1 daughter | Chr03 |
 | scaffold_317137  | ZW  | mom daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08 |
 
+```
+perl ~/scripts/Sex_linked_regions/scaffolds_SL_seq.pl /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/correctedID/Allpaths/Mellotrop_trop_sex_linked_sites_1st_part.txt /4/caroline/Xmellotropicalis/Allpaths/final.assembly.fasta /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/correctedID/Allpaths/try_SL.fasta
+```
 **Notes:** 
 
 - Need to use the script used for simulation of pipa and hymeno to make sure we have the good version of the script: some sites are wrongly identified as "incomplete sex-linked". On the table are the ones after manually checking. Issue can also be due to being less strangeant in every step because of poor coverage, not being able to use GATK as previously used, known issues with samtools -> but do not change the fact that various sites mapping to `Chr.08` have 1 individual/sex with an opposite genotype from the expectation (need to check the coverage but even when "playing" with parameters and a different assembly, same XY SNPs show up). Even if weird SNP showing up as potentially sex-linked but are not, the complete sex-linked if present in the data after filtering should have showed up anyways. 
@@ -222,7 +240,14 @@ The `c++` script provides the main information except `number_of_other_genotypes
 ```
 module load blast/2.2.28+
 gunzip -c /work/cauretc/2017_Mellotropicalis/try_SL.fasta.gz | blastn -evalue 1e-1 -query - -db /work/ben/2016_Hymenochirus/xenTro9/xenTro9_genome_HARDmasked_blastable -out /work/cauretc/2017_Mellotropicalis/try_SL_trop_nomaxtarget.out -outfmt 6 
+
+gunzip -c /work/cauretc/2017_Mellotropicalis/try_SL.fasta.gz | blastn -evalue 1e-5 -query - -db /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw_blastable -out /work/cauretc/2017_Mellotropicalis/try_SL_DBG2OLC_e5_1maxtarget -outfmt 6 -max_target_seqs 1
+
+/usr/local/RepeatMasker/RepeatMasker -dir /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/correctedID/Allpaths/ -species "xenopus genus" -pa 4 -a /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/correctedID/Allpaths/try_SL.fasta
+gunzip -c /work/cauretc/2017_Mellotropicalis/try_SL.fasta.masked.gz | blastn -evalue 1e-1 -query - -db /work/ben/2016_Hymenochirus/xenTro9/xenTro9_genome_HARDmasked_blastable -out /work/cauretc/2017_Mellotropicalis/try_SL_masked_1maxtarget -outfmt 6 -max_target_seqs 1
+gunzip -c /work/cauretc/2017_Mellotropicalis/try_SL.fasta.masked.gz | blastn -evalue 1e-5 -query - -db /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw_blastable -out /work/cauretc/2017_Mellotropicalis/try_SL_masked_DBG2OLC_e5_1maxtarget -outfmt 6 -max_target_seqs 1
 ```
+
 ### Exploring some interesting snps
 
 Best ZW site: `scaffold_262360` from `Allpaths` assembly. The 2 other sites I also put below are sites with a few genotypes in heterozygous in 1 sex but most likely under called of heterozygous.
