@@ -623,6 +623,8 @@ Reverse primer  CCCCCTGGAAACCATACCAC    Minus   20      6303    6284    60.03   
 Product length  910
 ```
 
+(Notes from 8/01/2018)
+
 - Need to confirm at at least 1 `XY Chr.08` that it is a bioinformatics issue and not a real signal.
 
 `scaffold_4751`. Need to include positions `2272-2279`.
@@ -633,7 +635,7 @@ Forward primer	CTGGCCTCTTTCCTCACACT	Plus	20	1465	1484	59.31	55.00	4.00	1.00
 Reverse primer	AGTCCTCAGCGCAAACCTAA	Minus	20	2434	2415	59.31	50.00	4.00	1.00
 Product length	970
 ```
-Self complementarity a litle bit high
+Self complementarity a little bit high
 ```
 Primer pair 3
 	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
@@ -677,4 +679,4 @@ Forward primer	GGGAAGGGACATCTGCCATTG	Plus	21	1856	1876	61.03	57.14	4.00	3.00
 Reverse primer	GCAGAGTCCTCAGCGCAAAC	Minus	20	2438	2419	61.91	60.00	6.00	0.00
 Product length	583
 ```
-Tried `min 200` `max 1000` for product length and `Forward primer from 1500` and `Reverse primer to 3000` but no better primer pairs than before (without limit of size and primers return `40` and more).
+Tried `min 200` `max 1000` for product length and `Forward primer from 1500` and `Reverse primer to 3000` but no better primer pairs than before (without limit of size and primers return `40` and more). Should probably go with the 1st one called `Primer pair 4` for now.
