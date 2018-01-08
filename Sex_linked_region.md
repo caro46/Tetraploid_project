@@ -479,8 +479,8 @@ For605:495419-496318    Backbone_3197   100.000 24      0       0       1       
 For605:495419-496318    Backbone_3197   100.000 21      0       0       4       24      19656   19676   0.004   42.1
 For605:Multiple Backbone_155692 100.000 19      0       0       1       19      3854    3872    0.068   38.2
 Rev494:27541-27902      Backbone_140871 100.000 20      0       0       9       28      18458   18477   0.027   40.1
-For494:31633-32115      Backbone_33734  100.000 19      0       0       3       21      5643    5625    0.068   38.2
-Rev494:31633-32115      Backbone_48367  95.652  23      1       0       2       24      9002    8980    0.068   38.2
++ For494:31633-32115      Backbone_33734  100.000 19      0       0       3       21      5643    5625    0.068   38.2
++ Rev494:31633-32115      Backbone_48367  95.652  23      1       0       2       24      9002    8980    0.068   38.2
 Rev494:600198-600743    Backbone_196656 100.000 19      0       0       3       21      2347    2329    0.068   38.2
 Rev494:600198-600743    Backbone_194603 100.000 19      0       0       6       24      12266   12284   0.068   38.2
 Rev494:600198-600743    Backbone_107232 100.000 19      0       0       6       24      7025    7043    0.068   38.2
@@ -556,6 +556,13 @@ blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/pseudomolecules/fi
 blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/Backbone_27162.fa.masked -db /work/ben/2016_Hymenochirus/xenTro9/xenTro9_genome_HARDmasked_blastable -out /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/Backbone_27162_masked_trop_nomaxtarget.out -outfmt 6
 [cauretc@iqaluk blast_find_SDregion]$ less Backbone_27162_masked_trop_nomaxtarget.out
 #Chr04
+
+perl /work/cauretc/scripts/perl_script_extracting_seq.pl pseudomolecules/backbone_raw.fasta For494_Olmstead_backbones.fa /work/ben/2016_Hymenochirus/xenTro9/xenTro9_genome_HARDmasked_blastable For494_Olmstead_backbones_trop.out
+#Backbone_33734  scaffold_1725
+
+perl /work/cauretc/scripts/perl_script_extracting_seq.pl pseudomolecules/backbone_raw.fasta For494_Olmstead_backbones.fa /work/cauretc/laevis_genome/Xla_v91_genome_HARDmasked_blastable For494_Olmstead_backbones_laevis.out
+#Backbone_33734  chr6S
+###!was not repeatmasked - alignment ~100bp
 ``` 
 #### Conclusion
 Didn't work. Makes some sense. Primers can map against different regions: not specific in our species (but did not blast everywhere), can be a translocated region to another chromosome, bad assembly with chimeras (probably yeah even if it is supposed to be rare), the real region of interest is not in the assembly (possible, considering also that repeat sequences tend to be higher on sex-chr. and so sex-chr. are harder to assemble), "bad" job of blast (possible too but using no max target should give hopefully the main maching regions and scaffolds repeatmasked to blast them against trop or back to the assembly).
@@ -610,6 +617,8 @@ Also did with `Mellotrop_DBG2OLC_backbone_var_DP_AD.vcf.gz`. No data either.
 (Notes from 5/01/2018)
 
 - Directly using trop primers? or trying to use one of the de novo assemblies to design new ones and making sure it doesn't map everywhere in the genome?
+
+Maybe worth it to try `For494:31633-32115` and `Rev494:31633-32115`
 
 - `Backbone_116961` that had good match for `E32.M94.406` (1.9% recombination, Olmstead) blast and align well against region of `Chr07p`.
 
