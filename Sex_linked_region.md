@@ -622,3 +622,59 @@ Forward primer  GGGCACTCACCAACTGAACT    Plus    20      5394    5413    60.18   
 Reverse primer  CCCCCTGGAAACCATACCAC    Minus   20      6303    6284    60.03   60.00   3.00    0.00
 Product length  910
 ```
+
+- Need to confirm at at least 1 `XY Chr.08` that it is a bioinformatics issue and not a real signal.
+
+`scaffold_4751`. Need to include positions `2272-2279`.
+```
+Primer pair 4
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	CTGGCCTCTTTCCTCACACT	Plus	20	1465	1484	59.31	55.00	4.00	1.00
+Reverse primer	AGTCCTCAGCGCAAACCTAA	Minus	20	2434	2415	59.31	50.00	4.00	1.00
+Product length	970
+```
+Self complementarity a litle bit high
+```
+Primer pair 3
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GGAAGGGACATCTGCCATTGA	Plus	21	1857	1877	60.06	52.38	4.00	1.00
+Reverse primer	CCTCAGCGCAAACCTAATGC	Minus	20	2431	2412	59.90	55.00	4.00	2.00
+Product length	575
+
+Primer pair 7
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	AGGGACATCTGCCATTGACT	Plus	20	1860	1879	58.71	50.00	4.00	1.00
+Reverse primer	AGTCCTCAGCGCAAACCTAAT	Minus	21	2434	2414	59.72	47.62	4.00	2.00
+Product length	575
+
+Primer pair 9
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	TGGCTCCCTTGATTTTAGCCA	Plus	21	2042	2062	59.64	47.62	5.00	3.00
+Reverse primer	CAGAGTCCTCAGCGCAAACC	Minus	20	2437	2418	61.29	60.00	4.00	0.00
+Product length	396
+
+Primer pair 13
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	AAGGGACATCTGCCATTGACT	Plus	21	1859	1879	59.36	47.62	4.00	1.00
+Reverse primer	GCAGAGTCCTCAGCGCAAA	Minus	19	2438	2420	60.67	57.89	6.00	2.00
+Product length	580
+
+Primer pair 18
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GAAGGGACATCTGCCATTGAC	Plus	21	1858	1878	58.98	52.38	4.00	3.00
+Reverse primer	TCCTCAGCGCAAACCTAATG	Minus	20	2432	2413	58.26	50.00	4.00	1.00
+Product length	575
+
+Primer pair 19
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	ATGGCTCCCTTGATTTTAGCCA	Plus	22	2041	2062	60.02	45.45	5.00	3.00
+Reverse primer	GTCCTCAGCGCAAACCTAAT	Minus	20	2433	2414	58.26	50.00	4.00	2.00
+Product length	393
+
+Primer pair 22
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GGGAAGGGACATCTGCCATTG	Plus	21	1856	1876	61.03	57.14	4.00	3.00
+Reverse primer	GCAGAGTCCTCAGCGCAAAC	Minus	20	2438	2419	61.91	60.00	6.00	0.00
+Product length	583
+```
+Tried `min 200` `max 1000` for product length and `Forward primer from 1500` and `Reverse primer to 3000` but no better primer pairs than before (without limit of size and primers return `40` and more).
