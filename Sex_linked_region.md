@@ -604,3 +604,21 @@ vcftools --gzvcf Mellotrop_DBG2OLC_backbone_var.vcf.gz --chr "supercontig_14" --
 #No data left for analysis!
 ```
 Also did with `Mellotrop_DBG2OLC_backbone_var_DP_AD.vcf.gz`. No data either.
+
+## Potential regions to amplify
+
+(Notes from 5/01/2018)
+
+- Directly using trop primers? or trying to use one of the de novo assemblies to design new ones and making sure it doesn't map everywhere in the genome?
+
+- `Backbone_116961` that had good match for `E32.M94.406` (1.9% recombination, Olmstead) blast and align well against region of `Chr07p`.
+
+- `scaf2_149954800_r` (Bewick - 1 female specific site with forward `scaf2_149954039_f`) mapped `Backbone_196855` - maybe try to design a new forward or check on scaffold (trop scaff130 - but best map 7S for laevis). Blasting gave 2 results but only 1 with almost the whole primer size. Cannot use the reverse primer but can produce a new primer pair including where the old primer spanned.
+
+```
+Primer pair 10
+        Sequence (5'->3')       Template strand Length  Start   Stop    Tm      GC%     Self complementarity    Self 3' complementarity
+Forward primer  GGGCACTCACCAACTGAACT    Plus    20      5394    5413    60.18   55.00   3.00    1.00
+Reverse primer  CCCCCTGGAAACCATACCAC    Minus   20      6303    6284    60.03   60.00   3.00    0.00
+Product length  910
+```
