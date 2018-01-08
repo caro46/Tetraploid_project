@@ -689,3 +689,12 @@ Reverse primer	GCAGAGTCCTCAGCGCAAAC	Minus	20	2438	2419	61.91	60.00	6.00	0.00
 Product length	583
 ```
 Tried `min 200` `max 1000` for product length and `Forward primer from 1500` and `Reverse primer to 3000` but no better primer pairs than before (without limit of size and primers return `40` and more). Should probably go with the 1st one called `Primer pair 4` for now.
+
+- `scaffold_262360`
+
+Primers using Geneious (difficulties using primer-blast from NCBI). Best seem
+```
+ATGCCCCAAACCATGACCAT
+ATAATGCCGGGGGTAATGCC
+```
+Product size 526 (508 -> 1033)
