@@ -48,9 +48,19 @@ Keeping only the best hit for each query `delta-filter -q`
 ```
 
 ### Promer
+
+From [Mummer website](http://mummer.sourceforge.net/examples/#outputpromer)
+
+*Each line of the table represents an individual pairwise alignment, and each line is sorted by its starting reference coordinate (-r). Additional information, like alignment coverage (-c) and sequence length (-l) can be added to the table with the appropriate options. And minimum length (-L) and minimum percent identity (-I) cutoffs can be specified to reduce poor alignments. Output is to stdout, so we have redirected it into the file, promer.coords. If this file is planned for input to mapview, it is important to always use the -r -c -l options.*
+
 ```
 /work/cauretc/programs/MUMmer3.23/promer -p Promer_mello_dbg2olc_xentrop9_soft /work/ben/2016_Hymenochirus/xenTro9/Xtropicalis_v9_repeatMasked.fa /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw.fasta
+
+/work/cauretc/programs/MUMmer3.23/delta-filter -q promer_analysis/Promer_mello_dbg2olc_xentrop9_soft.delta >promer_analysis/Promer_mello_dbg2olc_xentrop9_soft_qfilter.delta
+/work/cauretc/programs/MUMmer3.23/show-coords -r -c -l -L 200 -I 50 promer_analysis/Promer_mello_dbg2olc_xentrop9_soft_qfilter.delta >promer_analysis/Promer_mello_dbg2olc_xentrop9_soft_qfilter.coord
 ```
+
+
 ## Separating the subgenomes
 
 Using python script. We will keep scaffolds longer than `500bp`, than align on a region for at least 50% of the length of the scaffold. The subgenome *tropicalis* will be regions having the highest `%ID`. Will be creating multiple outputfiles: an index, a fasta file containing the name of the chromosome, the subgenome, the scaffold sequences separated by 80 "N". 
