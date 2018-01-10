@@ -180,51 +180,51 @@ Need to make a table with as columns `scaffold_number \t sex_inheritance_pattern
 The `c++` script provides the main information except `number_of_other_genotypes` `homologous_region_in_tropicalis`. 
 
 
-| scaffold_number  | sex_inheritance_pattern | heterozygous_sex | number_of_putative_sex_linked_SNPs | number_of_other_genotypes | homologous_region_in_tropicalis|
-| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| scaffold_60  | XY  | dad daughters | 1 |4175_girl homoz 4173_boy heteroz = 2|Chr08 |
-| scaffold_1906  | XY  | dad sons | 2 | 3810_boy impossible genotype-proba undercalled heteroz 4173_boy homoz 4175_girl heteroz = 3 |Chr08 |
-| scaffold_3978  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 |Chr08 |
-| scaffold_4210  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08 |
-| scaffold_4751  | XY  | dad sons | 4 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
-| scaffold_7061  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
-| scaffold_9128  | XY  | dad daughters | 3 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
-| scaffold_13700  | XY | dad daughter | 1 | everybody homoz except dad+1daughter  | Chr05|
-| scaffold_27496  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
-| scaffold_28871  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
-| scaffold_32115  | XY  | dad sons | 1 | 3810_boy impossible genotype-proba undercalled heteroz 4173_boy homoz 4175_girl heteroz = 3 | Chr08|
-| scaffold_32872  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
-| scaffold_42889  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
-| scaffold_46063  | XY  | dad sons | 1 | 3810_boy impossible genotype-proba undercalled heteroz 4173_boy homoz 4175_girl heteroz = 3 | Chr08|
-| scaffold_56755  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
-| scaffold_59642  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
-| scaffold_60594  | XY  | dad sons | 3 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
-| scaffold_64418  | XY  | dad daughters | 1 | 3810_boy impossible genotype-proba undercalled heteroz 4175_girl homoz 4173_boy heteroz = 3 | Chr08|
-| scaffold_70317  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
-| scaffold_72646  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
-| scaffold_79065  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
-| scaffold_88544  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
-| scaffold_88553  | XY  | dad sons | 1 | 3810_boy impossible genotype-proba undercalled heteroz 4173_boy homoz 4175_girl heteroz = 3 | scaffold_22|
-| scaffold_110653  | XY  | dad sons | 2 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
-| scaffold_119447  | XY  | dad daughters | 2 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
-| scaffold_140250  | XY  | dad sons | 1 | | Chr08|
-| scaffold_157504  | XY  | dad daughters | 2 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
-| scaffold_157943  | XY  | dad daughters | 2 | everybody homoz except dad+1daughter | Chr10|
-| scaffold_159723  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
-| scaffold_173610  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
-| scaffold_195783  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08|
-| scaffold_213657  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr05|
-| scaffold_224968  | XY  | dad sons | 1 | 3810_boy impossible genotype-proba undercalled heteroz 4173_boy homoz 4175_girl heteroz = 3 | Chr08|
-| scaffold_232003  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | scaffold_4489|
-| scaffold_256524  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | scaffold_19|
-| scaffold_267469  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
-| scaffold_302760  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | small alignment|
-| scaffold_307179  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy impossible momoz - proba heteroz  = 2 | Chr08|
-| scaffold_308711  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08|
-| scaffold_159590  | ZW  | mom daughters | 1 | 3810_boy heteroz 4170_girl homoz = 2 | Chr07 |
-| scaffold_262360  | ZW  | mom daughters | 1 | 4170_girl homoz = 1 | very small alignment |
-| scaffold_269737  | ZW  | mom daughters | 1 | everybody homoz except mom + 1 daughter | Chr03 |
-| scaffold_317137  | ZW  | mom daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08 |
+| scaffold_number  | sex_inheritance_pattern | heterozygous_sex | number_of_putative_sex_linked_SNPs | number_of_other_genotypes | homologous_region_in_tropicalis| coordinates Xtropicalis_v9 |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| scaffold_60  | XY  | dad daughters | 1 |4175_girl homoz 4173_boy heteroz = 2|Chr08 | 45557934-45578206 |
+| scaffold_1906  | XY  | dad sons | 2 | 3810_boy impossible genotype-proba undercalled heteroz 4173_boy homoz 4175_girl heteroz = 3 |Chr08 | 63039376-63061361 |
+| scaffold_3978  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 |Chr08 | 93073402-93087859 |
+| scaffold_4210  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08 | 77207901-77230678 |
+| scaffold_4751  | XY  | dad sons | 4 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08| 35037606-35051960 |
+| scaffold_7061  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08| 28377265-28387418 |
+| scaffold_9128  | XY  | dad daughters | 3 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08| 76077665-76080432 |
+| scaffold_13700  | XY | dad daughter | 1 | everybody homoz except dad+1daughter  | Chr05||
+| scaffold_27496  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08| 18799653-18802355 |
+| scaffold_28871  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08| 69930839-69932904 |
+| scaffold_32115  | XY  | dad sons | 1 | 3810_boy impossible genotype-proba undercalled heteroz 4173_boy homoz 4175_girl heteroz = 3 | Chr08| 35729784-35732320 |
+| scaffold_32872  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08| 78116377-78119093 |
+| scaffold_42889  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08| 70702319-70704453 |
+| scaffold_46063  | XY  | dad sons | 1 | 3810_boy impossible genotype-proba undercalled heteroz 4173_boy homoz 4175_girl heteroz = 3 | Chr08| 29798778-29808304 |
+| scaffold_56755  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08| 98599194-98608013 |
+| scaffold_59642  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08| 78714870-78723236 |
+| scaffold_60594  | XY  | dad sons | 3 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08| 15528465-15533801 |
+| scaffold_64418  | XY  | dad daughters | 1 | 3810_boy impossible genotype-proba undercalled heteroz 4175_girl homoz 4173_boy heteroz = 3 | Chr08| 22342457-22351932 |
+| scaffold_70317  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08| 34891286-34892976 |
+| scaffold_72646  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08| 62863799-62865418 |
+| scaffold_79065  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08| 20623405-20622478 |
+| scaffold_88544  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08| 67017737-67018683 |
+| scaffold_88553  | XY  | dad sons | 1 | 3810_boy impossible genotype-proba undercalled heteroz 4173_boy homoz 4175_girl heteroz = 3 | scaffold_22| 939009-938801 |
+| scaffold_110653  | XY  | dad sons | 2 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08| 96852786-96853717 |
+| scaffold_119447  | XY  | dad daughters | 2 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08| 38139023-38140104 |
+| scaffold_140250  | XY  | dad sons | 1 | | Chr08| 55403479-55404322 |
+| scaffold_157504  | XY  | dad daughters | 2 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08| 46331456-46332801 |
+| scaffold_157943  | XY  | dad daughters | 2 | everybody homoz except dad + 1daughter | Chr10||
+| scaffold_159723  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08| 69664535-69665301 |
+| scaffold_173610  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08| 54421457-54422835 |
+| scaffold_195783  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08| 36431378-36432032 |
+| scaffold_213657  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr05||
+| scaffold_224968  | XY  | dad sons | 1 | 3810_boy impossible genotype-proba undercalled heteroz 4173_boy homoz 4175_girl heteroz = 3 | Chr08| 27526951-27527519 |
+| scaffold_232003  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | scaffold_4489| 870-2002 |
+| scaffold_256524  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | scaffold_19| 970452-971506 |
+| scaffold_267469  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08| 29897302-29898362 |
+| scaffold_302760  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | small alignment||
+| scaffold_307179  | XY  | dad daughters | 1 | 4175_girl homoz 4173_boy impossible momoz - proba heteroz  = 2 | Chr08| 42338929-42339618 |
+| scaffold_308711  | XY  | dad sons | 1 | 4173_boy homoz 4175_girl heteroz = 2 | Chr08| 16192146-16192863 |
+| scaffold_159590  | ZW  | mom daughters | 1 | 3810_boy heteroz 4170_girl homoz = 2 | Chr07 | 3649572-3650020 |
+| scaffold_262360  | ZW  | mom daughters | 1 | 4170_girl homoz = 1 | very small alignment |scaffold_622:38626-39157 Xenbase JBrowse tropicalis 9.0 |
+| scaffold_269737  | ZW  | mom daughters | 1 | everybody homoz except mom + 1 daughter | Chr03 ||
+| scaffold_317137  | ZW  | mom daughters | 1 | 4175_girl homoz 4173_boy heteroz = 2 | Chr08 | 19738134-22808689 |
 
 ```
 perl ~/scripts/Sex_linked_regions/scaffolds_SL_seq.pl /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/correctedID/Allpaths/Mellotrop_trop_sex_linked_sites_1st_part.txt /4/caroline/Xmellotropicalis/Allpaths/final.assembly.fasta /4/caroline/Xmellotropicalis/GBS/samtools_genotypes/Sex_linked/correctedID/Allpaths/try_SL.fasta
@@ -690,6 +690,8 @@ Product length	583
 ```
 Tried `min 200` `max 1000` for product length and `Forward primer from 1500` and `Reverse primer to 3000` but no better primer pairs than before (without limit of size and primers return `40` and more). Should probably go with the 1st one called `Primer pair 4` for now.
 
+Want to go with `Primer pair 4` and `Primer pair 7` to make sure I get this region.
+
 - `scaffold_262360`
 
 Primers using Geneious (difficulties using primer-blast from NCBI). Best seem
@@ -698,3 +700,14 @@ ATGCCCCAAACCATGACCAT
 ATAATGCCGGGGGTAATGCC
 ```
 Product size 526 (508 -> 1033)
+
+- `scaffold_159590` (ZW Chr.07)
+
+
+## Some notes/comments
+
+### Meeting 10/01 with BE:
+- need to add coordinates on table 
+
+- designing primers for scaffolds with SNPs (matching against chr.07 and chr.08) ~10scaffolds
+
