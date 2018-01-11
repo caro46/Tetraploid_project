@@ -701,8 +701,236 @@ ATAATGCCGGGGGTAATGCC
 ```
 Product size 526 (508 -> 1033)
 
-- `scaffold_159590` (ZW Chr.07)
+- `scaffold_159590` (ZW Chr.07) - position 669
 
+`PCR product size 100-100`, `Forward primer From 400`, `Reverse primer To 900`, `# of primers to return 20`.
+
+```
+Primer pair 7
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	AGCGGTGTTAACCCTATTGGT	Plus	21	529	549	59.37	47.62	6.00	2.00
+Reverse primer	GGGCAAAATCCTGCTCTCAATG	Minus	22	847	826	60.16	50.00	4.00	3.00
+Product length	319
+
+Primer pair 11
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	CCAATAGGGTTTCGCTTCACC	Plus	21	571	591	59.26	52.38	4.00	2.00
+Reverse primer	ACCTTCCTTTGGACTAGCCATT	Minus	22	767	746	59.35	45.45	6.00	2.00
+Product length	197
+
+Primer pair 13
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GGACCAATAGGGTTTCGCTTC	Plus	21	568	588	58.99	52.38	4.00	0.00
+Reverse primer	GACATAGGGCAAAATCCTGCT	Minus	21	853	833	58.34	47.62	4.00	2.00
+Product length	286
+
+Primer pair 17
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	ACGGTTTAAGCTATAGCGGTGT	Plus	22	515	536	59.83	45.45	8.00	2.00
+Reverse primer	TAGGGCAAAATCCTGCTCTCAAT	Minus	23	849	827	60.05	43.48	6.00	2.00
+Product length	335
+
+```
+Best: `Primer pair 13`
+
+- `scaffold_9128` (XY Chr.08) - positions 1716, 1729, 1759
+
+`Forward primer From 1500`, `Reverse primer To 1900`
+
+```
+Primer pair 4
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	CAGCAGGTGTGCTATTGCTA	Plus	20	1514	1533	57.97	50.00	4.00	2.00
+Reverse primer	CCTAATGCATGGGTCCCCTTA	Minus	21	1784	1764	59.22	52.38	6.00	2.00
+Product length	271
+
+Primer pair 5
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	CCTAGTGTCCGGAGTGAATGC	Plus	21	1673	1693	60.47	57.14	6.00	2.00
+Reverse primer	GTGAACCAAATACAGTGAGCCC	Minus	22	1891	1870	59.51	50.00	3.00	2.00
+Product length	219
+
+Primer pair 7
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	AGGTGTGCTATTGCTACAGTCC	Plus	22	1518	1539	60.09	50.00	6.00	2.00
+Reverse primer	CTCATACCACTGGTGTCTGCTT	Minus	22	1856	1835	60.03	50.00	7.00	0.00
+Product length	339
+
+Primer pair 9
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	ACCTAGTGTCCGGAGTGAATG	Plus	21	1672	1692	59.17	52.38	6.00	0.00
+Reverse primer	AGTGAGCCCTCAATGCTTATCA	Minus	22	1878	1857	59.49	45.45	6.00	3.00
+Product length	207
+
+Primer pair 12
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	AACAGCAGGTGTGCTATTGCTA	Plus	22	1512	1533	60.29	45.45	6.00	2.00
+Reverse primer	AGCTCATGCTAGCTCAACTCT	Minus	21	1826	1806	58.89	47.62	6.00	3.00
+Product length	315
+
+Primer pair 13
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GTGCTATTGCTACAGTCCACCA	Plus	22	1522	1543	60.35	50.00	4.00	1.00
+Reverse primer	TGCTTCCTGTACTAGCTCATGC	Minus	22	1839	1818	60.16	50.00	4.00	2.00
+Product length	318
+
+Primer pair 15
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	CCCTACCTAGTGTCCGGAGTG	Plus	21	1668	1688	61.02	61.90	6.00	0.00
+Reverse primer	GTGAGCCCTCAATGCTTATCAC	Minus	22	1877	1856	59.38	50.00	6.00	1.00
+Product length	210
+
+Primer pair 16
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	CTAGTGTCCGGAGTGAATGC	Plus	20	1674	1693	58.07	55.00	6.00	2.00
+Reverse primer	TGAACCAAATACAGTGAGCCC	Minus	21	1890	1870	58.21	47.62	3.00	2.00
+Product length	217
+
+Primer pair 18
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	ACCCTACCTAGTGTCCGGAGT	Plus	21	1667	1687	61.47	57.14	6.00	2.00
+Reverse primer	AGCCCTCAATGCTTATCACTCA	Minus	22	1874	1853	59.49	45.45	3.00	3.00
+Product length	208
+
+Primer pair 19
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GGCTCCATTTCTTTGAACCCT	Plus	21	1651	1671	58.47	47.62	3.00	0.00
+Reverse primer	TGAGCCCTCAATGCTTATCACT	Minus	22	1876	1855	59.49	45.45	6.00	3.00
+Product length	226
+
+```
+Best: `Primer pair 13`
+
+- `scaffold_60594` (XY Chr.08) - positions 4849, 4850, 4913
+
+```
+Primer pair 14
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	AGACCCATTAGGCACACAGA	Plus	20	4714	4733	58.34	50.00	3.00	0.00
+Reverse primer	ACGTGGCACACAAATTATCGG	Minus	21	5086	5066	59.53	47.62	5.00	1.00
+Product length	373
+
+Primer pair 8
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	ACCCCAAACAAAGCATACGGA	Plus	21	4870	4890	60.20	47.62	2.00	2.00
+Reverse primer	CGTGGCACACAAATTATCGGG	Minus	21	5085	5065	60.20	52.38	5.00	1.00
+Product length	216
+```
+
+Best `Primer pair 14` - large masked region
+
+- `scaffold_110653` (XY Chr.08) - positions 952, 953
+
+```
+Primer pair 3
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	ACAGGGAATGGACCCCAAGA	Plus	20	904	923	60.48	55.00	3.00	0.00
+Reverse primer	ATGCTCCACAGATGTTGCGT	Minus	20	1380	1361	60.32	50.00	4.00	2.00
+Product length	477
+
+Primer pair 4
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	ATCGAGCACCTTGCAACACA	Plus	20	804	823	60.53	50.00	6.00	0.00
+Reverse primer	GTGAGGAGCGCCGATAAGAT	Minus	20	1135	1116	59.68	55.00	4.00	2.00
+Product length	332
+
+Primer pair 5
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GAAGGGGGAGGGCTACTGAA	Plus	20	861	880	60.62	60.00	2.00	1.00
+Reverse primer	CTGCTCTGCTAGACCACCAA	Minus	20	1305	1286	59.39	55.00	6.00	1.00
+Product length	445
+
+Primer pair 8
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	AGGGGGAGGGCTACTGAAAG	Plus	20	863	882	60.62	60.00	2.00	1.00
+Reverse primer	TCTTGGAACATGATCGGCCT	Minus	20	1227	1208	59.09	50.00	6.00	2.00
+Product length	365
+
+Primer pair 9
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	ATGGAACAGGGAATGGACCC	Plus	20	899	918	59.37	55.00	3.00	2.00
+Reverse primer	CGTATACCTCTGAGCCAGCA	Minus	20	1363	1344	58.97	55.00	6.00	2.00
+Product length	465
+Primer pair 10
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GCACCTTGCAACACAGATCA	Plus	20	809	828	59.05	50.00	6.00	2.00
+Reverse primer	AGTGAGGAGCGCCGATAAGA	Minus	20	1136	1117	60.75	55.00	4.00	0.00
+Product length	328
+
+```
+Best: Primer pair 3
+
+- `scaffold_119447` (XY Chr.08) - positions 108, 125
+
+`PCR product size Min 1 Max 1000`
+
+
+```
+Primer pair 2
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	ACCGTATGTCAAGTGAGCAGG	Plus	21	66	86	60.07	52.38	4.00	0.00
+Reverse primer	TTCTCGGACTCGTGTTGCAG	Minus	20	432	413	60.32	55.00	4.00	2.00
+Product length	367
+
+Primer pair 4
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	TACCGTATGTCAAGTGAGCAGG	Plus	22	65	86	59.83	50.00	5.00	0.00
+Reverse primer	TGGCACTTCGTGGTAATGGC	Minus	20	288	269	60.96	55.00	3.00	2.00
+Product length	224
+
+Primer pair 7
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	CGTATGTCAAGTGAGCAGGT	Plus	20	68	87	57.63	50.00	4.00	1.00
+Reverse primer	CTCGGACTCGTGTTGCAGTAT	Minus	21	430	410	60.14	52.38	4.00	2.00
+Product length	363
+
+Primer pair 16
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	ATACCGTATGTCAAGTGAGCAGG	Plus	23	64	86	60.18	47.83	7.00	0.00
+Reverse primer	ACCACGGAAGCCCTTCTATT	Minus	20	312	293	58.71	50.00	6.00	2.00
+Product length	249
+```
+Best: Primer pair 7
+
+- `scaffold_157504` (XY Chr.08) - positions 346, 363
+
+```
+Primer pair 4
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	TTATTACTGTGGGTGGAGGGGA	Plus	22	119	140	60.23	50.00	3.00	0.00
+Reverse primer	AGCAGCAATCTGTCTCATGGTT	Minus	22	448	427	60.29	45.45	4.00	1.00
+Product length	330
+```
+
+- `scaffold_1906` (XY Chr.08) - positions 4406, 4435
+
+```
+Primer pair 9
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GGCGCCAAAATTAGATCCAACAA	Plus	23	4156	4178	60.37	43.48	6.00	0.00
+Reverse primer	ATCCCATGCATTGCTTTGATGA	Minus	22	4501	4480	58.96	40.91	6.00	3.00
+Product length	346
+
+Primer pair 10
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GCGCCAAAATTAGATCCAACAAC	Plus	23	4157	4179	59.39	43.48	6.00	0.00
+Reverse primer	CCTATCCCATGCATTGCTTTGA	Minus	22	4504	4483	59.04	45.45	6.00	3.00
+Product length	348
+
+Primer pair 17
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	CGCCAAAATTAGATCCAACAACCT	Plus	24	4158	4181	60.08	41.67	6.00	0.00
+Reverse primer	CTAGAGGTAACCCTATCCCATGC	Minus	23	4515	4493	59.48	52.17	7.00	2.00
+Product length	358
+
+Primer pair 28
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	ATACCAAGAACCCCTGTGAAAATG	Plus	24	4133	4156	59.23	41.67	2.00	0.00
+Reverse primer	CTATCCCATGCATTGCTTTGATGA	Minus	24	4503	4480	59.72	41.67	6.00	3.00
+Product length	371
+
+```
+Best: `Primer pair 28`
 
 ## Some notes/comments
 
