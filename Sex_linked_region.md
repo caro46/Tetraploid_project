@@ -250,6 +250,8 @@ gunzip -c /work/cauretc/2017_Mellotropicalis/try_SL.fasta.masked.gz | blastn -ev
 gunzip -c /work/cauretc/2017_Mellotropicalis/try_SL.fasta.masked.gz | blastn -evalue 1e-5 -query - -db /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw_blastable -out /work/cauretc/2017_Mellotropicalis/try_SL_masked_DBG2OLC_e5_1maxtarget -outfmt 6 -max_target_seqs 1
 ```
 
+- (Jan11/2018) Looked at the `_sorted.bam` files using `IGV_2.3.81`. Maybe for `scaffold_262360 857ZW` undercalled heteroz for `BJE3810`. For `scaffold_4751`, `BJE4173` has 1 read with the other genotype. `Scaffold_7061` needs to be amplified: `4345` partially sex-linked sites and `4335` seems to be a SNP in mom which is not sex-linked.  
+
 ### Exploring some interesting snps
 
 Best ZW site: `scaffold_262360` from `Allpaths` assembly. The 2 other sites I also put below are sites with a few genotypes in heterozygous in 1 sex but most likely under called of heterozygous.
