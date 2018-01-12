@@ -934,6 +934,24 @@ Product length	371
 ```
 Best: `Primer pair 28`
 
+- `scaffold_7061` needs to include positions `4335` (mom SNP not sex-linked) and `4345` (partially sex-linked with GBS data)
+
+```
+Primer pair 3
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	AACAGCCAGTGTTTCCCTTTG	Plus	21	4077	4097	59.24	47.62	4.00	0.00
+Reverse primer	GCGAGACAAGGCAGAGTTTTT	Minus	21	4474	4454	59.40	47.62	2.00	0.00
+Product length	398
+
+Primer pair 12
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	AAAAACTGTCCAACTGCACCC	Plus	21	3649	3669	59.52	47.62	4.00	0.00
+Reverse primer	AATGAGAAGGCGAGACAAGGC	Minus	21	4483	4463	60.68	52.38	2.00	2.00
+Product length	835
+```
+
+Want to try `Primer pair 12` in priority. 
+
 ## Some notes/comments
 
 ### Meeting 10/01 with BE:
