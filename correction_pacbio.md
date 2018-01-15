@@ -37,6 +37,5 @@ Input: Pacbio fasta or Fastq.
 Tried to install LoRMA without success. Not sure why, good `g++`, `cmake`, `make` versions and LoRDEC was installed (the path for the binaries were specified in the `lorma.sh` script). From the [FAQ](https://www.lirmm.fr/~rivals/lordec/FAQ/#orgheadline9) of LoRDEC, LoRMA uses more memory and times so I think we should try LoRDEC for now on a subset of the data.
 
 *Can LoRDEC perform also self-correction?
-
 Not directly. However, LoRDEC has a companion software called LoRMA, that uses LoRDEC and performs self-correction with long reads. LoRMA does not need short reads, but use only long reads.
 For the same amount of data, LoRMA requires more computing resources and more time.*
