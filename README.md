@@ -30,6 +30,8 @@ The Sequel Pacbio reads we have are in the new `.bam` format. Most of the availa
 
 - [Canu and Falcon](https://github.com/caro46/Tetraploid_project/blob/master/canu_assembly.md): mostly notes for now (oct.31/17)
 
+### [Correcting Pacbio reads](https://github.com/caro46/Tetraploid_project/blob/master/correction_pacbio.md)
+
 ## 3- [Pseudomolecules](https://github.com/caro46/Tetraploid_project/blob/master/pseudomolecules.md)
 
 ## 4- Assembly quality assessment: [Quast](https://github.com/caro46/Tetraploid_project/blob/master/Quality_assembly_assesment.md)
