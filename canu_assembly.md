@@ -23,6 +23,18 @@ Not enough memory on `wob101`.
 ## Notes
 - *A well-behaved large genome, such as human or other mammals, can be assembled in 10,000 to 25,000 CPU hours, depending on coverage. A grid environment is strongly recommended, with at least 16GB available on each compute node, and one node with at least 64GB memory. You should plan on having 3TB free disk space, much more for highly repetitive genomes.* Don't think it is really possible... See [FAQ](http://canu.readthedocs.io/en/latest/faq.html#faq)
 
+## New start
+More ressources on computecanada (a lot).
+
+Downloaded newest version from github (executable located there ` ~/project/cauretc/programs/canu/Linux-amd64/bin/`)
+```
+git clone https://github.com/marbl/canu.git
+cd canu/src
+make -j 8
+```
+For now, tried same command as in the previous `Run` paragraph (but submitteds through `sbatch`). 
+
+
 # Falcon
 
 ## Some information
