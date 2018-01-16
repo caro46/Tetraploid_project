@@ -50,3 +50,10 @@ squeue -u <user> #checking the statut
 scancel <jobid> #to cancel the job
 ```
 sbash [options](https://slurm.schedmd.com/sbatch.html). 
+
+From LoRDEC [FAQ](http://www.lirmm.fr/%7Erivals/lordec/FAQ/#orgheadline34), can take a while to run, but how long...
+
+*As each LR is processed one by one, obviously the number of LR, and even more their cumulated lengths, are major determinants of the running time.
+Previous to the correction, LoRDEC builds or loads the de Bruijn graph of the short reads. This can also take some time if the SR set is huge.* 
+
+Sooooo I might stay on queue forever...probably need to speak about that we BE.

@@ -34,6 +34,7 @@ make -j 8
 ```
 For now, tried same command as in the previous `Run` paragraph (but submitteds through `sbatch`). 
 
+Not clear how long it should take... this run is more to check everything is working... I might stay on queue forever (need to see if it is running tomorrow on Jan17), need to have BE opinion probably.
 
 # Falcon
 
