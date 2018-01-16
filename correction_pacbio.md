@@ -26,7 +26,7 @@ Input: Pacbio fasta.
 
 ## Jabba ([github](https://github.com/biointec/jabba), [paper Miclotte et al. 2016](https://almob.biomedcentral.com/articles/10.1186/s13015-016-0075-7))
 
-Keeping in mind for "big" genome: increasing the suffix array sparseness with `-e [value, default=`]`. See a discussion [here](https://github.com/biointec/jabba/issues/3).
+Keeping in mind for "big" genome: increasing the suffix array sparseness with `-e [value, default=1]`. See a discussion [here](https://github.com/biointec/jabba/issues/3).
 
 Input: Pacbio fasta or Fastq.
 
@@ -39,3 +39,14 @@ Tried to install LoRMA without success. Not sure why, good `g++`, `cmake`, `make
 *Can LoRDEC perform also self-correction?
 Not directly. However, LoRDEC has a companion software called LoRMA, that uses LoRDEC and performs self-correction with long reads. LoRMA does not need short reads, but use only long reads.
 For the same amount of data, LoRMA requires more computing resources and more time.*
+
+[Here](https://hal.inria.fr/hal-01463694/document) is a comparison of some programs. The best one for us seems to be LoRDEC since in theory it doesn't use that much memory, handle multiple input files and have pretty good results and the running time doesn't sound unreasonable. For jabba for example, we will probably need to concatenate a subset/all of the files to run it
+
+# LoRDEC
+Script to produce the metafile specifying the input short reads file can be found [here](https://github.com/caro46/Tetraploid_project/tree/master/some_scripts/make_input_lordec.pl) and I tried to run it on Cedar machine from computecanada using this [bash script](https://github.com/caro46/Tetraploid_project/tree/master/some_scripts/running_lordec.sh). Submitted using:
+```
+sbatch ~/project/cauretc/scripts/running_lordec.sh
+squeue -u <user> #checking the statut
+scancel <jobid> #to cancel the job
+```
+  
