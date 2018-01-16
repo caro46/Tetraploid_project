@@ -49,4 +49,4 @@ sbatch ~/project/cauretc/scripts/running_lordec.sh
 squeue -u <user> #checking the statut
 scancel <jobid> #to cancel the job
 ```
-  
+sbash [options](https://slurm.schedmd.com/sbatch.html). 
