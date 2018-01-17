@@ -50,3 +50,35 @@ merge_wrapper.py /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/fin
 ```
 When I'll do a real one - if possible using canu - should probably first try to run something to close the gaps.
 
+## Quast - 1st run
+```
+/work/ben/quast-4.5/quast.py backbone_allpaths/merged.fasta /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta -o /work/cauretc/2017_Mellotropicalis/quickmerge_analysis/backbone_allpaths/quast_results/
+
+less report.txt
+
+All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+Suggestion: all assemblies contain continuous fragments of N's of length >= 10 bp. You may consider rerunning QUAST using --scaffolds (-s) option!
+
+Assembly                    merged     final.assembly
+# contigs (>= 0 bp)         320104     320227        
+# contigs (>= 1000 bp)      286125     286034        
+# contigs (>= 5000 bp)      27059      19292         
+# contigs (>= 10000 bp)     8600       1887          
+# contigs (>= 25000 bp)     1274       6             
+# contigs (>= 50000 bp)     8          0             
+Total length (>= 0 bp)      732585008  607138367     
+Total length (>= 1000 bp)   700024110  574372221     
+Total length (>= 5000 bp)   275464847  136492195     
+Total length (>= 10000 bp)  153811082  23462309      
+Total length (>= 25000 bp)  39144451   159305        
+Total length (>= 50000 bp)  432268     0             
+# contigs                   320104     320227        
+Largest contig              61708      30521         
+Total length                732585008  607138367     
+GC (%)                      39.38      38.79         
+N50                         2821       1920          
+N75                         1339       1243          
+L50                         51722      76909         
+L75                         154426     178611        
+# N's per 100 kbp           5404.83    6522.06
+```
