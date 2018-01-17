@@ -5,6 +5,7 @@ cd quickmerge/
 bash make_merger.sh
 export PATH=/work/cauretc/programs/quickmerge:/work/cauretc/programs/quickmerge/MUMmer3.23:$PATH
 ```
+It was not obvious for me what is considered as reference and query. Apparently the `hybrid_assembly_fasta` is the reference and `self_assembly_fasta` is the query. So the query needs to be specified 1st, then the reference (I 1st did the opposite - updated the good commands on Jan.17). 
 
 # Allpaths - SOAP
 
@@ -14,7 +15,8 @@ Allpaths has "small" but good scaffolds, SOAP has longer sequences but not great
 gunzip /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta.gz
 gunzip /work/cauretc/2017_Mellotropicalis/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq.gz
 ## running the command with default parameters
-merge_wrapper.py /work/cauretc/2017_Mellotropicalis/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta
+merge_wrapper.py /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta
+ /work/cauretc/2017_Mellotropicalis/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq
 ```
 Hum... easy to run... Kinda want to give a shot using the backbone as ref... even f I might have some chimeras stuff (couldn't run the last step of DBG2OLC because of the HUGE number of files being produced).
 
@@ -22,6 +24,6 @@ Hum... easy to run... Kinda want to give a shot using the backbone as ref... eve
 
 Need to keep in mind that probably issue with the DBG2OLC backbone file. But the output should be more like the allpaths one, the backbone is kinda just to use it to order the allpaths scaffolds. So in theory should be good (if conflict between both assemblies, Allpaths should win).
 ```
-merge_wrapper.py /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw.fasta /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta
+merge_wrapper.py /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw.fasta
 ```
 When I'll do a real one - if possible using canu - should probably first try to run something to close the gaps.
