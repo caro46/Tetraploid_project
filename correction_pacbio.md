@@ -43,6 +43,23 @@ For the same amount of data, LoRMA requires more computing resources and more ti
 [Here](https://hal.inria.fr/hal-01463694/document) is a comparison of some programs. The best one for us seems to be LoRDEC since in theory it doesn't use that much memory, handle multiple input files and have pretty good results and the running time doesn't sound unreasonable. For jabba for example, we will probably need to concatenate a subset/all of the files to run it
 
 # LoRDEC
+
+```
+Usage:
+	  lordec-correct 
+	     [--trials <number of target k-mers>]
+	     [--branch <maximum number of branches to explore>]
+	     [--errorrate <maximum error rate>]
+	     [--threads <number of threads>] 
+             [-S <out statistics file>] 
+             [-m <max memory size>]  
+             [-a <max abundance>]
+	     -2 <FASTA/Q files> -k <k-mer size> -s <abundance threshold> -i <PacBio FASTA file> -o <output file corrected reads>
+	
+	Typical command:	
+	    lordec-correct -2 illumina.fasta -k 19 -s 3 -i pacbio.fasta -o pacbio-corrected.fasta
+```
+
 Script to produce the metafile specifying the input short reads file can be found [here](https://github.com/caro46/Tetraploid_project/tree/master/some_scripts/make_input_lordec.pl) and I tried to run it on Cedar machine from computecanada using this [bash script](https://github.com/caro46/Tetraploid_project/tree/master/some_scripts/running_lordec.sh). Submitted using:
 ```
 sbatch ~/project/cauretc/scripts/running_lordec.sh
