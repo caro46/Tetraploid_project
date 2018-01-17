@@ -57,3 +57,5 @@ From LoRDEC [FAQ](http://www.lirmm.fr/%7Erivals/lordec/FAQ/#orgheadline34), can 
 Previous to the correction, LoRDEC builds or loads the de Bruijn graph of the short reads. This can also take some time if the SR set is huge.* 
 
 Sooooo I might stay on queue forever...probably need to speak about that we BE.
+
+OK so I tried on a subset for a shorter time and ended with an error so I killed all the LOrDEC jobs and tried again on subset using `-a 100000`.
