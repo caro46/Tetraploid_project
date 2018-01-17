@@ -7,6 +7,20 @@ export PATH=/work/cauretc/programs/quickmerge:/work/cauretc/programs/quickmerge/
 ```
 It was not obvious for me what is considered as reference and query. Apparently the `hybrid_assembly_fasta` is the reference and `self_assembly_fasta` is the query. So the query needs to be specified 1st, then the reference (I 1st did the opposite - updated the good commands on Jan.17). 
 
+```
+usage: merge_wrapper.py [-h] [-pre PREFIX] [-hco HCO] [-c C]
+                        [-l LENGTH_CUTOFF] [--no_nucmer] [--no_delta]
+                        [--stop_after_nucmer] [--stop_after_df]
+                        [-lm LENGTH_MINIMUM] [--clean_only]
+                        hybrid_assembly_fasta self_assembly_fasta
+```
+- `-hco`: controls the overlap cutoff used in selection of anchor contigs. Default is 5.0.
+
+- `-l`: controls the length cutoff for anchor contigs. A good rule of thumb is to start with the N50 of the self assembly. E.g. if the N50 of your self assembly is 2Mb then use 2000000 as your cutoff. Lowering this value may lead to more merging but may increase the probability of mis-joins.
+
+- `-lm`: controls the minimum alignment length to be considered for merging. This is especially helpful for repeat-rich genomes. Default is 0 but higher values (>5000) are recommended.
+
+
 # Allpaths - SOAP
 
 Allpaths has "small" but good scaffolds, SOAP has longer sequences but not great (bunch of missing data) - let see if there is still some improvement by using these 2 and how the program behaves
