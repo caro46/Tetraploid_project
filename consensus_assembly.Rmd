@@ -24,4 +24,4 @@ Need to keep in mind that probably issue with the DBG2OLC backbone file. But the
 ```
 merge_wrapper.py /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw.fasta /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta
 ```
-
+When I'll do a real one - if possible using canu - should probably first try to run something to close the gaps.
