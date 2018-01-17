@@ -20,6 +20,7 @@ usage: merge_wrapper.py [-h] [-pre PREFIX] [-hco HCO] [-c C]
 
 - `-lm`: controls the minimum alignment length to be considered for merging. This is especially helpful for repeat-rich genomes. Default is 0 but higher values (>5000) are recommended.
 
+For our Allpaths assembly: `N50~1920`. So we should for future runs use `-l 1900` and `-lm 1000` (since our `N50` is pretty small). The 1st runs in paragraphs `Allpaths - SOAP` and `Allpaths - backbone` have been run with default to see the memory usage, time and checking on the correct running of the program.
 
 # Allpaths - SOAP
 
@@ -31,7 +32,9 @@ gunzip /work/cauretc/2017_Mellotropicalis/SOAP_assembly/SOAP_Mellotropicalis_BJE
 ## running the command with default parameters
 merge_wrapper.py /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta /work/cauretc/2017_Mellotropicalis/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq
 ## some info about time
-#CONSTRUCTIONTIME /work/cauretc/programs/quickmerge/MUMmer3.23/mummer out.ntref 3528.04
+# CONSTRUCTIONTIME /work/cauretc/programs/quickmerge/MUMmer3.23/mummer out.ntref 3528.04
+# COMPLETETIME /work/cauretc/programs/quickmerge/MUMmer3.23/mummer out.ntref 5529.16
+# SPACE /work/cauretc/programs/quickmerge/MUMmer3.23/mummer out.ntref 5506.50
 ```
 Hum... easy to run... Kinda want to give a shot using the backbone as ref... even f I might have some chimeras stuff (couldn't run the last step of DBG2OLC because of the HUGE number of files being produced).
 
@@ -41,7 +44,8 @@ Need to keep in mind that probably issue with the DBG2OLC backbone file. But the
 ```
 merge_wrapper.py /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw.fasta
 ## some info about time
-#CONSTRUCTIONTIME /work/cauretc/programs/quickmerge/MUMmer3.23/mummer out.ntref 4159.21
+# CONSTRUCTIONTIME /work/cauretc/programs/quickmerge/MUMmer3.23/mummer out.ntref 4159.21
+
 ```
 When I'll do a real one - if possible using canu - should probably first try to run something to close the gaps.
 
