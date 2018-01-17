@@ -1,0 +1,27 @@
+# Download Quickmerge
+```
+git clone https://github.com/mahulchak/quickmerge
+cd quickmerge/
+bash make_merger.sh
+export PATH=/work/cauretc/programs/quickmerge:/work/cauretc/programs/quickmerge/MUMmer3.23:$PATH
+```
+
+# Allpaths - SOAP
+
+Allpaths has "small" but good scaffolds, SOAP has longer sequences but not great (bunch of missing data) - let see if there is still some improvement by using these 2 and how the program behaves
+```
+## need to unzip 1st
+gunzip /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta.gz
+gunzip /work/cauretc/2017_Mellotropicalis/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq.gz
+## running the command with default parameters
+merge_wrapper.py /work/cauretc/2017_Mellotropicalis/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta
+```
+Hum... easy to run... Kinda want to give a shot using the backbone as ref... even f I might have some chimeras stuff (couldn't run the last step of DBG2OLC because of the HUGE number of files being produced).
+
+# Allpaths - backbone
+
+Need to keep in mind that probably issue with the DBG2OLC backbone file. But the output should be more like the allpaths one, the backbone is kinda just to use it to order the allpaths scaffolds. So in theory should be good (if conflict between both assemblies, Allpaths should win).
+```
+merge_wrapper.py /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw.fasta /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta
+```
+
