@@ -15,8 +15,7 @@ Allpaths has "small" but good scaffolds, SOAP has longer sequences but not great
 gunzip /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta.gz
 gunzip /work/cauretc/2017_Mellotropicalis/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq.gz
 ## running the command with default parameters
-merge_wrapper.py /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta
- /work/cauretc/2017_Mellotropicalis/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq
+merge_wrapper.py /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta /work/cauretc/2017_Mellotropicalis/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq
 ```
 Hum... easy to run... Kinda want to give a shot using the backbone as ref... even f I might have some chimeras stuff (couldn't run the last step of DBG2OLC because of the HUGE number of files being produced).
 
