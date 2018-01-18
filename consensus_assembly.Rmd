@@ -38,6 +38,40 @@ merge_wrapper.py /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/fin
 ```
 Hum... easy to run... Kinda want to give a shot using the backbone as ref... even f I might have some chimeras stuff (couldn't run the last step of DBG2OLC because of the HUGE number of files being produced).
 
+## Quast - 1st run
+
+```
+ /work/ben/quast-4.5/quast.py /work/cauretc/2017_Mellotropicalis/quickmerge_analysis/SOAP_allpaths/merged.fasta /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta /work/cauretc/2017_Mellotropicalis/SOAP_assembly/SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq -o /work/cauretc/2017_Mellotropicalis/quickmerge_analysis/SOAP_allpaths/quast_results
+
+less report.txt
+
+All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+Suggestion: all assemblies contain continuous fragments of N's of length >= 10 bp. You may consider rerunning QUAST using --scaffolds (-s) option!
+
+Assembly                    merged     final.assembly  SOAP_Mellotropicalis_BJE3652_genome_33_memory.scafSeq
+# contigs (>= 0 bp)         318659     320227          2654558                                              
+# contigs (>= 1000 bp)      286647     286034          541958                                               
+# contigs (>= 5000 bp)      28604      19292           275558                                               
+# contigs (>= 10000 bp)     10657      1887            246283                                               
+# contigs (>= 25000 bp)     2154       6               25021                                                
+# contigs (>= 50000 bp)     278        0               1980                                                 
+Total length (>= 0 bp)      783156318  607138367       5073922146                                           
+Total length (>= 1000 bp)   752475646  574372221       4530331488                                           
+Total length (>= 5000 bp)   323656931  136492195       4058112063                                           
+Total length (>= 10000 bp)  206283206  23462309        3838894191                                           
+Total length (>= 25000 bp)  81261596   159305          882707243                                            
+Total length (>= 50000 bp)  17348626   0               117897095                                            
+# contigs                   318659     320227          848955                                               
+Largest contig              172751     30521           172751                                               
+Total length                783156318  607138367       4749065556                                           
+GC (%)                      38.78      38.79           38.96                                                
+N50                         3271       1920            11981                                                
+N75                         1406       1243            10258                                                
+L50                         45501      76909           110537                                               
+L75                         145183     178611          218933                                               
+# N's per 100 kbp           21735.33   6522.06         71236.08
+```
+
 # Allpaths - backbone
 
 Need to keep in mind that probably issue with the DBG2OLC backbone file. But the output should be more like the allpaths one, the backbone is kinda just to use it to order the allpaths scaffolds. So in theory should be good (if conflict between both assemblies, Allpaths should win).
