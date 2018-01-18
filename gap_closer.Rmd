@@ -1,0 +1,24 @@
+# SOAPdenovo2 GapCloser
+
+```
+Version:
+	1.12
+
+Contact:
+	soap@genomics.org.cn
+
+Usage:
+	GapCloser [options]
+	-a	<string>	input scaffold file name, required.
+	-b	<string>	input library info file name, required.
+	-o	<string>	output file name, required.
+	-l	<int>		maximum read length (<=155), default=100.
+	-p	<int>		overlap param(<=31), default=25.
+	-t	<int>		thread number, default=1.
+	-h	-?		output help information.
+```
+
+```
+/home/cauretc/project/cauretc/programs/SOAPdenovo2-src-r240/GapCloser -b /home/cauretc/scratch/gap_closer/input_SOAP_conf_no180_2ndlib -a /home/cauretc/scratch/gap_closer/merged.fasta.gz -o /home/cauretc/scratch/gap_closer/merged_SOAP33memory_allpaths_gapclosed
+```
+The `/home/cauretc/scratch/gap_closer/merged.fasta.gz` was copied from iqaluk and made previously using `Allpaths` and `SOAP_33_memory` assemblies and `quickmerge`. The `input_SOAP_conf_no180_2ndlib` was made using the script [make_SOAP_input.pl](https://github.com/caro46/Tetraploid_project/tree/master/some_scripts/make_SOAP_input.pl). 
