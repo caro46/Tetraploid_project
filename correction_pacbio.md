@@ -75,4 +75,4 @@ Previous to the correction, LoRDEC builds or loads the de Bruijn graph of the sh
 
 Sooooo I might stay on queue forever...probably need to speak about that we BE.
 
-OK so I tried on a subset for a shorter time and ended with an error so I killed all the LOrDEC jobs and tried again on subset using `-a 100000`.
+OK so I tried on a subset for a shorter time and ended with an error so I killed all the LOrDEC jobs and tried again on subset using `-a 100000`. Started running this morning (22/01 - was on queue for ~4days). Seem to run fine. Will see where the the job ends to better estimate the ressources needed. 
