@@ -27,6 +27,8 @@ Went out of memory (22/01/18) but except that everything seemed to work fine. I'
 
 # Alternatives
 
+Best alternative for now (23/01/18): GapFiller. Let's wait to see GapCloser outputs.
+
 ### [GMcloser](https://academic.oup.com/bioinformatics/article/31/23/3733/209212) 
 Writers say it is more accurate however uses more memory and longer time than `GapCloser`... More memory seem a lot... So better seems to try to run correctly `GapCloser` then `bwa` and consensus.
 
@@ -44,4 +46,4 @@ Uses Pacbio reads to close the gaps. Problem being when I tried `remove chimeras
 Tested on pretty small genomes
 
 ### [GapFiller](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2012-13-6-r56)
-Tested on pretty small genomes + seems to need to give personal information to get it.
+Tested on pretty small genomes - can be downloaded [here](https://sourceforge.net/projects/gapfiller/). Was used for tree assemblies (see [Tang et al. 2016](http://agritrop.cirad.fr/580933/1/Tang%202016%20Rubber%20Tree%20Genome.pdf)) and fish ([Valenzano et al. 2015](https://www.sciencedirect.com/science/article/pii/S0092867415014889)).
