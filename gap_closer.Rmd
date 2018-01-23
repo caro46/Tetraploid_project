@@ -24,3 +24,7 @@ Usage:
 The `/home/cauretc/scratch/gap_closer/merged.fasta.gz` was copied from iqaluk and made previously using `Allpaths` and `SOAP_33_memory` assemblies and `quickmerge`. The `input_SOAP_conf_no180_2ndlib` was made using the script [make_SOAP_input.pl](https://github.com/caro46/Tetraploid_project/tree/master/some_scripts/make_SOAP_input.pl).
 
 Went out of memory (22/01/18) but except that everything seemed to work fine. I'll allow for more memory and will use only small/medium size libraries (i.e 180 - 1st library, 400 and 1000bp) - will try on running for 1 day with 200Gb memory (some nodes have a lot of memory) - directly started on cedar. OK so finished without error in ~6h but the fasta headers are weird. Not sure what is the issue, I'll try with unzipping the fasta assembly.
+
+# Alternatives
+
+[GMcloser](https://academic.oup.com/bioinformatics/article/31/23/3733/209212) says it is more accurate however uses more memory and longer time than `GapCloser`... More memory seem a lot... So better seems to try to run correctly `GapCloser` then `bwa` and consensus.
