@@ -1,6 +1,6 @@
 # Download and references
 
-See [Li 2016](https://academic.oup.com/bioinformatics/article/32/14/2103/1742895#95424972) for `miniasm` and `minimap`'s publication.
+See [Li 2016](https://academic.oup.com/bioinformatics/article/32/14/2103/1742895#95424972) for `miniasm` and `minimap`'s publication and [Vaser et al. 2017](http://genome.cshlp.org/content/27/5/737.full) to justify pipeline `minimap`/`miniasm`/`racon`.
 
 [Li's github page](https://github.com/lh3/miniasm)
 
@@ -10,6 +10,36 @@ Downloaded like specify on the github page:
 git clone https://github.com/lh3/minimap && (cd minimap && make) #0.2-r124-dirty
 git clone https://github.com/lh3/miniasm && (cd miniasm && make) #0.2-r168-dirty
 ```
+And `racon` ([see](http://inf-biox121.readthedocs.io/en/2017/Assembly/practicals/07_Assembly_using_minasm+racon.html) for summary of commands).
+
+See `racon`'s [github page](https://github.com/isovic/racon)
+```
+git clone https://github.com/isovic/racon.git && cd racon && make modules && make tools && make -j
+```
+
+The issue with the new `.bam` Sequel format is that there is not possibility of obtaining a per-base score necessary for a `.fastq` format. Racon requires reads to be in a `fastq` format. It was treated as an issue [here on the github page](https://github.com/isovic/racon/issues/28) - summary of the discussion:
+
+*Hi,
+Does racon support fasta as reads rather than fastq files?
+
+Thank you in advance.
+
+Hello Michal,
+Racon was designed to use base quality values for better accuracy. If you do not have them, transform your FASTA file into FASTQ with uniform dummy qualities (for example, set them to '*' and disable the quality filter with '--bq -1').
+
+Best regards,
+Robert
+
+Hi
+I would like to pitch in here. I am struggling for a large genome with memory issues as all my reads (400GB) are too large for the memory. Obviously, if I remove the quality information this shrinks to <200GB.
+Regarding the fact that all newer PacBio (Sequel) data do not contain quality values anymore FASTA support would be really great. By providing such an option directly in Racon instead of generating then dummy quality values instead one would save a lot of time, space and memory.
+What do you think?
+
+Hello,
+sorry for the delayed response. Racon was designed to use base quality values and leaving them out might yield lower accuracy. We are in the middle of a refactor and we are considering to enable FASTA reads as input, but more evaluation is needed.
+
+Best regards,
+Robert*
 
 # Commands
 
@@ -20,7 +50,9 @@ minimap/minimap -Sw5 -L100 -m0 -t8 reads.fq reads.fq | gzip -1 > reads.paf.gz
 # Layout
 miniasm/miniasm -f reads.fq reads.paf.gz > reads.gfa
 ```
-
+```
+racon -t num_threads reads.fastq mapped_reads.paf assembly.fasta consensus.fasta
+```
 ## Format
 
 Reads can be `.fastq` or `.fasta` ([see](https://github.com/lh3/miniasm/blob/master/miniasm.1)).
@@ -89,4 +121,71 @@ Options:
     -1          skip 1-pass read selection
     -2          skip 2-pass read selection
     -V          print version number
+```
+### racon
+#### Convert pacbio to fastq
+Using `reformat.sh` from `BBMap_37.36`. Since the script requires other modules of `bbmap`, I copied the `BJE3652.all.subreads.fasta.gz` over to my `iqaluk` account and run the command there, in my `scratch`, then I'll move the output to my `archive` and on `cedar`.
+```
+reformat.sh in=pbio_input.bam out=stdout.fa | reformat.sh in=stdin.fa out=new.fq.gz qfake=30
+/work/cauretc/programs/bbmap/reformat.sh in=BJE3652.all.subreads.fasta.gz out=BJE3652.all.subreads30qfake.fq.gz qfake=30
+```
+```
+Input is being processed as unpaired
+Input:                          4982901 reads           40644849469 bases
+Output:                         4982901 reads (100.00%)         40644849469 bases (100.00%)
+
+Time:                           309.922 seconds.
+Reads Processed:       4982k    16.08k reads/sec
+Bases Processed:      40644m    131.15m bases/sec
+```
+When checking the output, didn't seem to work. Let's try directly from `.bam`
+```
+/work/cauretc/programs/bbmap/reformat.sh in=Sequel.RunS005.001.BJE3652.subreads.bam out=stdout.fa | reformat.sh in=stdin.fa out=Sequel.RunS005.001.BJE3652.subreads.q30.fq.gz qfake=30
+```
+Still not working `?` everywhere. So let's use the `BJE3652.all.subreads30qfake.fq.gz` and set `racon` as `--bq -1` to disable the quality check
+```
+bin/racon [options] <reads.fastq> <overlaps.paf> <raw_contigs.fasta> <out_consensus.fasta>
+
+Options
+  Input/Output options:
+    reads               STR   Reads in FASTQ format.
+    alnpath             STR   Path to a MHAP file with read-to-target overlaps.
+    raw                 STR   Path to the raw contig/read sequences (output from the layout step). GFA, FASTA/FASTQ or
+                              SAM formats allowed.
+    out                 STR   Output consensus sequence.
+        --sam            -    SAM is provided instead of MHAP. The reads file will be ignored, and seq and qual fields
+                              from the SAM file will be used. [false]
+        --mhap           -    Overlaps are in PAF format instead of MHAP. [false]
+
+  Algorithm:
+        --bq            FLT   Threshold for the average base quality of the input reads. If a read has average BQ <
+                              specified, the read will be skipped. If value is < 0.0, filtering is disabled. [10.0]
+        --use-contig-qv  -    If false, dummy QVs equal to '!' will be assigned to each contig base during window
+                              consensus. Otherwise, QVs will be loaded from the contigs file if the file is in FASTQ format. [false]
+    -w, --winlen        INT   Length of the window to perform POA on. [500]
+        --pileup         -    Simple pileup + majority vote consensus will be performed instead of using Spoa. Much
+                              faster, but less accurate. [false]
+    -e, --error-rate    FLT   Maximum allowed error rate. Used for filtering faulty overlaps. [0.30]
+        --ovl-margin    FLT   Fraction of the window size to overlap the windows by. [0.0]
+
+  Control:
+    -t, --threads       INT   Number of threads to use. [4]
+    -b, --winbatch      INT   Size of the batch in which to process windows. After a batch is finished, consensus of
+                              the windows is joined and output to file. [20000]
+        --num-batches   INT   The number of batches which to process [-1]
+        --start-window  INT   ID of the window to start processing from. [0]
+        --erc            -    Perform error-correction instead of contig consensus. The only difference is in the type
+                              of parallelization to achieve better performance. [false]
+
+  Alignment:
+    -M, --match         INT   Match score (positive value). [5]
+    -X, --mismatch      INT   Mismatch penalty (negative value expected). [-4]
+    -G, --gapopen       INT   Gap open penalty (negative value expected). [-8]
+    -E, --gapext        INT   Gap extend penalty (negative value expected). [-6]
+
+  Other:
+    -v, --verbose       INT   Verbose level. 0 off, 1 low, 2 medium, 3 high, 4 and 5 all levels, 6-9 debug. [5]
+
+  Other options:
+    -h, --help           -    View this help. [false]
 ```
