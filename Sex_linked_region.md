@@ -698,10 +698,31 @@ Want to go with `Primer pair 4` and `Primer pair 7` to make sure I get this regi
 
 Primers using Geneious (difficulties using primer-blast from NCBI). Best seem
 ```
-ATGCCCCAAACCATGACCAT
-ATAATGCCGGGGGTAATGCC
+ATGCCCCAAACCATGACCAT (forw)
+GGCATTACCCCCGGCATTAT (rev)
 ```
-Product size 526 (508 -> 1033)
+Product size 526 (508 -> 1033). Rev found 2 times so need a new pair
+
+```
+Primer pair 2
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GATGCCACAAACATGCCCAG	Plus	20	625	644	60.11	55.00	4.00	1.00
+Reverse primer	CACGGCATTACCCGCA	Minus	16	1000	985	57.11	62.50	3.00	0.00
+Product length	376
+
+Primer pair 5
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	CCATGAACGCCATGACCTCT	Plus	20	524	543	60.11	55.00	4.00	2.00
+Reverse primer	CACGGCATTACCCGCA	Minus	16	1000	985	57.11	62.50	3.00	0.00
+Product length	477
+
+Primer pair 7
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	TCTGATGCCACAAACATGCC	Plus	20	622	641	59.11	50.00	4.00	1.00
+Reverse primer	CACGGCATTACCCGCA	Minus	16	1000	985	57.11	62.50	3.00	0.00
+Product length	379
+```
+The best pair seems to be `Primer pair 7` even though the reverse is pretty small...
 
 - `scaffold_159590` (ZW Chr.07) - position 669
 
