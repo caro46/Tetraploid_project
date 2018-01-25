@@ -83,3 +83,10 @@ Trying to run for 2 days limit:
 /home/cauretc/project/cauretc/programs/LoRDEC-0.5.3-Source/build/tools/lordec-correct -2 /home/cauretc/scratch/lordec_analysis/input_metalist_small_med_lib.txt -k 19 -s 3 -a 100000 -i /home/cauretc/scratch/pacbio_mellotrop/multi_files/Sequel.RunS005.001.BJE3652.fasta.gz -o /home/cauretc/scratch/lordec_analysis/small_med_lib/BJE3652.RunS005.001.subreads.lordec_small_med_lib.fasta &> /home/cauretc/scratch/lordec_analysis/small_med_lib/lordec.log
 ```
 Started 4 of them since the queue seems to be long but I need the ressources I asked and maybe more so we need to wait (jan.23/18). The output name has been change depending on the input name (i.e. `Sequel.RunS005.002.BJE3652.fasta.gz` -> `BJE3652.RunS005.002.subreads.lordec_small_med_lib.fasta`, `lordec2.log`)
+
+Ended with this error message (25/01/2018):
+```
+/var/spool/slurmd/job4435309/slurm_script: line 15: 25010 Segmentation fault      (core dumped) /home/cauretc/project/cauretc/programs/LoRDEC-0.5.3-Source/build/tools/lordec-correct -2 /home/cauretc/scratch/lordec_analysis/input_metalist_small_med_lib.txt -k 19 -s 3 -a 100000 -i /home/cauretc/scratch/pacbio_mellotrop/multi_files/Sequel.RunS005.001.BJE3652.fasta.gz -o /home/cauretc/scratch/lordec_analysis/small_med_lib/BJE3652.RunS005.001.subreads.lordec_small_med_lib.fasta &>/home/cauretc/scratch/lordec_analysis/small_med_lib/lordec.log
+slurmstepd: error: Exceeded step memory limit at some point.
+```
+A lot of intermediary outputs - deleted (25/01)
