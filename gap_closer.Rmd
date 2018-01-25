@@ -25,6 +25,8 @@ The `/home/cauretc/scratch/gap_closer/merged.fasta.gz` was copied from iqaluk an
 
 Went out of memory (22/01/18) but except that everything seemed to work fine. I'll allow for more memory and will use only small/medium size libraries (i.e 180 - 1st library, 400 and 1000bp) - will try on running for 1 day with 200Gb memory (some nodes have a lot of memory) - directly started on cedar. OK so finished without error in ~6h but the fasta headers are weird. Not sure what is the issue, I'll try with unzipping the fasta assembly.
 
+Checked the output file during the run and the headers seem fine now (25/01/18) so the assembly needs to be unzipped but it is ok to have gzipped fastq reads.
+
 # Alternatives
 
 Best alternative for now (23/01/18): GapFiller. Let's wait to see GapCloser outputs.
