@@ -10,6 +10,15 @@ Downloaded like specify on the github page:
 git clone https://github.com/lh3/minimap && (cd minimap && make) #0.2-r124-dirty
 git clone https://github.com/lh3/miniasm && (cd miniasm && make) #0.2-r168-dirty
 ```
+
+So there is a younger version `minimap2` that I would try since it can directly handle gzipped files and has probably some bugs fixed.
+The [manual](https://lh3.github.io/minimap2/minimap2.html) for specific options, [github page](https://github.com/lh3/minimap2) from where it has been downloaded
+
+```
+git clone https://github.com/lh3/minimap2
+cd minimap2 && make
+```
+
 And `racon` ([see](http://inf-biox121.readthedocs.io/en/2017/Assembly/practicals/07_Assembly_using_minasm+racon.html) for summary of commands).
 
 See `racon`'s [github page](https://github.com/isovic/racon)
