@@ -37,6 +37,8 @@ For now, tried same command as in the previous `Run` paragraph (but submitteds t
 Not clear how long it should take... this run is more to check everything is working... I might stay on queue forever (need to see if it is running tomorrow on Jan17), need to have BE opinion probably.
 So I killed the job and resubmitted for a shorter time perio using fewer tasks. I think I just need to be patient and wait (priority reason) - jan.18.
 
+Not clear why it fails. I checked the default `java` version available on cedar (`1.8.0_151`) and `canu` requires "at least 1.8.0". Trying running it again.
+
 # Falcon
 
 ## Some information
