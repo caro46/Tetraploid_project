@@ -39,6 +39,15 @@ So I killed the job and resubmitted for a shorter time perio using fewer tasks. 
 
 Not clear why it fails. I checked the default `java` version available on cedar (`1.8.0_151`) and `canu` requires "at least 1.8.0". Trying running it again.
 
+I think more and more that this software is not the solution. The amount it requires is just rediculous... I expected like 10T  because of the FAQ I previously cited... But apparently it would be more >200T!!!! See the [issue](https://github.com/marbl/canu/issues/587): this person was trying to assemble a "*2.4 Gb genome with approx >25X coverage reads on a slurm grid. In the 1-correction it used up >200TB of disk space and literally broke the cluster as it filled up the free disk to the rim*." 
+An explanation from canu people being the genome should be really repetitive. A solution suggested:
+
+```
+corMhapFilterThreshold=0.0000000002 corMhapOptions="--threshold 0.80 --num-hashes 256 --num-min-matches 3 --ordered-sketch-size 1000 --ordered-kmer-size 14 --min-olap-length 2000 --repeat-idf-scale 50"
+```
+The person seemed to have a high coverage so maybe it would less, or maybe more since bigger genome, memory needed...
+I will wait the end of run try to see if canu can at least start correctly but I think the other option using `minimap`, `minimiasm` and `racon` might be more feasible.
+
 # Falcon
 
 ## Some information
