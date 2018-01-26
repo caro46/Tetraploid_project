@@ -33,7 +33,7 @@ Does racon support fasta as reads rather than fastq files?
 Thank you in advance.*
 
 *Hello Michal,
-Racon was designed to use base quality values for better accuracy. If you do not have them, transform your FASTA file into FASTQ with uniform dummy qualities (for example, set them to '*' and disable the quality filter with '--bq -1').
+Racon was designed to use base quality values for better accuracy. If you do not have them, transform your FASTA file into FASTQ with uniform dummy qualities (for example, set them to '\*' and disable the quality filter with '--bq -1').
 Best regards,
 Robert*
 
