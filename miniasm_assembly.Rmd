@@ -30,23 +30,20 @@ The issue with the new `.bam` Sequel format is that there is not possibility of 
 
 *Hi,
 Does racon support fasta as reads rather than fastq files?
+Thank you in advance.*
 
-Thank you in advance.
-
-Hello Michal,
+*Hello Michal,
 Racon was designed to use base quality values for better accuracy. If you do not have them, transform your FASTA file into FASTQ with uniform dummy qualities (for example, set them to '*' and disable the quality filter with '--bq -1').
-
 Best regards,
-Robert
+Robert*
 
-Hi
+*Hi
 I would like to pitch in here. I am struggling for a large genome with memory issues as all my reads (400GB) are too large for the memory. Obviously, if I remove the quality information this shrinks to <200GB.
 Regarding the fact that all newer PacBio (Sequel) data do not contain quality values anymore FASTA support would be really great. By providing such an option directly in Racon instead of generating then dummy quality values instead one would save a lot of time, space and memory.
-What do you think?
+What do you think?*
 
-Hello,
+*Hello,
 sorry for the delayed response. Racon was designed to use base quality values and leaving them out might yield lower accuracy. We are in the middle of a refactor and we are considering to enable FASTA reads as input, but more evaluation is needed.
-
 Best regards,
 Robert*
 
