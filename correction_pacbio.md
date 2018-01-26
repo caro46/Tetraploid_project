@@ -59,6 +59,13 @@ Using `BBMap_37.36`
 #Std_Dev:       6156.3
 ```
 
+To estimate quickly the coverage:
+
+```
+C = R x L / G = 5278721 x 7715.4 / 3 100 000 000 ~ 13X
+```
+Where C is physical coverage, R is the total number of reads, L is (average) read length, and G is the genome size (we used the size from the *X.laevis* genome, but `allpaths` estimated the genome size ~2.8Gb which would mean ~14.5X coverage).
+
 # LoRDEC
 
 ```
