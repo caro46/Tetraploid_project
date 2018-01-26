@@ -42,6 +42,23 @@ For the same amount of data, LoRMA requires more computing resources and more ti
 
 [Here](https://hal.inria.fr/hal-01463694/document) is a comparison of some programs. The best one for us seems to be LoRDEC since in theory it doesn't use that much memory, handle multiple input files and have pretty good results and the running time doesn't sound unreasonable. For jabba for example, we will probably need to concatenate a subset/all of the files to run it
 
+# Statistics about reads
+
+Using `BBMap_37.36`
+```
+ /work/cauretc/programs/bbmap/readlength.sh in=BJE3652.all.subreads.nolengthlimit.q30.fastq.gz out=histogram.txt max=100000
+```
+```
+#Reads: 5278721
+#Bases: 40727210029
+#Max:   81750
+#Min:   50
+#Avg:   7715.4
+#Median:        6370
+#Mode:  180
+#Std_Dev:       6156.3
+```
+
 # LoRDEC
 
 ```
