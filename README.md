@@ -32,6 +32,14 @@ The Sequel Pacbio reads we have are in the new `.bam` format. Most of the availa
 
 ### [Correcting Pacbio reads](https://github.com/caro46/Tetraploid_project/blob/master/correction_pacbio.md)
 
-## 3- [Pseudomolecules](https://github.com/caro46/Tetraploid_project/blob/master/pseudomolecules.md)
+## 3- Assembly improvement
 
-## 4- Assembly quality assessment: [Quast](https://github.com/caro46/Tetraploid_project/blob/master/Quality_assembly_assesment.md)
+- [GapCloser](https://github.com/caro46/Tetraploid_project/blob/master/gap_closer.Rmd#soapdenovo2-gapcloser)
+
+- Quiver
+
+- Pilon 
+
+## 4- [Pseudomolecules](https://github.com/caro46/Tetraploid_project/blob/master/pseudomolecules.md)
+
+## 5- Assembly quality assessment: [Quast](https://github.com/caro46/Tetraploid_project/blob/master/Quality_assembly_assesment.md)
