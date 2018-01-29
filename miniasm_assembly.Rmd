@@ -1,6 +1,10 @@
 # Download and references
 
-See [Li 2016](https://academic.oup.com/bioinformatics/article/32/14/2103/1742895#95424972) for `miniasm` and `minimap`'s publication and [Vaser et al. 2017](http://genome.cshlp.org/content/27/5/737.full) to justify pipeline `minimap`/`miniasm`/`racon`.
+See [Li 2016](https://academic.oup.com/bioinformatics/article/32/14/2103/1742895#95424972) for `miniasm` and `minimap`'s publication and [Vaser et al. 2017](http://genome.cshlp.org/content/27/5/737.full) to justify pipeline `minimap`/`miniasm`/`racon`. Li 2016 and Vaser et al. 2017 highlight that miniasm is not currently adapted for long repeat genome and can cause crashes due to high memory use... However not sure how it can be worse than other softwares... Some people are trying to use it for larger genome, like plants, at least for parts of a pipeline, in this [issue](https://github.com/lh3/miniasm/issues/3) 
+
+*It took minimap about 18 hours to find all the overlaps between 5,852,650 reads (52.6 Gbases). Thats really quick!*
+
+See the results on a [fish assembly](http://genoweb.toulouse.inra.fr/~klopp/Ljubljana2017/Pacbio_assembly_Ljubljana2.pdf), a lab also tried for the [oyster assembly](https://faculty.washington.edu/sr320/?p=13602). Still smaller genome than ours but might be some hope... Vaser et al. 2017 hilighted the fact that `miniasm` can be useful for large genomes...So we should at least try.
 
 [Li's github page](https://github.com/lh3/miniasm)
 
