@@ -48,6 +48,16 @@ corMhapFilterThreshold=0.0000000002 corMhapOptions="--threshold 0.80 --num-hashe
 The person seemed to have a high coverage so maybe it would less, or maybe more since bigger genome, memory needed...
 I will wait the end of run try to see if canu can at least start correctly but I think the other option using `minimap`, `minimiasm` and `racon` might be more feasible.
 
+Note 29/01/18:
+
+So again error when tried to run it:
+```
+ERROR:  mhap overlapper requires java version at least 1.8.0; you have unknown (from 'java').
+ERROR:  'java -showversion' reports:
+```
+I checked again with `java -version` and `java -showversion` (good version: `1.8.0_151`). Some people had similar issues and discussed on [github](https://github.com/marbl/canu/issues/329) and [there](https://github.com/marbl/canu/issues/144). It seems to be that maybe it is not the same version on head node and compute node or that the version is not loaded on the compute node. So I added `module load java/1.8.0_151` in the bash submission script before the canu command and try to launch a run again (29/01/18).
+
+
 # Falcon
 
 ## Some information
