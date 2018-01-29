@@ -1,0 +1,33 @@
+# Introduction
+
+## Pacbio
+
+Main idea being finding discordances between reads and assembly, then correct the assembly.
+
+For a comparison of Plurality, Quiver and Arrow, see [PacificBiosciences github page](https://github.com/PacificBiosciences/GenomicConsensus/blob/develop/doc/FAQ.rst). Main idea (from the github page): 
+
+- *Plurality is a very simple variant calling algorithm: it stacks up the aligned reads (alignment as produced by BLASR, or alternate mapping tool), and for each column under a reference base, calls the most abundant (i.e., the plurality) read base (or bases, or deletion) as the consensus at that reference position*
+
+- *Quiver is a more sophisticated algorithm that finds the maximum quasi-likelihood template sequence given PacBio reads of the template. PacBio reads are modeled using a conditional random field approach that scores the quasi-likelihood of a read given a template sequence. In addition to the base sequence of each read, Quiver uses several additional QV covariates that the basecaller provides. Using these covariates provides additional information about each read, allowing more accurate consensus calls.*
+
+- *Arrow is a newer model intended to supercede Quiver in the near future. The key differences from Quiver are that it uses an HMM model instead of a CRF, it computes true likelihoods, and it uses a smaller set of covariates. We expect a whitepaper on Arrow to be available soon.*
+
+More information on how to run the program on [QuiverGrid page](https://github.com/skoren/QuiverGrid) and [ArrowGrid](https://github.com/skoren/ArrowGrid).
+
+Arrow seems to be the one to go with.
+
+## Short reads
+
+# [Pilon](https://github.com/broadinstitute/pilon/wiki)
+
+From the publication [Walker et al. 2014](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0112963)
+
+*Pilon works with many types of sequence data, but is particularly strong when supplied with paired end data from two Illumina libraries with small e.g., 180 bp and large e.g., 3–5 Kb inserts*
+
+Issue: made for microbes.
+
+From the [Broad Institute wiki page](https://github.com/broadinstitute/pilon/wiki/Requirements-&-Usage)
+
+*Larger genomes will require more memory to process; exactly how much is very data-dependent, but as a rule of thumb, try to allocate 1GB per megabase of input genome to be processed.*
+
+
