@@ -148,7 +148,8 @@ When checking the output, didn't seem to work. Let's try directly from `.bam`
 ```
 /work/cauretc/programs/bbmap/reformat.sh in=Sequel.RunS005.001.BJE3652.subreads.bam out=stdout.fa | reformat.sh in=stdin.fa out=Sequel.RunS005.001.BJE3652.subreads.q30.fq.gz qfake=30
 ```
-Still not working `?` everywhere. So let's use the `BJE3652.all.subreads30qfake.fq.gz` and set `racon` as `--bq -1` to disable the quality check
+Still not working `?` everywhere. So let's use the `BJE3652.all.subreads30qfake.fq.gz` and set `racon` as `--bq -1` to disable the quality check. See the issue on the [racon github page](https://github.com/isovic/racon/issues/28)
+
 ```
 bin/racon [options] <reads.fastq> <overlaps.paf> <raw_contigs.fasta> <out_consensus.fasta>
 
