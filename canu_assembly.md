@@ -56,6 +56,7 @@ ERROR:  mhap overlapper requires java version at least 1.8.0; you have unknown (
 ERROR:  'java -showversion' reports:
 ```
 I checked again with `java -version` and `java -showversion` (good version: `1.8.0_151`). Some people had similar issues and discussed on [github](https://github.com/marbl/canu/issues/329) and [there](https://github.com/marbl/canu/issues/144). It seems to be that maybe it is not the same version on head node and compute node or that the version is not loaded on the compute node. So I added `module load java/1.8.0_151` in the bash submission script before the canu command and try to launch a run again (29/01/18).
+Still didn't work. So trying within the canu command to add `java` path as suggested by the authors in some github issues, like that `java=/usr/bin/java` (start a checking run with `#SBATCH --time=00:01:00` on jan30/18).
 
 
 # Falcon
