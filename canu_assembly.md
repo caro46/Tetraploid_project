@@ -59,6 +59,12 @@ I checked again with `java -version` and `java -showversion` (good version: `1.8
 Still didn't work. So trying within the canu command to add `java` path as suggested by the authors in some github issues, like that `java=/usr/bin/java` (start a checking run with `#SBATCH --time=00:01:00` on jan30/18).
 If it is still not working, I'll try `useGrid=false` to force the program on not using a grid environment that seems to have fixed some other users similar problems (when the `java` path isn't working).
 
+**Info to consider:** So there is a new issue on the [canu github page](https://github.com/marbl/canu/issues/767) about what to expect as ressources needed for a 2.2 Gb plant genome assembly (~ 80% repetitive):
+
+*~40Tb space, ~300 gb RAM and >100-200 dedicated CPUs for 2-3 months might be a good start under default parameters.*
+
+Ccl: no way we can use Canu... 
+
 # Falcon
 
 ## Some information
