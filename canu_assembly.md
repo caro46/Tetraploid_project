@@ -59,6 +59,15 @@ I checked again with `java -version` and `java -showversion` (good version: `1.8
 Still didn't work. So trying within the canu command to add `java` path as suggested by the authors in some github issues, like that `java=/usr/bin/java` (start a checking run with `#SBATCH --time=00:01:00` on jan30/18).
 If it is still not working, I'll try `useGrid=false` to force the program on not using a grid environment that seems to have fixed some other users similar problems (when the `java` path isn't working).
 
+Note 31/01/18:
+
+Since `canu` starts by correcting the sequences it might be good to at least have the 1st step runni
+ng...and maybe use the outputs with another program. The java path in the command did not work either so trying with the other options specified above. Limit time: 48h.
+
+```
+/home/cauretc/project/cauretc/programs/canu/Linux-amd64/bin/canu java=/usr/bin/java useGrid=false genomeSize=3.1g corMhapFilterThreshold=0.0000000002 corMhapOptions="--threshold 0.80 --num-hashes 256 --num-min-matches 3 --ordered-sketch-size 1000 --ordered-kmer-size 14 --min-olap-length 2000 --repeat-idf-scale 50" -pacbio-raw /home/cauretc/scratch/pacbio_mellotrop/BJE3652.all.subreads.fasta.gz -p BJE3652_canu_assembly -d /home/cauretc/scratch/canu_analysis >/home/cauretc/scratch/canu_jantest.log
+```
+
 **Info to consider:** So there is a new issue on the [canu github page](https://github.com/marbl/canu/issues/767) about what to expect as ressources needed for a 2.2 Gb plant genome assembly (~ 80% repetitive):
 
 *~40Tb space, ~300 gb RAM and >100-200 dedicated CPUs for 2-3 months might be a good start under default parameters.*

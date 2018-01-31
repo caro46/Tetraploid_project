@@ -114,3 +114,5 @@ Ended with this error message (25/01/2018):
 slurmstepd: error: Exceeded step memory limit at some point.
 ```
 A lot of intermediary outputs - deleted (25/01)
+
+31/01/18: lauching another run to see if it can go through, testing on `Sequel.RunS005.001.BJE3652.fasta.gz` only for now, using `-s 5` in the `canu` command and `#SBATCH --time=48:00:00` and `#SBATCH --mem=100gb` in the submission script.
