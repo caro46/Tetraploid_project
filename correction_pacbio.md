@@ -16,6 +16,12 @@ Building a DBG graph with short reads then mapping the long reads onto it.
 
 Input: Pacbio fasta or fastq. Do not take advantage of paired reads but can give multiple input files, for paired end need to give them as multiple files - comma separated (see the [FAQ](http://www.lirmm.fr/~rivals/lordec/FAQ/)).
 
+## [halc](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1610-3)
+
+[Github page](https://github.com/lanl001/halc)
+
+We might want to consider this option too. It uses `LoRDEC` and `blasr` (in *ordinary* mode). It uses information from contigs to correct long reads, and also original short reads to correct short repeats. 2 modes *ordinary* and *repeat-free*, in the *repeat-free* one it filters very small alignments (< 300 bp) in the graph construction step. I'll try it in the *repeat-free* mode since on the other mode I am pretty sure it should use more memory than LoRDEC. 
+
 # Only Pacbio approach:
 Using 1 type of data. Sequencing biaised of Illumina (GC..).
 
@@ -116,3 +122,16 @@ slurmstepd: error: Exceeded step memory limit at some point.
 A lot of intermediary outputs - deleted (25/01)
 
 31/01/18: lauching another run to see if it can go through, testing on `Sequel.RunS005.001.BJE3652.fasta.gz` only for now, using `-s 5` in the `canu` command and `#SBATCH --time=48:00:00` and `#SBATCH --mem=100gb` in the submission script.
+
+# HALC
+
+```
+usage: runHALC.py [-h] [-o ORDINARY] [-r] [-b BOUNDARY] [-a] [-c COVERAGE]
+                  [-w WIDTH] [-k KMER] [-t THREADS] [-l]
+                  long_read.fa contig.fa
+```
+
+```
+python -r /home/cauretc/scratch/pacbio_mellotrop/BJE3652.all.subreads.fasta.gz final.assembly.fasta.gz 
+```
+On Jan.31/18, all sharcnet systems were done (do not include computecanada server), so I couldn't copy the assembly yet. Sounds like the inputs need to 1st be unzipped (when run it needs to make sure I can unzip it without bothering the other runs).
