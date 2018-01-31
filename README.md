@@ -30,6 +30,10 @@ The Sequel Pacbio reads we have are in the new `.bam` format. Most of the availa
 
 - [Canu and Falcon](https://github.com/caro46/Tetraploid_project/blob/master/canu_assembly.md): mostly notes for now (oct.31/17)
 
+- [minimap/miniasm/racon](https://github.com/caro46/Tetraploid_project/blob/master/miniasm_assembly.Rmd) association
+
+*Comment Jan31/18:* Only Pacbio assembly requires too much memory so except if `miniasm` uses less than expected by `canu`, we will continue trying the idea of merging "only short reads" and "only pacbio" assemblies. Most likely the most feasible option would be correcting the pacbio and uses it for scaffolding contigs from allpaths... (using SOAPdenovo maybe).
+
 ### [Correcting Pacbio reads](https://github.com/caro46/Tetraploid_project/blob/master/correction_pacbio.md)
 
 ## 3- Assembly improvement
