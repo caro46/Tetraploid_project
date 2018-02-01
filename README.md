@@ -17,6 +17,8 @@ Different methods exist: doing multiple assemblies and then try to merge them (i
 
 The Sequel Pacbio reads we have are in the new `.bam` format. Most of the available softwares for Pacbio reads were implemented before the change. Gene Meyers discussed how to convert the `.bam` raw file into a `.fastq` like files or `.fasta` files on his [blog](https://dazzlerblog.wordpress.com/command-guides/dextractor-command-guide/) to then be able to run the assemblers. See [here](https://github.com/caro46/Tetraploid_project/blob/master/dextractor.md) for the commands performed.
 
+I put more information about the Pacbio reads [there](https://github.com/caro46/Tetraploid_project/blob/master/correction_pacbio.md#statistics-about-reads): size, number of reads, estimated coverage.
+
 ### Only short reads 
 
 - [SOAPdenovo](https://github.com/caro46/Tetraploid_project/blob/master/Assembly.Rmd)
@@ -35,6 +37,10 @@ The Sequel Pacbio reads we have are in the new `.bam` format. Most of the availa
 *Comment Jan31/18:* Only Pacbio assembly requires too much memory so except if `miniasm` uses less than expected by `canu`, we will continue trying the idea of merging "only short reads" and "only pacbio" assemblies. Most likely the most feasible option would be correcting the pacbio and uses it for scaffolding contigs from allpaths... (using SOAPdenovo maybe).
 
 ### [Correcting Pacbio reads](https://github.com/caro46/Tetraploid_project/blob/master/correction_pacbio.md)
+
+- LoRDEC
+
+- HALC
 
 ## 3- Assembly improvement
 
