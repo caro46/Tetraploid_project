@@ -132,6 +132,8 @@ usage: runHALC.py [-h] [-o ORDINARY] [-r] [-b BOUNDARY] [-a] [-c COVERAGE]
 ```
 
 ```
-python -r /home/cauretc/scratch/pacbio_mellotrop/BJE3652.all.subreads.fasta.gz final.assembly.fasta.gz 
+/home/cauretc/project/cauretc/programs/halc/runHALC.py -r -l /home/cauretc/scratch/HALC_analysis/BJE3652.all.subreads.fasta /home/cauretc/scratch/final.assembly.fasta 
 ```
 On Jan.31/18, all sharcnet systems were done (do not include computecanada server), so I couldn't copy the assembly yet. Sounds like the inputs need to 1st be unzipped (when run it needs to make sure I can unzip it without bothering the other runs).
+
+OK so on Feb.1, still issue with sharcnet, but had a copy on the computer of the Allpaths assembly so submitted the run today for `#SBATCH --time=24:00:00` and `#SBATCH --mem=100gb`. I updated the command above. According to the `squeue`, should start running tomorrow (Feb.2) early morning so will see if it is working.
