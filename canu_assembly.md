@@ -72,11 +72,14 @@ ng...and maybe use the outputs with another program. The java path in the comman
 
 *~40Tb space, ~300 gb RAM and >100-200 dedicated CPUs for 2-3 months might be a good start under default parameters.*
 
+Ccl: no way we can use Canu...
+
 Note 2/2/18:
 
 Trying with [download](https://www.java.com/en/download/manual.jsp) `java v1.8.0_161` for local installation and run again specifying the path in the command.  
 
-Ccl: no way we can use Canu... 
+Still having trouble, try again with the grid, if not working, need to try `useGrid=false` with `ovsMethod=sequential`.
+The issue seems to come when I submit on a compute node. They should fix that.
 
 # Falcon
 
