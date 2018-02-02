@@ -105,6 +105,8 @@ So trying now with `maxMemory=16 maxThreads=1`, hopefully that fixes everything.
 It looks like it is only a memory/theads issue. Need probably to specify that for every step. For now trying `Change merylMemory and/or merylThreads`. But then if it seems to only be a RAM issues, can increase more.
 For now, trying with `maxMemory=64 maxThreads=2 merylMemory=64 merylThreads=2`.
 
+So I think we are ready for a long run now, set for `#SBATCH --time=7-00:00:00`. Need to regularly check on the space used when the job will be running (submitted on Feb.2/2018).
+
 # Falcon
 
 ## Some information
