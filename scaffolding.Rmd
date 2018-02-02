@@ -2,6 +2,12 @@
 
 As suggested in a [github issue](https://github.com/bcgsc/LINKS/issues/15), needed to comment out 
 ```
+Is /usr/lib/perl5/core_perl/CORE the correct path matching your version of PERL?
+
+Also, keep in mind you do not need the Bloom filter functionality if you are only going to use LINKS pipelined with ARCS or ARKS:
+
+You could simply comment out these lines (if only using LINKS with ARC/KS):
+
 #use lib "$FindBin::Bin/./lib/bloomfilter/swig";
 #use BloomFilter;
 ```
