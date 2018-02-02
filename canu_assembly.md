@@ -82,6 +82,26 @@ Still having trouble, try again with the grid, if not working, need to try `useG
 The issue seems to come when I submit on a compute node. They should fix that.
 OK even weirder: as suggested by Brian: checked if the module for java was correctly loaded, and check was is inside my path. In theory it should work... Tried again with module but without any path specified in the command.
 
+So previously, I tried loading `module load java/1.8.0_121` but loading the default version again with load seems to work `module load java`. New issue though:
+```
+-- ERROR
+-- ERROR
+-- ERROR  Found 1 machine configuration:
+-- ERROR    class0 - 1 machines with 32 cores with 126 GB memory each.
+-- ERROR
+-- ERROR  Task bat can't run on any available machines.
+-- ERROR  It is requesting:
+-- ERROR    batMemory=128-512 memory (gigabytes)
+-- ERROR    batThreads=8-32 threads
+-- ERROR
+-- ERROR  No available machine configuration can run this task.
+-- ERROR
+-- ERROR  Possible solutions:
+-- ERROR    Change batMemory and/or batThreads
+-- ERROR
+```
+So trying now with `maxMemory=16 maxThreads=1`, hopefully that fixes everything... And it is only the beginning, we won't probably be able to run the whole pipeline because of memory... 
+
 # Falcon
 
 ## Some information
