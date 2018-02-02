@@ -1,0 +1,8 @@
+# [LINKS](https://github.com/bcgsc/LINKS)
+
+As suggested in a [github issue](https://github.com/bcgsc/LINKS/issues/15), needed to comment out 
+```
+#use lib "$FindBin::Bin/./lib/bloomfilter/swig";
+#use BloomFilter;
+```
+Couldn't make the script run without error even with having everything needed in the path and also specified using `perl -I`.
