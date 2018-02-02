@@ -102,6 +102,9 @@ So previously, I tried loading `module load java/1.8.0_121` but loading the defa
 ```
 So trying now with `maxMemory=16 maxThreads=1`, hopefully that fixes everything... And it is only the beginning, we won't probably be able to run the whole pipeline because of memory... 
 
+It looks like it is only a memory/theads issue. Need probably to specify that for every step. For now trying `Change merylMemory and/or merylThreads`. But then if it seems to only be a RAM issues, can increase more.
+For now, trying with `maxMemory=64 maxThreads=2 merylMemory=64 merylThreads=2`.
+
 # Falcon
 
 ## Some information
