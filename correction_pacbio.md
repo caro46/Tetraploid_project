@@ -154,3 +154,13 @@ make
 make blasr
 ```
 Copying didn't work either. Some issues with the versions available on cedar to compile. SO seems like it was a connection issue... Tried again, no success. I'll try later if LoRDEC or Canu doesn't work since it also produces a lot of files when trying to install.
+```
+export HDF5_INC=$EBROOTHDF5/include && export HDF5_LIB=$EBROOTHDF5/lib
+git clone git://github.com/PacificBiosciences/pitchfork
+cd pitchfork
+module load gcc/6.4.0
+make PREFIX=/home/cauretc/project/cauretc/programs/pitchfork blasr
+make init PREFIX=/home/cauretc/project/cauretc/programs/pitchfork 
+make PREFIX=/home/cauretc/project/cauretc/programs/pitchfork blasr
+```
+
