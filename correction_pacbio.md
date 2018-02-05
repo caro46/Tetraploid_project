@@ -153,4 +153,4 @@ make init
 make
 make blasr
 ```
-Copying didn't work either. Some issues with the versions available on cedar to compile. SO seems like it was a connection issue...
+Copying didn't work either. Some issues with the versions available on cedar to compile. SO seems like it was a connection issue... Tried again, no success. I'll try later if LoRDEC or Canu doesn't work since it also produces a lot of files when trying to install.
