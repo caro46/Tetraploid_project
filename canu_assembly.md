@@ -107,6 +107,13 @@ For now, trying with `maxMemory=64 maxThreads=2 merylMemory=64 merylThreads=2`.
 
 So I think we are ready for a long run now, set for `#SBATCH --time=7-00:00:00`. Need to regularly check on the space used when the job will be running (submitted on Feb.2/2018).
 
+Note Feb5/18:
+
+Job started running during the weekend without error. If stops before the end, should be able to start where it stops by resubmitted the same command, see the issue on [github](https://github.com/marbl/canu/issues/339):
+
+Answer from `brianwalenz`:
+*You can just restart the same canu command and it will pick up where it left off.*
+
 # Falcon
 
 ## Some information
