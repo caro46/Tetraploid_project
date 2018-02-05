@@ -137,3 +137,18 @@ usage: runHALC.py [-h] [-o ORDINARY] [-r] [-b BOUNDARY] [-a] [-c COVERAGE]
 On Jan.31/18, all sharcnet systems were done (do not include computecanada server), so I couldn't copy the assembly yet. Sounds like the inputs need to 1st be unzipped (when run it needs to make sure I can unzip it without bothering the other runs).
 
 OK so on Feb.1, still issue with sharcnet, but had a copy on the computer of the Allpaths assembly so submitted the run today for `#SBATCH --time=24:00:00` and `#SBATCH --mem=100gb`. I updated the command above. According to the `squeue`, should start running tomorrow (Feb.2) early morning so will see if it is working.
+
+Note Feb.5/18:
+
+During the weekend, job failed because `-t/--threads` is required, resubmitted again.
+Failed again because of `blasr` missing (thought it was optional).
+Some trouble to install `blasr` (what worked on Iqaluk, doesn't here, probably some modules missing)- eneded up dopying from sharcnet. To see how it was installed, see the pitchfork part of the [DBG2OLC page](https://github.com/caro46/Tetraploid_project/blob/master/DBG2OLC_run.md#installing-blasr-for-consensus-step). The "normal" `hdf5` module cannot be loaded with the `gcc/6.4.0` which is necessary for the `pitchfork` version of blasr. I can install `hdf5` again but not necessary and still other issues/conflicts when tried to do so... The following commands was the last try that didn't work before copying the `blasr.5.3.` installed on sharcnet. People always have various issues when trying to install `blasr`.
+```
+module load nixpkgs/16.09  gcc/6.4.0 
+module load hdf5-mpi
+git clone git://github.com/PacificBiosciences/pitchfork
+make init
+make
+make blasr
+```
+
