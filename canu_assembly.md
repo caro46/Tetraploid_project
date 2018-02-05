@@ -8,10 +8,29 @@ xz -dc canu-1.5.*.tar.xz |tar -xf -
 ```
 Executable programs in `/work/ben/canu-1.5/Linux-amd64/bin`.
 
+## Usage
+
+```
+usage:   canu [-version] [-citation] \
+              [-correct | -trim | -assemble | -trim-assemble] \
+              [-s <assembly-specifications-file>] \
+               -p <assembly-prefix> \
+               -d <assembly-directory> \
+               genomeSize=<number>[g|m|k] \
+              [other-options] \
+              [-pacbio-raw |
+               -pacbio-corrected |
+               -nanopore-raw |
+               -nanopore-corrected] file1 file2 ...
+
+example: canu -d run1 -p godzilla genomeSize=1g -nanopore-raw reads/*.fasta.gz
+```
+By default `minReadLength=1000`, `rawErrorRate=0.300` for Pacbio, `minOverlapLength=500`. Reads can be either FASTA or FASTQ format, uncompressed, or compressed with gz, bz2 or xz.
+
 ## Run
 Using the fasta format obtained from `dextract`
 ```
-xport PATH=/usr/lib/jvm/java-1.8.0-openjdk.x86_64/bin:$PATH
+export PATH=/usr/lib/jvm/java-1.8.0-openjdk.x86_64/bin:$PATH
 /work/ben/canu-1.5/Linux-amd64/bin/canu -p mellotropicalis_pacbio -d /work/ben/Mellotropicalis_corrected_data/canu_assembly genomeSize=3.1g -pacbio-raw /scratch/ben/mellotropicalis_pacbio_temp/*.fasta.gz
 ```
 Try with different parameters on wobbie (`wobbie101`)
