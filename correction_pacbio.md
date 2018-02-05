@@ -144,7 +144,7 @@ Note Feb.5/18:
 
 During the weekend, job failed because `-t/--threads` is required, resubmitted again.
 Failed again because of `blasr` missing (thought it was optional).
-Some trouble to install `blasr` (what worked on Iqaluk, doesn't here, probably some modules missing)- eneded up dopying from sharcnet. To see how it was installed, see the pitchfork part of the [DBG2OLC page](https://github.com/caro46/Tetraploid_project/blob/master/DBG2OLC_run.md#installing-blasr-for-consensus-step). The "normal" `hdf5` module cannot be loaded with the `gcc/6.4.0` which is necessary for the `pitchfork` version of blasr. I can install `hdf5` again but not necessary and still other issues/conflicts when tried to do so... The following commands was the last try that didn't work before copying the `blasr.5.3.` installed on sharcnet. People always have various issues when trying to install `blasr`.
+Some trouble to install `blasr` (what worked on Iqaluk, doesn't here, probably some modules missing)- ended up copying from sharcnet. To see how it was installed, see the pitchfork part of the [DBG2OLC page](https://github.com/caro46/Tetraploid_project/blob/master/DBG2OLC_run.md#installing-blasr-for-consensus-step). The "normal" `hdf5` module cannot be loaded with the `gcc/6.4.0` which is necessary for the `pitchfork` version of blasr. I can install `hdf5` again but not necessary and still other issues/conflicts when tried to do so... The following commands was the last try that didn't work before copying the `blasr.5.3.` installed on sharcnet. People always have various issues when trying to install `blasr`.
 ```
 module load nixpkgs/16.09  gcc/6.4.0 
 module load hdf5-mpi
@@ -153,4 +153,4 @@ make init
 make
 make blasr
 ```
-
+Copying didn't work either. Some issues with the versions available on cedar to compile. SO seems like it was a connection issue...
