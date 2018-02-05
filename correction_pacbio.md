@@ -123,6 +123,8 @@ A lot of intermediary outputs - deleted (25/01)
 
 31/01/18: lauching another run to see if it can go through, testing on `Sequel.RunS005.001.BJE3652.fasta.gz` only for now, using `-s 5` in the `canu` command and `#SBATCH --time=48:00:00` and `#SBATCH --mem=100gb` in the submission script.
 
+5/02/18: not enough time to finish. But enough to produce the `.h5` file that we we can use as an input and gain some time (`input_metalist_small_med_lib.h5` instead of `input_metalist_small_med_lib.txt`). Submitted again, this time using the `.h5` and on the 2nd pacbio file (submitted when the other was still running): for 4 days, 3 threats. 
+
 # HALC
 
 ```
