@@ -124,8 +124,19 @@ A lot of intermediary outputs - deleted (25/01)
 31/01/18: lauching another run to see if it can go through, testing on `Sequel.RunS005.001.BJE3652.fasta.gz` only for now, using `-s 5` in the `canu` command and `#SBATCH --time=48:00:00` and `#SBATCH --mem=100gb` in the submission script.
 
 5/02/18: not enough time to finish. But enough to produce the `.h5` file that we we can use as an input and gain some time (`input_metalist_small_med_lib.h5` instead of `input_metalist_small_med_lib.txt`). Submitted again, this time using the `.h5` and on the 2nd pacbio file (submitted when the other was still running): for 4 days, 3 threats. 
-When you submit using the `.h5`, in the command you need to not specify the extension (resubmitted after a failaure on 6/02/18).
+When you submit using the `.h5`, in the command you need to not specify the extension (resubmitted after a failure on 6/02/18).
 
+7/02/18:
+```
+HDF5-DIAG: Error detected in HDF5 (1.8.11) thread 0:
+  #000: /home/cauretc/project/cauretc/programs/LoRDEC-0.5.3-Source/thirdparty/gatb-core/thirdparty/hdf5/src/H5F.c line 1582 in H5Fopen(): unable to open file
+    major: File accessibilty
+    minor: Unable to open file
+```
+Not sure what is the issue. Nowhere real discussion of issues with the program. Trying to 1st build the graph with the actual command, in case last time the failure corrupted the file
+```
+/home/cauretc/project/cauretc/programs/LoRDEC-0.5.3-Source/build/tools/lordec-build-SR-graph -T 3 -2 /home/cauretc/scratch/lordec_analysis/input_metalist_small_med_lib.txt -k 19 -s 5 -a 100000 -g /home/cauretc/scratch/lordec_analysis/small_med_lib/input_metalist_small_med_lib_SRgraph &> /home/cauretc/scratch/lordec_analysis/small_med_lib/lordecgraph.log
+```
 # HALC
 
 ```
