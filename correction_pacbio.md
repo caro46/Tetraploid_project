@@ -137,7 +137,7 @@ Not sure what is the issue. Nowhere real discussion of issues with the program. 
 ```
 /home/cauretc/project/cauretc/programs/LoRDEC-0.5.3-Source/build/tools/lordec-build-SR-graph -T 3 -2 /home/cauretc/scratch/lordec_analysis/input_metalist_small_med_lib.txt -k 19 -s 5 -a 100000 -g /home/cauretc/scratch/lordec_analysis/small_med_lib/input_metalist_small_med_lib_SRgraph &> /home/cauretc/scratch/lordec_analysis/small_med_lib/lordecgraph.log
 ```
-8/02/18: the run to produce the graph seems to be going well. No error message. Seems to again have issue with the scheduler - cannot submit or check on jobs. Hopefully nothing else is wrong but if again we can't use our `.h5` file, we should 1st rerun the command in case it is because of an error of the server that somehow corrupted the file.
+8/02/18: the run to produce the graph seems to be going well. No error message. Seems to again have issue with the scheduler - cannot submit or check on jobs. Hopefully nothing else is wrong but if again we can't use our `.h5` file, we should 1st rerun the command in case it is because of an error of the server that somehow corrupted the file. Job finished in ~3h. - lauched another run of correction using this file.
 
 # HALC
 
