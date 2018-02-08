@@ -12,3 +12,15 @@ You could simply comment out these lines (if only using LINKS with ARC/KS):
 #use BloomFilter;
 ```
 Couldn't make the script run without error even with having everything needed in the path and also specified using `perl -I`.
+
+# [OPERA-LG](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0951-y)
+
+[Dependencies](https://sourceforge.net/p/operasf/wiki/The%20OPERA%20wiki/) (for version v2.0.6)
+
+- samtools (only version 0.1.19 or below)
+
+- bwa
+
+- blasr (only version 1.3.1 or below)
+
+I haven't been able to install `blasr` on cedar yet. 
