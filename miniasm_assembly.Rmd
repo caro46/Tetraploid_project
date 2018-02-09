@@ -209,8 +209,26 @@ The trying run failed because of `OUT_OF_MEMORY` (on 27/01/18). Previously I sub
 /home/cauretc/project/cauretc/programs/minimap2/minimap2 -w5 -L100 -t3 /home/cauretc/scratch/pacbio_mellotrop/raw_bam/BJE3652.all.subreads.nolengthlimit.q30.fastq.gz /home/cauretc/scratch/pacbio_mellotrop/raw_bam/BJE3652.all.subreads.nolengthlimit.q30.fastq.gz > /home/cauretc/scratch/miniasm/Only_pacbio_mellotrop_minimap.paf
 gzip -1 /home/cauretc/scratch/miniasm/Only_pacbio_mellotrop_minimap.paf
 ```
+Some issue getting empty files from `miniasm`, with `minimap2` we can use `-x ava-pb` which contains adviced parameters when aligning pacbio reads against themselves - launch it on 9/2/18 for 3 days.
+```
+/home/cauretc/project/cauretc/programs/minimap2/minimap2 minimap2 -x ava-pb -t3 /home/cauretc/scratch/pacbio_mellotrop/raw_bam/BJE3652.all.subreads.nolengthlimit.q30.fastq.gz /home/cauretc/scratch/pacbio_mellotrop/raw_bam/BJE3652.all.subreads.nolengthlimit.q30.fastq.gz > /home/cauretc/scratch/miniasm/Only_pacbio_mellotrop_minimap_avapb.paf
+```
 ### miniasm
 Not sure if it handles compressed reads file (it does for the other input file `.paf.gz`). Submitted 9/02/18 for 2 days, same memory as `minimap`, `--ntasks-per-node=1` since doesn't seem to be multithreated, using the compressed reads.
+
+The job finished in less than 15 min but ended with an empty `.gfa` file. 
+
+- Trying with unzipped `.fastq` - still getting empty file. 
+
+- However, someone had the same issue and it seems to be if you have a couple of very long reads (which is our case), the [issue](https://github.com/lh3/miniasm/issues/32) was solved by doing `miniasm -e2 -n1`. - job: `4840633` output: `Only_pacbio_mellotrop_miniasm2h_1.gfa` - empty
+
+- Another issue [here](https://github.com/rrwick/Unicycler/issues/38) that highlighted the issue of poor coverage: `miniasm -c 2 -e 2`. - job: `4840334` output: `Only_pacbio_mellotrop_miniasm2h.gfa` - empty output
+
+- `miniasm -c 2 -e 2 -n 1`. - empty output
+
+- `miniasm -2` (skypping 2nd round of pre-assemble selection) - `Only_pacbio_mellotrop_miniasm_skyping2round.gfa` - empty
+
+Not sure what is going on... Let's wait until having `Only_pacbio_mellotrop_minimap_avapb.paf`.
 
 The following commands need to be run and updated if necessary whenever the `miniasm` 1st run is done.
 
