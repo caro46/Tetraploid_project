@@ -203,4 +203,11 @@ Options
 
 ## Run
 
-The trying run failed because of `OUT_OF_MEMORY` (on 27/01/18). Previously I submitted using `--ntasks-per-node=3` and `--mem=16gb`. I think for another try I'll do `--ntasks-per-node=1` and `--mem=100gb` to see if it runs. Also since `racon` needs `.fastq` files, I'll run on the `BJE3652.all.subreads.nolengthlimit.q30.fastq.gz` created by concatenating the files created using `reformat.sh` script from `bbmap` (submitted on 29/01/18). So seemed to run nicely and ended because of time issue, so submitted again for 48h (Jan30/18).
+### minimap
+The trying run failed because of `OUT_OF_MEMORY` (on 27/01/18). Previously I submitted using `--ntasks-per-node=3` and `--mem=16gb`. I think for another try I'll do `--ntasks-per-node=1` and `--mem=100gb` to see if it runs. Also since `racon` needs `.fastq` files, I'll run on the `BJE3652.all.subreads.nolengthlimit.q30.fastq.gz` created by concatenating the files created using `reformat.sh` script from `bbmap` (submitted on 29/01/18). So seemed to run nicely and ended because of time issue, so submitted again for 48h (Jan30/18). Died again because of time so submitted for 5 days on `--ntasks-per-node=4` using `--mem=100gb`, this run completed in ~2days and 15h (9/02/18).
+```
+/home/cauretc/project/cauretc/programs/minimap2/minimap2 -w5 -L100 -t3 /home/cauretc/scratch/pacbio_mellotrop/raw_bam/BJE3652.all.subreads.nolengthlimit.q30.fastq.gz /home/cauretc/scratch/pacbio_mellotrop/raw_bam/BJE3652.all.subreads.nolengthlimit.q30.fastq.gz > /home/cauretc/scratch/miniasm/Only_pacbio_mellotrop_minimap.paf
+gzip -1 /home/cauretc/scratch/miniasm/Only_pacbio_mellotrop_minimap.paf
+```
+### miniasm
+Not sure if it handles compressed reads file (it does for the other input file `.paf.gz`). Submitted 9/02/18 for 2 days, same memory as `minimap`, `--ntasks-per-node=1` since doesn't seem to be multithreated, using the compressed reads.
