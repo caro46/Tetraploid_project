@@ -222,11 +222,11 @@ gunzip -c /home/cauretc/scratch/miniasm/Only_pacbio_mellotrop_miniasm.gfa.gz | a
 ```
 /home/cauretc/project/cauretc/programs/minimap2/minimap2 Only_pacbio_mellotrop_miniasm_raw_assembly.fasta /home/cauretc/scratch/pacbio_mellotrop/raw_bam/BJE3652.all.subreads.nolengthlimit.q30.fastq.gz > Only_pacbio_mellotrop.miniasm_raw_assembly.reads_mapped.paf
 
-/home/cauretc/project/cauretc/programs/racon/bin/racon -t 3 /home/cauretc/scratch/pacbio_mellotrop/raw_bam/BJE3652.all.subreads.nolengthlimit.q30.fastq.gz Only_pacbio_mellotrop.miniasm_raw_assembly.reads_mapped.paf Only_pacbio_mellotrop_miniasm_raw_assembly.fasta Only_pacbio_mellotrop.racon1.fasta
+/home/cauretc/project/cauretc/programs/racon/bin/racon -t 3 --bq -1 /home/cauretc/scratch/pacbio_mellotrop/raw_bam/BJE3652.all.subreads.nolengthlimit.q30.fastq.gz Only_pacbio_mellotrop.miniasm_raw_assembly.reads_mapped.paf Only_pacbio_mellotrop_miniasm_raw_assembly.fasta Only_pacbio_mellotrop.racon1.fasta
 ```
 ### racon - run 2
 ```
 /home/cauretc/project/cauretc/programs/minimap2/minimap2 Only_pacbio_mellotrop.racon1.fasta /home/cauretc/scratch/pacbio_mellotrop/raw_bam/BJE3652.all.subreads.nolengthlimit.q30.fastq.gz > Only_pacbio_mellotrop.miniasm_racon1_assembly.reads_mapped.paf
 
-/home/cauretc/project/cauretc/programs/racon/bin/racon -t 3 /home/cauretc/scratch/pacbio_mellotrop/raw_bam/BJE3652.all.subreads.nolengthlimit.q30.fastq.gz Only_pacbio_mellotrop.miniasm_racon1_assembly.reads_mapped.paf Only_pacbio_mellotrop.racon1.fasta Only_pacbio_mellotrop.racon2.fasta
+/home/cauretc/project/cauretc/programs/racon/bin/racon -t 3 --bq -1 /home/cauretc/scratch/pacbio_mellotrop/raw_bam/BJE3652.all.subreads.nolengthlimit.q30.fastq.gz Only_pacbio_mellotrop.miniasm_racon1_assembly.reads_mapped.paf Only_pacbio_mellotrop.racon1.fasta Only_pacbio_mellotrop.racon2.fasta
 ```
