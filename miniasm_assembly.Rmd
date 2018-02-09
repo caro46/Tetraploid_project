@@ -211,3 +211,22 @@ gzip -1 /home/cauretc/scratch/miniasm/Only_pacbio_mellotrop_minimap.paf
 ```
 ### miniasm
 Not sure if it handles compressed reads file (it does for the other input file `.paf.gz`). Submitted 9/02/18 for 2 days, same memory as `minimap`, `--ntasks-per-node=1` since doesn't seem to be multithreated, using the compressed reads.
+
+The following commands need to be run and updated if necessary whenever the `miniasm` 1st run is done.
+
+### convert raw assembly into `.fasta`
+```
+gunzip -c /home/cauretc/scratch/miniasm/Only_pacbio_mellotrop_miniasm.gfa.gz | awk '{print ">"$2; print $3}' | gzip > Only_pacbio_mellotrop_miniasm_raw_assembly.fasta
+```
+### racon - run 1
+```
+/home/cauretc/project/cauretc/programs/minimap2/minimap2 Only_pacbio_mellotrop_miniasm_raw_assembly.fasta /home/cauretc/scratch/pacbio_mellotrop/raw_bam/BJE3652.all.subreads.nolengthlimit.q30.fastq.gz > Only_pacbio_mellotrop.miniasm_raw_assembly.reads_mapped.paf
+
+/home/cauretc/project/cauretc/programs/racon/bin/racon -t 3 /home/cauretc/scratch/pacbio_mellotrop/raw_bam/BJE3652.all.subreads.nolengthlimit.q30.fastq.gz Only_pacbio_mellotrop.miniasm_raw_assembly.reads_mapped.paf Only_pacbio_mellotrop_miniasm_raw_assembly.fasta Only_pacbio_mellotrop.racon1.fasta
+```
+### racon - run 2
+```
+/home/cauretc/project/cauretc/programs/minimap2/minimap2 Only_pacbio_mellotrop.racon1.fasta /home/cauretc/scratch/pacbio_mellotrop/raw_bam/BJE3652.all.subreads.nolengthlimit.q30.fastq.gz > Only_pacbio_mellotrop.miniasm_racon1_assembly.reads_mapped.paf
+
+/home/cauretc/project/cauretc/programs/racon/bin/racon -t 3 /home/cauretc/scratch/pacbio_mellotrop/raw_bam/BJE3652.all.subreads.nolengthlimit.q30.fastq.gz Only_pacbio_mellotrop.miniasm_racon1_assembly.reads_mapped.paf Only_pacbio_mellotrop.racon1.fasta Only_pacbio_mellotrop.racon2.fasta
+```
