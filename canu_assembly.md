@@ -133,6 +133,8 @@ Job started running during the weekend without error. If stops before the end, s
 Answer from `brianwalenz`:
 *You can just restart the same canu command and it will pick up where it left off.*
 
+11/02/18: lauched another canu assembly in the same directory after the previous run finished due to job time ended. 12/02: canu restarted from where it stopped (should run again for 7 days - all parameters the same).
+
 # Falcon
 
 ## Some information
