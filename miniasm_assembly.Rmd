@@ -241,12 +241,13 @@ Working with `Only_pacbio_mellotrop_minimap_avapb.paf` (11/02).
 ```
 awk '{print ">"$2; print $3}' Only_pacbio_mellotrop_miniasm_avapb.gfa | gzip > Only_pacbio_mellotrop_miniasm_raw_assembly.fa.gz
 ```
-Seemed to cause issue for later. Same issue as specified [here](https://github.com/isovic/racon/issues/24). Trying:
+Seemed to cause issue for later. Same issue as specified [here](https://github.com/isovic/racon/issues/24). Trying (12/02):
 ```
 awk '/^S/{print ">"$2"\n"$3}' /home/cauretc/scratch/miniasm/Only_pacbio_mellotrop_miniasm_avapb.gfa | fold > Only_pacbio_mellotrop_miniasm_raw_assembly1.fa
 
 ```
-### racon - run 1
+### racon - run 1 (12/02)
+(tried with `Only_pacbio_mellotrop_miniasm_raw_assembly.fa` on 11/02 but didn't work for racon run)
 ```
 /home/cauretc/project/cauretc/programs/minimap2/minimap2 Only_pacbio_mellotrop_miniasm_raw_assembly1.fa /home/cauretc/scratch/pacbio_mellotrop/raw_bam/BJE3652.all.subreads.nolengthlimit.q30.fastq.gz > Only_pacbio_mellotrop.miniasm_raw_assembly1.reads_mapped.paf
 
