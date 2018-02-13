@@ -5,7 +5,7 @@ cd quickmerge/
 bash make_merger.sh
 export PATH=/work/cauretc/programs/quickmerge:/work/cauretc/programs/quickmerge/MUMmer3.23:$PATH
 ```
-It was not obvious for me what is considered as reference and query. Apparently the `hybrid_assembly_fasta` is the reference and `self_assembly_fasta` is the query. So the query needs to be specified 1st, then the reference (I 1st did the opposite - updated the good commands on Jan.17). 
+It was not obvious for me what is considered as reference and query. Apparently the `hybrid_assembly_fasta` is the query and `self_assembly_fasta` is the reference. So the query needs to be specified 1st, then the reference (I 1st did the opposite - updated the good commands on Jan.17). 
 
 ```
 usage: merge_wrapper.py [-h] [-pre PREFIX] [-hco HCO] [-c C]
@@ -116,3 +116,59 @@ L50                         51722      76909           65494
 L75                         154426     178611          115454      
 # N's per 100 kbp           5404.83    6522.06         0.03 
 ```
+
+# Allpaths - miniasm
+
+Run on 13/02/18.
+
+## Run 1 - default parameters
+```
+export PATH=/work/cauretc/programs/quickmerge/:$PATH
+export PATH=/work/cauretc/programs/quickmerge/MUMmer3.23:$PATH
+
+/work/cauretc/programs/quickmerge/merge_wrapper.py /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta /work/cauretc/2017_Mellotropicalis/quickmerge_analysis/Only_pacbio_mellotrop.racon2.fa -pre allpaths_miniasm
+```
+### Quast
+```
+/work/ben/quast-4.5/quast.py /work/cauretc/2017_Mellotropicalis/quickmerge_analysis/allpaths_miniasm/merged.fasta /work/cauretc/2017_Mellotropicalis/quickmerge_analysis/Only_pacbio_mellotrop.racon2.fa /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta -o /work/cauretc/2017_Mellotropicalis/quickmerge_analysis/allpaths_miniasm/quast_results/
+
+
+All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+Suggestion: assemblies merged, final.assembly contain continuous fragments of N's of length >= 10 bp. You may consider rerunning QUAST using --scaffolds (-s) option!
+
+Assembly                    merged     Only_pacbio_mellotrop.racon2  final.assembly
+# contigs (>= 0 bp)         320223     4483                          320227        
+# contigs (>= 1000 bp)      286032     3422                          286034        
+# contigs (>= 5000 bp)      19302      1262                          19292         
+# contigs (>= 10000 bp)     1891       628                           1887          
+# contigs (>= 25000 bp)     7          25                            6             
+# contigs (>= 50000 bp)     0          2                             0             
+Total length (>= 0 bp)      607274268  20549620                      607138367     
+Total length (>= 1000 bp)   574510084  19826155                      574372221     
+Total length (>= 5000 bp)   136620834  14631285                      136492195     
+Total length (>= 10000 bp)  23548411   10081460                      23462309      
+Total length (>= 25000 bp)  184710     839429                        159305        
+Total length (>= 50000 bp)  0          112406                        0             
+# contigs                   320223     4258                          320227        
+Largest contig              30521      59729                         30521         
+Total length                607274268  20460393                      607138367     
+GC (%)                      38.79      40.68                         38.79         
+N50                         1921       9814                          1920          
+N75                         1243       4363                          1243          
+L50                         76878      644                           76909         
+L75                         178582     1417                          178611        
+# N's per 100 kbp           6520.60    0.00                          6522.06 
+```
+No improvement.
+
+## Run 2
+```
+/work/cauretc/programs/quickmerge/merge_wrapper.py /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta /work/cauretc/2017_Mellotropicalis/quickmerge_analysis/Only_pacbio_mellotrop.racon2.fa -l 9814 -lm 5000
+```
+### Quast
+```
+/work/ben/quast-4.5/quast.py /work/cauretc/2017_Mellotropicalis/quickmerge_analysis/allpaths_miniasm/merge2/merged.fasta /work/cauretc/2017_Mellotropicalis/quickmerge_analysis/Only_pacbio_mellotrop.racon2.fa /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta -o /work/cauretc/2017_Mellotropicalis/quickmerge_analysis/allpaths_miniasm/merge2/quast_results/
+```
+Same.
+
+Note: need to 1st close the gaps from allpaths assembly (submitted gapcloser on cedar on 13/02).
