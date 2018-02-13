@@ -259,3 +259,15 @@ awk '/^S/{print ">"$2"\n"$3}' /home/cauretc/scratch/miniasm/Only_pacbio_mellotro
 
 /home/cauretc/project/cauretc/programs/racon/bin/racon -t 3 --bq -1 /home/cauretc/scratch/miniasm/BJE3652.all.subreads.nolengthlimit.q30.fastq /home/cauretc/scratch/miniasm/Only_pacbio_mellotrop.miniasm_racon1_assembly.reads_mapped.paf /home/cauretc/scratch/miniasm/Only_pacbio_mellotrop.racon1.fa /home/cauretc/scratch/miniasm/Only_pacbio_mellotrop.racon2.fa
 ```
+
+### Time estimate
+
+| Steps | Time | Threats |
+|-----|-----|------|
+|minimap2 `-w5 -L100` | 2 days 15h | 3 |
+|minimap2 `-x ava-pb` | 1 day 3h | 3 |
+|miniasm | 36 min | 1 |
+|minimap2  against miniasm draft | 1h 45min | 3 |
+|racon - run1 | 2h 15min | 3 |
+|minimap2 against racon - run1 assembly | 12 min | 3 |
+|racon - run2 | 4h 20min | 3 |
