@@ -140,6 +140,10 @@ Not sure what is the issue. Nowhere real discussion of issues with the program. 
 8/02/18: the run to produce the graph seems to be going well. No error message. Seems to again have issue with the scheduler - cannot submit or check on jobs. Hopefully nothing else is wrong but if again we can't use our `.h5` file, we should 1st rerun the command in case it is because of an error of the server that somehow corrupted the file. Job finished in ~3h. - lauched another run of correction using this file.
 Before lauches the other sequences to be corrected (8 files total), I need to have an estimate of running time from at least 1 run before launches all the others.
 
+13/02/18: launched file `002` for 5 days, `nodes=2`, `ntasks-per-node=4` (8 threats)
+
+14/02/18: `Sequel.RunS005.001.BJE3652.fasta`, `536480` sequences, run completed in ~4d and 12h (4 threats). Launching the jobs for the other files `003..004` on `ntasks-per-node=5`, 5d; `005..007` on `ntasks-per-node=6` and `008` on `ntasks-per-node=8`. Change in the number in CPUs required to handle the differrence in number of sequences, the time (CPU hours/ressources) of the run depends on number of sequences.
+
 # HALC
 
 ```
