@@ -144,6 +144,15 @@ Before lauches the other sequences to be corrected (8 files total), I need to ha
 
 14/02/18: `Sequel.RunS005.001.BJE3652.fasta`, `536480` sequences, run completed in ~4d and 12h (4 threats). Launching the jobs for the other files `003..004` on `ntasks-per-node=5`, 5d; `005..007` on `ntasks-per-node=6` and `008` on `ntasks-per-node=8`. Change in the number in CPUs required to handle the differrence in number of sequences, the time (CPU hours/ressources) of the run depends on number of sequences.
 
+## Statistics about short reads
+
+| Statistics | Short reads - small insert size |
+|------|------|
+| Number of reads | 626942306 |
+| Read length | 30-101 (mean: 98.5) |
+| Number of bases | 61754340471 |
+| Insert size | 180bp (only 1st sequencing), 400bp, 1000bp |
+
 # HALC
 
 ```
