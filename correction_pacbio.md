@@ -144,6 +144,18 @@ Before lauches the other sequences to be corrected (8 files total), I need to ha
 
 14/02/18: `Sequel.RunS005.001.BJE3652.fasta`, `536480` sequences, run completed in ~4d and 12h (4 threats). Launching the jobs for the other files `003..004` on `ntasks-per-node=5`, 5d; `005..007` on `ntasks-per-node=6` and `008` on `ntasks-per-node=8`. Change in the number in CPUs required to handle the differrence in number of sequences, the time (CPU hours/ressources) of the run depends on number of sequences.
 
+## *k* choice
+
+From LoRDEC [FAQ](http://www.lirmm.fr/~rivals/lordec/FAQ/#orgheadline38):
+
+*Choosing k is an important issue. Indeed, useful k -mers for LoRDEC must be shared between the long reads and the short reads. Of course the k -mer should not be too small: k=1 is obviously inappropriate since sharing a nucleotide is not informative. At the other end, PacBio and Nanopore have many errors that prevent too long k -mers to be identical between the two read sets. So the size of k -mer is dictated more by the expected error rate of the long read technology than by the length of reads themselves (short or long), and the smallest k value allows finding more shared k -mers. The extreme lower limit is around log4(genomesize), below which searching for a k -mer in a random genome of the same size would have almost probability one to be found. So for human like genome, 18 to 20 is reasonable. Below it starts being less informative.*
+
+For us (using *X.laevis* estimated size ): `minimum = log4(3100000000) ~ 15.8`.
+
+Using size estimated from `allpaths`: `minimum = log4(2800000000) ~ 15.69`.
+
+Since many errors expected, and *k* depends on that a lot, tried using `k=19` (>16, and in the reasonable values for human - our genome bigger but since mostly depends on errors - should be a good value as a starter at least). We can then run again (on the already corrected reads) with different values, maybe another time with `k=21`... 
+
 ## Statistics about short reads
 
 | Statistics | Short reads - small insert size |
