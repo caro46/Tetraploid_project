@@ -135,6 +135,10 @@ Answer from `brianwalenz`:
 
 11/02/18: lauched another canu assembly in the same directory after the previous run finished due to job time ended. 12/02: canu restarted from where it stopped (should run again for 7 days - all parameters the same).
 
+15/02: `canu` is running the `trimming` step. But corrected reads are already available here: 
+
+`/home/cauretc/scratch/canu_analysis/BJE3652_canu_assembly.correctedReads.fasta.gz` (4.4G)
+
 # Falcon
 
 ## Some information
