@@ -139,6 +139,41 @@ Answer from `brianwalenz`:
 
 `/home/cauretc/scratch/canu_analysis/BJE3652_canu_assembly.correctedReads.fasta.gz` (4.4G)
 
+19/02: `canu` ended on 16/02 after ~12d and 6h total. Quast result below 
+
+```
+/work/ben/quast-4.5/quast.py /work/cauretc/2017_Mellotropicalis/canu_assembly/BJE3652_canu_assembly.contigs.fasta /work/cauretc/2017_Mellotropicalis/canu_assembly/BJE3652_canu_assembly.unassembled.fasta /work/cauretc/2017_Mellotropicalis/canu_assembly/BJE3652_canu_assembly.contigsANDunassembled.fa -o /work/cauretc/2017_Mellotropicalis/canu_assembly/quast_results
+
+Assembly                    BJE3652_canu_assembly.contigs  BJE3652_canu_assembly.unassembled  BJE3652_canu_assembly.contigsANDunassembled
+# contigs (>= 0 bp)         582                            81658                              82240                                      
+# contigs (>= 1000 bp)      582                            81658                              82240                                      
+# contigs (>= 5000 bp)      234                            16308                              16542                                      
+# contigs (>= 10000 bp)     73                             4317                               4390                                       
+# contigs (>= 25000 bp)     1                              2                                  3                                          
+# contigs (>= 50000 bp)     0                              0                                  0                                          
+Total length (>= 0 bp)      3179780                        277573772                          280753552                                  
+Total length (>= 1000 bp)   3179780                        277573772                          280753552                                  
+Total length (>= 5000 bp)   2136801                        137281898                          139418699                                  
+Total length (>= 10000 bp)  1023380                        54170958                           55194338                                   
+Total length (>= 25000 bp)  29449                          51569                              81018                                      
+Total length (>= 50000 bp)  0                              0                                  0                                          
+# contigs                   582                            81658                              82240                                      
+Largest contig              29449                          26049                              29449                                      
+Total length                3179780                        277573772                          280753552                                  
+GC (%)                      43.54                          42.25                              42.26                                      
+N50                         7220                           4932                               4956                                       
+N75                         4277                           2461                               2477                                       
+L50                         143                            16612                              16735                                      
+L75                         288                            36772                              37002                                      
+# N's per 100 kbp           0.00                           0.00                               0.00 
+```
+`BJE3652_canu_assembly.contigsANDunassembled.fa` obtained with:
+
+``` 
+cat BJE3652_canu_assembly.contigs.fasta BJE3652_canu_assembly.unassembled.fasta >BJE3652_canu_assembly.contigsANDunassembled.fa
+```
+A lot of reads were not used in the assembly, I concatenated `contigs` and `unassembled` to have an idea of number, length... I think we will only use `contigs`.
+
 # Falcon
 
 ## Some information
