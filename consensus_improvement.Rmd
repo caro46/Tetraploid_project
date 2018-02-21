@@ -30,4 +30,9 @@ From the [Broad Institute wiki page](https://github.com/broadinstitute/pilon/wik
 
 *Larger genomes will require more memory to process; exactly how much is very data-dependent, but as a rule of thumb, try to allocate 1GB per megabase of input genome to be processed.*
 
-
+On compute canada can be load as follow:
+```
+module load nixpkgs/16.09 pilon/1.22
+#Example of command and location of .jar file
+java -Xmx16G -jar /cvmfs/soft.computecanada.ca/easybuild/software/2017/Core/pilon/1.22/pilon-1.22.jar --genome genome.fasta [--frags frags.bam] [--jumps jumps.bam] [--unpaired unpaired.bam] --output prefix --outdir directory --diploid --threads 8
+```
