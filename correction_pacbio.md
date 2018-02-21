@@ -144,6 +144,8 @@ Before lauches the other sequences to be corrected (8 files total), I need to ha
 
 14/02/18: `Sequel.RunS005.001.BJE3652.fasta`, `536480` sequences, run completed in ~4d and 12h (4 threats). Launching the jobs for the other files `003..004` on `ntasks-per-node=5`, 5d; `005..007` on `ntasks-per-node=6` and `008` on `ntasks-per-node=8`. Change in the number in CPUs required to handle the differrence in number of sequences, the time (CPU hours/ressources) of the run depends on number of sequences.
 
+21/02/18: producing graph for long insert libraries. Will use it on the pacbio long reads already corrected by short/medium libraries to improve correction. Using the same parameters as before. Most of the pacbio files are now corrected with the short/medium insert libraries (files `002` and `007` are the last ones running).
+
 ## *k* choice
 
 From LoRDEC [FAQ](http://www.lirmm.fr/~rivals/lordec/FAQ/#orgheadline38):
