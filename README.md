@@ -53,3 +53,7 @@ I put more information about the Pacbio reads [there](https://github.com/caro46/
 ## 4- [Pseudomolecules](https://github.com/caro46/Tetraploid_project/blob/master/pseudomolecules.md)
 
 ## 5- Assembly quality assessment: [Quast](https://github.com/caro46/Tetraploid_project/blob/master/Quality_assembly_assesment.md)
+
+## 6- Potentially later analysis
+
+Ian publication on polyploid plants is interesting and we should probably speak with him for some analysis ([Moghe et al. 2014](https://www.researchgate.net/publication/262787251_Consequences_of_Whole-Genome_Triplication_as_Revealed_by_Comparative_Genomic_Analyses_of_the_Wild_Radish_Raphanus_raphanistrum_and_Three_Other_Brassicaceae_Species)).
