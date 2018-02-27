@@ -22,11 +22,13 @@ module load links/1.8.5
 
 27/02: run quast to check on new assembly statistics
 
-## 1st try - *P. glauca* parameters
+## Pacbio reads
+
+### 1st try - *P. glauca* parameters
 
 The genome of the white spruce size is ~20 Gbp. It is the biggest genome from the example set. In the example set, `LINKS` was used to re-scaffold the draft genome using another draft genome (so ~1X coverage). Having a "low" coverage from the corrected (from the canu assembly preliminary step) pacbio reads, I thought the same parameters would make sense to try as a 1st step to see how the program behave. Smaller values of `-d` and `-t` should be used later considering the poor scaffolding result but it will increase the RAM usage.
 
-### Commands
+#### Commands
 `running_links_mello_canu.sh` to run iteratively each time on the new assembly produced: parameters used: 
 
 - `-d` = `5000`, `7500`, `10000`, `12500`, `15000`, `20000`, `30000`, `40000`, `50000`, `60000`, `70000`, `80000`, `90000`, `100000` 
@@ -41,7 +43,7 @@ Some of the 1st commands run used (see [running_links_mello_canu.sh](https://git
 
 /work/cauretc/programs/links_v1.8.5/LINKS -f /work/cauretc/2017_Mellotropicalis/scaffolding_links/mellotrop_allpaths_links1.scaffolds.fa -s mellotrop_pacbio.fof -b mellotrop_allpaths_links2 -d 7500 -t 200 -k 26 -l 5 -a 0.3
 ```
-### Quast
+#### Quast
 ```
 /work/ben/quast-4.5/quast.py /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta /work/cauretc/2017_Mellotropicalis/scaffolding_links/mellotrop_allpaths_links14.scaffolds.fa.gz -o /work/cauretc/2017_Mellotropicalis/scaffolding_links/quast_results
 
@@ -69,6 +71,14 @@ L75                         178611          178440
 # N's per 100 kbp           6522.06         6582.26
 ```
 Mainly longer scaffolds, a little bit less but same N50. Hoping to have better results using mate pairs and long reads from LoRDEC.
+
+## Mate pair reads
+To create the input for `LINKS`, I used the [make_MPET_input_links.pl](https://github.com/caro46/Tetraploid_project/blob/master/some_scripts/make_MPET_input_links.pl). As specified on the `LINKS` [github page](https://github.com/bcgsc/LINKS), it 1st converts the `fastq` reads into `fasta`, then into the `LINKS` format (pair reads separated by `:`), and finally creates the `.fof` (file-of-filenames), necessary to run the program. 
+
+Note (27/02):
+
+On the github page it is not clear to me the actual format of `.fof` if we want to specify multiple files names... My guess was 1 name/line. We will need a try to make sure.
+
 
 # [OPERA-LG](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0951-y)
 
