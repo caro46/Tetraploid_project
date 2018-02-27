@@ -18,6 +18,57 @@ Installed on compute canada. Tried to load the modules but still doesn't work:
 module load nixpkgs/16.09
 module load links/1.8.5
 ```
+26/02: installed Links on Iqaluk without issue and gave a try using parameters used for *P. glauca* in the example. Very poor results. Need to adjust `d` and `t`.
+
+27/02: run quast to check on new assembly statistics
+
+## 1st try - *P. glauca* parameters
+
+The genome of the white spruce size is ~20 Gbp. It is the biggest genome from the example set. In the example set, `LINKS` was used to re-scaffold the draft genome using another draft genome (so ~1X coverage). Having a "low" coverage from the corrected (from the canu assembly preliminary step) pacbio reads, I thought the same parameters would make sense to try as a 1st step to see how the program behave. Smaller values of `-d` and `-t` should be used later considering the poor scaffolding result but it will increase the RAM usage.
+
+### Commands
+`running_links_mello_canu.sh` to run iteratively each time on the new assembly produced: parameters used: 
+
+- `-d` = `5000`, `7500`, `10000`, `12500`, `15000`, `20000`, `30000`, `40000`, `50000`, `60000`, `70000`, `80000`, `90000`, `100000` 
+
+- with respectively `-t` = `200`, `200`, `150`, `150`, `150`, `75`, `50` (`50` for the other values of `-d`)
+
+- `-k 26 -l 5 -a 0.3`
+
+```
+/work/cauretc/programs/links_v1.8.5/LINKS -f /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta -s mellotrop_pacbio.fof -b mellotrop_allpaths_links1 -d 5000 -t 200 -k 26 -l 5 -a 0.3 
+
+/work/cauretc/programs/links_v1.8.5/LINKS -f /work/cauretc/2017_Mellotropicalis/scaffolding_links/mellotrop_allpaths_links1.scaffolds.fa -s mellotrop_pacbio.fof -b mellotrop_allpaths_links2 -d 7500 -t 200 -k 26 -l 5 -a 0.3
+```
+### Quast
+```
+/work/ben/quast-4.5/quast.py /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta /work/cauretc/2017_Mellotropicalis/scaffolding_links/mellotrop_allpaths_links14.scaffolds.fa.gz -o /work/cauretc/2017_Mellotropicalis/scaffolding_links/quast_results
+
+Assembly                    final.assembly  mellotrop_allpaths_links14.scaffolds
+# contigs (>= 0 bp)         320227          320128                              
+# contigs (>= 1000 bp)      286034          285946                              
+# contigs (>= 5000 bp)      19292           19352                               
+# contigs (>= 10000 bp)     1887            1927                                
+# contigs (>= 25000 bp)     6               8                                   
+# contigs (>= 50000 bp)     0               0                                   
+Total length (>= 0 bp)      607138367       607529644                           
+Total length (>= 1000 bp)   574372221       574773954                           
+Total length (>= 5000 bp)   136492195       137197052                           
+Total length (>= 10000 bp)  23462309        24004275                            
+Total length (>= 25000 bp)  159305          215194                              
+Total length (>= 50000 bp)  0               0                                   
+# contigs                   320227          320128                              
+Largest contig              30521           30521                               
+Total length                607138367       607529644                           
+GC (%)                      38.79           38.79                               
+N50                         1920            1923                                
+N75                         1243            1243                                
+L50                         76909           76740                               
+L75                         178611          178440                              
+# N's per 100 kbp           6522.06         6582.26
+```
+Mainly longer scaffolds, a little bit less but same N50. Hoping to have better results using mate pairs and long reads from LoRDEC.
+
 # [OPERA-LG](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0951-y)
 
 [Dependencies](https://sourceforge.net/p/operasf/wiki/The%20OPERA%20wiki/) (for version v2.0.6)
