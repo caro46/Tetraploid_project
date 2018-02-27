@@ -146,6 +146,8 @@ Before lauches the other sequences to be corrected (8 files total), I need to ha
 
 21/02/18: producing graph for long insert libraries. Will use it on the pacbio long reads already corrected by short/medium libraries to improve correction. Using the same parameters as before. Most of the pacbio files are now corrected with the short/medium insert libraries (files `002` and `007` are the last ones running).
 
+27/02: now almost all the pacbio reads have been also corrected by the long insert short reads. All of the runs have been submitted using `--nodes=1`, `--ntasks-per-node=8` for `--time=4-00:00:00` and `--mem=100gb`. `001`, `004`, `005` finished in a little bit less than 2 days, `003` in 2 days and 8h. The last 4 pacbio reads files should be done tomorrow in theory.
+
 ## *k* choice
 
 From LoRDEC [FAQ](http://www.lirmm.fr/~rivals/lordec/FAQ/#orgheadline38):
@@ -160,12 +162,12 @@ Since many errors expected, and *k* depends on that a lot, tried using `k=19` (>
 
 ## Statistics about short reads
 
-| Statistics | Short reads - small insert size |
-|------|------|
-| Number of reads | 626942306 |
-| Read length | 30-101 (mean: 98.5) |
-| Number of bases | 61754340471 |
-| Insert size | 180bp (only 1st sequencing), 400bp, 1000bp |
+| Statistics | Short reads - small insert size | Short reads - long insert size |
+|------|------|------|
+| Number of reads | 626942306 | 647498582 |
+| Read length | 30-101 (mean: 98.5) |30-150 (mean: 113.4) |
+| Number of bases | 61754340471 | 73406398728 |
+| Insert size | 180bp (only 1st sequencing), 400bp, 1000bp | 6kb (x2), 10kb |
 
 # HALC
 
