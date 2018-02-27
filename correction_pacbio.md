@@ -108,6 +108,8 @@ Sooooo I might stay on queue forever...probably need to speak about that we BE.
 OK so I tried on a subset for a shorter time and ended with an error so I killed all the LOrDEC jobs and tried again on subset using `-a 100000`. Started running this morning (22/01 - was on queue for ~4days). Seem to run fine. Will see where the the job ends to better estimate the ressources needed. 
 
 ## On multiple pacbio files
+Input = fasta files produced with `dextract` (see [here](https://github.com/caro46/Tetraploid_project/blob/master/dextractor.md))
+
 Trying to run for 2 days limit:
 ```
 /home/cauretc/project/cauretc/programs/LoRDEC-0.5.3-Source/build/tools/lordec-correct -2 /home/cauretc/scratch/lordec_analysis/input_metalist_small_med_lib.txt -k 19 -s 3 -a 100000 -i /home/cauretc/scratch/pacbio_mellotrop/multi_files/Sequel.RunS005.001.BJE3652.fasta.gz -o /home/cauretc/scratch/lordec_analysis/small_med_lib/BJE3652.RunS005.001.subreads.lordec_small_med_lib.fasta &> /home/cauretc/scratch/lordec_analysis/small_med_lib/lordec.log
