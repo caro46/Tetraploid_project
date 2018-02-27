@@ -41,6 +41,13 @@ To obtain fasta files
 ```
 dextract -f /scratch/ben/mellotropicalis_pacbio_temp/BJE3652.all.subreads.1000bpmin.fastq.gz
 ```
+
+Exact command performed on each raw `subreads.bam` (default parameters:`ln >= 500 && rq >= 750`).
+
+```
+/work/ben/Mellotropicalis_corrected_data/DEXTRACTOR-master/dextract -f Sequel.RunS005.001.BJE3652.subreads.bam 
+```
+
 ```
 gzip /scratch/ben/mellotropicalis_pacbio_temp/*.fasta
 
