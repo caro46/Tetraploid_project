@@ -35,6 +35,7 @@ The genome of the white spruce size is ~20 Gbp. It is the biggest genome from th
 
 - `-k 26 -l 5 -a 0.3`
 
+Some of the 1st commands run used (see [running_links_mello_canu.sh](https://github.com/caro46/Tetraploid_project/blob/master/some_scripts/running_links_mello_canu.sh) to have the complete commands)
 ```
 /work/cauretc/programs/links_v1.8.5/LINKS -f /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta -s mellotrop_pacbio.fof -b mellotrop_allpaths_links1 -d 5000 -t 200 -k 26 -l 5 -a 0.3 
 
