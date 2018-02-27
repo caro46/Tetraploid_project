@@ -169,6 +169,34 @@ Since many errors expected, and *k* depends on that a lot, tried using `k=19` (>
 | Number of bases | 61754340471 | 73406398728 |
 | Insert size | 180bp (only 1st sequencing), 400bp, 1000bp | 6kb (x2), 10kb |
 
+## Ressources sum-up
+
+Using the parameters `-k 19 -s 3 -a 100000`.
+
+| Stage | Short libraries| Pacbio files (number of sequences*) | Time | CPUS |
+|------|------|------|------|------|
+| Creating the graph | short insert | all | 02:58:47 | 3 |
+| Creating the graph | long insert | all | 01:22:19 | 3 |
+| Correcting | short insert | 001 (536480) | 4-11:34:06 | 4 |
+| Correcting | short insert | 002 (580741) | 2-01:40:18 | 9 |
+| Correcting | short insert | 003 (565333) | 3-16:15:38 | 5 |
+| Correcting | short insert | 004 (498160) | 3-13:17:10 | 5 |
+| Correcting | short insert | 005 (610034) | 2-20:50:59 | 6 |
+| Correcting | short insert | 006 (695993) | 3-04:12:34 | 6 |
+| Correcting | short insert | 007 (654914) | 3-13:35:34 | 6 |
+| Correcting | short insert | 008 (841246) | 3-05:32:19 | 8 |
+| Correcting | long insert | 001  | 1-17:10:55 | 8 |
+| Correcting | long insert | 002  |  | 8 |
+| Correcting | long insert | 003  | 2-07:52:02 | 8 |
+| Correcting | long insert | 004  | 1-22:55:52 | 8 |
+| Correcting | long insert | 005  | 1-19:09:07 | 8 |
+| Correcting | long insert | 006  |  | 8 |
+| Correcting | long insert | 007  |  | 8 |
+| Correcting | long insert | 008  |  | 8 |
+
+
+* number specified for the short insert correction because it is the same for the long inser correction (correction of all the pacbio reads)
+
 # HALC
 
 ```
