@@ -72,6 +72,23 @@ C = R x L / G = 5278721 x 7715.4 / 3 100 000 000 ~ 13X
 ```
 Where C is physical coverage, R is the total number of reads, L is (average) read length, and G is the genome size (we used the size from the *X.laevis* genome, but `allpaths` estimated the genome size ~2.8Gb which would mean ~14.5X coverage).
 
+On the `.fasta` file produced using `dextract`:
+```
+/work/cauretc/programs/bbmap/readlength.sh in=BJE3652.all.subreads.fasta.gz out=histogram_all.subreads_dextract.txt max=100000
+```
+```
+#Reads: 4982901
+#Bases: 40644849469
+#Max:   81750
+#Min:   500
+#Avg:   8156.9
+#Median:        6860
+#Mode:  530
+#Std_Dev:       6055.7
+```
+```
+C = R x L / G = 4982901 x 8156.9 / 3 100 000 000 ~ 13X
+```
 # LoRDEC
 
 ```
