@@ -205,12 +205,12 @@ Using the parameters `-k 19 -s 3 -a 100000`.
 | Correcting | short insert | 007 (654914) | 3-13:35:34 | 6 |
 | Correcting | short insert | 008 (841246) | 3-05:32:19 | 8 |
 | Correcting | long insert | 001  | 1-17:10:55 | 8 |
-| Correcting | long insert | 002  |  | 8 |
+| Correcting | long insert | 002  | 2-03:05:03 | 8 |
 | Correcting | long insert | 003  | 2-07:52:02 | 8 |
 | Correcting | long insert | 004  | 1-22:55:52 | 8 |
 | Correcting | long insert | 005  | 1-19:09:07 | 8 |
-| Correcting | long insert | 006  |  | 8 |
-| Correcting | long insert | 007  |  | 8 |
+| Correcting | long insert | 006  | 2-07:44:01 | 8 |
+| Correcting | long insert | 007  | 2-08:43:09 | 8 |
 | Correcting | long insert | 008  |  | 8 |
 
 
