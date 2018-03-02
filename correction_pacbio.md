@@ -211,7 +211,7 @@ Using the parameters `-k 19 -s 3 -a 100000`.
 | Correcting | long insert | 005  | 1-19:09:07 | 8 |
 | Correcting | long insert | 006  | 2-07:44:01 | 8 |
 | Correcting | long insert | 007  | 2-08:43:09 | 8 |
-| Correcting | long insert | 008  |  | 8 |
+| Correcting | long insert | 008  | 3-18:05:11 | 8 |
 
 
 * number specified for the short insert correction because it is the same for the long inser correction (correction of all the pacbio reads)
