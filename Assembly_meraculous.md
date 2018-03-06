@@ -31,6 +31,7 @@ hist47[hist47$frequency==max(hist47$frequency),] #16x
 hist47_25x <- hist47[hist47$coverage>25,]
 hist47_25x[hist47_25x$frequency==max(hist47_25x$frequency),] #30x
 ```
+Previously I run on all the short reads we had (paired and mate). Since it is adviced to only used paired for contigs (and kmer value matters for contiging), to make sure about the kmer values, I am re-running jellyfish, using only short paired ends reads.
 
 ## Running
 
