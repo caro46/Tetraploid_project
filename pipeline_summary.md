@@ -6,11 +6,11 @@ Austin gave advice on some sofwares and also gave information about the pipeline
 
 ## 1- Reads trimming
 
-Trimming adapters (trimmomatic, nxtrim), very low quality reads (trimmomatic, jellyfish/quake). Nxtrim for the mate paired reads only (need to get rid of small insert size from the mate libraries, important to have a good estimate of insert size)
+Trimming adapters ([trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic), [nxtrim](https://github.com/sequencing/NxTrim)), very low quality reads (trimmomatic, [jellyfish/quake](http://www.cbcb.umd.edu/software/quake/)). Nxtrim for the mate paired reads only (need to get rid of small insert size from the mate libraries, important to have a good estimate of insert size)
 
 ## 2- Meraculous assembly
 
-Meraculous is a paired-end/mate reads assembly that is supposed to be efficient and not require that much resources.
+[Meraculous](http://1ofdmq2n8tc36m6i46scovo2e.wpengine.netdna-cdn.com/wp-content/uploads/2014/12/Manual.pdf) is a paired-end/mate reads assembly that is supposed to be efficient and not require that much resources.
 
 ### a) k-mer estimate
 
@@ -22,7 +22,7 @@ Using the approximate k-mer size from jellyfish, run the 1st two steps (`meracul
 
 ## 3- Hybrid assembly: DBG2OLC
 
-DBG2OLC is a hybrid assembler that uses contigs from an short reads assembler (us: from meraculous if we get an OK assembly) and uncorrected long reads (us: pacbio in fasta format after using `dextract` on the `.bam` sequel files).
+[DBG2OLC](https://github.com/yechengxi/DBG2OLC) is a hybrid assembler that uses contigs from an short reads assembler (us: from meraculous if we get an OK assembly) and uncorrected long reads (us: pacbio in fasta format after using `dextract` on the `.bam` sequel files).
 
 We will be using only reads >3kb (at least at the beginning):
 ```
@@ -34,7 +34,7 @@ Suggested tuning range by DBG2OLC author: ` MinOverlap 10-30, AdaptiveTh 0.001~0
 ## 4- Sequence consensus: `racon`?
 The goal is to identify discrepancies between the reads and the "backbone" sequences.
 
-Either `pbdagon` or `racon`.  `pbdagon` requires `blasr` which can be tricky to install (not in the softwares described on computecanada but present in sspace-longread folder...) and haven't been successful with `pbdagon` installation. `racon` is a fairly new program that seems to have promising results. I used it previously t\when trying the `minimap/miniasm/racon` pipeline. 
+Either `pbdagon` or `racon`.  `pbdagon` requires `blasr` which can be tricky to install (not in the softwares described on computecanada but present in sspace-longread folder...) and haven't been successful with `pbdagon` installation. `racon` is a fairly new program that seems to have promising results. I used it previously when trying the `minimap/miniasm/racon` pipeline. 
 
 ## 5- Decontamination of the assembly
 
@@ -42,7 +42,7 @@ The goal here is to identify everything that is not nuclear genome from our spec
 
 ### a) Mitochondrial genome
 
-Can probably use NovoPlasty or Norgal or SIDR. SIDR seems especially interesting (machine learning decision based).
+Can probably use [NovoPlasty](https://academic.oup.com/nar/article/45/4/e18/2290925) or [Norgal](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1927-y) or SIDR. [SIDR](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5709863/) seems especially interesting (machine learning decision based).
 
 ### b) UniVec, virus, bacteria, and archaea
 
@@ -50,7 +50,7 @@ Blasting the genomes against NCBI database and discarding scaffolds that match t
 
 ## 6- Rescaffolding 
 
-SSPACE and SSPACE-longRead and/or LINKS. I think 1st should use SSPACE and paired/mate reads, then SSPACE-longRead using corrected LORDEC long reads. Finally want to improve more using LORDEC long reads and SSPACE-longRead super-scaffolds with LINKS.  
+[SSPACE](https://academic.oup.com/bioinformatics/article/27/4/578/197626) and [SSPACE-longRead](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4076250/) and/or [LINKS](http://www.bcgsc.ca/platform/bioinfo/software/links). I think 1st should use SSPACE and paired/mate reads, then SSPACE-longRead using corrected LORDEC long reads. Finally want to improve more using LORDEC long reads and SSPACE-longRead super-scaffolds with LINKS.  
 
 ## 7- Gap filling
 
@@ -59,3 +59,5 @@ SSPACE and SSPACE-longRead and/or LINKS. I think 1st should use SSPACE and paire
 ## 8- Error correction and polishing: [arrow](https://github.com/PacificBiosciences/GenomicConsensus)
 
 ## 9- Superscaffolds using *X .tropicalis*
+
+Using python script made with Andrew's help. Will use results from alignment created with `nucmer`.
