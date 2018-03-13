@@ -87,7 +87,7 @@ On the `.fasta` file produced using `dextract`:
 #Std_Dev:       6055.7
 ```
 ```
-C = R x L / G = 4982901 x 8156.9 / 3 100 000 000 ~ 13X
+C = R x L / G = 4982901 x 8156.9 / 3 100 000 000 ~ 13X (11.6 if size = 3.5Gb)
 ```
 # LoRDEC
 
@@ -188,6 +188,11 @@ Since many errors expected, and *k* depends on that a lot, tried using `k=19` (>
 | Number of bases | 61754340471 | 73406398728 |
 | Insert size | 180bp (only 1st sequencing), 400bp, 1000bp | 6kb (x2), 10kb |
 
+Expected/calculated overall coverage average:
+```
+mean read length = L = (98.5*626942306+113.4*647498582)/(626942306+647498582) = 106.0701658371463
+C = R x L / G = 1274440888 * 106.0701658371463 / 3500000000 = 38.62290181137143
+```
 ## Ressources sum-up
 
 Using the parameters `-k 19 -s 3 -a 100000`.
