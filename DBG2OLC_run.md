@@ -70,7 +70,7 @@ Obtained the same `!!!!` everywhere so should be normal I guess. Someone else al
 DBG2OLC does not rely on the quality estimate but more on the overlapping of the reads so I think we are good for a first try. DBG2OLC warns about errors from correcting tools and suggest if we want to use correcting tools to compare the results with and without corrections on the pacbio reads.
 
 Maybe should consider using [dextract](https://dazzlerblog.wordpress.com/) and use fasta format. From [github](https://github.com/thegenemyers/DEXTRACTOR). See some explanation about some [updates](https://dazzlerblog.wordpress.com/2016/11/14/moving-to-the-sequel/).
-### Run
+### Run - using allpaths contigs
 #### Using all the long reads (>1000bp)
 ##### Run1
 The program is located `/work/ben/Mellotropicalis_corrected_data/DBG2OLC-master`. Run from the program directory
@@ -275,6 +275,17 @@ From `/work/ben/Mellotropicalis_corrected_data/DBG2OLC-master/compiled`
 ./AssemblyStatistics contigs /work/ben/Mellotropicalis_corrected_data/allpaths/data/Run1_no_180_2/ASSEMBLIES/test/final.contigs.fasta
 ```
 Produces 2 files in the assembly directory: `final.contigs.fastaStats_10k_5k_1k.txt` and `final.contigs.fastaStats.txt`
+
+### Run - using meraculous contigs
+
+(On `cedar`)
+
+To make sure we won't have any issue with lower/uppercase. Using the fasta file obtained using `dextract`. The `awk` command will convert the sequences in uppercase, without changing the labelling of the sequences.
+```
+awk '{ if ($0 !~ />/) {print toupper($0)} else {print $0} }' BJE3652.all.subreads.fasta >BJE3652.all.subreads_uppercase.fasta
+```
+
+
 ### Maybe usefull sites
 - [Quiver](https://github.com/PacificBiosciences/GenomicConsensus/blob/master/doc/FAQ.rst)
 - [HGAP](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP)
