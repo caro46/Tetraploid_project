@@ -40,3 +40,11 @@ Previously I run on all the short reads we had (paired and mate). Since it is ad
 8/03: submitted with less resources (`8` CPUS), using only the short insert size for the contigs part as suggested in the manual. When I did the 1st step run `-step meraculous_import`, no issue (so good format of the inputs), tried specified `-step meraculous_mercount` but it only rerun the import step. Should have submitted from inside the output directory of the other run and add a `-resume`
 
 9/03: submitted another short run using `-stop meraculous_mercount` to run the 1st 2 steps and check on some outputs for k-mer choice. Also real run using this time all the short reads (including mate reads), in the contigs steps. We will see which assemblies between including or not the mate reads in contigs produce the most continuous contig assembly.
+
+15/03: So all the runs started (at once...). Because of the number of files produced, the size and the computecanada limit I decided to stop the run that was using more cores because the benefit in time did not seem to be a lot. Gave different try to restart/resume if a run fails (waiting to make sure that I am not getting errors then I can focus on the real/complete run and delete the unecessary files - need to check on the plots first). So with `-resume`, any run that gets killed because of time (or others) can directly be re-started from wherever it stopped.
+
+To resume:
+```
+run_meraculous.sh -c /home/cauretc/scratch/meraculous/mellotrop_tryshort.config -dir /home/cauretc/scratch/meraculous/tryshort/mellotropicalis_meraculous_assembly_1st_step_2018-03-11_05h30m03s -resume
+```
+To restart: `-restart -start meraculous_mercount`, or 1 by 1 step `-step meraculous_mercount`. When using `resume` or `restart`: `-dir` is the run directory created when the 1st run started, you cannot use `-label` anymore. Rerun from within the run directory is not sufficient, `-dir` is necessary from the command submission.
