@@ -48,3 +48,7 @@ To resume:
 run_meraculous.sh -c /home/cauretc/scratch/meraculous/mellotrop_tryshort.config -dir /home/cauretc/scratch/meraculous/tryshort/mellotropicalis_meraculous_assembly_1st_step_2018-03-11_05h30m03s -resume
 ```
 To restart: `-restart -start meraculous_mercount`, or 1 by 1 step `-step meraculous_mercount`. When using `resume` or `restart`: `-dir` is the run directory created when the 1st run started, you cannot use `-label` anymore. Rerun from within the run directory is not sufficient, `-dir` is necessary from the command submission.
+
+16/03: The run with only paired end (180 bp -> 1000bp) to build the contigs, with value `49` for kmer failed. Seemed to be because meraculous couldn't find the `min-depth cutoff`. The `mercount.png` was produced: the "error" peak doesn't seem separated enough from the main "genomic" peak. Should try smaller kmer size (will see if we all the reads in contiging would work). `45` seemed to maybe a good value to try (according to previous jellyfish distribution plots). Issue with the slurm controller on the machine, need to submit the new run with smaller kmer whenever it is fixed.
+
+
