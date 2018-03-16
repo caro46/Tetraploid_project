@@ -193,6 +193,9 @@ Expected/calculated overall coverage average:
 mean read length = L = (98.5*626942306+113.4*647498582)/(626942306+647498582) = 106.0701658371463
 C = R x L / G = 1274440888 * 106.0701658371463 / 3500000000 = 38.62290181137143
 ```
+
+Try to run LoRDEC graph with all the libraries (including 180-2nd library), only ALL short/medium reads libraries, only 180 libraries, failure because of `memory issue`. Asked `--mem=300gb` when submitted (more then when run all the short/medium lib = 200). Wanted to get the statistics for the whole dataset in a similar way. Will try with `--mem=500gb` (16/03: controller down). If not working, I will just get the estimate from the jellyfish k-mer distribution but I suspect it would have been more accurate to due this way (maybe...or at least haing a range between the 2 ways...).
+
 ## Ressources sum-up
 
 Using the parameters `-k 19 -s 3 -a 100000`.
