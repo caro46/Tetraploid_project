@@ -194,8 +194,13 @@ mean read length = L = (98.5*626942306+113.4*647498582)/(626942306+647498582) = 
 C = R x L / G = 1274440888 * 106.0701658371463 / 3500000000 = 38.62290181137143
 ```
 
-Try to run LoRDEC graph with all the libraries (including 180-2nd library), only ALL short/medium reads libraries, only 180 libraries, failure because of `memory issue`. Asked `--mem=300gb` when submitted (more then when run all the short/medium lib = 200). Wanted to get the statistics for the whole dataset in a similar way. Will try with `--mem=500gb` (16/03: controller down). If not working, I will just get the estimate from the jellyfish k-mer distribution but I suspect it would have been more accurate to due this way (maybe...or at least haing a range between the 2 ways...).
+Try to run LoRDEC graph with all the libraries (including 180-2nd library), only ALL short/medium reads libraries, only 180 libraries, failure because of `memory issue`. Asked `--mem=300gb` when submitted (more then when run all the short/medium lib = 200). Wanted to get the statistics for the whole dataset in a similar way. Will try with `--mem=500gb` (16/03: controller down). If not working, I will just get the estimate from the jellyfish k-mer distribution but I suspect it would have been more accurate to due this way (maybe...or at least having a range between the 2 ways...).
 
+Finally worked when using `--mem=600gb` and only the 2nd run of 180bp sequencing library (took 5h45min - finished on 16/03):
+```
+L= (98.5*626942306+113.4*647498582+90.7*1501090386)/(626942306+647498582+1501090386) = 97.75752011576866
+C = R x L / G = 2775531274*97.75752011576866/3500000000 = 77.52258695714286
+```
 ## Ressources sum-up
 
 Using the parameters `-k 19 -s 3 -a 100000`.
