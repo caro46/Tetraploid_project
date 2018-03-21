@@ -52,3 +52,13 @@ To restart: `-restart -start meraculous_mercount`, or 1 by 1 step `-step meracul
 16/03: The run with only paired end (180 bp -> 1000bp) to build the contigs, with value `49` for kmer failed. Seemed to be because meraculous couldn't find the `min-depth cutoff`. The `mercount.png` was produced: the "error" peak doesn't seem separated enough from the main "genomic" peak. Should try smaller kmer size (will see if we all the reads in contiging would work). `45` seemed to maybe a good value to try (according to previous jellyfish distribution plots). Issue with the slurm controller on the machine, need to submit the new run with smaller kmer whenever it is fixed. - working and submitted the same day
 
 Restart the run using only paired reads in contiging and 49mers, using `min_depth_cutoff 4` in `.config` and submitted with `-restart -start meraculous_mercount`. (issue with the controller, the previous run was still "running" on controller while the program outputs were saying they finished unsucessfully `Stage meraculous_mercount failed` with also `slurmstepd: error: Unable to send job complete message: Unable to contact slurm controller (connect failure)` - I needed to force to cancel the job).
+
+21/03: 
+
+- only paired reads in contiging - 49mers: stopped because of time (4days allowed). Resubmitted using `-resume`.
+
+- Run `fasta_stats` on the `contigs.fa` in the `meraculous_merblast` directory. The total length of the contigs, ~2.43Gb, is smaller than the estimated genome size, 3.1Gb-3.5Gb (but still bigger than the diploid *X. tropicalis* genome, 1.7Gb) - probably due to coverage and/or repeats. Hopefully the run with all the data (including the mate libraries) will be better. 
+
+- Giving a try on this `contigs.fa` file (49mers - only paired reads in contiging) as input for DBG2OLC. 
+
+
