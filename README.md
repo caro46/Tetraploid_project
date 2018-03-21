@@ -1,5 +1,11 @@
 # Tetraploid_project
 
+## Quick introduction
+
+*X. mellotropicalis* is a tetraploid species, which half of its genome is closely related to the diploid *X. tropicalis*. We are interesting in building his genome (as the 1st part of various analysis) and defining his sex-determining system. The commands performed can be found in this project folder. Not all of them were successfull and their outputs (example poor assemblies,...) won't necessarly be included in further studies.
+
+A working pipeline can be found [there](https://github.com/caro46/Tetraploid_project/blob/master/pipeline_summary.md) explaining the workflow.
+
 ## 1- [To start:](https://github.com/caro46/Tetraploid_project/blob/master/quality_tests.Rmd)
 
 - quality test (fastqc)
@@ -23,6 +29,7 @@ I put more information about the Pacbio reads [there](https://github.com/caro46/
 
 - [SOAPdenovo](https://github.com/caro46/Tetraploid_project/blob/master/Assembly.Rmd)
 - [Allpaths](https://github.com/caro46/Tetraploid_project/blob/master/Assembly_Allpaths.Rmd)
+- [Meraculous](https://github.com/caro46/Tetraploid_project/blob/master/Assembly_meraculous.md)
 
 ### Hybrid
 
