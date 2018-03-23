@@ -61,4 +61,10 @@ Restart the run using only paired reads in contiging and 49mers, using `min_dept
 
 - Giving a try on this `contigs.fa` file (49mers - only paired reads in contiging) as input for DBG2OLC. 
 
-
+## Evaluating the run
+The script can be run at different steps in addition to the inspection of the intermediary files to check (`log`, `kha.png`, `mercount.png`, `.err`). 
+```
+export MERACULOUS_ROOT=/cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/Compiler/gcc4.8/meraculous/2.2.4/bin/
+/cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/Compiler/gcc4.8/meraculous/2.2.4/bin/evaluate_meraculous_run.sh mellotropicalis_meraculous_assembly_2018-03-14_20h11m18s mellotropicalis_meraculous_assembly_2018-03-14_20h11m18s/some_stats_running
+```
+It produces 3 files `RUN_SUMMARY.txt` containing information about each run, time of run, failures, different results of each steps (total mers, mers used, library mapping, scaffolding, gap closing and final scaffolds after filtering, ...), and 2 outputs specifically for the quality for the final assembly `final.scaffolds.fa.stats`, `final.scaffolds.fa.unfiltered.stats`.
