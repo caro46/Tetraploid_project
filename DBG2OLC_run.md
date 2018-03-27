@@ -285,6 +285,7 @@ To make sure we won't have any issue with lower/uppercase. Using the fasta file 
 awk '{ if ($0 !~ />/) {print toupper($0)} else {print $0} }' BJE3652.all.subreads.fasta >BJE3652.all.subreads_uppercase.fasta
 ```
 
+27/03: During the weekend (24/03), DBG2OLC using the contigs file from meraculous, short insert only for contiging and 49mers finished. Used as Austin only pacbio reads => 3kb. Bad results: total length of ~0.15 Gb (instead of genome length 3.5GB). Need to have a better contigs set and also probably decrease the pacbio length criteria to 1000bp.
 
 ### Maybe usefull sites
 - [Quiver](https://github.com/PacificBiosciences/GenomicConsensus/blob/master/doc/FAQ.rst)
