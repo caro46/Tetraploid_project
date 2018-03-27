@@ -63,6 +63,14 @@ Restart the run using only paired reads in contiging and 49mers, using `min_dept
 
 - Giving a try on this `contigs.fa` file (49mers - only paired reads in contiging) as input for DBG2OLC. 
 
+27/03:
+
+The run (short insert in contiging - 49mers) failed at the scaffolding `meraculous_ono`. Either because too small contigs/scaffolds to be able to use the bigger insert (highly possible). It can also be because of the libraries: used `nxtrim` on the mate libraries the put the reads by default in the Forward/Reverse direction, and kept the `MP/unknown` reads. `unknown` is described as *a library of read-pairs that are mostly large-insert mate-pair, but possibly contain a small proportion of paired end contaminants*, so I didn't put `[hasInnieArtifact] 1` since it is for *significant fraction of read pairs is in non-dominant orientation*... Maybe I should... 
+```
+2018/03/26 20:16:24 meraculous.pl main::run_meraculous_ono 2738> ERROR: None of the libraries in set 3 were deemed suitable for scaffolding!  Please check library parameters or consider excluding this set altogether.
+```
+I think it might be worth it to 1st have the run done for the "all libraries in contigs" run and/or the one with a smaller kmer size (45).
+
 ## Evaluating the run
 The script can be run at different steps in addition to the inspection of the intermediary files to check (`log`, `kha.png`, `mercount.png`, `.err`). 
 ```
