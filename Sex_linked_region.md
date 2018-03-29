@@ -292,7 +292,7 @@ High-scoring segment pair (HSP) group
 HSP Information
 Score = 426, E = 5e-117, Identities = 433/547 (79%), Length = 547, Query Strand = +, Hit Strand = +
 ```
-On this scaffold we can find `LOC105945848` annotated as a gene. I used the `CDS` and also part of intron to blast against *X. laevis* genome. It matches to `chr. 07.L` short arm (not far away from `ephb6.L`, `prss1.L`). I blasted the `Allpaths` scaffolds onto the `DBG2OLC` assembly in order to try to obtain a longer scaffold and maybe get more genotypes data of a longer region. But for some reason no match of `scaffold_262360`. The easiest reason I am thinking about right now is that the region might have more repeat sequences (accumulation on sex-chromosomes?) and is harder to assemble and maybe caused chimerical sequences with Pacbio or some sort of conflict that might have caused a break of this region during `DBG2OLC` assembly... 
+On this scaffold we can find `LOC105945848` annotated as a gene. I used the `CDS` ("putative DBH-like monooxygenase protein 2", moxd2p) and also part of intron to blast against *X. laevis* genome. It matches to `chr. 07.L` short arm (not far away from `ephb6.L`, `prss1.L`). I blasted the `Allpaths` scaffolds onto the `DBG2OLC` assembly in order to try to obtain a longer scaffold and maybe get more genotypes data of a longer region. But for some reason no match of `scaffold_262360`. The easiest reason I am thinking about right now is that the region might have more repeat sequences (accumulation on sex-chromosomes?) and is harder to assemble and maybe caused chimerical sequences with Pacbio or some sort of conflict that might have caused a break of this region during `DBG2OLC` assembly... 
 
 The snp of interest (position `857` of `scaffold_262360`) was obtained using this filtering option `$commandline = "bcftools filter -O z ".$path_to_output."Mellotrop_allpaths_var_DP_AD.vcf.gz -e '%QUAL<10 || FORMAT/DP<10 || FORMAT/DP>500 ||FORMAT/GQ = \".\" ' \> ".$path_to_output."Mellotrop_allpaths_var.fltQual_DP10.vcf.gz";` and of course were still there when I played with the parameters with less stringent parameters or with default. I looked at other sites near it, previous to filtering: positions `739`, `744` and `750` show heterozygous sites in mom and only sons (respectively `T/A`, `T/C` and `T/A`) and homozygous in the dad and in the daughters when the latter has genotypes called (a lot of missing data for these 3 sites). The 1st snp could correspond to a snp on the W, whereas the others look like more as a potential snp on the mom Z.
 
@@ -333,6 +333,9 @@ gunzip -c /work/cauretc/tropicalis_v9/Xtropicalis_v9_repeatMasked.fa.gz | awk -v
 blastn -evalue 1e-1 -query /work/cauretc/tropicalis_v9/Xtropicalis_v9_repeatMasked_scaffold_622.fa -db /work/cauretc/laevis_genome/Xla_v91_repeatMasked_soft_blastable -out /work/cauretc/tropicalis_v9/Xtropicalis_v9_repeatMasked_scaffold_622_Xlaev91_soft_e1_nomaxtarget -outfmt 6
 blastn -evalue 1e-1 -query /work/cauretc/tropicalis_v9/Xtropicalis_v9_repeatMasked_scaffold_622.fa -db /work/cauretc/laevis_genome/Xla_v91_genome_HARDmasked_blastable -out /work/cauretc/tropicalis_v9/Xtropicalis_v9_repeatMasked_scaffold_622_Xlaev91_hard_e1_nomaxtarget -outfmt 6
 ```
+
+29/03: some additional notes about `scaffold262360`: if directly blasted against *X.laevis* reference genome: better match for 7L but the alignment is only about 51bp in length, however when looking what is around this region we find `moxd2p.L`, the same gene present on `scaffold622` of *X.tropicalis* on which the scaffold matches the best with an alignment 547bp (`moxd2p` is the closest annotated gene on `scaffold622` of *tropicalis* from where the allpath scaffold falls)...
+
 ## Other options
 ### Bewick's primers
 At that point there are some stuff that I would try (need to see with BE):
@@ -371,7 +374,7 @@ Confirmed if you do some blast on xenbase:
 
 - `phc1` and `tbx15` are both on `scaffold_2` of *X. tropicalis* `v.7.1` but on different chromosomes of *X. laevis* `v.9.1` which can be due to misassembly.
 
-#### Blast agains DBG2OLC assembly
+#### Blast against DBG2OLC assembly
 ```
 module load blast/2.2.28+
 blastn -evalue 1e-1 -query /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/Bewick_primers.fa -db /work/cauretc/2017_Mellotropicalis/pseudomolecules/backbone_raw_blastable -out /work/cauretc/2017_Mellotropicalis/pseudomolecules/filter/blast_find_SDregion/Bewick_primers_DBG2OLC_e1_nomaxtarget -outfmt 6 -task blastn-short
@@ -979,4 +982,20 @@ Want to try `Primer pair 12` in priority.
 - need to add coordinates on table 
 
 - designing primers for scaffolds with SNPs (matching against chr.07 and chr.08) ~10scaffolds
+
+## Amplifications
+
+`BJE4170` was previously mislabelled - it is a boy. So I focused on the 2 ZW scaffolds (that displayed a SNP completely -or almost with 1 individual with another genotype- sex linked) that mapped to Chr.07p. 
+
+### Scaffold 159590 - position `669`
+At Ta=64.2, got sequences (F, R or both) for all the individuals of the family except 1 (`4153`, a son, that didn't show up on the gel).
+
+Mom: AG, Dad GG, 4 AA daughters, 5 AG daughters, 7 sons GG, 1 son AA. Most likely AA individuals are actually AG but the primers amplify preferentially 1 allele. The forward used spans near an INDEL. I will do it again using a lower annealing temperature (60 or 61, lower doesn't seem specific enough on the gradient).
+
+To make the amplification easier we are considering to try amplifying annotated genes that can be found not too far away from where the scaffold falls on the *tropicalis* genome (`version 9.1`), with big exons (~500bp): `olfactory receptor 8H1-like` (Chr.07: 3658858..3659949), `smad2-3` (Chr.7: 3636114..3636716), `Foxh1` = transcriptional activator (Chr.7: 3636197..3636688). A lot of olfactory receptors in the region. Interesting since Chain 2015 hilighted that some sex biased genes were olfactory receptors in *X.tropicalis* and also DMRT family is involved in developping olvactory system... 
+
+### Scaffold 262360
+
+After gradient done on the mom, tried to amplify everybody at 60.7 (1 band brighter thsn other temp). On the gel, got some individuals with 1 and 2 bands. Sequenced the individuals that had 1 good band (2 different sizes). None of the sequences match exactly the scaffold (small missing a 46bp region + some bases different from the scaffold ; big: a region of ~130bp is added compared to the scaffold - seem to have some sort of duplication, real? - no repeat identified with repeatmasker on the scaffold). Aligned the sequence on itself using mafft: a lot of repeated region. Might be worth it to amplify the closest gene from where the scaffold seems to fall.
+
 
