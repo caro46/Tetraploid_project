@@ -994,8 +994,31 @@ Mom: AG, Dad GG, 4 AA daughters, 5 AG daughters, 7 sons GG, 1 son AA. Most likel
 
 To make the amplification easier we are considering to try amplifying annotated genes that can be found not too far away from where the scaffold falls on the *tropicalis* genome (`version 9.1`), with big exons (~500bp): `olfactory receptor 8H1-like` (Chr.07: 3658858..3659949), `smad2-3` (Chr.7: 3636114..3636716), `Foxh1` = transcriptional activator (Chr.7: 3636197..3636688). A lot of olfactory receptors in the region. Interesting since Chain 2015 hilighted that some sex biased genes were olfactory receptors in *X.tropicalis* and also DMRT family is involved in developping olvactory system... 
 
-### Scaffold 262360
+### Scaffold 262360 - position `857`
 
 After gradient done on the mom, tried to amplify everybody at 60.7 (1 band brighter thsn other temp). On the gel, got some individuals with 1 and 2 bands. Sequenced the individuals that had 1 good band (2 different sizes). None of the sequences match exactly the scaffold (small missing a 46bp region + some bases different from the scaffold ; big: a region of ~130bp is added compared to the scaffold - seem to have some sort of duplication, real? - no repeat identified with repeatmasker on the scaffold). Aligned the sequence on itself using mafft: a lot of repeated region. Might be worth it to amplify the closest gene from where the scaffold seems to fall.
 
+## Genes to target
 
+### olfactory receptor 8H1-like
+
+Part of an exon (~161bp) is on `Scaffold159590`. Tried to get the "backbone" (made from allpaths+pacbio) homologous scaffold but the one that pop out seem too different from the allpaths scaffold which is more similar to the `or8h1` exon. Tried with canu assembly and unassembled parts, mapped OK onto 2 unassembled tigs. Similarity not good enough to be sure. 
+
+I will make primers within the ~1kb exon using the *tropicalis* reference genome and also desiging primers using the allpaths genome: forward before the exon, reverse at the end of the allpaths scaffold.
+
+### moxd2p
+Trying to have specific primers for both subgenomes 
+```
+Primer pair 1
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	AAATGAAGCAACTCTCACACTCAC	Plus	24	1911	1934	59.73	41.67	3.00	0.00
+Reverse primer	AACCGCTTGGACCGACAAT	Minus	19	2224	2206	59.93	52.63	4.00	2.00
+Product length	314
+``` 
+```
+Primer pair 1
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	CAATGAATCGACTCTCACACTCAC	Plus	24	330	353	59.67	45.83	6.00	0.00
+Reverse primer	CACCAGTTGGACGGGCAAT	Minus	19	634	616	60.60	57.89	4.00	2.00
+Product length	305
+```
