@@ -999,15 +999,54 @@ To make the amplification easier we are considering to try amplifying annotated 
 After gradient done on the mom, tried to amplify everybody at 60.7 (1 band brighter thsn other temp). On the gel, got some individuals with 1 and 2 bands. Sequenced the individuals that had 1 good band (2 different sizes). None of the sequences match exactly the scaffold (small missing a 46bp region + some bases different from the scaffold ; big: a region of ~130bp is added compared to the scaffold - seem to have some sort of duplication, real? - no repeat identified with repeatmasker on the scaffold). Aligned the sequence on itself using mafft: a lot of repeated region. Might be worth it to amplify the closest gene from where the scaffold seems to fall.
 
 ## Genes to target
+```
+blastn -evalue 1e-1 -query chr7_genes.fa -db /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly_blastable -out /work/cauretc/2017_Mellotropicalis/blast_chr7_genes/chr7trop_genes_allpaths_e1.out -outfmt 6
+```
+Also with `backbone_raw`, `SOAP_Mellotropicalis_BJE3652_genome_33_memory_scaf`, `BJE3652_canu_assembly.contigsANDunassembled`
 
 ### olfactory receptor 8H1-like
 
 Part of an exon (~161bp) is on `Scaffold159590`. Tried to get the "backbone" (made from allpaths+pacbio) homologous scaffold but the one that pop out seem too different from the allpaths scaffold which is more similar to the `or8h1` exon. Tried with canu assembly and unassembled parts, mapped OK onto 2 unassembled tigs. Similarity not good enough to be sure. 
 
-I will make primers within the ~1kb exon using the *tropicalis* reference genome and also desiging primers using the allpaths genome: forward before the exon, reverse at the end of the allpaths scaffold.
+I will make primers within the ~1kb exon using the *tropicalis* reference genome and also designing primers using the allpaths genome: forward before the exon, reverse at the end of the allpaths scaffold.
+
+scaffold471476
+```
+Primer pair 1
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	ATTCTCCTTGGAAATCTCACTGT	Plus	23	3060	3082	57.49	39.13	6.00	3.00
+Reverse primer	CAACAAAGCAATCATACGCCATG	Minus	23	3325	3303	59.45	43.48	4.00	4.00
+Product length	266
+
+
+```
+scaffold283074
+```
+Primer pair 1
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GTGTCAAACTACAGTTCATTTA	Plus	22	576	597	52.41	31.82	6.00	2.00
+Reverse primer	CAACATAGCGATCATACGCC	Minus	20	988	969	56.86	50.00	5.00	3.00
+Product length	413
+
+Primer pair 2
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GTGTCAAACTACAGTTCAT	Plus	19	576	594	50.25	36.84	6.00	2.00
+Reverse primer	CAACATAGCGATCATACGCC	Minus	20	988	969	56.86	50.00	5.00	3.00
+Product length	413
+```
+I think I'll try  Primer pair 1.
 
 ### moxd2p
-Trying to have specific primers for both subgenomes 
+Trying to have specific primers for both subgenomes. Tried 1st to find the most interesting exons = big and close = exons 6 and 7. Tried exon 1 because the biggest. Not great success so blast the whole gene to try to have some regions with 2 good hits 
+
+```
+blastn -evalue 1e-1 -query moxd2pgene.fa -db /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly_blastable -out /work/cauretc/2017_Mellotropicalis/blast_chr7_genes/moxd2pgene_allpaths_e1.out -outfmt 6
+```
+Used also `SOAP` genome.
+
+Geneious to have a quick alignment of mutiple best hits of the gene: for example from SOAP scaffods: `scaffold430829` `scaffold731796` that both contains exon1 with some variability in the sequences. Unfortunately missing data. Tried to get primers just outside the exon, in region with multiple SNPs
+
+scaffold430829
 ```
 Primer pair 1
 	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
@@ -1015,6 +1054,7 @@ Forward primer	AAATGAAGCAACTCTCACACTCAC	Plus	24	1911	1934	59.73	41.67	3.00	0.00
 Reverse primer	AACCGCTTGGACCGACAAT	Minus	19	2224	2206	59.93	52.63	4.00	2.00
 Product length	314
 ``` 
+scaffold731796
 ```
 Primer pair 1
 	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
@@ -1022,3 +1062,5 @@ Forward primer	CAATGAATCGACTCTCACACTCAC	Plus	24	330	353	59.67	45.83	6.00	0.00
 Reverse primer	CACCAGTTGGACGGGCAAT	Minus	19	634	616	60.60	57.89	4.00	2.00
 Product length	305
 ```
+Aligned also with *X.tropicalis* and *laevis* exon 1 to have an idea of differences between 2 species. Only `moxd2p.L`, no `moxd2p.S`. 
+
