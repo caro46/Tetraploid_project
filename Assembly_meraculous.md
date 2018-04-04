@@ -78,3 +78,27 @@ export MERACULOUS_ROOT=/cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2
 /cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/Compiler/gcc4.8/meraculous/2.2.4/bin/evaluate_meraculous_run.sh mellotropicalis_meraculous_assembly_2018-03-14_20h11m18s mellotropicalis_meraculous_assembly_2018-03-14_20h11m18s/some_stats_running
 ```
 It produces 3 files `RUN_SUMMARY.txt` containing information about each run, time of run, failures, different results of each steps (total mers, mers used, library mapping, scaffolding, gap closing and final scaffolds after filtering, ...), and 2 outputs specifically for the quality for the final assembly `final.scaffolds.fa.stats`, `final.scaffolds.fa.unfiltered.stats`.
+
+## Checking fastq format
+Not sure from where the issues for scaffolding with meraculous came from (note from 27/03). Checked the `.fasq` format before and after nxtrim to make sure it is fine (4/04)
+```
+./fastQValidator --file /home/cauretc/scratch/HiSeq_data/6kb_1_nxtrimmed_0_R1.mp_unknown.fastq.gz 
+Finished processing /home/cauretc/scratch/HiSeq_data/6kb_1_nxtrimmed_0_R1.mp_unknown.fastq.gz with 58030136 lines containing 14507534 sequences.
+There were a total of 0 errors.
+Returning: 0 : FASTQ_SUCCESS
+
+./fastQValidator --file /home/cauretc/scratch/HiSeq_data/6kb_1_nxtrimmed_0_R1.paired.pe.fastq.gz 
+Finished processing /home/cauretc/scratch/HiSeq_data/6kb_1_nxtrimmed_0_R1.paired.pe.fastq.gz with 3635368 lines containing 908842 sequences.
+There were a total of 0 errors.
+Returning: 0 : FASTQ_SUCCESS
+
+./fastQValidator --file /home/cauretc/scratch/HiSeq_data/10kb_nxtrimmed_6_R1.paired.pe.fastq.gz
+Finished processing /home/cauretc/scratch/HiSeq_data/10kb_nxtrimmed_6_R1.paired.pe.fastq.gz with 472972 lines containing 118243 sequences.
+There were a total of 0 errors.
+Returning: 0 : FASTQ_SUCCESS
+
+./fastQValidator --file /home/cauretc/scratch/HiSeq_data/10kb_nxtrimmed_6_R1.mp_unknown.fastq.gz 
+Finished processing /home/cauretc/scratch/HiSeq_data/10kb_nxtrimmed_6_R1.mp_unknown.fastq.gz with 14203840 lines containing 3550960 sequences.
+There were a total of 0 errors.
+Returning: 0 : FASTQ_SUCCESS
+```
