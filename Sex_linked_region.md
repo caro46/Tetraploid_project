@@ -1018,6 +1018,24 @@ Forward primer	ATTCTCCTTGGAAATCTCACTGT	Plus	23	3060	3082	57.49	39.13	6.00	3.00
 Reverse primer	CAACAAAGCAATCATACGCCATG	Minus	23	3325	3303	59.45	43.48	4.00	4.00
 Product length	266
 
+Primer pair 1
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GTCATATTACAGATAATTCC	Plus	20	2930	2949	45.89	30.00	6.00	0.00
+Reverse primer	CAACAAAGCAATCATACGCCATG	Minus	23	3316	3294	59.45	43.48	4.00	4.00
+Product length	387
+
+
+Products on potentially unintended templates
+>XM_012953294.2 PREDICTED: Xenopus tropicalis uncharacterized LOC100216020 (LOC100216020), transcript variant X1, mRNA
+
+
+product length = 3208
+Forward primer  1     GTCATATTACAGATAATTCC  20
+Template        5269  ..G..T..GT.........T  5250
+
+Reverse primer  1     CAACAAAGCAATCATACGCCATG  23
+Template        2062  .......C....G...GA.G...  2084
+
 
 ```
 scaffold283074
@@ -1064,3 +1082,17 @@ Product length	305
 ```
 Aligned also with *X.tropicalis* and *laevis* exon 1 to have an idea of differences between 2 species. Only `moxd2p.L`, no `moxd2p.S`. 
 
+### olfactory_receptor_5M11-like
+Some interesting binding sites: `sox1`, `dmrta2`.
+Trying to align the best scaffolds together (5/04): `scaffold_43454`, `scaffold_52790`, `scaffold_41144`, `scaffold_257117` of allpaths. 
+Not working well. Should try with SOAP assembly.
+
+### Maybe
+
+- cyp17: Chr07:20686094..20695533
+
+- chd4 (chromodomain helicase DNA binding protein 4): Chr07:1736931..1766112
+
+- nop2: Chr07:1724392..1732275
+
+- ZNF384: Chr07:1613361..1636481 - transcription factor 
