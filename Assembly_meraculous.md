@@ -79,7 +79,7 @@ What is the most important in the choice of the k-mer size is to be able to dist
 
 Since the use of the `nxtrim` program identifies and separates reads with long insert and unusual short insert size, we can had these "new" pair end reads in our dataset and use them in the contig, scaffold and gap closure.
 
-Launched a job to resume the 49mer run with the `fallback_on_est_insert_size 1`. Also launched another job using the `pe` from the long insert libraries (insert size estimate: 300bp, deviation: 30, reads size: 110) with a kmer size of 61. Launched a `jellyfish` run with different kmer size on the whole short insert libraries (including the new one from the long reads). 
+Launched a job to resume the 49mer run with the `fallback_on_est_insert_size 1`. Also launched another job using the `pe` from the long insert libraries (insert size estimate: 300bp, deviation: 30, reads size: 110) with a kmer size of 61. Launched a `jellyfish` run with different kmer size on the whole short insert libraries (including the new one from the long reads) to identify the biggest kmer size that allow to distinguish error from genomic peaks. 
 
 ## Evaluating the run
 The script can be run at different steps in addition to the inspection of the intermediary files to check (`log`, `kha.png`, `mercount.png`, `.err`). 
