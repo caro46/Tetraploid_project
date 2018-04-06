@@ -1042,6 +1042,29 @@ scaffold283074
 ```
 Primer pair 1
 	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	CCTAGGAAATCTCATTGTTA	Plus	20	722	741	49.45	35.00	6.00	2.00
+Reverse primer	CAACATAGCGATCATACGC	Minus	19	988	970	54.23	47.37	5.00	5.00
+Product length	267
+Products on potentially unintended templates
+>XM_018224696.1 PREDICTED: Xenopus laevis olfactory receptor 1019-like (LOC108695725), mRNA
+
+
+product length = 257
+Forward primer  1    CCTAGGAAATCTCATTGTTA  20
+Template        117  ...T........T.....C.  136
+
+Reverse primer  1    CAACATAGCGATCATACGC  19
+Template        373  ................T..  355
+
+Primer pair 1
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	TCCTAGGAAATCTCATTGTT	Plus	20	721	740	51.09	35.00	8.00	0.00
+Reverse primer	TGTTGGGTCATACGAGCAAT	Minus	20	1031	1012	57.22	45.00	4.00	2.00
+Product length	311
+
+
+Primer pair 1
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
 Forward primer	GTGTCAAACTACAGTTCATTTA	Plus	22	576	597	52.41	31.82	6.00	2.00
 Reverse primer	CAACATAGCGATCATACGCC	Minus	20	988	969	56.86	50.00	5.00	3.00
 Product length	413
@@ -1053,6 +1076,15 @@ Reverse primer	CAACATAGCGATCATACGCC	Minus	20	988	969	56.86	50.00	5.00	3.00
 Product length	413
 ```
 I think I'll try  Primer pair 1.
+
+```
+Primer pair 1
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GTGTCAAACTACAGTTCATTTA	Plus	22	576	597	52.41	31.82	6.00	2.00
+Reverse primer	TGTTGGGTCATACGAGCAAT	Minus	20	1031	1012	57.22	45.00	4.00	2.00
+Product length	456
+```
+The last one = Best one. For the `scaffold471476`, can't have the reverse around the same region because on the scaffold it is a gap.
 
 ### moxd2p
 Trying to have specific primers for both subgenomes. Tried 1st to find the most interesting exons = big and close = exons 6 and 7. Tried exon 1 because the biggest. Not great success so blast the whole gene to try to have some regions with 2 good hits 
