@@ -71,6 +71,16 @@ The run (short insert in contiging - 49mers) failed at the scaffolding `meraculo
 ```
 I think it might be worth it to 1st have the run done for the "all libraries in contigs" run and/or the one with a smaller kmer size (45).
 
+6/04:
+
+On the 4/04 cancelled all the jobs (45 mers, all libraries in contigs). The failure of scaffolding from 49mers due to the small size of contigs. To be included in the scaffolding the insert of a library needs to be multiple times smaller than the contigs (the program estimates the actual insert size). Austin advice to include the `fallback_on_est_insert_size 1` that allows the library to be included anyways, just using the estimated insert size contained in the `.config` file. 
+
+What is the most important in the choice of the k-mer size is to be able to distinguish eror and genomic peaks (more than having 2 genomic peaks). Idea being the worst thing for the assembly is the repeats: the smaller the kmer is the worse it is. Need to have the biggest kmer size for which you are able to distinguish a peak for error and a genomic peak.
+
+Since the use of the `nxtrim` program identifies and separates reads with long insert and unusual short insert size, we can had these "new" pair end reads in our dataset and use them in the contig, scaffold and gap closure.
+
+Launched a job to resume the 49mer run with the `fallback_on_est_insert_size 1`. Also launched another job using the `pe` from the long insert libraries (insert size estimate: 300bp, deviation: 30, reads size: 110) with a kmer size of 61. Launched a `jellyfish` run with different kmer size on the whole short insert libraries (including the new one from the long reads). 
+
 ## Evaluating the run
 The script can be run at different steps in addition to the inspection of the intermediary files to check (`log`, `kha.png`, `mercount.png`, `.err`). 
 ```
