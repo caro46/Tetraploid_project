@@ -33,6 +33,12 @@ hist47_25x[hist47_25x$frequency==max(hist47_25x$frequency),] #30x
 ```
 Previously I run on all the short reads we had (paired and mate). Since it is adviced to only used paired for contigs (and kmer value matters for contiging), to make sure about the kmer values, I am re-running jellyfish, using only short paired ends reads.
 
+### Investigating errors vs genomic spikes
+Selecting the 1st 100 lines of the `hist` files produced by `jellyfish` and print them in 1 file (filenames as the 1st column, contain kmer size)
+```
+awk 'FNR<101 {print FILENAME, $0}' *mer >hist_100lines_41to71mers
+```
+
 ## Running
 
 `mellotrop.config` contains the main information to run the program. We need to give an estimation of the insert size for each library and the stantard deviation. We don't have this information. Put I'll use a 10\% variance (NEED TO PUT SOME REF), i.e.: `180bp+/-20, 400bp+/-40, 1000bp+/-100, 6kb+/-600, 10kb+/-1000`. If the assembly is not good enough, we can map the reads to the assembly and try to have an estimate with `bwa` of the mean and standard deviation of insert size. The `.config` file gives information about the sequences files, the type of library (fragment or jumping), the insert size, its standard deviation, the mean size of the reads, the orientation (innies, outies), if the reads are used for contigs and/or scaffolding. Example of a [config file](https://github.com/caro46/Tetraploid_project/blob/master/files_examples/mellotrop.config).
@@ -80,6 +86,14 @@ What is the most important in the choice of the k-mer size is to be able to dist
 Since the use of the `nxtrim` program identifies and separates reads with long insert and unusual short insert size, we can had these "new" pair end reads in our dataset and use them in the contig, scaffold and gap closure.
 
 Launched a job to resume the 49mer run with the `fallback_on_est_insert_size 1`. Also launched another job using the `pe` from the long insert libraries (insert size estimate: 300bp, deviation: 30, reads size: 110) with a kmer size of 61. Launched a `jellyfish` run with different kmer size on the whole short insert libraries (including the new one from the long reads) to identify the biggest kmer size that allow to distinguish error from genomic peaks. 
+
+9/04:
+
+The run including the `pe` files from mate libraries (after `nxtrim`) failed with a format error. However no error detected using `fastQValidator`. Some reads however are very small. Using `bbduk.sh` from `bbmap/37.36`, selecting reads of length `>= 20bp`. The new mean reads length is `59.034669`, with `13553506` reads (from Austin, the insert size is usually ~300bp).
+```
+gunzip -c *.fastq.gz | awk 'BEGIN { t=0.0;sq=0.0; n=0;} ;NR%4==2 {n++;L=length($0);t+=L;sq+=L*L;}END{m=t/n;printf("total %d avg=%f stddev=%f\n",n,m,sq/n-m*m);}' - >stats_pe_reads.txt
+``` 
+A run without these `pe` files and a kmer size of 61 started.
 
 ## Evaluating the run
 The script can be run at different steps in addition to the inspection of the intermediary files to check (`log`, `kha.png`, `mercount.png`, `.err`). 
