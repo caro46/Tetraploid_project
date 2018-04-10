@@ -95,6 +95,10 @@ gunzip -c *.fastq.gz | awk 'BEGIN { t=0.0;sq=0.0; n=0;} ;NR%4==2 {n++;L=length($
 ``` 
 A run without these `pe` files and a kmer size of 61 started.
 
+10/04:
+
+From Jellyfish results (done on 7/04), using `pe` from actual paired end libraries and mate paired: the best kmer value seems to be 51, with a min depth = 5, 1st genomic peak = 15, 2nd = 25, bubble_min_depth_cutoff=23. For kmer of 55 and 61 it is harder to tell but approximatively: 55mer: min depth = 4, 1st genomic peak = 13, 2nd = 23 ; 61mer:min depth = 4, 1st genomic peak = 11, 2nd = 20. The observation of the `isotigs.depth.hist` when the `meraculous_bubble` step will be done can help see if it is visible with kmer=61 and if we need to adjust the value autocaluated by the program. If not, we should directly go with 55mer and the values I discussed earlier.
+
 ### Results
 ### 49mers
 
