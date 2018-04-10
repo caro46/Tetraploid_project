@@ -113,6 +113,8 @@ Starting UUtigs         54615801        5282.3Mb        0.0Kb   6.9Kb   14956607
 ```
 Better than the `allpaths` assembly I previously obtained. The size is ~1/2 of the expected size but I think it is still promising since it was a preliminary run.
 
+For the `bubble_min_depth_cutoff`, used the auto-detection. Checking the `isotigs.depth.hist` and hist from jellyfish. It is the limit (depth with the lowest frequency between the 2 genomic peaks). For this run corresponds to ~23. From `meraculous_bubble/haplotigs.dmin.err`: `D-min cutoff picked at: 24`. I should probably rerun from the bubble step with a value of 23 (1st should wait the results from 61mer).
+
 ## Evaluating the run
 The script can be run at different steps in addition to the inspection of the intermediary files to check (`log`, `kha.png`, `mercount.png`, `.err`). 
 ```
