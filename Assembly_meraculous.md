@@ -95,6 +95,24 @@ gunzip -c *.fastq.gz | awk 'BEGIN { t=0.0;sq=0.0; n=0;} ;NR%4==2 {n++;L=length($
 ``` 
 A run without these `pe` files and a kmer size of 61 started.
 
+### Results
+### 49mers
+
+(finished on 10/04)
+
+Using short paired ends libraries for every step and mate paired for only the scaffolding step. Other parameters: `min_depth_cutoff 4` (from k-mer distribution + `mercount.occurrence.dmin.err`). No `bubble_depth_threshold` specified.
+
+```
+== Assembly Stats ===
+
+Description             cnt     total   min     max     N50 stats
+------------------------------------------------------------------------------
+Final Scaffolds         519589  1623.8Mb        1.0Kb   175.6Kb 72740 > 4.4Kb totalling 811.9Mb
+Final Contigs           728454  1258.8Mb        0.0Kb   30.5Kb  190931 > 2.1Kb totalling 629.4Mb
+Starting UUtigs         54615801        5282.3Mb        0.0Kb   6.9Kb   14956607 > 0.1Kb totalling 2641.2Mb
+```
+Better than the `allpaths` assembly I previously obtained. The size is ~1/2 of the expected size but I think it is still promising since it was a preliminary run.
+
 ## Evaluating the run
 The script can be run at different steps in addition to the inspection of the intermediary files to check (`log`, `kha.png`, `mercount.png`, `.err`). 
 ```
