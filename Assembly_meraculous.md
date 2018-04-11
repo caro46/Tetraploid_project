@@ -99,6 +99,12 @@ A run without these `pe` files and a kmer size of 61 started.
 
 From Jellyfish results (done on 7/04), using `pe` from actual paired end libraries and mate paired: the best kmer value seems to be 51, with a min depth = 5, 1st genomic peak = 15, 2nd = 25, bubble_min_depth_cutoff=23. For kmer of 55 and 61 it is harder to tell but approximatively: 55mer: min depth = 4, 1st genomic peak = 13, 2nd = 23 ; 61mer:min depth = 4, 1st genomic peak = 11, 2nd = 20. The observation of the `isotigs.depth.hist` when the `meraculous_bubble` step will be done can help see if it is visible with kmer=61 and if we need to adjust the value autocaluated by the program. If not, we should directly go with 55mer and the values I discussed earlier.
 
+11/04:
+
+The quick try run (Time ~1h) using all the pair end reads (including the ones from mate pair) didn't produce any errors - means issue was previously due to too small reads in the "FRA300" lib. Submitted for a longer run (kmer=61, pe in every step, mp in scaffolding and gap closing, `fallback_on_est_insert_size 1`, `gap_close_aggressive 1`, `min_depth_cutoff 4`). 
+
+Submitted with a kmer size of 51 (`min_depth_cutoff 4`, `bubble_depth_threshold 23`, similar other parameters).
+
 ### Results
 ### 49mers
 
