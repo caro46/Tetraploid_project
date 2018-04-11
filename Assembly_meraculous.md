@@ -106,6 +106,7 @@ From Jellyfish results (done on 7/04), using `pe` from actual paired end librari
 
 Using short paired ends libraries for every step and mate paired for only the scaffolding step. Other parameters: `min_depth_cutoff 4` (from k-mer distribution + `mercount.occurrence.dmin.err`). No `bubble_depth_threshold` specified.
 
+`meraculous_final_results/SUMMARY.txt`
 ```
 == Assembly Stats ===
 
@@ -118,6 +119,32 @@ Starting UUtigs         54615801        5282.3Mb        0.0Kb   6.9Kb   14956607
 Better than the `allpaths` assembly I previously obtained. The size is ~1/2 of the expected size but I think it is still promising since it was a preliminary run.
 
 For the `bubble_min_depth_cutoff`, used the auto-detection. Checking the `isotigs.depth.hist` and hist from jellyfish. It is the limit (depth with the lowest frequency between the 2 genomic peaks). For this run corresponds to ~23. From `meraculous_bubble/haplotigs.dmin.err`: `D-min cutoff picked at: 24`. I should probably rerun from the bubble step with a value of 23 (1st should wait the results from 61mer).
+
+`fasta_stats`
+```
+Main genome scaffold total: 519589
+Main genome contig total:   728454
+Main genome scaffold sequence total: 1623.8 MB
+Main genome contig sequence total:   1258.8 MB (-> 22.5% gap)
+Main genome scaffold N/L50: 72740/4.4 KB
+Main genome contig N/L50:   190931/2.1 KB
+Number of scaffolds > 50 KB: 299
+% main genome in scaffolds > 50 KB:  1.1%
+
+ Minimum    Number    Number     Total        Total     Scaffold
+Scaffold      of        of      Scaffold      Contig     Contig
+ Length   Scaffolds  Contigs     Length       Length    Coverage
+--------  ---------  -------  -----------  -----------  --------
+    All   519,589    728,454  1,623,824,024  1,258,766,162    77.52%
+   1 kb   519,589    728,454  1,623,824,024  1,258,766,162    77.52%
+ 2.5 kb   148,638    298,388  1,048,007,570  691,855,147    66.02%
+   5 kb    66,814    189,380  784,233,310  434,893,854    55.45%
+  10 kb    26,475    100,170  484,954,810  273,218,975    56.34%
+  25 kb     4,232     25,880  145,515,920   80,724,029    55.47%
+  50 kb       299      2,915   18,622,943   10,669,844    57.29%
+ 100 kb         8        130      990,425      682,567    68.92%
+ 250 kb         0          0            0            0     0.00%
+```
 
 ## Evaluating the run
 The script can be run at different steps in addition to the inspection of the intermediary files to check (`log`, `kha.png`, `mercount.png`, `.err`). 
