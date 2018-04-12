@@ -151,7 +151,13 @@ Scaffold      of        of      Scaffold      Contig     Contig
  100 kb         8        130      990,425      682,567    68.92%
  250 kb         0          0            0            0     0.00%
 ```
-
+For short paired end libraries, `meraculous` re-estimated the insert size (from the `info.log`)
+```
+lib_insert_size_recalc  FRA400 398 29
+lib_insert_size_recalc  FRA2ND180 156 28
+lib_insert_size_recalc  FRA1000 947 99
+lib_insert_size_recalc  FRA1ST180 198 20
+```
 ## Evaluating the run
 The script can be run at different steps in addition to the inspection of the intermediary files to check (`log`, `kha.png`, `mercount.png`, `.err`). 
 ```
