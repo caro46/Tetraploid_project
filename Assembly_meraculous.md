@@ -158,6 +158,27 @@ lib_insert_size_recalc  FRA2ND180 156 28
 lib_insert_size_recalc  FRA1000 947 99
 lib_insert_size_recalc  FRA1ST180 198 20
 ```
+#### Read and kmer depth
+
+```
+Read depth = (Total input sequencing in GB) / (Expected genome size in GB)
+Kmer depth = (Read depth) x (Read length - Kmer size + 1) / (Read length)
+```
+We expect a genome size between 3.1 and 3.5.
+```
+##GS=3.1 (X. laevis)
+RD = (30.9+30.1+0.9+22.2+137.0+0.8) / 3.1 = 71.58064516129032
+Read_length_mean = (314140000*98.2+304340000*98.8+8760000*98.3+1510080000*90.7+13553506*59.034669)/(314140000+304340000+8760000+1510080000+13553506) = 92.77292699169057
+KD(41) = 71.58064516129032*(92.77292699169057-41+1)/92.77292699169057 = 40.71791505999617
+
+##GS=3.5 (estimation from reads)
+RD = 63.4
+KD(41) = 36.064439053139466
+
+##GS=3.4 (= 2 x X. tropicalis)
+RD=65.26470588235294
+KD(41) = 37.12515784882004
+```
 ## Evaluating the run
 The script can be run at different steps in addition to the inspection of the intermediary files to check (`log`, `kha.png`, `mercount.png`, `.err`). 
 ```
