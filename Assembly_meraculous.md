@@ -159,8 +159,13 @@ lib_insert_size_recalc  FRA1000 947 99
 lib_insert_size_recalc  FRA1ST180 198 20
 ```
 #### Small total length
-##### Read and kmer depth
 
+We need to know what are the reasons the small size of the total assembly length (~1/2 of the expected size). 
+
+On the kmer plots from jellyfish (also the one produced by meraculous) there are only 2 peaks. They can represent either (1) the level of divergence between the 2 subgenomes: 1st visible peak = kmer unique to each subgenome, 2nd visible peak = kmer shared by both subgenomes - low heterozygosity within subgenome ; (2) heterozygosity within subgenome (low level of divergence between subgenome): 1st visible peak = kmer specific to each parental haplotype, 2nd visible peak = shared.
+
+##### Read and kmer depth 
+Calculation made using all paired-end libraries (even the one recovered from the mate pair libraries) - which is slightly different than what was used for the 49mer run. The goal here is to see if we can distinguish both subgenome (see if more divergence between subgenomes or haplotypes - within subgenomes). If the subgenome are very similar it can explain why we obtain a small total length for the assembly since the program will squeeze both subgenome together. 
 ```
 Read depth = (Total input sequencing in GB) / (Expected genome size in GB)
 Kmer depth = (Read depth) x (Read length - Kmer size + 1) / (Read length)
@@ -180,6 +185,8 @@ KD(41) = 36.064439053139466
 RD=65.26470588235294
 KD(41) = 37.12515784882004
 ```
+Depth at the highest peak for a kmer size of 41 is 34. It is fairly close to the expected Kmer depth. 
+
 ##### Default filtering
 
 In the final results: we only have information for scaffolds > 1kb and contigs that are used in these filtered scaffolds. In case of highly repetitive genome we expect to obtain small contigs that might be hard to assemble (small scaffolds) - we already started with "contigs" from `meraculous_merblast/contigs.fa` very small: too small to be able to re-estimate the insert size of big insert mate libraries. Not surprising for me that at the end we obtained a much smaller assembly size than expected. Should be already improved by using bigger k-mer size and more libraries in the gap filling step.
