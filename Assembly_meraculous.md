@@ -158,7 +158,8 @@ lib_insert_size_recalc  FRA2ND180 156 28
 lib_insert_size_recalc  FRA1000 947 99
 lib_insert_size_recalc  FRA1ST180 198 20
 ```
-#### Read and kmer depth
+#### Small total length
+##### Read and kmer depth
 
 ```
 Read depth = (Total input sequencing in GB) / (Expected genome size in GB)
@@ -179,6 +180,18 @@ KD(41) = 36.064439053139466
 RD=65.26470588235294
 KD(41) = 37.12515784882004
 ```
+##### Default filtering
+
+In the final results: we only have information for scaffolds > 1kb and contigs that are used in these filtered scaffolds. In case of highly repetitive genome we expect to obtain small contigs that might be hard to assemble (small scaffolds) - we already started with "contigs" from `meraculous_merblast/contigs.fa` very small: too small to be able to re-estimate the insert size of big insert mate libraries. Not surprising for me that at the end we obtained a much smaller assembly size than expected. Should be already improved by using bigger k-mer size and more libraries in the gap filling step.
+
+- `final.scaffolds.unfiltered.single-haplotype.fa`: (diploid_mode 1 only) The scaffolds without alternative variant singletons  (no size filtering).
+
+- `final.scaffolds.fa`: Final scaffolds of size greater than 1kb  (in diploid_mode 2 includes all variants)
+
+- `final.contigs.fa`: Individual contigs comprising the final filtered scaffolds
+
+(17/04:) Run the `fasta_stats` on `final.scaffolds.fa.unfiltered` and `final.scaffolds.unfiltered.single-haplotype.fa`: total length respectively ~2.9Gb and 2.2Gb. The small intial contigs size seems to be definitely a factor.
+
 ## Evaluating the run
 The script can be run at different steps in addition to the inspection of the intermediary files to check (`log`, `kha.png`, `mercount.png`, `.err`). 
 ```
