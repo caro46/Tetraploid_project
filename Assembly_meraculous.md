@@ -9,6 +9,7 @@ It is already installed on `cedar` and can be loaded like that
 module load nixpkgs/16.09  gcc/4.8.5
 module load meraculous/2.2.4
 ```
+
 ## kmer distribution - jellyfish
 
 To choose the best k-mer size (from the manual): *As a rule of thumb, the largest value of k that yields a distinct peak at least ~30X is a reasonable choice*. We can either run the 1st step or Meraculous (`meraculous_mercount`) or just run `jellyfish` with different k-mer values ([script](https://github.com/caro46/Tetraploid_project/blob/master/some_scripts/jellyfish_iteratively.pl)) and check on the graph.
@@ -199,6 +200,22 @@ In the final results: we only have information for scaffolds > 1kb and contigs t
 
 (17/04:) Run the `fasta_stats` on `final.scaffolds.fa.unfiltered` and `final.scaffolds.unfiltered.single-haplotype.fa`: total length respectively ~2.9Gb and 2.2Gb. The small intial contigs size seems to be definitely a factor.
 
+##### Paired end
+
+*If your input has been filtered in such a way that some reads have their pairs missing, you will need to edit the files and add dummy reads to take place of the missing pairs*
+
+To check at least for some (since in theory we only used paired reads from trimmomatic corrected with quake that keeps the paired in the main files it should be good. Same with nxtrim, only used mp or pe, not se):
+```
+gunzip -c ../../../HiSeq_data/mate_pe/10kb_nxtrimmed_0_R1.paired_20min.fastq.gz | awk 'BEGIN { t=0.0;sq=0.0; n=0;} ;NR%4==2 {n++;L=length($0);t+=L;sq+=L*L;}END{m=t/n;printf("total %d avg=%f stddev=%f\n",n,m,sq/n-m*m);}' -
+#total 71997 avg=55.069933 stddev=529.979373
+gunzip -c ../../../HiSeq_data/mate_pe/10kb_nxtrimmed_0_R2.paired_20min.fastq.gz | awk 'BEGIN { t=0.0;sq=0.0; n=0;} ;NR%4==2 {n++;L=length($0);t+=L;sq+=L*L;}END{m=t/n;printf("total %d avg=%f stddev=%f\n",n,m,sq/n-m*m);}' -
+#total 71997 avg=51.941511 stddev=501.203115
+gunzip -c ../../../HiSeq_data/BenEvansBJE3652_1000bp_Library_GTTTCG_L003_R1_001_trim_paired.cor.fastq.gz | awk 'BEGIN { t=0.0;sq=0.0; n=0;} ;NR%4==2 {n++;L=length($0);t+=L;sq+=L*L;}END{m=t/n;printf("total %d avg=%f stddev=%f\n",n,m,sq/n-m*m);}' -
+#total 3713647 avg=98.749957 stddev=82.239009
+gunzip -c ../../../HiSeq_data/BenEvansBJE3652_1000bp_Library_GTTTCG_L003_R2_001_trim_paired.cor.fastq.gz | awk 'BEGIN { t=0.0;sq=0.0; n=0;} ;NR%4==2 {n++;L=length($0);t+=L;sq+=L*L;}END{m=t/n;printf("total %d avg=%f stddev=%f\n",n,m,sq/n-m*m);}' -
+#total 3713647 avg=96.918943 stddev=142.076961
+```
+
 ## Evaluating the run
 The script can be run at different steps in addition to the inspection of the intermediary files to check (`log`, `kha.png`, `mercount.png`, `.err`). 
 ```
@@ -230,3 +247,8 @@ Finished processing /home/cauretc/scratch/HiSeq_data/10kb_nxtrimmed_6_R1.mp_unkn
 There were a total of 0 errors.
 Returning: 0 : FASTQ_SUCCESS
 ```
+
+## Notes about *X.laevis* project
+[Session et al. 2016](https://www.nature.com/articles/nature19840): see especially the [extented figures](https://www.nature.com/articles/nature19840/figures/5): 1 genomic peak (`mercount.png`) for the kmer size they used (51) and a rapid rise at relative depth 1 (`kha.png`) implies that a big part of a genome is a single copy with respect to the kmer size. 
+
+So the easier is to see if we can obtain 1 single big peak as them. I think 61mer is too high for my data (not enough coverage) but 51 or 55 might be better (bigger distinction between "error peak" and the genome). 
