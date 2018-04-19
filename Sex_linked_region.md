@@ -1117,8 +1117,17 @@ Aligned also with *X.tropicalis* and *laevis* exon 1 to have an idea of differen
 ### olfactory_receptor_5M11-like
 Some interesting binding sites: `sox1`, `dmrta2`.
 Trying to align the best scaffolds together (5/04): `scaffold_43454`, `scaffold_52790`, `scaffold_41144`, `scaffold_257117` of allpaths. 
-Not working well. Should try with SOAP assembly.
+Not working well. Should try with SOAP assembly. Small alignment...
 
+### Cyp17a1
+Amplyfying part of exon 1 and intronic region between exons 1 and 2. Scaffold 393 also maps to this gene but some missing data make difficult the alignment with other scaffolds.
+
+scaffold_179573
+```
+```
+scaffold_129784
+```
+```
 ### Maybe
 
 - cyp17: Chr07:20686094..20695533
