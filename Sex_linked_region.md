@@ -1130,6 +1130,12 @@ Forward primer	ATTCCTAGCTTCGGTCTTGAGG	Plus	22	230	251	59.57	50.00	4.00	1.00
 Reverse primer	CCAGCCAGGACACTATTGGA	Minus	20	595	576	59.09	55.00	4.00	0.00
 Product length	366
 
+Primer pair 1
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	CTGAGAACATACAAACTCCAAT	Plus	22	560	581	54.11	36.36	3.00	2.00
+Reverse primer	CAGTCAGCCATTGACTTTTAG	Minus	21	1087	1067	54.87	42.86	5.00	1.00
+Product length	528
+
 ```
 scaffold_129784
 ```
@@ -1160,6 +1166,11 @@ Template        3636  .TT........A.C..G...  3617
 Reverse primer  1   CAGGACACTTTTAGCAAGCA  20
 Template        54  .CT.T.T..........C..  73
 
+Primer pair 1
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GAATATACAAACTGCTTGCT	Plus	20	1451	1470	51.54	35.00	5.00	3.00
+Reverse primer	AATCAGCCATTGGCTTCTG	Minus	19	1994	1976	55.84	47.37	9.00	5.00
+Product length	544
 ```
 ### Maybe
 
