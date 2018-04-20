@@ -1124,9 +1124,42 @@ Amplyfying part of exon 1 and intronic region between exons 1 and 2. Scaffold 39
 
 scaffold_179573
 ```
+Primer pair 7
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	ATTCCTAGCTTCGGTCTTGAGG	Plus	22	230	251	59.57	50.00	4.00	1.00
+Reverse primer	CCAGCCAGGACACTATTGGA	Minus	20	595	576	59.09	55.00	4.00	0.00
+Product length	366
+
 ```
 scaffold_129784
 ```
+Primer pair 1
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	CTCTGATTCCCTAGACACTA	Plus	20	1172	1191	52.59	45.00	4.00	3.00
+Reverse primer	CAGGACACTTTTAGCAAGCA	Minus	20	1482	1463	56.26	45.00	3.00	0.00
+Product length	311
+
+Products on potentially unintended templates
+>XM_018239192.1 PREDICTED: Xenopus laevis dynein heavy chain 3, axonemal-like (LOC108703161), transcript variant X2, mRNA
+
+
+product length = 3553
+Reverse primer  1     CAGGACACTTTTAGCAAGCA  20
+Template        3606  .TT........A.C..G...  3587
+
+Reverse primer  1   CAGGACACTTTTAGCAAGCA  20
+Template        54  .CT.T.T..........C..  73
+
+>XM_018239191.1 PREDICTED: Xenopus laevis dynein heavy chain 3, axonemal-like (LOC108703161), transcript variant X1, mRNA
+
+
+product length = 3583
+Reverse primer  1     CAGGACACTTTTAGCAAGCA  20
+Template        3636  .TT........A.C..G...  3617
+
+Reverse primer  1   CAGGACACTTTTAGCAAGCA  20
+Template        54  .CT.T.T..........C..  73
+
 ```
 ### Maybe
 
