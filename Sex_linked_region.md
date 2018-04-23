@@ -998,6 +998,28 @@ To make the amplification easier we are considering to try amplifying annotated 
 
 After gradient done on the mom, tried to amplify everybody at 60.7 (1 band brighter thsn other temp). On the gel, got some individuals with 1 and 2 bands. Sequenced the individuals that had 1 good band (2 different sizes). None of the sequences match exactly the scaffold (small missing a 46bp region + some bases different from the scaffold ; big: a region of ~130bp is added compared to the scaffold - seem to have some sort of duplication, real? - no repeat identified with repeatmasker on the scaffold). Aligned the sequence on itself using mafft: a lot of repeated region. Might be worth it to amplify the closest gene from where the scaffold seems to fall.
 
+Seems to be some sort of tandem repeat regions with varian in the number of copies (between paralogs?). There was another SNP of interest at position `906` (males:G/G females:G/A). I tried to see if the 1st SNP (`857`) can just be due to a mapping of reads from another duplicate (would have been pretty weird that the missmapping would have been for only all the females). On genious using mapping from Sanger sequences and scaffold: look for `tgcatggggaatTccgtgggtaa`, obtained no match at all, whereas `tgcatggggaatGccgtgggtaa` obtained a match for 2 regions. The 2nd SNP is localted on the same reads in the females as the 1st one. Since none of the Sanger seq match exactly the scaffold: need a nested reverse primer containing the missing regin from the scaffold.
+
+```
+Primer pair 1
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	TCTGATGCCACAAACATGCC	Plus	20	622	641	59.11	50.00	4.00	1.00
+Reverse primer	TAGCCACACATTACCCACGG	Minus	20	935	916	59.75	55.00	2.00	2.00
+Product length	314
+Products on potentially unintended templates
+>XM_018235622.1 PREDICTED: Xenopus laevis small integral membrane protein 14 L homeolog (smim14.L), transcript variant X1, mRNA
+
+
+product length = 190
+Reverse primer  1    TAGCCACACATTACCCACGG  20
+Template        529  C.T.....A.A.......T.  510
+
+Reverse primer  1    TAGCCACACATTACCCACGG  20
+Template        340  G..G........GGA.....  359
+
+```
+The new reverse is too close from the 2nd SNP but we should hopefully good for the 1st one.
+
 ## Genes to target
 ```
 blastn -evalue 1e-1 -query chr7_genes.fa -db /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly_blastable -out /work/cauretc/2017_Mellotropicalis/blast_chr7_genes/chr7trop_genes_allpaths_e1.out -outfmt 6
