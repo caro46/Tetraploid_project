@@ -1019,6 +1019,7 @@ Template        340  G..G........GGA.....  359
 
 ```
 The new reverse is too close from the 2nd SNP but we should hopefully good for the 1st one.
+The new primer falls where we don't have the bases for the reads displaying the specific mom snp. Maybe will need to lower the temperature to have both alleles (1 possible SNP on the 3' end). Problem being that I can't find another similar scaffold: both subgenomes sequeezed? only present in 1 subgenome? Not sure if we have 2 subgenomes squeezed, using this primer that is not part of the PCR product (in the 46bp of the scaffold not showing up in the pcr product) we will amplify the "good" subgenome that actually contains the snp of interest. However maybe we previously got the other subgenome... If it is not working with the new primer, I think we should focus on the other regions (notes from 23/04, day of the primer order).
 
 ## Genes to target
 ```
