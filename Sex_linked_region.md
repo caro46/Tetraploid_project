@@ -1203,4 +1203,6 @@ Product length	544
 
 - nop2: Chr07:1724392..1732275
 
-- ZNF384: Chr07:1613361..1636481 - transcription factor 
+- ZNF384: Chr07:1613361..1636481 - transcription factor
+
+- got1 = Aspartate aminotransferase (=AAT-1), sex determination in *Burgeria buergeri* ([Eggert 2004](https://rnd.edpsciences.org/articles/rnd/pdf/2004/07/r4608.pdf), [Sumida et al. 2004](https://onlinelibrary.wiley.com/doi/full/10.1002/jez.b.20011)): Chr07:26943982..26957866
