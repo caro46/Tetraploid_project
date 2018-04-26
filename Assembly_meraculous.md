@@ -225,6 +225,14 @@ gunzip -c ../../../HiSeq_data/BenEvansBJE3652_1000bp_Library_GTTTCG_L003_R1_001_
 gunzip -c ../../../HiSeq_data/BenEvansBJE3652_1000bp_Library_GTTTCG_L003_R2_001_trim_paired.cor.fastq.gz | awk 'BEGIN { t=0.0;sq=0.0; n=0;} ;NR%4==2 {n++;L=length($0);t+=L;sq+=L*L;}END{m=t/n;printf("total %d avg=%f stddev=%f\n",n,m,sq/n-m*m);}' -
 #total 3713647 avg=96.918943 stddev=142.076961
 ```
+##### Good species?
+
+When trying to design primers to comfirm the sex-determining system, multiple scaffolds match to the same region in *X. tropicalis* but with variances between them which goes in the direction of the "good" tetraploid genome. But to confirm as Ben suggested (20/04), extract a mitochondrial region and blast it to confirm the species (23/04)
+
+```
+blastn -evalue 1e-1 -query mellotrop_NCBI_incomplete_mitoch.fa -db ../canu_assembly/BJE3652_canu_assembly.contigsANDunassembled_blastable -out /work/cauretc/2017_Mellotropicalis/blast_chr7_genes/mitoch_mellotrop_canu_e1.out -outfmt 6
+```
+Extracted `tig00092499` and aligned with *Pipa* sequences from NCBI (*P. carvalhoi* `DQ283251.1`, *P. parva* `AY581622.1`, *P. pipa* `DQ283053.1`), *X. borealis* (`AY581653.1`, `AY581655.1`), *X. epitropicalis* (`AY581665.1`), *X. laevis* (`AY581639.1`, `AY581648.1`), *X. longipes* (`KT728093.1`), *X. mellotropicalis* (`AY581661.1`, `AY581660.1`, `AY581662.1`), *X. tropicalis* (`AY581669.1`, `AY581666.1`, `AY581671.1`) using MAFFT, the quick Genious Neighbor-Joining tree (default parameters): closest to *X. mellotropicalis* sequences; with *X. epitropicalis* form a sister clade to the *X. tropicalis* clade.  
 
 ##### Both subgenomes?
 Aligning to *X. topicalis* reference. Focusing on the chromsomes (to go faster/smaller outputs)
