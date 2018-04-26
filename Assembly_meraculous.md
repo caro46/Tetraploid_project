@@ -241,7 +241,7 @@ awk 'BEGIN {RS=">"} /Chr/ {print ">"$0}' Xtropicalis_v9_repeatMasked.fa >Xtropic
 
 sbatch ~/project/cauretc/scripts/running_nucmer.sh mellotrop_meraculous_49mer_diploid1_nucmer_trop_chr /scratch/cauretc/tropicalis_reference/Xtropicalis_v9_repeatMasked_only_chr.fa /scratch/cauretc/meraculous/mellotropicalis_meraculous_assembly_2018-03-14_20h11m18s/meraculous_final_results/final.scaffolds.fa
 ```
-`running_nucmer.sh` takes: prefix, reference, query. It keeps the best match for each query sequence and produces a `mummerplot` in a `.png` format. It calls the `mummer-64bit/3.23` version (big genome).  
+`running_nucmer.sh` takes: prefix, reference, query. It keeps the best match for each query sequence and produces a `mummerplot` in a `.png` format. It calls the `mummer-64bit/3.23` version (big genome). Issue with the perl version for `mummerplot` but tried all the available one on cedar and nothing worked so installed again the `mummer-3.9.4alpha` version locally and doesn't seem to have issue. Run from the beginning to make sure everything done with the same version. 
 
 ## Evaluating the run
 The script can be run at different steps in addition to the inspection of the intermediary files to check (`log`, `kha.png`, `mercount.png`, `.err`). 
