@@ -226,6 +226,15 @@ gunzip -c ../../../HiSeq_data/BenEvansBJE3652_1000bp_Library_GTTTCG_L003_R2_001_
 #total 3713647 avg=96.918943 stddev=142.076961
 ```
 
+##### Both subgenomes?
+Aligning to *X. topicalis* reference. Focusing on the chromsomes (to go faster/smaller outputs)
+```
+awk 'BEGIN {RS=">"} /Chr/ {print ">"$0}' Xtropicalis_v9_repeatMasked.fa >Xtropicalis_v9_repeatMasked_only_chr.fa
+
+sbatch ~/project/cauretc/scripts/running_nucmer.sh mellotrop_meraculous_49mer_diploid1_nucmer_trop_chr /scratch/cauretc/tropicalis_reference/Xtropicalis_v9_repeatMasked_only_chr.fa /scratch/cauretc/meraculous/mellotropicalis_meraculous_assembly_2018-03-14_20h11m18s/meraculous_final_results/final.scaffolds.fa
+```
+`running_nucmer.sh` takes: prefix, reference, query. It keeps the best match for each query sequence and produces a `mummerplot` in a `.png` format. It calls the `mummer-64bit/3.23` version (big genome).  
+
 ## Evaluating the run
 The script can be run at different steps in addition to the inspection of the intermediary files to check (`log`, `kha.png`, `mercount.png`, `.err`). 
 ```
