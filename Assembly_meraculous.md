@@ -106,6 +106,16 @@ The quick try run (Time ~1h) using all the pair end reads (including the ones fr
 
 Submitted with a kmer size of 51 (`min_depth_cutoff 4`, `bubble_depth_threshold 23`, similar other parameters).
 
+26/04: 
+
+Last week submitted the exact same job as the `49mers` I have the final results for; except using `diploid_mode 2`. The goal is to compare both final results by mapping the scaffolds back to the *X. tropicalis* using `nucmer` and by exploring the plot produces by `mummerplot` to see if `diploid_mode 1` and `diploid_mode 2` have both duplicate scaffolds.
+
+To use the previous steps of a run, but changing some parameters for a new run without overwritting
+```
+bootstrap_run.sh -o [old_run_directory] -n [new_run_directory] -s [stage]
+```
+Then similar command as to submit a "normal" job `run_meraculous.sh -c [config_file] -dir [new_run_directory] -restart -start [stage]`
+
 ### Results
 ### 49mers
 
