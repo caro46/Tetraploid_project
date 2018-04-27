@@ -243,6 +243,8 @@ sbatch ~/project/cauretc/scripts/running_nucmer.sh mellotrop_meraculous_49mer_di
 ```
 `running_nucmer.sh` takes: prefix, reference, query. It keeps the best match for each query sequence and produces a `mummerplot` in a `.png` format. It calls the `mummer-64bit/3.23` version (big genome). Issue with the perl version for `mummerplot` but tried all the available one on cedar and nothing worked so installed again the `mummer-3.9.4alpha` version locally and doesn't seem to have issue. Run from the beginning to make sure everything done with the same version. 
 
+Note 27/04: `mummerplot` options are not compatible with `gnuplot 5.0 patchlevel 3`, since only version already installed on `cedar` I commented the line that seemed to cause issues (l.1154: `$P_FORMAT .= "\nset mouse clipboardformat \"$MFORMAT\"";`) and now works OK.
+
 ## Evaluating the run
 The script can be run at different steps in addition to the inspection of the intermediary files to check (`log`, `kha.png`, `mercount.png`, `.err`). 
 ```
