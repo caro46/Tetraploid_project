@@ -117,7 +117,7 @@ bootstrap_run.sh -o [old_run_directory] -n [new_run_directory] -s [stage]
 Then similar command as to submit a "normal" job `run_meraculous.sh -c [config_file] -dir [new_run_directory] -restart -start [stage]`
 
 ### Results
-### 49mers
+### 49mers - diploid mode 1
 
 (finished on 10/04)
 
@@ -244,6 +244,21 @@ sbatch ~/project/cauretc/scripts/running_nucmer.sh mellotrop_meraculous_49mer_di
 `running_nucmer.sh` takes: prefix, reference, query. It keeps the best match for each query sequence and produces a `mummerplot` in a `.png` format. It calls the `mummer-64bit/3.23` version (big genome). Issue with the perl version for `mummerplot` but tried all the available one on cedar and nothing worked so installed again the `mummer-3.9.4alpha` version locally and doesn't seem to have issue. Run from the beginning to make sure everything done with the same version. 
 
 Note 27/04: `mummerplot` options are not compatible with `gnuplot 5.0 patchlevel 3`, since only version already installed on `cedar` I commented the line that seemed to cause issues (l.1154: `$P_FORMAT .= "\nset mouse clipboardformat \"$MFORMAT\"";`) and now works OK.
+
+### 49mer - diploid mode 2
+(finished on 3/05)
+```
+== Assembly Stats ===
+
+Description             cnt     total   min     max     N50 stats
+------------------------------------------------------------------------------
+Final Scaffolds         627344  1145.1Mb        1.0Kb   52.5Kb  183519 > 1.8Kb totalling 572.6Mb
+Final Contigs           967718  1084.4Mb        0.0Kb   27.2Kb  221290 > 1.5Kb totalling 542.2Mb
+Starting UUtigs         54615801        5282.3Mb        0.0Kb   6.9Kb   14956607 > 0.1Kb totalling 2641.2Mb
+```
+4/05: still working on `mummerplot` to see if for `diploid mode 1` we only have 1 scaffold matching a region in *X. tropicalis* and 2 scaffolds for `diploid mode 2`. Problem with small numerous scaffolds the plot is very noisy and we can't really see anything even when selecting a shorter window that the total chromosome. Waiting for a coverage plot to see if better.
+
+The total length is even smaller than the `diploid mode 1` results. For me it suggests that it is because early assembly step `meraculous_contigs` produces too small `UUtigs` that then can't really be properly assembled together (too small for the large insert size, ...). This would continue leading to small contigs and scaffolds that are then filtered out because of their size. The `diploid mode 2` is even worse because the fragments are too small to be organized and phased leading to more fragmented assembly with then more contigs filtered out. I think longer kmer and with all the reads use in later steps (gap closing), it should be much better. 
 
 ## Evaluating the run
 The script can be run at different steps in addition to the inspection of the intermediary files to check (`log`, `kha.png`, `mercount.png`, `.err`). 
