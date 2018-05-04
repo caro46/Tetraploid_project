@@ -260,6 +260,10 @@ Starting UUtigs         54615801        5282.3Mb        0.0Kb   6.9Kb   14956607
 
 The total length is even smaller than the `diploid mode 1` results. For me it suggests that it is because early assembly step `meraculous_contigs` produces too small `UUtigs` that then can't really be properly assembled together (too small for the large insert size, ...). This would continue leading to small contigs and scaffolds that are then filtered out because of their size. The `diploid mode 2` is even worse because the fragments are too small to be organized and phased leading to more fragmented assembly with then more contigs filtered out. I think longer kmer and with all the reads use in later steps (gap closing), it should be much better. 
 
+From the manual, in `meraculous_contigs` sextion:
+
+*For example, a lack of long contigs and/or contig sizes failing to add up to the expected genome size may indicate insufficient depth of usable k-mers. If this coincides with a bi-modal k-mer depth distribution (see stage meraculous_mercount), then this suggests contamination in the dataset.*
+
 ## Evaluating the run
 The script can be run at different steps in addition to the inspection of the intermediary files to check (`log`, `kha.png`, `mercount.png`, `.err`). 
 ```
