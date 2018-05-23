@@ -198,6 +198,12 @@ KD(41) = 37.12515784882004
 ```
 Depth at the highest peak for a kmer size of 41 is 34. It is fairly close to the expected Kmer depth. 
 
+##### kmer distribution interpretation
+
+(23/05: some additional comments)
+
+So in all the kmer distribution (41-71): 2 main genomic peaks (similarity in subgenomes, diverged subgenomes). In the diploid mode 1 it should squeezed polymorphic region and keeps only the most common base (for a low polymorphic rate). Always 2 main peaks in the isotigs plot and 2 diplotigs... Isotigs and diplotigs overlap which indicates high level of polymorphism -> hard for the assembly. Seems like the 1st peak is considered as polymorphic region and just squeezed instead of being assembled into 2 subgenomes -> diploid mode 2 should fix the issue in this case.
+
 ##### Default filtering
 
 In the final results: we only have information for scaffolds > 1kb and contigs that are used in these filtered scaffolds. In case of highly repetitive genome we expect to obtain small contigs that might be hard to assemble (small scaffolds) - we already started with "contigs" from `meraculous_merblast/contigs.fa` very small: too small to be able to re-estimate the insert size of big insert mate libraries. Not surprising for me that at the end we obtained a much smaller assembly size than expected. Should be already improved by using bigger k-mer size and more libraries in the gap filling step.
@@ -260,7 +266,7 @@ Starting UUtigs         54615801        5282.3Mb        0.0Kb   6.9Kb   14956607
 
 The total length is even smaller than the `diploid mode 1` results. For me it suggests that it is because early assembly step `meraculous_contigs` produces too small `UUtigs` that then can't really be properly assembled together (too small for the large insert size, ...). This would continue leading to small contigs and scaffolds that are then filtered out because of their size. The `diploid mode 2` is even worse because the fragments are too small to be organized and phased leading to more fragmented assembly with then more contigs filtered out. I think longer kmer and with all the reads use in later steps (gap closing), it should be much better. 
 
-From the manual, in `meraculous_contigs` sextion:
+From the manual, in `meraculous_contigs` section:
 
 *For example, a lack of long contigs and/or contig sizes failing to add up to the expected genome size may indicate insufficient depth of usable k-mers. If this coincides with a bi-modal k-mer depth distribution (see stage meraculous_mercount), then this suggests contamination in the dataset.*
 
