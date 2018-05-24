@@ -1001,7 +1001,7 @@ After gradient done on the mom, tried to amplify everybody at 60.7 (1 band brigh
 Seems to be some sort of tandem repeat regions with varian in the number of copies (between paralogs?). There was another SNP of interest at position `906` (males:G/G females:G/A). I tried to see if the 1st SNP (`857`) can just be due to a mapping of reads from another duplicate (would have been pretty weird that the missmapping would have been for only all the females). On genious using mapping from Sanger sequences and scaffold: look for `tgcatggggaatTccgtgggtaa`, obtained no match at all, whereas `tgcatggggaatGccgtgggtaa` obtained a match for 2 regions. The 2nd SNP is localted on the same reads in the females as the 1st one. Since none of the Sanger seq match exactly the scaffold: need a nested reverse primer containing the missing regin from the scaffold.
 
 ```
-Primer pair 1
+Primer pair 1 Xm_sc_262360_F1/Xm_sc_262360_R2
 	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
 Forward primer	TCTGATGCCACAAACATGCC	Plus	20	622	641	59.11	50.00	4.00	1.00
 Reverse primer	TAGCCACACATTACCCACGG	Minus	20	935	916	59.75	55.00	2.00	2.00
@@ -1035,13 +1035,13 @@ I will make primers within the ~1kb exon using the *tropicalis* reference genome
 
 scaffold471476
 ```
-Primer pair 1
+Primer pair 1 Xm_or8H1_p1_F2/Xm_or8H1_p1_R1
 	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
 Forward primer	ATTCTCCTTGGAAATCTCACTGT	Plus	23	3060	3082	57.49	39.13	6.00	3.00
 Reverse primer	CAACAAAGCAATCATACGCCATG	Minus	23	3325	3303	59.45	43.48	4.00	4.00
 Product length	266
 
-Primer pair 1
+Primer pair 1 Xm_or8H1_p1_F1/Xm_or8H1_p1_R1
 	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
 Forward primer	GTCATATTACAGATAATTCC	Plus	20	2930	2949	45.89	30.00	6.00	0.00
 Reverse primer	CAACAAAGCAATCATACGCCATG	Minus	23	3316	3294	59.45	43.48	4.00	4.00
@@ -1079,14 +1079,14 @@ Template        117  ...T........T.....C.  136
 Reverse primer  1    CAACATAGCGATCATACGC  19
 Template        373  ................T..  355
 
-Primer pair 1
+Primer pair 1 Xm_or8H1_p2_F2/Xm_or8H1_p2_R2
 	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
 Forward primer	TCCTAGGAAATCTCATTGTT	Plus	20	721	740	51.09	35.00	8.00	0.00
 Reverse primer	TGTTGGGTCATACGAGCAAT	Minus	20	1031	1012	57.22	45.00	4.00	2.00
 Product length	311
 
 
-Primer pair 1
+Primer pair 1  Xm_or8H1_p2_F1/Xm_or8H1_p2_R1
 	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
 Forward primer	GTGTCAAACTACAGTTCATTTA	Plus	22	576	597	52.41	31.82	6.00	2.00
 Reverse primer	CAACATAGCGATCATACGCC	Minus	20	988	969	56.86	50.00	5.00	3.00
@@ -1101,7 +1101,7 @@ Product length	413
 I think I'll try  Primer pair 1.
 
 ```
-Primer pair 1
+Primer pair 1 Xm_or8H1_p2_F1/Xm_or8H1_p2_R2
 	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
 Forward primer	GTGTCAAACTACAGTTCATTTA	Plus	22	576	597	52.41	31.82	6.00	2.00
 Reverse primer	TGTTGGGTCATACGAGCAAT	Minus	20	1031	1012	57.22	45.00	4.00	2.00
@@ -1121,20 +1121,24 @@ Geneious to have a quick alignment of mutiple best hits of the gene: for example
 
 scaffold430829
 ```
-Primer pair 1
+Primer pair 1 Xm_moxd2p_p1_e1_F1/Xm_moxd2p_p1_e1_R1
 	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
 Forward primer	AAATGAAGCAACTCTCACACTCAC	Plus	24	1911	1934	59.73	41.67	3.00	0.00
 Reverse primer	AACCGCTTGGACCGACAAT	Minus	19	2224	2206	59.93	52.63	4.00	2.00
 Product length	314
 ``` 
+Primers extension time: 30s.
+
 scaffold731796
 ```
-Primer pair 1
+Primer pair 1 Xm_moxd2p_p2_e1_F1/Xm_moxd2p_p2_e1_R1
 	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
 Forward primer	CAATGAATCGACTCTCACACTCAC	Plus	24	330	353	59.67	45.83	6.00	0.00
 Reverse primer	CACCAGTTGGACGGGCAAT	Minus	19	634	616	60.60	57.89	4.00	2.00
 Product length	305
 ```
+Primers extension time: 30s.
+
 Aligned also with *X.tropicalis* and *laevis* exon 1 to have an idea of differences between 2 species. Only `moxd2p.L`, no `moxd2p.S`. 
 
 ### olfactory_receptor_5M11-like
@@ -1147,7 +1151,7 @@ Amplyfying part of exon 1 and intronic region between exons 1 and 2. Scaffold 39
 
 scaffold_179573
 ```
-Primer pair 7
+Primer pair 7 Xm_cyp17a1_p1_F1/Xm_cyp17a1_p1_R1
 	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
 Forward primer	ATTCCTAGCTTCGGTCTTGAGG	Plus	22	230	251	59.57	50.00	4.00	1.00
 Reverse primer	CCAGCCAGGACACTATTGGA	Minus	20	595	576	59.09	55.00	4.00	0.00
@@ -1162,7 +1166,7 @@ Product length	528
 ```
 scaffold_129784
 ```
-Primer pair 1
+Primer pair 1 Xm_cyp17a1_p2_F1/Xm_cyp17a1_p2_R1
 	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
 Forward primer	CTCTGATTCCCTAGACACTA	Plus	20	1172	1191	52.59	45.00	4.00	3.00
 Reverse primer	CAGGACACTTTTAGCAAGCA	Minus	20	1482	1463	56.26	45.00	3.00	0.00
