@@ -1149,6 +1149,8 @@ Not working well. Should try with SOAP assembly. Small alignment...
 ### Cyp17a1
 Amplyfying part of exon 1 and intronic region between exons 1 and 2. Scaffold 393 also maps to this gene but some missing data make difficult the alignment with other scaffolds.
 
+*cyp17a1 encodes for the 17-hydroxylase that converts progestins into androgens* ([Berbejillo et al. 2012](https://onlinelibrary.wiley.com/doi/pdf/10.1002/mrd.22053))
+
 scaffold_179573
 ```
 Primer pair 7 Xm_cyp17a1_p1_F1/Xm_cyp17a1_p1_R1 Ext_Time=30s
