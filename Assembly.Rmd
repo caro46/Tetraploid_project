@@ -371,6 +371,17 @@ NG50    NaN     NaN
 N50_scaffold-NG50_scaffold_length_difference    NaN
 
 ```
+
+### Multi-kmer approach - all data
+
+(28/05)
+
+We are more computing resources so I will try some more runs with SOAP de novo. The contig total length is fairly close to the expected genome size but not at the end of the scaffolding. For DBG2OLC we directly use the contigs so we can try to improve the contigs statistics at least. I want to try again using the multi-kmer approach using as the smallest kmer size `47` (`92/2=46`) and max `61` (`92*2/3=61`). 92-93 being the mean `Read_length_mean` estimated for [meraculous](https://github.com/caro46/Tetraploid_project/blob/master/Assembly_meraculous.md). 
+
+We will be using the short insert reads for all the steps and the long insert libraries only for scaffolding. The max read length should be ~ 150bp as identified when using [LoRDEC](https://github.com/caro46/Tetraploid_project/blob/master/correction_pacbio.md). We want to try to use the whole length of all the libraries.  
+We are using the mate pair after filtering from `nxtrim` (get rid of pe contamination in the mate libraries which could cause some trouble in the assembly process).
+(submitted on graham on the 28/05).
+
 ###Try to improve
 If we obtain an OK assembly, we can try some "diploid" assembly program to try improving it.
 - [ScaffoldScaffolder](http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-16-S7-S5) seems promissing for dealing with diploid assembly using bubbles to identify heterozygous homologous. Should be good for sites when each subgenome is homozygous but how to deal with heteroz. sites in both/one of the sub-genomes?  
