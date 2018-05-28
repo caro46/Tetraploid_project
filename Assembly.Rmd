@@ -1,4 +1,4 @@
-##SOAP
+## SOAP
 ```
 /home/evanslab/tetra_project/Assembly/SOAP/SOAPdenovo2-src-r240/SOAPdenovo-127mer all -s /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/Mellotropicalis.conf -K 65 -R -N 3400000000 -p 10 -V -o /net/infofile2/2/scratch/evanslab_backups/2014_BJE3652_gDNA_seqs/SOAP_Mellotropicalis_BJE3652_genome
 
@@ -382,7 +382,7 @@ We will be using the short insert reads for all the steps and the long insert li
 We are using the mate pair after filtering from `nxtrim` (get rid of pe contamination in the mate libraries which could cause some trouble in the assembly process).
 (submitted on graham on the 28/05).
 
-###Try to improve
+### Try to improve
 If we obtain an OK assembly, we can try some "diploid" assembly program to try improving it.
 - [ScaffoldScaffolder](http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-16-S7-S5) seems promissing for dealing with diploid assembly using bubbles to identify heterozygous homologous. Should be good for sites when each subgenome is homozygous but how to deal with heteroz. sites in both/one of the sub-genomes?  
 - Haplotype assembly using *X. tropicalis* as the ref genome?
