@@ -125,4 +125,8 @@ On the github page it is not clear to me the actual format of `.fof` if we want 
 
 - blasr (only version 1.3.1 or below)
 
-I haven't been able to install `blasr` on cedar yet. 
+I haven't been able to install `blasr` on cedar yet.
+
+# SSPACE/SSPACE-LONGREAD
+
+*SSPACE tracks in memory all contigs. That means that the memory usage will increase drastically with the size of your contig data set.* ([sspace_basic github](https://github.com/nsoranzo/sspace_basic)).
