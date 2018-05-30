@@ -287,6 +287,16 @@ awk '{ if ($0 !~ />/) {print toupper($0)} else {print $0} }' BJE3652.all.subread
 
 27/03: During the weekend (24/03), DBG2OLC using the contigs file from meraculous, short insert only for contiging and 49mers finished. Used as Austin only pacbio reads => 3kb. Bad results: total length of ~0.15 Gb (instead of genome length 3.5GB). Need to have a better contigs set and also probably decrease the pacbio length criteria to 1000bp.
 
+### Run - using SOAP de novo 2 contigs
+
+Tried running using this command with a limit of memory on graham of 100Gb (28/05)
+```
+/home/cauretc/project/cauretc/programs/DBG2OLC-master/compiled/DBG2OLC k 17 KmerCovTh 2 MinLen 1000 RemoveChimera 1 MinOverlap 20 AdaptiveTh 0.0001 LD 0 Contigs /home/cauretc/scratch/SOAP_assemblies/SOAP_Mellotropicalis_BJE3652_genome_63.contig f /home/cauretc/scratch/BJE3652.all.subreads_uppercase.fasta >/home/cauretc/scratch/DBG2OLC_assemblies/DBG2OLC_SOAP63mer_allsubreads.log
+```
+Finished with a `Segmentation fault (core dumped)`. Tried to allocate more RAM (200Gb): same results(30/05).
+
+Someone had a similar issue and the writer thought about an [incompatibility](https://github.com/yechengxi/DBG2OLC/issues/27) between the program and SOAPdenovo2 outputs. But for the apple genome, [Daccord et al. 2017](https://www.nature.com/articles/ng.3886) did use the contig file from SOAP as input for DBG2OLC... Not clear. For now let's suspect it is because we have too many contigs. I have another SOAP assembly running, if results better then I'll try again with the new contigs (multi-kmer 47-61). If not, probably need to speak with Ben boss and Brian... I should probably only use a subset of the contig file, only contigs >1kb?
+
 ### Maybe usefull sites
 - [Quiver](https://github.com/PacificBiosciences/GenomicConsensus/blob/master/doc/FAQ.rst)
 - [HGAP](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP)
