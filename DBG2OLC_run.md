@@ -297,6 +297,8 @@ Finished with a `Segmentation fault (core dumped)`. Tried to allocate more RAM (
 
 Someone had a similar issue and the writer thought about an [incompatibility](https://github.com/yechengxi/DBG2OLC/issues/27) between the program and SOAPdenovo2 outputs. But for the apple genome, [Daccord et al. 2017](https://www.nature.com/articles/ng.3886) did use the contig file from SOAP as input for DBG2OLC... Not clear. For now let's suspect it is because we have too many contigs. I have another SOAP assembly running, if results better then I'll try again with the new contigs (multi-kmer 47-61). If not, probably need to speak with Ben boss and Brian... I should probably only use a subset of the contig file, only contigs >1kb?
 
+Resubmitted (30/05) without the `RemoveChimera 1` since it seems to delete a lot of data - maybe the issue?
+
 ### Maybe usefull sites
 - [Quiver](https://github.com/PacificBiosciences/GenomicConsensus/blob/master/doc/FAQ.rst)
 - [HGAP](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP)
