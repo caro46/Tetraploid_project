@@ -382,6 +382,24 @@ We will be using the short insert reads for all the steps and the long insert li
 We are using the mate pair after filtering from `nxtrim` (get rid of pe contamination in the mate libraries which could cause some trouble in the assembly process).
 (submitted on graham on the 28/05).
 
+Failed as for another during the filling part probably due to memory. Resubbmitted (31/05) the scaffolding part but following were the intermediary results from the console which are pretty encouraging (I think it is the 1st time I might obtained less than a million of scaffolds). The total length is higher than expected size probably to high polymorphism or repeats that can't be solved...Pacbio should help. 
+```
+The final rank
+
+*******************************
+ Scaffold number                  909826
+ In-scaffold contig number        15145962
+ Total scaffold length            4552662351
+ Average scaffold length          5003
+ Filled gap number                4983561
+ Longest scaffold                 156135
+ Scaffold and singleton number    8741811
+ Scaffold and singleton length    5286506664
+ Average length                   604
+ N50                              11239
+ N90                              214
+ Weak points                      681
+```
 ### Try to improve
 If we obtain an OK assembly, we can try some "diploid" assembly program to try improving it.
 - [ScaffoldScaffolder](http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-16-S7-S5) seems promissing for dealing with diploid assembly using bubbles to identify heterozygous homologous. Should be good for sites when each subgenome is homozygous but how to deal with heteroz. sites in both/one of the sub-genomes?  
