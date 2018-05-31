@@ -299,6 +299,8 @@ Someone had a similar issue and the writer thought about an [incompatibility](ht
 
 Resubmitted (30/05) without the `RemoveChimera 1` since it seems to delete a lot of data - maybe the issue?
 
+Failed even when keeping the chimeras. Submitted (31/05) selecting longer pacbio reads (>3kb) and increased the memory (250gb). I think might be just too many too small contigs (submitted 31/05 with contigs >100bp and `RemoveChimera 1`, if try to keep only >500bp, delete a big part of the assembly).
+
 ### Maybe usefull sites
 - [Quiver](https://github.com/PacificBiosciences/GenomicConsensus/blob/master/doc/FAQ.rst)
 - [HGAP](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP)
