@@ -1110,6 +1110,8 @@ Product length	456
 The last one = Best one. For the `scaffold471476`, can't have the reverse around the same region because on the scaffold it is a gap.
 
 ### moxd2p
+`moxd2` is associated with olfaction and has been inactivated repetitively during the Evolution ([birds](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0152431), [primates](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0104085), ...).
+
 Trying to have specific primers for both subgenomes. Tried 1st to find the most interesting exons = big and close = exons 6 and 7. Tried exon 1 because the biggest. Not great success so blast the whole gene to try to have some regions with 2 good hits 
 
 ```
