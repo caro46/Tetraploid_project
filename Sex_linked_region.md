@@ -354,7 +354,7 @@ Most interesting region from [Bewick et al. 2013](https://academic.oup.com/gbe/a
 
 - scaf2_150071042_f/scaf2_150071793_r (`GATTGGTCCCCTTCCGTAAT`/`GGATTTCAGGCCAGCAGTTA`): 1 female specific SNP (=`Xenbase JBrowse tropicalis 9.0: scaffold_130:760304-760324`)
 
-#### Somme comments
+#### Some comments
 
 From Bewick et al. 2013
 
