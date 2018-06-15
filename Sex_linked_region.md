@@ -1109,6 +1109,49 @@ Product length	456
 ```
 The last one = Best one. For the `scaffold471476`, can't have the reverse around the same region because on the scaffold it is a gap.
 
+
+Trying to find new primers to amplify longer sequences
+
+scaffold471476
+```
+#no off target found in xenoponidae (smaller for the forward: off target)
+Primer pair 1 - new forward
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GTATCTCTGGGTTCAGTTTATAAGC	Plus	25	2744	2768	57.28	40.00	6.00	6.00
+Reverse primer	CAACAAAGCAATCATACGCCATG	Minus	23	3336	3314	59.45	43.48	4.00	4.00
+Product length	593
+
+Primer pair 1 - new reverse
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GTATCTCTGGGTTCAGTTTATAAGC	Plus	25	2744	2768	57.28	40.00	6.00	6.00
+Reverse primer	CAATATGATAATTTAGATATATGTGC	Minus	26	3388	3363	50.79	23.08	7.00	2.00
+Product length	645
+
+Primer pair 1 
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GTCATATTACAGATAATTCC	Plus	20	2930	2949	45.89	30.00	6.00	0.00
+Reverse primer	CAATATGATAATTTAGATATATGTGC	Minus	26	3388	3363	50.79	23.08	7.00	2.00
+Product length	459
+```
+Probably actually only need new set of primers for `scaffold471476` since it is the paralog that seems to be sex-linked. The new potential reverse has a very low GC content but cannot really find a better one: it is in a region that has a big gap compared to the other paralog (the primer puts together region that are far appart in the other paralog) so it would be good in order to only amplify one of the 2 paralogs if the scaffolds are true.
+
+
+scaffold283074
+
+``` 
+Primer pair 1 - new forward
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	TTATCTCTGAGTTCAGCAAACATG	Plus	24	462	485	57.27	37.50	6.00	4.00
+Reverse primer	CAACATAGCGATCATACGCC	Minus	20	1055	1036	56.86	50.00	5.00	3.00
+Product length	594
+
+Primer pair 1
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	TTATCTCTGAGTTCAGCAAACATG	Plus	24	462	485	57.27	37.50	6.00	4.00
+Reverse primer	TGTTGGGTCATACGAGCAAT	Minus	20	1104	1085	57.22	45.00	4.00	2.00
+Product length	643
+```
+
 ### moxd2p
 `moxd2` is associated with olfaction and has been inactivated repetitively during the Evolution ([birds](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0152431), [primates](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0104085), ...).
 
