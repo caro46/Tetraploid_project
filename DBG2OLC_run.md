@@ -303,6 +303,26 @@ Failed even when keeping the chimeras. Submitted (31/05) selecting longer pacbio
 
 1/06: failure of the run using pacbio reads >3kb + chimeras. Same error message `ExitCode 139` from Slurm and `Segmentation fault (core dumped)`. 
 
+12/06: failure again using only bigger contigs. Same error
+
+So what looks different between inputs coming from meraculous and the ones coming from soapdenovo2 is the fasta header.
+
+```
+#meraculous
+>Scaffold15.1.1-1845
+TGATACAATATATCAGAGCAAA
+
+#soap
+>34236179 length 100 cvg_4.3_tip_0
+AGTGTAA
+```
+Using `awk -F ' ' '{print $1}' SOAP_Mellotropicalis_BJE3652_genome_63_100bp.fa >SOAP_Mellotropicalis_BJE3652_genome_63_100bp_onlyScaffNumber.fa` keeps only the scaffolds number. Maybe it is the issue? (I'll try to submit that and see what happens)
+
+So now looks like that
+```
+>34236179
+AGTGTA
+```
 ### Maybe usefull sites
 - [Quiver](https://github.com/PacificBiosciences/GenomicConsensus/blob/master/doc/FAQ.rst)
 - [HGAP](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP)
