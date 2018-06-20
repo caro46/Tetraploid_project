@@ -1132,6 +1132,25 @@ Primer pair 1
 Forward primer	GTCATATTACAGATAATTCC	Plus	20	2930	2949	45.89	30.00	6.00	0.00
 Reverse primer	CAATATGATAATTTAGATATATGTGC	Minus	26	3388	3363	50.79	23.08	7.00	2.00
 Product length	459
+
+Primer pair 1 - new forward
+	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
+Forward primer	GAGTGGATATGAATGAAATTG	Plus	21	2651	2671	50.33	33.33	4.00	2.00
+Reverse primer	CAACAAAGCAATCATACGCCATG	Minus	23	3336	3314	59.45	43.48	4.00	4.00
+Product length	686
+Products on potentially unintended templates
+>XM_018226182.1 PREDICTED: Xenopus laevis chromosome 19 open reading frame 68 L homeolog (c19orf68.L), transcript variant X4, mRNA
+
+
+product length = 3387
+Forward primer  1    GAGTGGATATGAATGAAATTG  21
+Template        175  TC........TG.A.......  195
+
+Forward primer  1     GAGTGGATATGAATGAAATTG  21
+Template        3561  ..AA.........G.T....C  3541
+
+
+
 ```
 Probably actually only need new set of primers for `scaffold471476` since it is the paralog that seems to be sex-linked. The new potential reverse has a very low GC content but cannot really find a better one: it is in a region that has a big gap compared to the other paralog (the primer puts together region that are far appart in the other paralog) so it would be good in order to only amplify one of the 2 paralogs if the scaffolds are true.
 
