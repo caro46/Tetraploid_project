@@ -1109,31 +1109,33 @@ Product length	456
 ```
 The last one = Best one. For the `scaffold471476`, can't have the reverse around the same region because on the scaffold it is a gap.
 
+The primer sets amplified the good regions. Blasted the pcr products back to ncbi -> best hits = good gene + properly aligned on the "good" scaffolds.
+
 
 Trying to find new primers to amplify longer sequences
 
 scaffold471476
 ```
 #no off target found in xenoponidae (smaller for the forward: off target)
-Primer pair 1 - new forward
+Primer pair 1 - new forward Xm_or8H1_p1_F3/Xm_or8H1_p1_R1 Ext_Time=1min
 	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
 Forward primer	GTATCTCTGGGTTCAGTTTATAAGC	Plus	25	2744	2768	57.28	40.00	6.00	6.00
 Reverse primer	CAACAAAGCAATCATACGCCATG	Minus	23	3336	3314	59.45	43.48	4.00	4.00
 Product length	593
 
-Primer pair 1 - new reverse
+Primer pair 1 - new reverse Xm_or8H1_p1_F3/Xm_or8H1_p1_R2 Ext_Time=1min
 	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
 Forward primer	GTATCTCTGGGTTCAGTTTATAAGC	Plus	25	2744	2768	57.28	40.00	6.00	6.00
 Reverse primer	CAATATGATAATTTAGATATATGTGC	Minus	26	3388	3363	50.79	23.08	7.00	2.00
 Product length	645
 
-Primer pair 1 
+Primer pair 1  Xm_or8H1_p1_F1/Xm_or8H1_p1_R2 Ext_Time=45s
 	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
 Forward primer	GTCATATTACAGATAATTCC	Plus	20	2930	2949	45.89	30.00	6.00	0.00
 Reverse primer	CAATATGATAATTTAGATATATGTGC	Minus	26	3388	3363	50.79	23.08	7.00	2.00
 Product length	459
 
-Primer pair 1 - new forward
+Primer pair 1 - new forward Xm_or8H1_p1_F4/Xm_or8H1_p1_R1 Ext_Time=1min
 	Sequence (5'->3')	Template strand	Length	Start	Stop	Tm	GC%	Self complementarity	Self 3' complementarity
 Forward primer	GAGTGGATATGAATGAAATTG	Plus	21	2651	2671	50.33	33.33	4.00	2.00
 Reverse primer	CAACAAAGCAATCATACGCCATG	Minus	23	3336	3314	59.45	43.48	4.00	4.00
