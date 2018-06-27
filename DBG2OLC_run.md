@@ -325,6 +325,8 @@ AGTGTA
 ```
 Failed again on June 17. I think it is "just" a memory requirement. I'll allocate more memory again (400gb).
 
+In case there was an error in one of the files because of the multiple start again, I started from scratch again, using contigs equal or longer than 100bp, with headers only containing the numbers (no space, no quality) and with 400Gb of RAM. Failed on 27/06. Will wait to see what the statistics of the meraculous assembly using 61mers/keeping all variants (and without the pe from mp) are.
+
 ### Maybe usefull sites
 - [Quiver](https://github.com/PacificBiosciences/GenomicConsensus/blob/master/doc/FAQ.rst)
 - [HGAP](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP)
