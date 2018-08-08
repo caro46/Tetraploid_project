@@ -400,6 +400,11 @@ The final rank
  N90                              214
  Weak points                      681
 ```
+
+(08/08/18)
+
+So after the assembly finally went through the queue it failed. Not clear if it is because a core failed again... The intermediary results were encouraging but I have never been successfully able to use the outputs from SOAPdenovo as inputs from DBG2OLC even when trying to make them "look like" meraculous outputs (i.e. changing the sequences header). So since to get better results we need to be able to take advanntage of the continuity of the pacbio reads, we need to be able to run DBG2OLC... So for now (considering also that the queue is long and that the server will be down by the end of the month), I'll leave the SOAP option for now. 
+
 ### Try to improve
 If we obtain an OK assembly, we can try some "diploid" assembly program to try improving it.
 - [ScaffoldScaffolder](http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-16-S7-S5) seems promissing for dealing with diploid assembly using bubbles to identify heterozygous homologous. Should be good for sites when each subgenome is homozygous but how to deal with heteroz. sites in both/one of the sub-genomes?  
