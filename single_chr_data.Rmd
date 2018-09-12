@@ -1,0 +1,186 @@
+# Data
+
+Sequences from individual chromosomes that were each laser dissected from a chromosomal spread and then amplified before library construction.
+
+Made from different individuals.
+
+
+# Reads correction
+
+BE previously used `trimmomatic` to remove adapters, bad quality reads.
+
+## Test: chr.7B
+
+### Extracting the sample dataset 
+
+Extracting the data from `.tar.gz` file
+```
+tar -ztvf 2014_mellotriop_single_chr.tar.gz >2014_mellotriop_single_chr_list_files
+
+tar -zxvf 2014_mellotriop_single_chr.tar.gz 2014_mellotriop_single_chr/Sample_Ben-Evans-WGA3-7B/7B_R1_trim_paired.fastq
+```
+
+### Jellyfish/Quake
+
+#### Rational of using quake 
+
+Main idea: we want to keep for each library (made in theory mainly from a single chromosome) only reads from 1 specific chromosome. 
+
+RecoverY ([Rangavittal et al. 2018](https://academic.oup.com/bioinformatics/article/34/7/1125/4670683)): reconstruction of Y-chromosome after enrichment using a k-mer based approach to identify Y-specific reads from other part of the genome and/or sequencing error.
+
+Quake also use a k-mer based approach and considers rare k-mer as "errors". For our data, we expect to have k-mers from one chromosome in much higher quantity, and k-mers from other chromosomes "rare". Using Quake (fast and used for other projects) we should only keep reads containing more abundant k-mers coming in theory from 1 chromosome.
+
+#### Jellyfish
+
+```sh
+#!/bin/sh
+#SBATCH --job-name=jellyfish
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --time=01:00:00
+#SBATCH --mem=100gb
+#SBATCH --output=jellyfish.%J.out
+#SBATCH --error=jellyfish.%J.err
+#SBATCH --account=[account used for the job]
+#SBATCH --mail-user=[email address]
+#SBATCH --mail-type=BEGIN
+#SBATCH --mail-type=END
+#SBATCH --mail-type=FAIL
+
+module load nixpkgs/16.09  gcc/5.4.0
+module load jellyfish/2.2.6
+
+gunzip -c $1 | jellyfish count /dev/fd/0 -m 5 -s 100M -t 8 -C -o $2
+
+jellyfish histo $2 -o $3
+
+jellyfish dump -c -t $2 -o $4
+```
+```
+sbatch running_jellyfish_all_arg.sh /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/trimmed_data/Sample_Ben-Evans-WGA3-7B/7B_R*_trim_paired.fastq.gz /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/quake/7B_trim_paired_count /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/quake/7B_trim_paired_histo /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/quake/7B_trim_paired_dump
+```
+
+We used kmer sizes of: `19`, `15`, `11` and `5`. For none of them we were able to distinguish 2 peaks (1 at low coverage would correspond to error + non target chr.; while at higher coverage we would have another peak correspondic to the target genomic region).
+
+Since Quake requires to be able to distinguish `errors` versus `good` data, we decided to not run quake on this library.
+
+### Mapping trimmed reads against reference genome of *X. tropicalis*
+
+Using only the *X. tropicalis* chromosomes of the hard masked reference genome 
+
+```
+awk 'BEGIN {RS=">"} /Chr/ {print ">"$0}' Xtropicalis_v9_repeatMasked_HARD_MASK.fa >Xtropicalis_v9_repeatMasked_HARD_MASK_chr_only.fa
+```
+
+Also submitted through a `sbatch` script
+```sh
+module load nixpkgs/16.09  gcc/5.4.0 bwa/0.7.17 samtools/1.9
+
+##indexing the genome
+#bwa index -a bwtsw $1
+
+##aligning the reads using mem command, then converting sam to bam and finally sorting the bam file
+bwa mem /home/cauretc/projects/rrg-ben/cauretc/reference_genomes/Xtropicalis_v9_repeatMasked_HARD_MASK_chr_only.fa /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/trimmed_data/Sample_Ben-Evans-WGA3-7B/7B_R1_trim_paired.fastq.gz /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/trimmed_data/Sample_Ben-Evans-WGA3-7B/7B_R2_trim_paired.fastq.gz >/home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/bwa/mellotropicalis_7B.sam
+
+#| samtools view -bt - | samtools sort - -o $4
+
+##convert to bam
+samtools view -bt /home/cauretc/projects/rrg-ben/cauretc/reference_genomes/Xtropicalis_v9_repeatMasked_HARD_MASK_chr_only.fa -o /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/bwa/mellotropicalis_7B.bam /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/bwa/mellotropicalis_7B.sam
+
+##sorted bam
+samtools sort /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/bwa/mellotropicalis_7B.bam -o /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/bwa/mellotropicalis_7B_sorted.bam
+```
+
+#### Evaluating the mapping
+
+```
+module load nixpkgs/16.09  intel/2016.4 bbmap/37.36 gcc/5.4.0 bwa/0.7.17 samtools/1.9
+pileup.sh in=$1 out=$2
+samtools flagstat $3
+```
+`$1`: `mellotropicalis_7B.sam`
+
+`$2`: `coverage_7B`
+
+`$3`: `mellotropicalis_7B_sorted.bam`  
+
+`coverage_7B`
+
+```
+#ID     Avg_fold        Length  Ref_GC  Covered_percent Covered_bases   Plus_reads      Minus_reads     Read_GC Median_fold     Std_Dev
+Chr01   0.0016  194899139       0.0000  0.0078  15267   4560    3989    0.4569  0       1.07
+Chr02   0.0009  170236069       0.0000  0.0068  11495   3224    1373    0.4752  0       1.05
+Chr03   0.0010  137289692       0.0000  0.0129  17678   1664    2812    0.4625  0       0.88
+Chr04   0.0003  133513928       0.0000  0.0172  22904   714     723     0.4287  0       0.05
+Chr05   0.0019  146597336       0.0000  0.0076  11076   870     7472    0.4633  0       2.29
+Chr06   0.0027  135158710       0.0000  0.0128  17284   4145    4957    0.4636  0       1.48
+Chr07   0.0006  117244592       0.0000  0.0094  10984   901     825     0.4262  0       0.27
+Chr08   0.0027  117649117       0.0000  0.0078  9191    886     7276    0.4937  0       3.82
+Chr09   0.0003  80450090        0.0000  0.0071  5732    582     441     0.4319  0       0.13
+Chr10   0.0011  39960583        0.0000  0.0267  10687   433     612     0.4402  0       0.27
+```
+
+To sum up adding `Plus_reads` and `Minus_reads` that correspond to the number of reads mapping to `plus strand` or `minus strand`.
+
+```
+Chr.01: 8549 reads
+Chr.02: 4597
+Chr.03: 4476
+Chr.04: 1437
+Chr.05: 8342
+Chr.06: 9102
+Chr.07: 1726
+Chr.08: 8162
+Chr.09: 1023
+Chr.10: 1045
+```
+
+`flagstat` output:
+
+```
+4282994 + 0 in total (QC-passed reads + QC-failed reads)
+0 + 0 secondary
+234 + 0 supplementary
+0 + 0 duplicates
+48459 + 0 mapped (1.13% : N/A)
+4282760 + 0 paired in sequencing
+2141380 + 0 read1
+2141380 + 0 read2
+11888 + 0 properly paired (0.28% : N/A)
+13160 + 0 with itself and mate mapped
+35065 + 0 singletons (0.82% : N/A)
+430 + 0 with mate mapped to a different chr
+76 + 0 with mate mapped to a different chr (mapQ>=5)
+```
+
+Conclusion: Not very encouraging. None of the chromosomes seems to be over-represented and a lot of the reads do not match to any chromosome.
+
+### Spades *de novo* assembly
+
+```sh
+module load nixpkgs/16.09  gcc/5.4.0 spades/3.11.1
+
+spades.py --careful --only-assembler -1 /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/trimmed_data/Sample_Ben-Evans-WGA3-7B/7B_R1_trim_paired.fastq.gz -2 /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/trimmed_data/Sample_Ben-Evans-WGA3-7B/7B_R2_trim_paired.fastq.gz -o /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/spades/7B -t 8 -k 21,33,55
+``` 
+
+Blasting some scaffolds against NCBI database
+
+|Scaffold_name | SubjectID | Max score | Total score | Query cover | E valeue | Ident | Accession |
+|---|---|---|---|---|---|---|---|
+| NODE_1_length_5441_cov_1374.838470 |Anderseniella sp. Alg231_50 genome assembly, chromosome: VII|8643 |	10509 |	100% |	0.0	| 100% |	LT703009.1|
+|NODE_2_length_735_cov_65.060294| Human papillomavirus type 57b complete genome|	604 |	604 |	45% |	1e-168|	99% |	U37537.1|
+|NODE_3_length_728_cov_220.069837| Human Xp22 cosmids U106G5 and U26C6, complete sequence|	638 |	638 |	49% |	1e-178	99% |	U70984.1|
+|    NODE_4_length_688_cov_62.045814|  Homo sapiens collagen type IV alpha 6 chain (COL4A6), RefSeqGene on chromosome X |678 |	1954 |	83% |	0.0|	99% |	NG_012059.2|
+|    NODE_5_length_667_cov_271.901961| Homo sapiens BAC clone VMRC59-205G8 from chromosome unknown, complete sequence|	536 |	536 |	44% |	4e-148	99% |	AC275607.1|
+|    NODE_6_length_637_cov_80.701031|  Human DNA sequence from clone RP11-555E18 on chromosome 20, complete sequence|	706 |	706 |	60% |	0.0|	99% |	AL121780.11|
+|    NODE_7_length_630_cov_40.542609|  Homo sapiens cDNA FLJ30819 fis, clone FEBRA2001590|	496 |	496 |	43% |	7e-136|	99% |	AK055381.1|
+|     NODE_8_length_611_cov_58.764388 |  Homo sapiens chromosome 19 clone CTD-2553L13, complete sequence|	634 |	818 |	56% |	1e-177|	99% |	AC020910.7|
+|    NODE_9_length_600_cov_31.056881| Homo sapiens HECT, C2 and WW domain containing E3 ubiquitin protein ligase 2 (HECW2), RefSeqGene on chromosome 2|	486 |	486 |	47% |	3e-133|	98% |	NG_053156.1|
+|    NODE_10_length_595_cov_106.957643| Homo sapiens BAC clone RP11-497D24 from 2, complete sequence|	595 |	595 |	56% |	5e-166|	99% |	AC012076.5|
+|    NODE_11_length_561_cov_26.227273| Homo sapiens BAC clone RP11-506M2 from 2, complete sequence|	209 |	209 |	20% |	8e-50|	100% |	AC019116.7|
+|    NODE_13_length_544_cov_29.034765| Homo sapiens chromosome 5 clone CTB-67I13, complete sequence|	621 |	878 |	94% |	9e-174|	100% |	AC068657.6|
+|    NODE_14_length_540_cov_5.369072|Human DNA sequence from clone RP3-402N21 on chromosome 6p21.1-21.31, complete sequence|	948 |	948 |	95% |	0.0|	100% |	AL049553.20|
+
+Conclusion: confirming what jellyfish results kinda suggesting: contamination issue with this library.
+
+What's next: I will check the other libraries, even is only one is good it will help us with the assembly.
