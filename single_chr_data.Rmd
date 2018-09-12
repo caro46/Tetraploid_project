@@ -183,4 +183,38 @@ Blasting some scaffolds against NCBI database
 
 Conclusion: confirming what jellyfish results kinda suggested: contamination issue with this library.
 
-**What's next:** I will check the other libraries, even is only one is good it will help us with the assembly.
+**What's next:** I will check the other libraries, even if only one is good it will help us with the assembly.
+
+#### fasta_stats
+
+`fasta_stats` from meraculous.
+
+```
+module load nixpkgs/16.09  gcc/4.8.5 meraculous/2.2.4
+
+fasta_stats /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/spades/7B/scaffolds.fasta >/home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/spades/7B/scaffolds_fasta_stats.out
+
+```
+```
+Main genome scaffold total: 7373
+Main genome contig total:   7378
+Main genome scaffold sequence total: 1.8 MB
+Main genome contig sequence total:   1.8 MB (->  0.0% gap)
+Main genome scaffold N/L50: 2570/287
+Main genome contig N/L50:   2573/287
+Number of scaffolds > 50 KB: 0
+% main genome in scaffolds > 50 KB:  0.0%
+
+ Minimum    Number    Number     Total        Total     Scaffold
+Scaffold      of        of      Scaffold      Contig     Contig
+ Length   Scaffolds  Contigs     Length       Length    Coverage
+--------  ---------  -------  -----------  -----------  --------
+    All     7,373      7,378    1,794,762    1,794,700   100.00%
+   1 kb         1          1        5,441        5,441   100.00%
+ 2.5 kb         1          1        5,441        5,441   100.00%
+   5 kb         1          1        5,441        5,441   100.00%
+  10 kb         0          0            0            0     0.00%
+```
+
+The only big scaffold is one of the ones I checked on NCBI (`NODE_1_length_5441_cov_1374.838470`). Mapped against *Anderseniella sp.*.
+
