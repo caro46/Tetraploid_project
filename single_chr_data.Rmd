@@ -169,9 +169,9 @@ Blasting some scaffolds against NCBI database
 |---|---|---|---|---|---|---|---|
 | NODE_1_length_5441_cov_1374.838470 |Anderseniella sp. Alg231_50 genome assembly, chromosome: VII|8643 |	10509 |	100% |	0.0	| 100% |	LT703009.1|
 |NODE_2_length_735_cov_65.060294| Human papillomavirus type 57b complete genome|	604 |	604 |	45% |	1e-168|	99% |	U37537.1|
-|NODE_3_length_728_cov_220.069837| Human Xp22 cosmids U106G5 and U26C6, complete sequence|	638 |	638 |	49% |	1e-178	99% |	U70984.1|
+|NODE_3_length_728_cov_220.069837| Human Xp22 cosmids U106G5 and U26C6, complete sequence|	638 |	638 |	49% |	1e-178|	99% |	U70984.1|
 |    NODE_4_length_688_cov_62.045814|  Homo sapiens collagen type IV alpha 6 chain (COL4A6), RefSeqGene on chromosome X |678 |	1954 |	83% |	0.0|	99% |	NG_012059.2|
-|    NODE_5_length_667_cov_271.901961| Homo sapiens BAC clone VMRC59-205G8 from chromosome unknown, complete sequence|	536 |	536 |	44% |	4e-148	99% |	AC275607.1|
+|    NODE_5_length_667_cov_271.901961| Homo sapiens BAC clone VMRC59-205G8 from chromosome unknown, complete sequence|	536 |	536 |	44% |	4e-148|	99% |	AC275607.1|
 |    NODE_6_length_637_cov_80.701031|  Human DNA sequence from clone RP11-555E18 on chromosome 20, complete sequence|	706 |	706 |	60% |	0.0|	99% |	AL121780.11|
 |    NODE_7_length_630_cov_40.542609|  Homo sapiens cDNA FLJ30819 fis, clone FEBRA2001590|	496 |	496 |	43% |	7e-136|	99% |	AK055381.1|
 |     NODE_8_length_611_cov_58.764388 |  Homo sapiens chromosome 19 clone CTD-2553L13, complete sequence|	634 |	818 |	56% |	1e-177|	99% |	AC020910.7|
@@ -181,6 +181,6 @@ Blasting some scaffolds against NCBI database
 |    NODE_13_length_544_cov_29.034765| Homo sapiens chromosome 5 clone CTB-67I13, complete sequence|	621 |	878 |	94% |	9e-174|	100% |	AC068657.6|
 |    NODE_14_length_540_cov_5.369072|Human DNA sequence from clone RP3-402N21 on chromosome 6p21.1-21.31, complete sequence|	948 |	948 |	95% |	0.0|	100% |	AL049553.20|
 
-Conclusion: confirming what jellyfish results kinda suggesting: contamination issue with this library.
+Conclusion: confirming what jellyfish results kinda suggested: contamination issue with this library.
 
-What's next: I will check the other libraries, even is only one is good it will help us with the assembly.
+**What's next:** I will check the other libraries, even is only one is good it will help us with the assembly.
