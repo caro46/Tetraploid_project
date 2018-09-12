@@ -32,7 +32,7 @@ Quake also use a k-mer based approach and considers rare k-mer as "errors". For 
 
 #### Jellyfish
 
-```sh
+```bash
 #!/bin/sh
 #SBATCH --job-name=jellyfish
 #SBATCH --nodes=1
@@ -68,12 +68,12 @@ Since Quake requires to be able to distinguish `errors` versus `good` data, we d
 
 Using only the *X. tropicalis* chromosomes of the hard masked reference genome 
 
-```
+```bash
 awk 'BEGIN {RS=">"} /Chr/ {print ">"$0}' Xtropicalis_v9_repeatMasked_HARD_MASK.fa >Xtropicalis_v9_repeatMasked_HARD_MASK_chr_only.fa
 ```
 
 Also submitted through a `sbatch` script
-```sh
+```bash
 module load nixpkgs/16.09  gcc/5.4.0 bwa/0.7.17 samtools/1.9
 
 ##indexing the genome
@@ -93,7 +93,7 @@ samtools sort /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/bwa/me
 
 #### Evaluating the mapping
 
-```
+```bash
 module load nixpkgs/16.09  intel/2016.4 bbmap/37.36 gcc/5.4.0 bwa/0.7.17 samtools/1.9
 pileup.sh in=$1 out=$2
 samtools flagstat $3
@@ -157,7 +157,7 @@ Conclusion: Not very encouraging. None of the chromosomes seems to be over-repre
 
 ### Spades *de novo* assembly
 
-```sh
+```bash
 module load nixpkgs/16.09  gcc/5.4.0 spades/3.11.1
 
 spades.py --careful --only-assembler -1 /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/trimmed_data/Sample_Ben-Evans-WGA3-7B/7B_R1_trim_paired.fastq.gz -2 /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/trimmed_data/Sample_Ben-Evans-WGA3-7B/7B_R2_trim_paired.fastq.gz -o /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/spades/7B -t 8 -k 21,33,55
