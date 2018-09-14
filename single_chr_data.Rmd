@@ -221,7 +221,7 @@ The only big scaffold is one of the ones I checked on NCBI (`NODE_1_length_5441_
 
 ## Other chromosomes
 
-Goal1: Checking how much of the different libraries match against *X. tropicalis* genome. See [bwa.pl](https://github.com/caro46/Tetraploid_project/blob/master/some_scripts/bwa.pl) submitted like that: `sbatch ~/project/cauretc/scripts/running_bwa.sh`.
+Goal1: Checking how much of the different libraries match against *X. tropicalis* genome. See [bwa_arg.pl](https://github.com/caro46/Tetraploid_project/blob/master/some_scripts/bwa_arg.pl) submitted like that: `sbatch ~/project/cauretc/scripts/running_bwa.sh`.
 
 Command in `running_bwa.sh`: 
 ```
