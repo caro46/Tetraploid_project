@@ -294,4 +294,28 @@ Chr09   0.0121  80450090        0.0000  0.1401  112743  10653   10958   0.4344  
 Chr10   0.0165  39960583        0.0000  0.1084  43326   9533    9580    0.4394  0       6.33
 ```
 
+### Spades on the best mapping 
 
+`4A - scaffolds_fasta_stats.out`
+
+```
+Main genome scaffold total: 17849
+Main genome contig total:   17918
+Main genome scaffold sequence total: 3.5 MB
+Main genome contig sequence total:   3.5 MB (->  0.0% gap)
+Main genome scaffold N/L50: 4844/292
+Main genome contig N/L50:   4874/291
+Number of scaffolds > 50 KB: 0
+% main genome in scaffolds > 50 KB:  0.0%
+
+ Minimum    Number    Number     Total        Total     Scaffold
+Scaffold      of        of      Scaffold      Contig     Contig
+ Length   Scaffolds  Contigs     Length       Length    Coverage
+--------  ---------  -------  -----------  -----------  --------
+    All    17,849     17,918    3,540,057    3,538,785    99.96%
+   1 kb         1          1        5,441        5,441   100.00%
+ 2.5 kb         1          1        5,441        5,441   100.00%
+   5 kb         1          1        5,441        5,441   100.00%
+  10 kb         0          0            0            0     0.00%
+```
+Again the longest scaffolds is a bacteria...
