@@ -294,6 +294,36 @@ Chr09   0.0121  80450090        0.0000  0.1401  112743  10653   10958   0.4344  
 Chr10   0.0165  39960583        0.0000  0.1084  43326   9533    9580    0.4394  0       6.33
 ```
 
+`8B_flagstats.log`
+```
+4104536 + 0 in total (QC-passed reads + QC-failed reads)
+0 + 0 secondary
+32204 + 0 supplementary
+0 + 0 duplicates
+1618967 + 0 mapped (39.44% : N/A)
+4072332 + 0 paired in sequencing
+2036166 + 0 read1
+2036166 + 0 read2
+1153590 + 0 properly paired (28.33% : N/A)
+1247696 + 0 with itself and mate mapped
+339067 + 0 singletons (8.33% : N/A)
+65354 + 0 with mate mapped to a different chr
+46160 + 0 with mate mapped to a different chr (mapQ>=5)
+```
+`8Bcoverage_8B`
+```
+#ID     Avg_fold        Length  Ref_GC  Covered_percent Covered_bases   Plus_reads      Minus_reads     Read_GC Median_fold     Std_Dev
+Chr01   0.0131  194899139       0.0000  0.0804  156630  31168   27244   0.4474  0       2.37
+Chr02   0.0140  170236069       0.0000  0.0792  134749  32602   27770   0.4473  0       3.29
+Chr03   0.0322  137289692       0.0000  0.0794  108983  55766   52913   0.4619  0       17.63
+Chr04   0.0140  133513928       0.0000  0.1092  145852  25057   23702   0.4324  0       3.38
+Chr05   0.0337  146597336       0.0000  0.0787  115352  52569   47461   0.4481  0       10.85
+Chr06   0.3575  135158710       0.0000  1.0253  1385820 372198  394046  0.4046  0       17.06
+Chr07   0.2030  117244592       0.0000  0.5578  653934  197481  200344  0.4119  0       13.39
+Chr08   0.0129  117649117       0.0000  0.0774  91089   17013   16985   0.4396  0       2.20
+Chr09   0.0159  80450090        0.0000  0.1003  80662   13362   14993   0.4438  0       3.56
+Chr10   0.0189  39960583        0.0000  0.0917  36638   9591    6702    0.4534  0       2.45
+```
 ### Spades on the best mapping 
 
 `4A - scaffolds_fasta_stats.out`
