@@ -319,3 +319,26 @@ Scaffold      of        of      Scaffold      Contig     Contig
   10 kb         0          0            0            0     0.00%
 ```
 Again the longest scaffolds is a bacteria...
+
+`7B - scaffolds_fasta_stats.out`
+
+```
+Main genome scaffold total: 7373
+Main genome contig total:   7378
+Main genome scaffold sequence total: 1.8 MB
+Main genome contig sequence total:   1.8 MB (->  0.0% gap)
+Main genome scaffold N/L50: 2570/287
+Main genome contig N/L50:   2573/287
+Number of scaffolds > 50 KB: 0
+% main genome in scaffolds > 50 KB:  0.0%
+
+ Minimum    Number    Number     Total        Total     Scaffold
+Scaffold      of        of      Scaffold      Contig     Contig
+ Length   Scaffolds  Contigs     Length       Length    Coverage
+--------  ---------  -------  -----------  -----------  --------
+    All     7,373      7,378    1,794,762    1,794,700   100.00%
+   1 kb         1          1        5,441        5,441   100.00%
+ 2.5 kb         1          1        5,441        5,441   100.00%
+   5 kb         1          1        5,441        5,441   100.00%
+  10 kb         0          0            0            0     0.00%
+```
