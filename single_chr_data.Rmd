@@ -218,3 +218,80 @@ Scaffold      of        of      Scaffold      Contig     Contig
 
 The only big scaffold is one of the ones I checked on NCBI (`NODE_1_length_5441_cov_1374.838470`). Mapped against *Anderseniella sp.*.
 
+
+## Other chromosomes
+
+Goal1: Checking how much of the different libraries match against *X. tropicalis* genome. See [bwa.pl](https://github.com/caro46/Tetraploid_project/blob/master/some_scripts/bwa.pl) submitted like that: `sbatch ~/project/cauretc/scripts/running_bwa.sh`.
+
+Command in `running_bwa.sh`: 
+```
+perl ~/project/cauretc/scripts/bwa_arg.pl /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/2014_mellotriop_single_chr/ /home/cauretc/projects/rrg-ben/cauretc/reference_genomes/ /home/cauretc/projects/rrg-ben/cauretc/Mellotrop_single_chr/bwa/all_chrom/ Xtropicalis_v9_repeatMasked_HARD_MASK_chr_only.fa 1A 1B 2A 2B 3A 3B 4A 4B 5A 5B 6A 6B 7A 8A 8B 9A 9B 10A 10B
+```
+
+### Best mapping results:
+
+*Best* defined as `>5%` of the reads mapped to the genome.
+
+`4A_flagstats.log`
+```
+3554247 + 0 in total (QC-passed reads + QC-failed reads)
+0 + 0 secondary
+20319 + 0 supplementary
+0 + 0 duplicates
+1372802 + 0 mapped (38.62% : N/A)
+3533928 + 0 paired in sequencing
+1766964 + 0 read1
+1766964 + 0 read2
+956874 + 0 properly paired (27.08% : N/A)
+1070526 + 0 with itself and mate mapped
+281957 + 0 singletons (7.98% : N/A)
+54088 + 0 with mate mapped to a different chr
+39419 + 0 with mate mapped to a different chr (mapQ>=5)
+```
+`4Acoverage_4A`
+```
+#ID     Avg_fold        Length  Ref_GC  Covered_percent Covered_bases   Plus_reads      Minus_reads     Read_GC Median_fold     Std_Dev
+Chr01   0.0085  194899139       0.0000  0.0690  134571  19391   19531   0.4521  0       1.80
+Chr02   0.0110  170236069       0.0000  0.0671  114226  21875   20749   0.4369  0       2.95
+Chr03   0.0199  137289692       0.0000  0.0803  110221  30011   28471   0.4470  0       5.93
+Chr04   0.5220  133513928       0.0000  2.0823  2780155 517282  529579  0.4122  0       12.51
+Chr05   0.0141  146597336       0.0000  0.0701  102784  26938   24259   0.4510  0       3.98
+Chr06   0.0120  135158710       0.0000  0.0824  111409  17297   18914   0.4718  0       6.73
+Chr07   0.0124  117244592       0.0000  0.0821  96243   18428   15196   0.4581  0       4.01
+Chr08   0.0112  117649117       0.0000  0.0741  87193   15930   12931   0.4301  0       2.23
+Chr09   0.0120  80450090        0.0000  0.0872  70167   10095   10355   0.4385  0       1.98
+Chr10   0.0148  39960583        0.0000  0.0677  27045   7797    7773    0.4469  0       4.38
+```
+`4B_flagstats.log`
+```
+4269783 + 0 in total (QC-passed reads + QC-failed reads)
+0 + 0 secondary
+23753 + 0 supplementary
+0 + 0 duplicates
+1350405 + 0 mapped (31.63% : N/A)
+4246030 + 0 paired in sequencing
+2123015 + 0 read1
+2123015 + 0 read2
+952756 + 0 properly paired (22.44% : N/A)
+1063776 + 0 with itself and mate mapped
+262876 + 0 singletons (6.19% : N/A)
+49856 + 0 with mate mapped to a different chr
+33714 + 0 with mate mapped to a different chr (mapQ>=5)
+```
+
+`4Bcoverage_4B`
+```
+#ID     Avg_fold        Length  Ref_GC  Covered_percent Covered_bases   Plus_reads      Minus_reads     Read_GC Median_fold     Std_Dev
+Chr01   0.0090  194899139       0.0000  0.1051  204770  22505   21418   0.4523  0       1.96
+Chr02   0.0116  170236069       0.0000  0.1016  172922  21643   21292   0.4538  0       4.01
+Chr03   0.0234  137289692       0.0000  0.1273  174760  35269   35001   0.4476  0       8.95
+Chr04   0.4704  133513928       0.0000  4.0398  5393742 472152  471898  0.4131  0       10.48
+Chr05   0.0279  146597336       0.0000  0.2385  349640  43154   44521   0.4338  0       4.69
+Chr06   0.0173  135158710       0.0000  0.1336  180599  24089   26213   0.4728  0       9.48
+Chr07   0.0138  117244592       0.0000  0.1247  146229  20810   19177   0.4628  0       4.61
+Chr08   0.0116  117649117       0.0000  0.1126  132506  15600   14939   0.4436  0       1.86
+Chr09   0.0121  80450090        0.0000  0.1401  112743  10653   10958   0.4344  0       1.70
+Chr10   0.0165  39960583        0.0000  0.1084  43326   9533    9580    0.4394  0       6.33
+```
+
+
