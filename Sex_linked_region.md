@@ -1343,4 +1343,5 @@ scaff731796	XM_012954742.1	94.393	107	5	1	1	106	369	263	2.50e-35	163
 
 ```
 
+Not as obvious. If we take the longest alignement (193bp - scaff731796). This equivalent region for both paralog seems to suggest `scaff731796` is closer to *X. tropicalis* (but the 2nd hit, it is the opposite).
 
