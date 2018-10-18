@@ -1278,3 +1278,39 @@ Product length	544
 - ZNF384: Chr07:1613361..1636481 - transcription factor
 
 - got1 = Aspartate aminotransferase (=AAT-1), sex determination in *Burgeria buergeri* ([Eggert 2004](https://rnd.edpsciences.org/articles/rnd/pdf/2004/07/r4608.pdf), [Sumida et al. 2004](https://onlinelibrary.wiley.com/doi/full/10.1002/jez.b.20011)): Chr07:26943982..26957866
+
+
+### Distinguishing alpha and beta subgenomes as sex-chromosomes
+
+Using sequences from the PCR amplifications of the mother both paralogs of or8h1 (p1 being the one displaying an almost sex-specific amplification):
+
+- NCBI blast - default paramaters (Highly similar sequences: megablast, Nucleotide collection)
+
+```
+# blastn
+# Iteration: 0
+# Query: mom_p1
+# RID: WHHN21WB014
+# Database: nr
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+mom_p1	XM_002942470.2	94.150	359	21	0	25	383	141	499	9.12e-152	547
+# blastn
+# Iteration: 0
+# Query: mom_p2
+# RID: WHHN21WB014
+# Database: nr
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+mom_p2	XM_002942470.2	95.413	436	20	0	1	436	108	543	0.0	695
+
+```
+
+- MAFFT alignment/phylogeny - a): due to issue with the alignment using geneious (some part not aligned) in order to make sure MAFFT [website](https://mafft.cbrc.jp/alignment/server/index.html) -- default parameters (` Adjust direction according to the first sequence (accurate enough for most cases)`). Then on same website: tree with default parameters (` NJ ← Conserved sites (351 bases) ` and `Boostrap ON - Number of resampling: 1000 `).
+*Results:* as for the blast results: p2 forms a clade with the *X. tropicalis* sequence. p1 being sister taxa, then at the root: *X. laevis* paralogs.
+
+- MAFFT alignment/phylogeny - b): using alignment from a): only kept aligned region and did a tree on Geneious using default parameters: Geneious Tree Builder (Genetic Distance Model: Tamura-Nei, Method: NJ, No outgroup, Resample tree, Boostrap, Number of replicates: 100 000, Create consensus tree).
+
+
+
+
