@@ -1282,6 +1282,8 @@ Product length	544
 
 ### Distinguishing alpha and beta subgenomes as sex-chromosomes
 
+#### OR8H1
+
 Using sequences from the PCR amplifications of the mother both paralogs of or8h1 (p1 being the one displaying an almost sex-specific amplification):
 
 - NCBI blast - default paramaters (Highly similar sequences: megablast, Nucleotide collection)
@@ -1311,6 +1313,34 @@ mom_p2	XM_002942470.2	95.413	436	20	0	1	436	108	543	0.0	695
 
 - MAFFT alignment/phylogeny - b): using alignment from a): only kept aligned region and did a tree on Geneious using default parameters: Geneious Tree Builder (Genetic Distance Model: Tamura-Nei, Method: NJ, No outgroup, Resample tree, Boostrap, Number of replicates: 100 000, Create consensus tree).
 
+#### MOXD2P
 
+By Sanger sequencing we identified non-sex linked SNPs on the paralog corresponding to `scaff430829`. 
+
+- NCBI blast - default paramaters (Highly similar sequences: megablast, Nucleotide collection)
+
+```
+# blastn
+# Iteration: 0
+# Query: scaff430829
+# RID: WHPS15TV014
+# Database: nr
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 4 hits found
+scaff430829	XM_012954742.1	96.000	150	4	2	1567	1715	412	264	3.13e-59	243
+scaff430829	XM_012954742.1	80.745	161	29	1	2047	2207	159	1	3.24e-34	159
+scaff430829	XM_012954742.1	93.846	65	4	0	1934	1998	271	207	7.16e-16	99.0
+scaff430829	XM_012954742.1	95.238	42	2	0	485	526	457	416	2.02e-06	67.6
+# blastn
+# Iteration: 0
+# Query: scaff731796
+# RID: WHPS15TV014
+# Database: nr
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 2 hits found
+scaff731796	XM_012954742.1	87.047	193	25	0	425	617	193	1	5.20e-62	252
+scaff731796	XM_012954742.1	94.393	107	5	1	1	106	369	263	2.50e-35	163
+
+```
 
 
