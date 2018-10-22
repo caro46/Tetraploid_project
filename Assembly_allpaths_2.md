@@ -4,6 +4,8 @@
 
 - *ploidy: diploid:* We assumed the assembly would be able to separate both diploid subgenomes (subgenomes more different between each other). **Now** using the haploid assembly mode to try to have the complete genome. Later, dbg2olc with the addition of long Pacbio reads should help to keep only 1 version of each subgenome.
 
+- *mate pairs -- trimmomatic only:* **Now**, only using mate+unknown identified by `nxtrim`. By default `nxtrim` converted the mate pair in FR direction, in the `in_libs.csv` needed to specify `inward` for them.
+
 # Oct. Run
 
 ## Preparing the data
