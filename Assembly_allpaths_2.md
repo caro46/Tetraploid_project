@@ -1,6 +1,6 @@
 # Previously
 
-- *Libraries -- RAM limitation:* Tried to produced an Allpaths assembly on Sharcnet. I was not able to use all the libraries (due to RAM requirement) -- I could not use the 180bp 2nd library that should have helped to obtain an OK assembly with Allpaths. **Now** with have Graham and its large memory nodes.
+- *Libraries -- RAM limitation:* Tried to produced an Allpaths assembly on Sharcnet. I was not able to use all the libraries (due to RAM requirement) -- I could not use the 180bp 2nd library that should have helped to obtain an OK assembly with Allpaths. **Now** we have Graham and its large memory nodes.
 
 - *ploidy: diploid:* We assumed the assembly would be able to separate both diploid subgenomes (subgenomes more different between each other). **Now** using the haploid assembly mode to try to have the complete genome. Later, dbg2olc with the addition of long Pacbio reads should help to keep only 1 version of each subgenome.
 
@@ -17,6 +17,9 @@ Used the same script as before to prepare `in_groups.csv` file.
 PrepareAllPathsInputs.pl DATA_DIR=/home/cauretc/projects/rrg-ben/cauretc/HiSeq_data/Xmellotropicalis/frag_nxtrimMate PLOIDY=1 IN_GROUPS_CSV=/home/cauretc/projects/rrg-ben/cauretc/HiSeq_data/Xmellotropicalis/in_groups.csv IN_LIBS_CSV=/home/cauretc/projects/rrg-ben/cauretc/HiSeq_data/Xmellotropicalis/in_libs.csv
 ```
 The `PrepareAllPathsInputs.pl` was run with the ressources limit on Graham: `--mem=600g`, `--time=7-00:00:00`, `--ntasks-per-node=2`. It successfully finished after ~1day. But `RunAllPathsLG` failed due to RAM requirement  
+
+## RunAllpaths
+
 ```
 RunAllPathsLG PRE=/home/cauretc/projects/rrg-ben/cauretc/HiSeq_data REFERENCE_NAME=Xmellotropicalis DATA_SUBDIR=frag_nxtrimMate RUN=Run1_all_library TARGETS=standard THREADS=1 OVERWRITE=TRUE
 ```
@@ -49,3 +52,10 @@ PERFSTAT: % genome estimated to be repetitive (at K=25 scale) [genome_repetitive
 PERFSTAT: estimated genome coverage by fragment reads [genome_cov_est] = 42
 PERFSTAT: estimated standard deviation of sequencing bias (at K=25 scale) [bias_stddev_est] = 0.40
 ```
+
+**Optimistic note**: 
+
+- coverage estimate from fragment libraries (2x180bp, 400bp, 1kb) = 42X
+
+- Genome size estimated by the program and the repetitiveness is very close to what we expected !!!
+
