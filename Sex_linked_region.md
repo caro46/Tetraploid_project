@@ -336,6 +336,20 @@ blastn -evalue 1e-1 -query /work/cauretc/tropicalis_v9/Xtropicalis_v9_repeatMask
 
 29/03: some additional notes about `scaffold262360`: if directly blasted against *X.laevis* reference genome: better match for 7L but the alignment is only about 51bp in length, however when looking what is around this region we find `moxd2p.L`, the same gene present on `scaffold622` of *X.tropicalis* on which the scaffold matches the best with an alignment 547bp (`moxd2p` is the closest annotated gene on `scaffold622` of *tropicalis* from where the allpath scaffold falls)...
 
+## Allpaths - updates: `source_identificationSexLinkedSites.pl` (Nov.6)
+
+### Index file
+
+To be able to run our whole pipeline needed to create a "fake" index file. For *X. mellotropicalis*, we did not use supercontigs, which is needed in our main.cpp script:
+
+```
+awk '/^>/ {if (seqlen){print seqlen}; printf $0 "\t" $0 "\t" "1" "\t";seqlen=0;next; } { seqlen += length($0)}END{print seqlen}' ../../../2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta >mellotropicalis_index_seq.txt
+
+sed 's/>//g ; s/scaffold_//' mellotropicalis_index_seq.txt >mellotropicalis_index_seq1.txt
+
+perl source_identificationSexLinkedSites.pl /work/cauretc/scripts/simulation_stats/positions_SLandNotSL/Nov5_mello /work/cauretc/scripts/simulation_stats/melotrop/Mellotrop_allpaths_var_Qual_DP5.tab /work/cauretc/scripts/simulation_stats/melotrop/BJE4170_issue/pedigree_melotropicalis_BJE4170 /work/cauretc/scripts/simulation_stats/positions_SLandNotSL/mellotropicalis_index_seq1.txt 1 /work/cauretc/2017_Mellotropicalis/pseudomolecules/allpaths/final.assembly.fasta 1
+```
+
 ## Other options
 ### Bewick's primers
 At that point there are some stuff that I would try (need to see with BE):
