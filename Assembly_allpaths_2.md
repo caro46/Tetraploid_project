@@ -92,3 +92,15 @@ RunAllPathsLG PRE=/home/cauretc/projects/rrg-ben/cauretc/HiSeq_data REFERENCE_NA
 ```
 
 Need to find new options in case it fails...
+
+Directly went it went to the queue:
+```
+Fatal error (pid=60670) at Tue Nov 13 15:20:16 2018:
+Run directory already exists. To continue an assembly use OVERWRITE=True
+```
+Before this attempt, the use of `OVERWRITE=True` made us lost all the progress that was done... In theory we were supposed to be able to re-start an assembly from where it stopped. Does not seem to work well... Re-submitted using the overwrite option, started on Nov. 13, 2018. Seemed to again not start where it was supposed to... Lost 13 days of progress!!!
+
+On the computecanada [webpage](https://docs.computecanada.ca/wiki/Job_scheduling_policies) it is specified that 28 days is limit ("*Cedar and Graham will accept jobs of up to 28 days in run-time.*") which is what I am using. If the program always has to start again from the beginning then it will not be enough. 
+
+With BE we decided that giving a try to another program (maybe Platanus?). If it is faster then I will use the output of the other program as input from DBG2OLC.
+
