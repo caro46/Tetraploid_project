@@ -85,4 +85,10 @@ Sun Nov 11 01:58:21 2018.  Abort.  Stopping.
 ```
 Interresting considering it has a whole 800Gb for itself... Looking on different websites, it has been a recurring issues to have Allpaths to run on a shared server...
 
+- Trying now (`--mem=1000gb`,`--ntasks-per-node=1`, `--time=28-00:00:00`):
 
+```
+RunAllPathsLG PRE=/home/cauretc/projects/rrg-ben/cauretc/HiSeq_data REFERENCE_NAME=Xmellotropicalis DATA_SUBDIR=frag_nxtrimMate RUN=Run1_all_library TARGETS=standard THREADS=1 MAX_MEMORY_GB=900
+```
+
+Need to find new options in case it fails...
