@@ -1,4 +1,4 @@
-# Previously
+# [Previously](https://github.com/caro46/Tetraploid_project/blob/master/Assembly_Allpaths.Rmd)
 
 - *Libraries -- RAM limitation:* Tried to produced an Allpaths assembly on Sharcnet. I was not able to use all the libraries (due to RAM requirement) -- I could not use the 180bp 2nd library that should have helped to obtain an OK assembly with Allpaths. **Now** we have Graham and its large memory nodes.
 
@@ -58,4 +58,31 @@ PERFSTAT: estimated standard deviation of sequencing bias (at K=25 scale) [bias_
 - coverage estimate from fragment libraries (2x180bp, 400bp, 1kb) = 42X
 
 - Genome size estimated by the program and the repetitiveness is very close to what we expected !!!
+
+**Update:**
+
+- Allpaths-LG failed (Nov.11):
+
+```
+Sat Nov 10 01:52:55 2018 (NK): [pass  8] parse collect sort summarize merge
+Sun Nov 11 01:06:02 2018 (NK): [pass  9] parse
+Dang dang dang, we've got a problem.
+Attempt to allocate memory failed, memory usage before call = 466.91 GB.
+--------------------------------------------------------------------------------
+Top memory processes on this server now:
+top: unknown option 'a'
+Usage:
+  top -hv | -bcHiOSs -d secs -n max -u|U user -p pid(s) -o field -w [cols]
+--------------------------------------------------------------------------------
+Stack trace (sometimes informative):
+
+Fatal error (pid=9755) at Sun Nov 11 01:58:21 2018:
+Failed to create temporary file from /tmp/tmp_process_name_Xc17PF2: No such file or directory [errno=2].
+
+
+Sun Nov 11 01:58:21 2018.  Abort.  Stopping.
+
+```
+Interresting considering it has a whole 800Gb for itself... Looking on different websites, it has been a recurring issues to have Allpaths to run on a shared server...
+
 
