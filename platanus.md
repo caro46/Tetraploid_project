@@ -30,3 +30,10 @@ module load nixpkgs/16.09  gcc/7.3.0 platanus/1.2.4
 platanus assemble -f 180bp_Library_1_R1.fastq.gz 180bp_Library_1_R2.fastq.gz 180bp_Library_2_R1.fastq.gz 180bp_Library_2_R2.fastq.gz 400bp_Library_R1.fastq.gz 400bp_Library_R2.fastq.gz 1000bp_Library_R1.fastq.gz 1000bp_Library_R2.fastq.gz -o Xmellotropicalis_platanus -t 4 2>platanuslog
 ```
 
+# [Platanus2/platanus_allee](http://platanus.bio.titech.ac.jp/platanus2)
+
+De novo haplotype assembler. Trying it at the same time as Platanus. The paper has not been publishe yet but is under review and is already available [here](https://www.biorxiv.org/content/biorxiv/early/2018/06/15/347906.full.pdf).
+
+In our case might give us better results that platanus1. Platanus2 accepts: paired end, mate pairs and pacbio long reads. If `platanus_allee assemble` runs fine without requiring too much ressources, I am considering to use all of our data with this software instead of using only it to construct the contigs and using them as input for DBG2OLC. 
+
+Submitted 1st job on Nov.15 using: `--ntasks-per-node=1`, `--time=7-00:00:00`, `--mem=100G`.
