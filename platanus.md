@@ -29,6 +29,11 @@ module load nixpkgs/16.09  gcc/7.3.0 platanus/1.2.4
 #platanus assemble -f FILE1 [FILE2 ...] -o STR -t INT
 platanus assemble -f 180bp_Library_1_R1.fastq.gz 180bp_Library_1_R2.fastq.gz 180bp_Library_2_R1.fastq.gz 180bp_Library_2_R2.fastq.gz 400bp_Library_R1.fastq.gz 400bp_Library_R2.fastq.gz 1000bp_Library_R1.fastq.gz 1000bp_Library_R2.fastq.gz -o Xmellotropicalis_platanus -t 4 2>platanuslog
 ```
+Error when trying to input `fastq.gz`, not recognized as a fastq/fasta file. Tried using `<(zcat file.gz)`, error from graham:
+```
+/var/spool/slurmd/job9236033/slurm_script: line 17: syntax error near unexpected token `('
+```
+Need enable `process substitution` by setting the posix previous to my command: `set +o posix`. Thanks to this [tip](http://onetipperday.sterding.com/2013/12/syntax-error-near-unexpected-token.html).
 
 # [Platanus2/platanus_allee](http://platanus.bio.titech.ac.jp/platanus2)
 
@@ -36,4 +41,4 @@ De novo haplotype assembler. Trying it at the same time as Platanus. The paper h
 
 In our case might give us better results that platanus1. Platanus2 accepts: paired end, mate pairs and pacbio long reads. If `platanus_allee assemble` runs fine without requiring too much ressources, I am considering to use all of our data with this software instead of using only it to construct the contigs and using them as input for DBG2OLC. 
 
-Submitted 1st job on Nov.15 using: `--ntasks-per-node=1`, `--time=7-00:00:00`, `--mem=100G`.
+Submitted 1st job on Nov.15 using: `--ntasks-per-node=1`, `--time=7-00:00:00`, `--mem=100G`. As for the platanus1 command: need to set posix and the use `<(zcat file.gz)` (started on Nov.15). 
