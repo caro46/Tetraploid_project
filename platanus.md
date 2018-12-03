@@ -42,3 +42,12 @@ De novo haplotype assembler. Trying it at the same time as Platanus. The paper h
 In our case might give us better results that platanus1. Platanus2 accepts: paired end, mate pairs and pacbio long reads. If `platanus_allee assemble` runs fine without requiring too much ressources, I am considering to use all of our data with this software instead of using only it to construct the contigs and using them as input for DBG2OLC. 
 
 Submitted 1st job on Nov.15 using: `--ntasks-per-node=1`, `--time=7-00:00:00`, `--mem=100G`. As for the platanus1 command: need to set posix and the use `<(zcat file.gz)` (started on Nov.15). 
+
+Submitted a big job on Nov.22 `--ntasks-per-node=10 --time=28-00:00:00 --mem=200G` to make sure we have enough ressources to finish the job. In the platanus command specified `-m 200`. Took ~5 days to go through the queue on Graham, but failed less than 2 hours after the job starts with this error message
+
+```
+K = 32, saving kmers from reads...
+Error(5): Error, Kmer distribution exception!!
+Kmer distribution cannot be caluculated correctly.
+```
+Apparently some people had a similar issue with platanus (for [example](https://www.biostars.org/p/185344/)). Suggestions about `gcc` version and kmer size. Maybe due to not enough coverage at the default kmer size (`32`), trying with `-k 21`. 
