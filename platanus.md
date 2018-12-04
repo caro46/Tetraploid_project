@@ -51,3 +51,16 @@ Error(5): Error, Kmer distribution exception!!
 Kmer distribution cannot be caluculated correctly.
 ```
 Apparently some people had a similar issue with platanus (for [example](https://www.biostars.org/p/185344/)). Suggestions about `gcc` version and kmer size. Maybe due to not enough coverage at the default kmer size (`32`), trying with `-k 21`. 
+Smaller kmer size seems to fix the issue. Ready to run for a longer time.
+```
+K = 21, saving kmers from reads...
+AVE_READ_LEN=92.9672
+
+KMER_EXTENSION:
+K=21, KMER_COVERAGE=73.6015 (>= 3), COVERAGE_CUTOFF=3
+K=41, KMER_COVERAGE=53.4276, COVERAGE_CUTOFF=3, PROB_SPLIT=10e-inf
+K=61, KMER_COVERAGE=33.2538, COVERAGE_CUTOFF=3, PROB_SPLIT=10e-10.351
+K=66, KMER_COVERAGE=28.2103, COVERAGE_CUTOFF=2, PROB_SPLIT=10e-10.0079
+K=67, KMER_COVERAGE=27.2016, COVERAGE_CUTOFF=2, PROB_SPLIT=10e-10.0622
+loading kmers...
+```  
