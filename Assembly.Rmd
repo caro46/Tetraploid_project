@@ -405,6 +405,23 @@ The final rank
 
 So after the assembly finally went through the queue it failed. Not clear if it is because a core failed again... The intermediary results were encouraging but I have never been successfully able to use the outputs from SOAPdenovo as inputs from DBG2OLC even when trying to make them "look like" meraculous outputs (i.e. changing the sequences header). So since to get better results we need to be able to take advanntage of the continuity of the pacbio reads, we need to be able to run DBG2OLC... So for now (considering also that the queue is long and that the server will be down by the end of the month), I'll leave the SOAP option for now. 
 
+Was rerun successfully without the filling option. 
+
+### Gapcloser
+
+Using `SOAP_Mellotropicalis_BJE3652_all_libraries_big_library_scaffoldonly_47_61mers.scafSeq` as input, the other input (config file) is the same as used with gapcloser. 
+
+Submitted on 10 cpus, 500gb for 7 days. Not 1% done. 
+
+Proposed solutions: 30cpus, 500gb for 28days (maximum) on scaffolds >= 500gb
+
+To select only scaffolds >= 500bp:
+```
+awk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}' SOAP_Mellotropicalis_BJE3652_all_libraries_big_library_scaffoldonly_47_61mers.scafSeq >SOAP_Mellotropicalis_BJE3652_all_libraries_big_library_scaffoldonly_47_61mers_1line.scafSeq
+awk '!/^>/ { next } { getline seq } length(seq) >= 500 { print $0 "\n" seq }' SOAP_Mellotropicalis_BJE3652_all_libraries_big_library_scaffoldonly_47_61mers_1line.scafSeq >SOAP_Mellotropicalis_BJE3652_all_libraries_big_library_scaffoldonly_47_61mers_scafSeq_min500bp.fa
+``` 
+The 2 commands were necessary because of the multi-line format of SOAPdenovo output.
+
 ### Try to improve
 If we obtain an OK assembly, we can try some "diploid" assembly program to try improving it.
 - [ScaffoldScaffolder](http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-16-S7-S5) seems promissing for dealing with diploid assembly using bubbles to identify heterozygous homologous. Should be good for sites when each subgenome is homozygous but how to deal with heteroz. sites in both/one of the sub-genomes?  
