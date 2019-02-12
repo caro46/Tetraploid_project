@@ -407,6 +407,36 @@ So after the assembly finally went through the queue it failed. Not clear if it 
 
 Was rerun successfully without the filling option. 
 
+```
+less Quast_SOAP_47_61_scaffolds/report.txt
+
+All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+Suggestion: all assemblies contain continuous fragments of N's of length >= 10 bp. You may consider rerunning QUAST using --scaffolds (-s) option!
+
+Assembly                    SOAP_Mellotropicalis_BJE3652_all_libraries_big_library_scaffoldonly_47_61mers.scafSeq  SOAP_Mellotropicalis_BJE3652_genome_63.scafSeq
+# contigs (>= 0 bp)         8747472                                                                                8117825
+# contigs (>= 1000 bp)      511170                                                                                 565105
+# contigs (>= 5000 bp)      263093                                                                                 263126
+# contigs (>= 10000 bp)     222708                                                                                 227154
+# contigs (>= 25000 bp)     27167                                                                                  26647
+# contigs (>= 50000 bp)     2446                                                                                   2715
+Total length (>= 0 bp)      5765524150                                                                             5907982446
+Total length (>= 1000 bp)   4336244034                                                                             4398088021
+Total length (>= 5000 bp)   3892871210                                                                             3888205495
+Total length (>= 10000 bp)  3597974221                                                                             3628135653
+Total length (>= 25000 bp)  970107622                                                                              963188667
+Total length (>= 50000 bp)  149453914                                                                              169925946
+# contigs                   889240                                                                                 1068850
+Largest contig              156266                                                                                 257805
+Total length                4600139242                                                                             4750326080
+GC (%)                      39.29                                                                                  39.33
+N50                         12246                                                                                  11783
+N75                         10119                                                                                  10060
+L50                         102389                                                                                 109516
+L75                         208017                                                                                 220637
+# N's per 100 kbp           58459.19                                                                               57023.58
+```
+
 ### Gapcloser
 
 Using `SOAP_Mellotropicalis_BJE3652_all_libraries_big_library_scaffoldonly_47_61mers.scafSeq` as input, the other input (config file) is the same as used with gapcloser. 
@@ -421,6 +451,13 @@ awk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}'
 awk '!/^>/ { next } { getline seq } length(seq) >= 500 { print $0 "\n" seq }' SOAP_Mellotropicalis_BJE3652_all_libraries_big_library_scaffoldonly_47_61mers_1line.scafSeq >SOAP_Mellotropicalis_BJE3652_all_libraries_big_library_scaffoldonly_47_61mers_scafSeq_min500bp.fa
 ``` 
 The 2 commands were necessary because of the multi-line format of SOAPdenovo output.
+
+Updates (12/02): 
+
+- Gapcloser failed on the `>=500bp` subset because of memory. After 14days, 128044 of the 889240 scaffolds were done
+
+- Submitting a job using 32 CPUS, 800Gb, 1 node, 28 days on `>=10000bp`. From the Quast results, we would be using 222708 scaffolds, representing a length of 3597974221 (still in the order of the genome size of ~3.5Gb). Good chance that this job would go through the end. After the gapclosing step, I'll run quast on the subset before and after gapclosing, we can then make a decision: using the output to continue and improve the scaffolding, try again on a larger subset (would need to have more resources for that). 
+
 
 ### Try to improve
 If we obtain an OK assembly, we can try some "diploid" assembly program to try improving it.
