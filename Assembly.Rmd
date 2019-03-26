@@ -456,7 +456,7 @@ Updates (12/02):
 
 - Gapcloser failed on the `>=500bp` subset because of memory. After 14days, 128044 of the 889240 scaffolds were done
 
-- Submitting a job using 32 CPUS, 800Gb, 1 node, 28 days on `>=10000bp`. From the Quast results, we would be using 222708 scaffolds, representing a length of 3597974221 (still in the order of the genome size of ~3.5Gb). Good chance that this job would go through the end. After the gapclosing step, I'll run quast on the subset before and after gapclosing, we can then make a decision: using the output to continue and improve the scaffolding, try again on a larger subset (would need to have more resources for that). 
+- Submitting a job using 32 CPUS, 800Gb, 1 node, 28 days on `>=10000bp`. From the Quast results, we would be using 222708 scaffolds, representing a length of 3597974221 (still in the order of the genome size of ~3.5Gb). Good chance that this job would go through the end. After the gapclosing step, I'll run quast on the subset before and after gapclosing, we can then make a decision: using the output to continue and improve the scaffolding, try again on a larger subset (would need to have more resources for that). --- Started running on March 26, 2019 after almost 42 days on queue on Graham. 
 
 
 ### Try to improve
