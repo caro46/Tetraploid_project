@@ -28,3 +28,4 @@ wk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}' 
 awk '!/^>/ { next } { getline seq } length(seq) >= 1000 { print $0 "\n" seq }' [1_line_fasta].fa >[1_line_fasta_1kb].fa
 
 ```
+After this step running `Quast`. Whichever assemblies is the "best" after removing small scaffolds will be used as the "draft file", the other assemblies will all be used as "datasets files". The Allpaths assembly we previously used for finding the sex determining region will not be used since most likely the scaffolds are chimerical from both subgenomes.
