@@ -7,9 +7,24 @@ A more realistic approach is too use the assemblies we were previously able to m
 
 # Using other assemblies to close the gaps - [FGAP](https://github.com/pirovc/fgap)
 
-We got multiple assemblies usinf SOAPdenovo2 (1 kmer approach, multiple kmer approach, mate libraries only for scaffolding, ...) that had promising statistics. Since the weaknesses from the different assemblies and maybe "good"/"bad" regions might be different and scaffolds a bit different.
+We got multiple assemblies usinf SOAPdenovo2 (1 kmer approach, multiple kmer approach, mate libraries only for scaffolding, ...) that had promising statistics. 
+Since the weaknesses from the different assemblies and potentially different "good"/"bad" regions and scaffolds, we are going to try to close some gaps from 1 assembly using the information from other assemblies.
+
+If the statistics improve then we can use the pacbio reads (using the same program) to close more gaps.
 
 ```
 ./run_fgap.sh <MCR installation folder> -d <draft file> -a "<dataset(s) file(s)>" [parameters]
 ```
 
+## Installing and Running
+
+The installation and running steps are clearly explained on the [github page](https://github.com/pirovc/fgap) of the program. It uses `blast` so we will need to load `blast` when submitting the job on Graham.
+
+## Using only scaffolds `> 1kb`
+
+Most likely very small scaffolds are hard to assemble because of repeats and potentially contain more errors. They are potentially going to make whatever program used running longer without giving information useful at this step. For now we are going to focuse on scaffolds of size `=> 1kb`.
+```
+wk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}' [multi_lines_fasta].scafSeq >[1_line_fasta].fa
+awk '!/^>/ { next } { getline seq } length(seq) >= 1000 { print $0 "\n" seq }' [1_line_fasta].fa >[1_line_fasta_1kb].fa
+
+```
