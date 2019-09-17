@@ -20,6 +20,11 @@ If the statistics improve then we can use the pacbio reads (using the same progr
 
 The installation and running steps are clearly explained on the [github page](https://github.com/pirovc/fgap) of the program. It uses `blast` so we will need to load `blast` when submitting the job on Graham.
 
+```
+wget https://sourceforge.net/projects/fgap/files/MCR_LINUX64b.tar.gz
+wget https://sourceforge.net/projects/fgap/files/FGAP_1_8_1_LINUX64b.tar.gz
+```
+
 Not sure I like the idea of using `blast` to close gaps but I guess it should be faster and if we have some incorrect/discrepancies we should be able to correct them later on... On their paper, they had less missasseblies than GapCloser (but other papers highlighted the limitations of GapCloser - however it is easy to use and uses somewhat reasonable resources).
 
 ## Using only scaffolds `> 1kb`
