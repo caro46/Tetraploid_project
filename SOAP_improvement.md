@@ -24,6 +24,12 @@ The installation and running steps are clearly explained on the [github page](ht
 wget https://sourceforge.net/projects/fgap/files/MCR_LINUX64b.tar.gz
 wget https://sourceforge.net/projects/fgap/files/FGAP_1_8_1_LINUX64b.tar.gz
 ```
+Cannot do this installation on Graham (version and other issues). Got the version hosted on github (same FGAP_1_8_1 version but octave way, not from compiled version ---downloaded on Sept. 18, 2019). On Graham need to do:
+```
+module load octave
+module load gcc/7.3.0 blast+/2.7.1
+octave fgap.m --help [or whatever command to be performed]
+``` 
 
 Not sure I like the idea of using `blast` to close gaps but I guess it should be faster and if we have some incorrect/discrepancies we should be able to correct them later on... On their paper, they had less missasseblies than GapCloser (but other papers highlighted the limitations of GapCloser - however it is easy to use and uses somewhat reasonable resources).
 
