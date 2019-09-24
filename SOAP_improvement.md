@@ -43,6 +43,33 @@ awk '!/^>/ { next } { getline seq } length(seq) >= 1000 { print $0 "\n" seq }' [
 ```
 After this step running `Quast`. Whichever assemblies is the "best" after removing small scaffolds will be used as the "draft file", the other assemblies will all be used as "datasets files". The Allpaths assembly we previously used for finding the sex determining region will not be used since most likely the scaffolds are chimerical from both subgenomes.
 
+Summary from Quast
+```
+Assembly        SOAP_Mellotropicalis_BJE3652_47_61mers_1kb      SOAP_Mellotropicalis_BJE3652_genome_43_to_63_1kb        SOAP_Mellotropicalis_BJE3652_genome_63_1kb      SOAP_Mellotropicalis_BJE3652_genome_63_memory_180together_1kb
+# contigs (>= 0 bp)     511170  573881  565105  579442
+# contigs (>= 1000 bp)  511170  573881  565105  579442
+# contigs (>= 5000 bp)  263093  289786  263126  270094
+# contigs (>= 10000 bp) 222708  254323  227154  238281
+# contigs (>= 25000 bp) 27167   24508   26647   24512
+# contigs (>= 50000 bp) 2446    1837    2715    2200
+Total length (>= 0 bp)  4336244034      4655282122      4398088021      4454144208
+Total length (>= 1000 bp)       4336244034      4655282122      4398088021      4454144208
+Total length (>= 5000 bp)       3892871210      4144077097      3888205495      3925707624
+Total length (>= 10000 bp)      3597974221      3886236631      3628135653      3695410069
+Total length (>= 25000 bp)      970107622       855283468       963188667       873023424
+Total length (>= 50000 bp)      149453914       110140193       169925946       135800053
+# contigs       511170  573881  565105  579442
+Largest contig  156266  113293  257805  147593
+Total length    4336244034      4655282122      4398088021      4454144208
+GC (%)  39.21   39.14   39.28   39.27
+N50     12924   12061   12485   12122
+N75     10302   10245   10247   10242
+L50     91879   108828  94966   101470
+L75     188623  215312  194607  203235
+# N's per 100 kbp       61526.56        63814.39        61156.52        62043.82
+
+```
+
 # Using Pacbio to close more large gaps
 
 Either using `fgap` if promising from step mentioned before or `LR_Gapcloser`. `Pbjelly` can also be considered, however it seems to require more resources (memory + time). `Pbjelly` is older and has been used in other assembly projects in other labs while the 2 first programs are younger (only 1 year appart with `fgap` but `fgap` has been updated more recently and seems to be faster).
