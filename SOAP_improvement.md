@@ -70,6 +70,22 @@ L75     188623  215312  194607  203235
 
 ```
 
+## Trying run
+To check if everything would run properly: 
+- 1 day run, using 5 CPUS, 15gb memory ; specify `SOAP_Mellotropicalis_BJE3652_47_61mers_1kb.fa` as draft, the other as datasets.
+```
+octave --no-gui --eval 'fgap -d SOAP_assemblies/SOAP_Mellotropicalis_BJE3652_47_61mers_1kb.fa -a "SOAP_assemblies/SOAP_Mellotropicalis_BJE3652_genome_43_to_63_1kb.fa,SOAP_assemblies/SOAP_Mellotropicalis_BJE3652_genome_63_1kb.fa,SOAP_assemblies/SOAP_Mellotropicalis_BJE3652_genome_63_memory_180together_1kb.fa" -t 5 -o SOAP_assemblies/fgap_results/fgap_out'
+``` 
+- 1 day run, 64 CPUS (2 nodes, 8 tasks/node, 4 cpus/task) to compare with the results from their paper (run 1 human chr. in some h using this CPU number) ; only `SOAP_Mellotropicalis_BJE3652_genome_63_1kb.fa` as dataset
+
+*Ccl:* No issue detected with the program. BJE suggested to only focus on pacbio data, and divide the draft assembly in multiple smaller subset.
+
+## Subseting the draft genome
+```
+module load bbmap/38.44
+partition.sh in=SOAP_Mellotropicalis_BJE3652_47_61mers_1kb.fa out=47_61mers_subset_%.fasta ways=[number_of_expected_files]
+```
+
 # Using Pacbio to close more large gaps
 
 Either using `fgap` if promising from step mentioned before or `LR_Gapcloser`. `Pbjelly` can also be considered, however it seems to require more resources (memory + time). `Pbjelly` is older and has been used in other assembly projects in other labs while the 2 first programs are younger (only 1 year appart with `fgap` but `fgap` has been updated more recently and seems to be faster).
