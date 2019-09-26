@@ -86,6 +86,12 @@ module load bbmap/38.44
 partition.sh in=SOAP_Mellotropicalis_BJE3652_47_61mers_1kb.fa out=47_61mers_subset_%.fasta ways=[number_of_expected_files]
 ```
 
+## Only scaffolds `> 50kb`
+```
+awk '!/^>/ { next } { getline seq } length(seq) >= 50000 { print $0 "\n" seq }' SOAP_Mellotropicalis_BJE3652_all_libraries_big_library_scaffoldonly_47_61mers_1line.scafSeq >SOAP_Mellotropicalis_BJE3652_47_61mers_50kb.fa
+```
+Parameters of the run: 3D, 64CPUS, default parameters for `fgap` (graham - no waiting on sept. 26).
+
 # Using Pacbio to close more large gaps
 
 Either using `fgap` if promising from step mentioned before or `LR_Gapcloser`. `Pbjelly` can also be considered, however it seems to require more resources (memory + time). `Pbjelly` is older and has been used in other assembly projects in other labs while the 2 first programs are younger (only 1 year appart with `fgap` but `fgap` has been updated more recently and seems to be faster).
