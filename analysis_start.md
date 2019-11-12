@@ -18,7 +18,7 @@ awk 'BEGIN {RS=">"} /Chr/ {print ">"$0}' XT9_1.fa |gzip >XT9_1_chromosomes_only.
 ## Nucmer
 
 `running_nucmer_arg.sh`
-```
+```sh
 #!/bin/sh
 #SBATCH --job-name=nucmer
 #SBATCH --nodes=1
@@ -27,8 +27,8 @@ awk 'BEGIN {RS=">"} /Chr/ {print ">"$0}' XT9_1.fa |gzip >XT9_1_chromosomes_only.
 #SBATCH --mem=50gb
 #SBATCH --output=nucmer.%J.out
 #SBATCH --error=nucmer.%J.err
-#SBATCH --account=rrg-ben
-#SBATCH --mail-user=cauretc@mcmaster.ca
+#SBATCH --account=[account]
+#SBATCH --mail-user=[email]
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
