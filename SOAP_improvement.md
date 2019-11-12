@@ -97,3 +97,11 @@ Parameters of the run: 3D, 64CPUS, default parameters for `fgap` (graham - no wa
 Either using `fgap` if promising from step mentioned before or `LR_Gapcloser`. `Pbjelly` can also be considered, however it seems to require more resources (memory + time). `Pbjelly` is older and has been used in other assembly projects in other labs while the 2 first programs are younger (only 1 year appart with `fgap` but `fgap` has been updated more recently and seems to be faster).
 
 ## [LR_Gapcloser](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6324547/)
+
+# Using small amount of data with `gapcloser`
+
+Focusing on `SOAP_Mellotropicalis_BJE3652_47_61mers_1kb` since highest N50.
+I want to see if a subset of the data we have: the first 180bp sequencing (`BenEvansBJE3652_180bp_Library_GTTTCG_L001_*`), 400bp (`BenEvansBJE3652_400bp_Library_GTTTCG_L002*`), 1kb (`BenEvansBJE3652_1000bp_Library_GTTTCG_L003*`) can still reduce the amount of missing data.
+
+Since most of the time and memory used before was with the huge amount of `180_BP_Library_2nd_Sequence`, we should have no issue with memory nor time. The advantage is also only high quality short insert size will be used (bad quality for `180_BP_Library_2nd_Sequence` but huge amount of data).
+
