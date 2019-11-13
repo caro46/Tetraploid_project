@@ -33,15 +33,22 @@ awk 'BEGIN {RS=">"} /Chr/ {print ">"$0}' XT9_1.fa |gzip >XT9_1_chromosomes_only.
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
 
-module load nixpkgs/16.09 gcc/5.4.0 mummer-64bit/3.23
+#module load nixpkgs/16.09 gcc/5.4.0 mummer-64bit/3.23
+module load nixpkgs/16.09 gcc/5.4.0 mummer/4.0.0beta2 #for mummerplot
 
 nucmer -mumreference $1 -p $2 $3
+delta-filter -q $2.delta -l 1000 -i 80 > $2.filtered_q.delta
 show-coords -r -c -l $2.delta > $2.coords
 #show-snps -C $2.delta > $2.snps 
 show-tiling $2.delta > $2.tiling
 
 mummerplot -c $2.tiling -p $2.$4.mummerplot -r $4 --png
-mummerplot $2.delta -p $2.$4.delta.mummerplot -r $4 -l -x [$5,$6] --png
+
+#do not see anything
+#mummerplot $2.delta -p $2.$4.delta.mummerplot -r $4 -l -x [$5,$6] --png
+
+mummerplot -c $2.filtered_q.delta -p $2.$4_$5_$6.filtered_q.delta.mummerplot -r $4 -x [$5,$6] --png
+mummerplot $2.filtered_q.delta -p $2.$4_$5_$6.filtered_q.delta.dotplot.mummerplot -r $4 --png
 
 #example: sbatch ~/project/cauretc/scripts/running_nucmer_arg.sh /home/cauretc/projects/rrg-ben/cauretc/reference_genomes/Xtrop9.1/XT9_1_chromosomes_only.fa nucmer_XT9_1_chrom_SOAP_Mellotropicalis_BJE3652_47_61mers_1kb /home/cauretc/projects/rrg-ben/cauretc/SOAP_assemblies/SOAP_Mellotropicalis_BJE3652_47_61mers_1kb.fa Chr10
 ```
@@ -63,4 +70,4 @@ show-tiling attempts to construct a tiling path out of the query contigs as mapp
 
 (1) and (2) should be for a quick inference about how "bad" is our assembly and decide what to do next. I will prepare a pipeline anyways which we could run on better improved assembly. Both mummerplots might help us better understanding the potential issues with our assembly. It is highly preliminary look at the data and should be used only as such.
 
-
+Note without any filtering downstream of `nucmer` command. The plots are not really readable. Setting up a filter of an alignemnt length of at least 1kb, a minimum alignment identity of 80%. The 80% would assume a high similarity between both subgenomes. Can adapt later.
