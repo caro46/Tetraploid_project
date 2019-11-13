@@ -43,3 +43,8 @@ show-tiling $2.delta > $2.tiling
 #example: sbatch ~/project/cauretc/scripts/running_nucmer_arg.sh /home/cauretc/projects/rrg-ben/cauretc/reference_genomes/Xtrop9.1/XT9_1_chromosomes_only.fa nucmer_XT9_1_chrom_SOAP_Mellotropicalis_BJE3652_47_61mers_1kb /home/cauretc/projects/rrg-ben/cauretc/SOAP_assemblies/SOAP_Mellotropicalis_BJE3652_47_61mers_1kb.fa
 ```
 Note: `mummer-64bit` necessary otherwise genome to big to build the initial tree.
+
+The `nucmer`, `show-coords`, `show-snps`, `show-tilling` took `Run time 14:58:57` to finish.
+
+Doing a coverage/identity plot with `mummerplot` on the tilling output takes some min for each *X. tropicalis* chromosomes separately.
+To be able to use the installed `mummerplot` I had to swith to `mummer/4.0.0beta2` otherwise issue with `perl` versions and cannot use the fixed way suggested by people on similar issues because of permission on graham (or will have to install myself...).
