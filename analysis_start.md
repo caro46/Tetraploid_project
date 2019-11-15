@@ -71,3 +71,32 @@ show-tiling attempts to construct a tiling path out of the query contigs as mapp
 (1) and (2) should be for a quick inference about how "bad" is our assembly and decide what to do next. I will prepare a pipeline anyways which we could run on better improved assembly. Both mummerplots might help us better understanding the potential issues with our assembly. It is highly preliminary look at the data and should be used only as such.
 
 Note without any filtering downstream of `nucmer` command. The plots are not really readable. Setting up a filter of an alignemnt length of at least 1kb, a minimum alignment identity of 80%. The 80% would assume a high similarity between both subgenomes. Can adapt later.
+
+## minimap2
+
+```
+#!/bin/sh
+#SBATCH --job-name=minimap
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=4
+#SBATCH --time=1-00:00:00
+#SBATCH --mem=50gb
+#SBATCH --output=minimap.%J.out
+#SBATCH --error=minimap.%J.err
+#SBATCH --account=account
+#SBATCH --mail-user=[email]
+#SBATCH --mail-type=BEGIN
+#SBATCH --mail-type=END
+#SBATCH --mail-type=FAIL
+
+#$1=ref, $2=draft, $3=prefix
+module load nixpkgs/16.09 gcc/7.3.0 minimap2/2.13 samtools/1.9
+
+minimap2 -t 3 -ax asm20 --cs $1 $2 > $3.sam
+samtools view -S -b $3.sam | samtools sort -o $3_sorted.bam
+samtools flagstat $3_sorted.bam > $3_sorted.flagstat
+samtools stats $3_sorted.bam > $3_sorted.stats
+```
+```
+sbatch ~/project/cauretc/scripts/running_minimap_draft_ref_genome.sh /home/cauretc/projects/rrg-ben/cauretc/reference_genomes/Xtrop9.1/XT9_1_chromosomes_only.fa /home/cauretc/projects/rrg-ben/cauretc/SOAP_assemblies/SOAP_Mellotropicalis_BJE3652_47_61mers_10kb.fa Mellotropicalis_BJE3652_47_61mers_10kb_trop_minimap2
+```
