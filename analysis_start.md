@@ -100,3 +100,7 @@ samtools stats $3_sorted.bam > $3_sorted.stats
 ```
 sbatch ~/project/cauretc/scripts/running_minimap_draft_ref_genome.sh /home/cauretc/projects/rrg-ben/cauretc/reference_genomes/Xtrop9.1/XT9_1_chromosomes_only.fa /home/cauretc/projects/rrg-ben/cauretc/SOAP_assemblies/SOAP_Mellotropicalis_BJE3652_47_61mers_10kb.fa Mellotropicalis_BJE3652_47_61mers_10kb_trop_minimap2
 ```
+Extracting the scaffolds ID and their `dv` values. `dv`: *Approximate per-base sequence divergence*.
+```
+samtools view Mellotropicalis_BJE3652_47_61mers_10kb_trop_minimap2_sorted.bam | cut -f1,20 | grep "dv:" >scaffolds.dv
+```
